@@ -51,9 +51,9 @@ make
 
 ## Completed Tasks
 - overloading operator<<
-
 - Makefile now does stuff as some files have been added, yippie!
 
+## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
 - Once we're done and want to commit, push to repo *while still in that branch*
 - To do this, e.g. Andrew will do `git push origin andrew` while in the Andrew branch
