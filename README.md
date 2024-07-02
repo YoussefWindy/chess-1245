@@ -41,10 +41,19 @@ make
 ```
 
 # Development Notes
-## Anything That Needs To Be Noted/Remembered Goes Here
+**Anything That Needs To Be Noted/Remembered Goes Here**
 
+## To Do
+- Board object needs an iterator ???
+
+## Working On
+- ???
+
+## Completed Tasks
+- overloading operator<<
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files") have been added, yippie!
 
+## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
 - Once we're done and want to commit, push to repo *while still in that branch*
 - To do this, e.g. Andrew will do `git push origin Andrew` while in the Andrew branch
