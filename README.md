@@ -41,7 +41,16 @@ make
 ```
 
 # Development Notes
-## Anything That Needs To Be Noted/Remembered Goes Here
+**Anything That Needs To Be Noted/Remembered Goes Here**
+
+## To Do
+- Board object needs an iterator ???
+
+## Working On
+- ???
+
+## Completed Tasks
+- overloading operator<<
 
 - Makefile now does stuff as some files have been added, yippie!
 

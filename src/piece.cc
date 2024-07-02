@@ -2,11 +2,23 @@
 
 #include "../include/piece.h"
 
-#include <string>
-
-Piece::Piece(bool colour, std::string name, unsigned int posX, unsigned int posY) : colour{colour}, name{name}, posX{posX}, posY{posY} {}
+Piece::Piece(char name, int posX, int posY) : name{name}, posX{posX}, posY{posY} {
+	if ('a' <= name && name <= 'z') {
+		colour = 0;
+	} else {
+		colour = 1;
+	}
+}
 
 // Getter
+char Piece::getName(void) const {
+	return this->name;
+}
+
+bool Piece::getColour(void) const {
+	return this->colour;
+}
+
 unsigned int Piece::getX(void) const {
 	return this->posX;
 }
@@ -15,38 +27,25 @@ unsigned int Piece::getY(void) const {
 	return this->posY;
 }
 
-std::string Piece::getName(void) const {
-	return this->name;
-}
-
-bool Piece::getColour(void) const {
-	return this->colour;
-}
-
 // Setter
-void Piece::setX(unsigned int value) {
-	if (value < MAX_X) {
-		this->posX = value;
-	}
-}
-
-void Piece::setY(unsigned int value) {
-	if (value < MAX_Y) {
-		this->posY = value;
-	}
-}
-
-void Piece::setName(std::string& value) {
+void Piece::setName(char value) {
 	this->name = value;
 }
 
+void Piece::setX(unsigned int posX) {
+	if (posX < this->MAX_X) {
+		this->posX = posX;
+	}
+}
+
+void Piece::setY(unsigned int posY) {
+	if (posY < this->MAX_Y) {
+		this->posY = posY;
+	}
+}
+
 std::ostream& operator<<(std::ostream& out, const Piece& p) {
-	out << "Name: " << p.getName() << std::endl;
-	out << "Colour: ";
-	out << (p.getColour() == 0 ? "Black" : "White");
-	out << std::endl;
-	out << "Position: (" << p.getX();
-	out << ", " << p.getY() << ')' << std::endl;
+	out << p.getName();
 
 	return out;
 }
