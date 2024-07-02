@@ -9,22 +9,39 @@
 
 Board::Board() {
 	board.resize(8, std::vector<std::shared_ptr<Piece>>(8, nullptr));
-
-	// std::cout << "Created Board!" << std::endl;
 }
 
 Board::~Board() {
-	// std::cout << "Destroyed Board!" << std::endl;
 }
 
-void Board::addPiece(char name, int posX, int posY) {
-    board[posX][posY] = std::make_shared<Piece>(name, posX, posY);
-}
-
+// Getter
 const std::vector<std::vector<std::shared_ptr<Piece>>>& Board::getBoard() const {
 	return board;
 }
 
+// Setter
+void Board::addPiece(char name, int posX, int posY) {
+    board[posX][posY] = std::make_shared<Piece>(name, posX, posY);
+}
+
+void Board::movePiece(int posX, int posY, int newX, int newY) {
+	// Check if new position has a piece
+	if (board[newX][newY] != nullptr &&
+		board[posX][posY]->getColour() == board[newX][newY]->getColour()) {
+			return;
+	}
+	// Set new position on board
+	board[newX][newY] = board[posX][posY];
+	
+	// Clear old position
+	board[posX][posY] = nullptr;
+	
+	// Update piece data
+	board[newX][newY]->setX(newX);
+	board[newX][newY]->setY(newY);
+}
+
+// IO
 std::ostream& operator<<(std::ostream& out, const Board& b) {
 	// Get board data
 	auto boardData = b.getBoard();
@@ -51,7 +68,7 @@ std::ostream& operator<<(std::ostream& out, const Board& b) {
 		out << std::endl;
 	}
 
-	out << "  ";
+	out << std::endl << "  ";
 
 	for (char c = 'a'; c < 'a' + b.size; ++c) {
 		out << c;

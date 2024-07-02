@@ -2,7 +2,7 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, int posX, int posY) : name{name}, posX{posX}, posY{posY} {
+Piece::Piece(char name, int posX, int posY) : name{name}, posX{static_cast<unsigned int>(posX)}, posY{static_cast<unsigned int>(posY)} {
 	if ('a' <= name && name <= 'z') {
 		colour = 0;
 	} else {

@@ -33,14 +33,14 @@ int main() {
 	board.addPiece('P', 1, 6);
 	board.addPiece('P', 1, 7);
 
-	board.addPiece('P', 6, 0);
-	board.addPiece('P', 6, 1);
-	board.addPiece('P', 6, 2);
-	board.addPiece('P', 6, 3);
-	board.addPiece('P', 6, 4);
-	board.addPiece('P', 6, 5);
-	board.addPiece('P', 6, 6);
-	board.addPiece('P', 6, 7);
+	board.addPiece('p', 6, 0);
+	board.addPiece('p', 6, 1);
+	board.addPiece('p', 6, 2);
+	board.addPiece('p', 6, 3);
+	board.addPiece('p', 6, 4);
+	board.addPiece('p', 6, 5);
+	board.addPiece('p', 6, 6);
+	board.addPiece('p', 6, 7);
 
 	board.addPiece('r', 7, 0);
 	board.addPiece('n', 7, 1);
@@ -50,6 +50,14 @@ int main() {
 	board.addPiece('b', 7, 5);
 	board.addPiece('n', 7, 6);
 	board.addPiece('r', 7, 7);
+
+	cout << board << endl << endl;
+
+	board.movePiece(6, 4, 4, 4);
+
+	cout << board << endl << endl;
+
+	board.movePiece(7, 7, 6, 7);
 
 	cout << board << endl;
 
