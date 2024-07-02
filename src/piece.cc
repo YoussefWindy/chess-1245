@@ -3,7 +3,7 @@
 #include "../include/piece.h"
 
 Piece::Piece(char name, int posX, int posY) : name{name}, posX{posX}, posY{posY} {
-	if ('a' <= name && name <= 'z') {
+	if ('b' <= name && name <= 'r') {
 		colour = 0;
 	} else {
 		colour = 1;
@@ -33,15 +33,11 @@ void Piece::setName(char value) {
 }
 
 void Piece::setX(unsigned int posX) {
-	if (posX < this->MAX_X) {
-		this->posX = posX;
-	}
+	this->posX = posX;
 }
 
 void Piece::setY(unsigned int posY) {
-	if (posY < this->MAX_Y) {
-		this->posY = posY;
-	}
+	this->posY = posY;
 }
 
 std::ostream& operator<<(std::ostream& out, const Piece& p) {

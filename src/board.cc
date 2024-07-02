@@ -7,9 +7,11 @@
 #include <string>
 #include <memory>
 
-Board::Board() {
-	board.resize(8, std::vector<std::shared_ptr<Piece>>(8, nullptr));
+using namespace std;
 
+const unsigned int WIDTH = 8, HEIGHT = 8;
+
+Board::Board() {
 	// std::cout << "Created Board!" << std::endl;
 }
 
@@ -18,11 +20,20 @@ Board::~Board() {
 }
 
 void Board::addPiece(char name, int posX, int posY) {
-    board[posX][posY] = std::make_shared<Piece>(name, posX, posY);
+    board[posX][posY] = make_shared<Piece>(name, posX, posY);
 }
 
-const std::vector<std::vector<std::shared_ptr<Piece>>>& Board::getBoard() const {
-	return board;
+void Board::addPiece(char name, string &pos) {
+	unsigned int x, y;
+	x = pos[0] - 'a';
+	y = pos[1] - '1';
+	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
+		addPiece(name, x, y);
+	}
+}
+
+const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+    return board;
 }
 
 std::ostream& operator<<(std::ostream& out, const Board& b) {
@@ -30,13 +41,13 @@ std::ostream& operator<<(std::ostream& out, const Board& b) {
 	auto boardData = b.getBoard();
 	
 	// Iterate over the board
-	for (int row = 0; row < b.size; ++row) {
+	for (int row = 0; row < HEIGHT; ++row) {
 		// Row number
-		out << (8 - row) << ' ';
+		out << (HEIGHT - row) << ' ';
 
-		for (int col = 0; col < b.size; ++col) {
+		for (int col = 0; col < WIDTH; ++col) {
 			// Get copy of piece data
-			std::shared_ptr<Piece> piece = boardData[b.size - row - 1][col];
+			std::shared_ptr<Piece> piece = boardData[HEIGHT - row - 1][col];
 			if (piece) {
 				out << *piece;
 			} else {
@@ -53,7 +64,7 @@ std::ostream& operator<<(std::ostream& out, const Board& b) {
 
 	out << "  ";
 
-	for (char c = 'a'; c < 'a' + b.size; ++c) {
+	for (char c = 'a'; c < 'a' + WIDTH; ++c) {
 		out << c;
 	}
 

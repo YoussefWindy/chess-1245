@@ -11,17 +11,16 @@
 
 class Board {
 private:
-	std::vector<std::vector<std::shared_ptr<Piece>>> board;
+	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 public:
 	Board();
 	~Board();
-
-	// Members
-	const int size = 8;
 	
 	// Methods
 	void addPiece(char name, int posX, int posY);
-	const std::vector<std::vector<std::shared_ptr<Piece>>>& getBoard() const;
+	void addPiece(char name, string &pos);
+
+	const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH];
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& b);
