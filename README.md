@@ -11,15 +11,15 @@ This project is a chess game developed in C++ as the final assignment (A5) for t
 
 ## Authors
 
-- Andrew Gera
-- Grey Gimple
-- Youssef Guindi
+- [Andrew Gera](https://github.com/Angeraa "Andrew Gera")
+- [Grey Gimple](https://github.com/greygimple "Grey Gimple")
+- [Youssef Guindi](https://github.com/YoussefWindy "Youssef Windy")
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Featrue 3
+- Play chess
+- Play more chess
+- Cry when beaten by our chess AI
 
 ## Getting Started
 
@@ -27,8 +27,8 @@ This project is a chess game developed in C++ as the final assignment (A5) for t
 
 To compile and run the game, you will need:
 
-- g++
-- make
+- [g++](https://gcc.gnu.org/ "Woah")
+- [make](https://www.make.com/en "Make")
 
 ### Building the Project
 
@@ -43,10 +43,10 @@ make
 # Development Notes
 ## Anything That Needs To Be Noted/Remembered Goes Here
 
-- Makefile now does stuff as some files have been added, yippie!
+- Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files") have been added, yippie!
 
 - Anytime we want to work on files, we first checkout to our respective branch
 - Once we're done and want to commit, push to repo *while still in that branch*
-- To do this, e.g. Andrew will do `git push origin andrew` while in the Andrew branch
+- To do this, e.g. Andrew will do `git push origin Andrew` while in the Andrew branch
 - After pushing to repo, we can merge the branch with the main branch
 - To update the new files on our end, we pull and then merge main branch with our respective working branch
