@@ -7,7 +7,7 @@ A simple GUI Chess game for CS246 A5 project
 
 ## Overview
 
-This project is a chess game developed in C++ as the final assignment (A5) for the CS246 course. The game allows two players to compete against each other with all the standard rules and mechanics of chess implemented.
+This project is a chess game developed in C++ as the final assignment (A5) for the CS246 course. The game allows two players and/or chess AI to compete against each other with all the standard rules and mechanics of chess implemented.
 
 ## Authors
 
