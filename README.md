@@ -45,6 +45,7 @@ make
 
 ## To Do
 - Board::validate()
+- Implement individual piece classes
 
 ## Working On
 
@@ -56,11 +57,12 @@ make
 
 ### Youssef
 - main.cc user interface in text-based display and input from cin
+- Implementing individual piece classes
 - AI class
 
 ## Completed Tasks
 - overloading operator<<
-- Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files") have been added, yippie!
+- Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
