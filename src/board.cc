@@ -7,36 +7,86 @@
 #include <string>
 #include <memory>
 
-Board::Board() {
-	board.resize(8, std::vector<std::shared_ptr<Piece>>(8, nullptr));
+using namespace std;
 
-	// std::cout << "Created Board!" << std::endl;
+const unsigned int WIDTH = 8, HEIGHT = 8;
+
+Board::Board() {
+	// cout << "Created Board!" << endl;
 }
 
 Board::~Board() {
-	// std::cout << "Destroyed Board!" << std::endl;
+	// cout << "Destroyed Board!" << endl;
 }
 
-void Board::addPiece(char name, int posX, int posY) {
-    board[posX][posY] = std::make_shared<Piece>(name, posX, posY);
+bool Board::Posn::validate() const {
+	return 0 <= x && x < WIDTH  && 0 <= y && y < HEIGHT;
 }
 
-const std::vector<std::vector<std::shared_ptr<Piece>>>& Board::getBoard() const {
-	return board;
+Board::Iterator::Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin)
+  : i{begin ? 0 : 8}, j{0}, board{board} {}
+
+shared_ptr<Piece> Board::Iterator::operator*() const {
+	return board[i][j];
 }
 
-std::ostream& operator<<(std::ostream& out, const Board& b) {
+Board::Iterator &Board::Iterator::operator++() {
+	if (j == 7) {
+		i++;
+		j = 0;
+	} else {
+		j++;
+	}
+}
+
+bool Board::Iterator::operator!=(const Iterator &other) const {
+	return i != other.i || j != other.j;
+}
+
+Board::Iterator Board::begin() const {
+	return {board, true};
+}
+
+Board::Iterator Board::end() const {
+	return {board, false};
+}
+
+void Board::addPiece(const char name, const Posn pos) {
+    board[pos.x][pos.y] = make_shared<Piece>(name, pos.x, pos.y);
+}
+
+void Board::kill(const Posn pos) {
+	board[pos.x][pos.y] = nullptr;
+}
+
+bool Board::validate() const {
+	bool white, black;
+	for (shared_ptr<Piece> p: *this) {
+		if (p->getName() == 'K') white = true;
+	}
+	if (!white) return false;
+	for (shared_ptr<Piece> p: *this) {
+		if (p->getName() == 'k') black = true;
+	}
+	if (!black) return false;
+}
+
+const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+    return board;
+}
+
+ostream& operator<<(ostream& out, const Board& b) {
 	// Get board data
 	auto boardData = b.getBoard();
 	
 	// Iterate over the board
-	for (int row = 0; row < b.size; ++row) {
+	for (int row = 0; row < HEIGHT; ++row) {
 		// Row number
-		out << (8 - row) << ' ';
+		out << (HEIGHT - row) << ' ';
 
-		for (int col = 0; col < b.size; ++col) {
+		for (int col = 0; col < WIDTH; ++col) {
 			// Get copy of piece data
-			std::shared_ptr<Piece> piece = boardData[b.size - row - 1][col];
+			shared_ptr<Piece> piece = boardData[HEIGHT - row - 1][col];
 			if (piece) {
 				out << *piece;
 			} else {
@@ -48,12 +98,12 @@ std::ostream& operator<<(std::ostream& out, const Board& b) {
 			}
 		}
 
-		out << std::endl;
+		out << endl;
 	}
 
 	out << "  ";
 
-	for (char c = 'a'; c < 'a' + b.size; ++c) {
+	for (char c = 'a'; c < 'a' + WIDTH; ++c) {
 		out << c;
 	}
 

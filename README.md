@@ -44,7 +44,7 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do
-- Everything
+- Board::validate()
 
 ## Working On
 
