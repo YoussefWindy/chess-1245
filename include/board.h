@@ -10,16 +10,35 @@
 #include <memory>
 
 class Board {
-private:
+  private:
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
-public:
+  public:
 	Board();
 	~Board();
-	
-	// Methods
-	void addPiece(char name, int posX, int posY);
-	void addPiece(char name, string &pos);
+	struct Posn {
+		int x, y;
+		bool validate() const;
+	};
 
+	class Iterator {
+		friend class Board;
+		int i, j;
+		const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT];
+		Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin);
+	  public:
+		std::shared_ptr<Piece> operator*() const;
+		Iterator& operator++();
+		bool operator!=(const Iterator &) const;
+	};
+
+	Iterator begin() const;
+	Iterator end() const;
+
+	// Methods
+	void addPiece(const char name, const Posn pos);
+	void kill(const Posn pos);
+
+	bool validate() const;
 	const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH];
 };
 

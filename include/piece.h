@@ -5,26 +5,27 @@
 #include <iostream>
 
 class Piece {
-protected:
+  protected:
 	const unsigned int MAX_X = 8;
 	const unsigned int MAX_Y = 8;
 
 	bool colour;
 	char name;
+	Board::Posn posn;
+	std::vector<Board::Posn> legalMoves;
+  public:
+	Piece(char name, Board::Posn posn);
 
-	unsigned int posX;
-	unsigned int posY;
-public:
-	Piece(char name, int posX, int posY);
+	// Getters
+	char getName() const;
+	bool getColour() const;
+	Board::Posn getPosn() const;
+	unsigned int getX() const;
+	unsigned int getY() const;
 
-	// Getter
-	char getName(void) const;
-	bool getColour(void) const;
-	unsigned int getX(void) const;
-	unsigned int getY(void) const;
-
-	// Setter
+	// Setters
 	void setName(char value);
+	void setPosn(Board::Posn posn);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
 };
