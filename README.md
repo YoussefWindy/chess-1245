@@ -44,10 +44,19 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do
-- Board object needs an iterator ???
+- Everything
 
 ## Working On
-- ???
+
+### Andrew
+-
+
+### Grey
+-
+
+### Youssef
+- main.cc user interface in text-based display and input from cin
+- AI class
 
 ## Completed Tasks
 - overloading operator<<
