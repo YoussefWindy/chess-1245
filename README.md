@@ -44,8 +44,12 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do
-- Board::validate()
+- DD1: UML diagram & plan of attack
 - Implement individual piece classes
+- Discuss Board Iterators
+- Board::validate()
+- Board::checkmate()
+- Checkmates: consider pins & "rescues"
 
 ## Working On
 

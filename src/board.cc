@@ -9,18 +9,12 @@
 
 using namespace std;
 
-const unsigned int WIDTH = 8, HEIGHT = 8;
-
 Board::Board() {
 	// cout << "Created Board!" << endl;
 }
 
 Board::~Board() {
 	// cout << "Destroyed Board!" << endl;
-}
-
-bool Board::Posn::validate() const {
-	return 0 <= x && x < WIDTH  && 0 <= y && y < HEIGHT;
 }
 
 Board::Iterator::Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin)
@@ -55,8 +49,26 @@ void Board::addPiece(const char name, const Posn pos) {
     board[pos.x][pos.y] = make_shared<Piece>(name, pos.x, pos.y);
 }
 
-void Board::kill(const Posn pos) {
+void Board::removePiece(const Posn pos) {
 	board[pos.x][pos.y] = nullptr;
+}
+
+bool Board::positionInCheck(Posn pos, bool colour) const {
+	for (auto piece: !colour ? whitePieces : blackPieces) {
+		if (piece->canReach(pos)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Board::checkmate(bool colour) const {
+	for (auto piece: colour ? whitePieces : blackPieces) {
+		if (piece->getName() == colour ? "K" : "k") {
+			return !piece->canMove();
+		}
+	}
+	// incomplete
 }
 
 bool Board::validate() const {
@@ -69,6 +81,7 @@ bool Board::validate() const {
 		if (p->getName() == 'k') black = true;
 	}
 	if (!black) return false;
+	// incomplete
 }
 
 const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
@@ -90,7 +103,7 @@ ostream& operator<<(ostream& out, const Board& b) {
 			if (piece) {
 				out << *piece;
 			} else {
-				if (col % 2 == 0) {
+				if ((row + col) % 2) {
 				out << '_';
 				} else {
 				out << ' ';
@@ -111,16 +124,14 @@ ostream& operator<<(ostream& out, const Board& b) {
 }
 
 /*
+	8 _ _n_ _ 
+	7 _ _ _ _ 
+	6 _ _ _ _ 
+	5 _ _ _ _ 
+	4 _ _ _ _ 
+	3 _ _ _ _ 
+	2 _ _ _ _ 
+	1 b _ _ _ 
 
-8 _ _n_ _ 
-7 _ _ _ _ 
-6 _ _ _ _ 
-5 _ _ _ _ 
-4 _ _ _ _ 
-3 _ _ _ _ 
-2 _ _ _ _ 
-1 b _ _ _ 
-
-  abcdefgh
-
+	abcdefgh
 */
