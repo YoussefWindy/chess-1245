@@ -1,9 +1,8 @@
 // src/piece.cc
 
 #include "../include/piece.h"
-#include "../include/board.h"
 
-Piece::Piece(char name, Board::Posn) : name{name}, posn{posn} {
+Piece::Piece(char name, Posn): name{name}, posn{posn} {
 	if ('b' <= name && name <= 'r') {
 		colour = 0;
 	} else {
@@ -11,7 +10,18 @@ Piece::Piece(char name, Board::Posn) : name{name}, posn{posn} {
 	}
 }
 
-// Getter
+bool Piece::canReach(Posn pos) const {
+	for (Posn posn: legalMoves) {
+		if (pos == posn) return true;
+	}
+	return false;
+}
+
+bool Piece::canMove() const {
+	return !legalMoves.empty();
+}
+
+// Getters
 char Piece::getName() const {
 	return name;
 }
@@ -20,7 +30,7 @@ bool Piece::getColour() const {
 	return colour;
 }
 
-Board::Posn Piece::getPosn() const {
+Posn Piece::getPosn() const {
 	return posn;
 }
 
@@ -32,12 +42,12 @@ unsigned int Piece::getY() const {
 	return posn.y;
 }
 
-// Setter
+// Setters
 void Piece::setName(char value) {
 	this->name = value;
 }
 
-void Piece::setPosn(Board::Posn posn) {
+void Piece::setPosn(Posn posn) {
 	this->posn = posn;
 }
 

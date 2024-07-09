@@ -2,7 +2,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "../include/piece.h"
+#include "piece.h"
 
 #include <iostream>
 #include <vector>
@@ -10,36 +10,41 @@
 #include <memory>
 
 class Board {
-  private:
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
+	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
+	std::vector<Move> log;
   public:
 	Board();
 	~Board();
-	struct Posn {
-		int x, y;
-		bool validate() const;
-	};
 
 	class Iterator {
 		friend class Board;
 		int i, j;
 		const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT];
-		Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin);
+		Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin);
 	  public:
 		std::shared_ptr<Piece> operator*() const;
 		Iterator& operator++();
-		bool operator!=(const Iterator &) const;
+		bool operator!=(const Iterator &other) const;
 	};
 
 	Iterator begin() const;
 	Iterator end() const;
 
-	// Methods
-	void addPiece(const char name, const Posn pos);
-	void kill(const Posn pos);
+	// Move methods
+	bool validateMove(Move) const; // Not implemented yet
+	void doMove(Move); // Not implemented yet
 
-	bool validate() const;
+	// Setup methods
+	void addPiece(const char name, const Posn pos);
+	void removePiece(const Posn pos);
+
+	// Getter/Checker methods
 	const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH];
+	bool positionInCheck(Posn pos, bool colour) const;
+	bool checkmate(bool colour) const; // needs work
+	// discuss above two methods
+	bool validate() const; // needs work
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& b);
