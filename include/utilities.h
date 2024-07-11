@@ -8,8 +8,8 @@ const unsigned int WIDTH = 8; // Board size; if we wanted to implement a custom
 const unsigned int HEIGHT = 8; // sized board all we have to do is change these
 
 struct Posn {
-    int x, y;
-    Posn(int x, int y);
+    unsigned int x, y;
+    Posn(unsigned int x, unsigned int y);
     Posn(const std::string &pos);
     bool validate() const;
     bool operator==(const Posn &other) const;

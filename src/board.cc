@@ -1,11 +1,6 @@
 // src/board.cc
 
 #include "../include/board.h"
-#include "../include/piece.h"
-
-#include <iostream>
-#include <string>
-#include <memory>
 
 using namespace std;
 
@@ -44,18 +39,48 @@ Board::Iterator Board::begin() const {
 Board::Iterator Board::end() const {
 	return {board, false};
 }
-
-void Board::addPiece(const char name, const Posn pos) {
-    board[pos.x][pos.y] = make_shared<Piece>(name, pos.x, pos.y);
+void Board::addPiece(const char name, const Posn &posn) {
+	bool white = 'B' <= name && name <= 'R';
+	char type = name - white ? ('A' - 'a') : 0;
+	switch (type) {
+		case 'p':
+    		board[posn.x][posn.y] = make_shared<Pawn>(white, posn);
+			break;
+		case 'n':
+    		board[posn.x][posn.y] = make_shared<Knight>(white, posn);
+			break;
+		case 'b':
+    		board[posn.x][posn.y] = make_shared<Bishop>(white, posn);
+			break;
+		case 'r':
+    		board[posn.x][posn.y] = make_shared<Rook>(white, posn);
+			break;
+		case 'q':
+    		board[posn.x][posn.y] = make_shared<Queen>(white, posn);
+			break;
+		case 'k':
+    		board[posn.x][posn.y] = make_shared<King>(white, posn);
+			break;
+	}
 }
 
-void Board::removePiece(const Posn pos) {
-	board[pos.x][pos.y] = nullptr;
+bool Board::movePiece(const Move &move) {
+	if (board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
+		board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
+		removePiece(move.oldPos);
+		return true;
+	} else {
+		return false;
+	}
 }
 
-bool Board::positionInCheck(Posn pos, bool colour) const {
+void Board::removePiece(const Posn &posn) {
+	board[posn.x][posn.y] = emptyptr;
+}
+
+bool Board::positionInCheck(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
-		if (piece->canReach(pos)) {
+		if (piece->canMoveTo(posn)) {
 			return true;
 		}
 	}
@@ -69,6 +94,7 @@ bool Board::checkmate(bool colour) const {
 		}
 	}
 	// incomplete
+	return false;
 }
 
 bool Board::validate() const {
@@ -82,26 +108,27 @@ bool Board::validate() const {
 	}
 	if (!black) return false;
 	// incomplete
+	return true;
 }
 
 const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
     return board;
 }
 
-ostream& operator<<(ostream& out, const Board& b) {
-	// Get board data
-	auto boardData = b.getBoard();
-	
+const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
+	return board[posn.x][posn.y];
+}
+
+ostream& operator<<(ostream& out, const Board& board) {
 	// Iterate over the board
-	for (int row = 0; row < HEIGHT; ++row) {
+	for (unsigned int row = 0; row < HEIGHT; row++) {
 		// Row number
 		out << (HEIGHT - row) << ' ';
-
-		for (int col = 0; col < WIDTH; ++col) {
+		for (unsigned int col = 0; col < WIDTH; col++) {
 			// Get copy of piece data
-			shared_ptr<Piece> piece = boardData[HEIGHT - row - 1][col];
+			shared_ptr<Piece> piece = board[{HEIGHT - row - 1, col}];
 			if (piece) {
-				out << *piece;
+				out << piece->getName();
 			} else {
 				if ((row + col) % 2) {
 				out << '_';
@@ -110,16 +137,12 @@ ostream& operator<<(ostream& out, const Board& b) {
 				}
 			}
 		}
-
 		out << endl;
 	}
-
 	out << "  ";
-
-	for (char c = 'a'; c < 'a' + WIDTH; ++c) {
+	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c;
 	}
-
 	return out;	
 }
 

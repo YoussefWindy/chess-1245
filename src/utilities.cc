@@ -1,8 +1,9 @@
 // src/utilities.cc
 
 #include "../include/utilities.h"
+#include <memory>
 
-Posn::Posn(int x, int y): x{x}, y{y} {}
+Posn::Posn(unsigned int x, unsigned int y): x{x}, y{y} {}
 
 Posn::Posn(const std::string &pos): x{pos[0] - 'a'}, y{pos[1] - '1'} {}
 
@@ -14,7 +15,7 @@ bool Posn::operator==(const Posn &other) const {
 	return x == other.x && y == other.y;
 }
 
-Move::Move(Posn o, Posn n): oldPos{o}, newPos{n} {}
+Move::Move(Posn o = {0, 0}, Posn n = {0, 0}): oldPos{o}, newPos{n} {}
 
 bool Move::validate() const {
 	return oldPos.validate() && newPos.validate();
