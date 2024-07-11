@@ -1,3 +1,7 @@
+// include/ai.h
+#ifndef AI_H
+#define AI_H
+
 #include "board.h"
 
 class AI {
@@ -13,3 +17,5 @@ class AI {
     AI(Board &board, bool colour, int difficulty);
     Move think() const;
 };
+
+#endif // AI_H

@@ -2,7 +2,10 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <iostream>
+#include <vector>
 #include <string>
+#include <memory>
 
 const unsigned int WIDTH = 8; // Board size; if we wanted to implement a custom
 const unsigned int HEIGHT = 8; // sized board all we have to do is change these

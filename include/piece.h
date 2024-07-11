@@ -3,12 +3,7 @@
 #define PIECE_H
 
 #include "utilities.h"
-
-#include <iostream>
-#include <vector>
-#include <memory>
-
-class Board; // forward declaration
+#include "board.h"
 
 class Piece {
   protected:
@@ -16,6 +11,7 @@ class Piece {
 	bool colour;
 	Posn posn;
 	std::vector<Posn> legalMoves;
+	bool hasPath = false;
   public:
 	Piece(char name, bool colour, const Posn &posn);
 	virtual void calculateLegalMoves(const Board &board) = 0;

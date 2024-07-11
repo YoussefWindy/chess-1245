@@ -20,24 +20,30 @@ class Bishop final: public Piece {
   public:
     Bishop(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
+    int calculateNumPins(const Board  &board) const;
 };
 
 class Rook final: public Piece {
+    bool hasMoved = false;
   public:
     Rook(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
+    int calculateNumPins(const Board  &board) const;
 };
 
 class Queen final: public Piece {
   public:
     Queen(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
+    int calculateNumPins(const Board  &board) const;
 };
 
 class King final: public Piece {
+    bool hasMoved = false;
   public:
     King(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
+    int calculateNumPins(const Board  &board) const;
 };
 
 #endif // PIECES_H

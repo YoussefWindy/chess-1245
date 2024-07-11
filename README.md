@@ -50,6 +50,7 @@ make
 - Board::validate()
 - Board::checkmate()
 - Checkmates: consider pins & "rescues"
+- Path-checking during Piece::calculateLegalMoves()
 - Enhancement idea: move quality/score meter thing
 
 ## Working On

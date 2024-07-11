@@ -1,4 +1,6 @@
-#include "../include/AI.h"
+// src/ai.cc
+
+#include "../include/ai.h"
 
 Move empty = {{0, 0}, {0, 0}};
 
