@@ -5,15 +5,57 @@
 using namespace std;
 
 Board::Board() {
+	for (int i = 0; i < WIDTH; i++) {
+		for (int j = 0; j < HEIGHT; j++) {
+			board[i][j] = emptyptr;
+		}
+	}
 	// cout << "Created Board!" << endl;
+}
+
+Board::Board(const Board &other): whitePieces{other.whitePieces},
+  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+	for (int i = 0; i < WIDTH; i++) {
+		for (int j = 0; j < HEIGHT; j++) {
+			board[i][j] = other.board[i][j];
+		}
+	}
+}
+
+Board::Board(Board &&other): whitePieces{other.whitePieces},
+  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+	for (int i = 0; i < WIDTH; i++) {
+		for (int j = 0; j < HEIGHT; j++) {
+			board[i][j] = move(other.board[i][j]);
+		}
+	}
+}
+
+void Board::swap(Board &one, Board &two) {
+	std::swap(one.board, two.board);
+	std::swap(one.whitePieces, two.whitePieces);
+	std::swap(one.blackPieces, two.blackPieces);
+	std::swap(one.deadPieces, two.deadPieces);
+	std::swap(one.log, two.log);
+}
+
+Board& Board::operator=(const Board &other) {
+	Board tmp = other;
+	swap(*this, tmp);
+	return *this;
+}
+
+Board& Board::operator=(Board &&other) {
+	swap(*this, other);
+	return *this;
 }
 
 Board::~Board() {
 	// cout << "Destroyed Board!" << endl;
 }
 
-Board::Iterator::Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin)
-  : i{begin ? 0 : 8}, j{0}, board{board} {}
+Board::Iterator::Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
+  i{begin ? 0 : 8}, j{0}, board{board} {}
 
 shared_ptr<Piece> Board::Iterator::operator*() const {
 	return board[i][j];
@@ -39,35 +81,36 @@ Board::Iterator Board::begin() const {
 Board::Iterator Board::end() const {
 	return {board, false};
 }
-void Board::addPiece(const char name, const Posn &posn) {
-	bool white = 'B' <= name && name <= 'R';
-	char type = name - white ? ('A' - 'a') : 0;
-	switch (type) {
-		case 'p':
-    		board[posn.x][posn.y] = make_shared<Pawn>(white, posn);
-			break;
-		case 'n':
-    		board[posn.x][posn.y] = make_shared<Knight>(white, posn);
-			break;
-		case 'b':
-    		board[posn.x][posn.y] = make_shared<Bishop>(white, posn);
-			break;
-		case 'r':
-    		board[posn.x][posn.y] = make_shared<Rook>(white, posn);
-			break;
-		case 'q':
-    		board[posn.x][posn.y] = make_shared<Queen>(white, posn);
-			break;
-		case 'k':
-    		board[posn.x][posn.y] = make_shared<King>(white, posn);
-			break;
-	}
+
+void Board::addPawn(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<Pawn>(colour, posn);
 }
 
-bool Board::movePiece(const Move &move) {
+void Board::addKnight(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<Knight>(colour, posn);
+}
+
+void Board::addBishop(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<Bishop>(colour, posn);
+}
+
+void Board::addRook(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<Rook>(colour, posn);
+}
+
+void Board::addQueen(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<Queen>(colour, posn);
+}
+
+void Board::addKing(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = make_shared<King>(colour, posn);
+}
+
+bool Board::movePiece(Move &&move) {
 	if (board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
 		removePiece(move.oldPos);
+		log.emplace_back(move);
 		return true;
 	} else {
 		return false;
@@ -78,7 +121,28 @@ void Board::removePiece(const Posn &posn) {
 	board[posn.x][posn.y] = emptyptr;
 }
 
-bool Board::positionInCheck(const Posn &posn, bool colour) const {
+const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+    return board;
+}
+
+const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
+	return board[posn.x][posn.y];
+}
+
+Move Board::getLastMove() const {
+	return log.back();
+}
+
+void Board::undoMoves(int x) {
+	for (int i = 0; i < x; i++) {
+		if (log.empty()) break;
+		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
+		removePiece(log.back().newPos);
+		log.pop_back();
+	}
+}
+
+bool Board::inCheck(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMoveTo(posn)) {
 			return true;
@@ -109,14 +173,6 @@ bool Board::validate() const {
 	if (!black) return false;
 	// incomplete
 	return true;
-}
-
-const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
-    return board;
-}
-
-const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
-	return board[posn.x][posn.y];
 }
 
 ostream& operator<<(ostream& out, const Board& board) {

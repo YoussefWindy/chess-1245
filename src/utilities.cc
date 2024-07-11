@@ -15,7 +15,7 @@ bool Posn::operator==(const Posn &other) const {
 	return x == other.x && y == other.y;
 }
 
-Move::Move(Posn o = {0, 0}, Posn n = {0, 0}): oldPos{o}, newPos{n} {}
+Move::Move(Posn o, Posn n): oldPos{o}, newPos{n} {}
 
 bool Move::validate() const {
 	return oldPos.validate() && newPos.validate();

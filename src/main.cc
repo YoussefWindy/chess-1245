@@ -1,11 +1,6 @@
 // src/main.cc
 
-#include "../include/AI.h"
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <memory>
+#include "../include/ai.h"
 
 using namespace std;
 
@@ -35,29 +30,29 @@ int main() {
 
 	// Initial default board
 	// White pieces
-	defaultBoard.addPiece('R', {0, 0});
-	defaultBoard.addPiece('N', {0, 1});
-	defaultBoard.addPiece('B', {0, 2});
-	defaultBoard.addPiece('Q', {0, 3});
-	defaultBoard.addPiece('K', {0, 4});
-	defaultBoard.addPiece('B', {0, 5});
-	defaultBoard.addPiece('N', {0, 6});
-	defaultBoard.addPiece('R', {0, 7});
+	defaultBoard.addRook(true, {0, 0});
+	defaultBoard.addKnight(true, {0, 1});
+	defaultBoard.addBishop(true, {0, 2});
+	defaultBoard.addQueen(true, {0, 3});
+	defaultBoard.addKing(true, {0, 4});
+	defaultBoard.addBishop(true, {0, 5});
+	defaultBoard.addKnight(true, {0, 6});
+	defaultBoard.addRook(true, {0, 7});
 
 	// Black pieces
-	defaultBoard.addPiece('r', {7, 0});
-	defaultBoard.addPiece('n', {7, 1});
-	defaultBoard.addPiece('b', {7, 2});
-	defaultBoard.addPiece('q', {7, 3});
-	defaultBoard.addPiece('k', {7, 4});
-	defaultBoard.addPiece('b', {7, 5});
-	defaultBoard.addPiece('n', {7, 6});
-	defaultBoard.addPiece('r', {7, 7});
+	defaultBoard.addRook(false, {7, 0});
+	defaultBoard.addKnight(false, {7, 1});
+	defaultBoard.addBishop(false, {7, 2});
+	defaultBoard.addQueen(false, {7, 3});
+	defaultBoard.addKing(false, {7, 4});
+	defaultBoard.addBishop(false, {7, 5});
+	defaultBoard.addKnight(false, {7, 6});
+	defaultBoard.addRook(false, {7, 7});
 
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
-		defaultBoard.addPiece('P', {1, i});
-		defaultBoard.addPiece('p', {6, i});
+		defaultBoard.addPawn(true, {1, i});
+		defaultBoard.addPawn(false, {6, i});
 	}
 
 	while (cin >> command) {
@@ -105,6 +100,24 @@ int main() {
 				}
 			}
 			whiteTurn = !whiteTurn;
+		} else if (command == "undo") {
+			int num = 0;
+			if (!(cin >> num)) continue;
+			bool confirm = false;
+			while (cin >> arg1) {
+				cout << "Are you SURE you want to undo "
+					<< num << " moves? (y/n): ";
+				if (arg1 == "y" || arg1 == "Y") {
+					confirm = true;
+					break;
+				} else if (arg1 == "n" || arg1 == "N") {
+					break;
+				}
+				cout << endl << "Please input \"y\" or \"n\"." << endl;
+			}
+			if (confirm) {
+				board.undoMoves(num);
+			}
 		} else if (command == "setup") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl;
@@ -123,7 +136,28 @@ int main() {
 						cerr << "Please input valid board coordinates." << endl;
 						continue;
 					}
-					defaultBoard.addPiece(piece, p);
+					bool white = 'B' <= piece && piece <= 'R';
+					piece -= white ? ('A' - 'a') : 0;
+					switch (piece) {
+						case 'p':
+							board.addPawn(white, p);
+							break;
+						case 'n':
+							board.addKnight(white, p);
+							break;
+						case 'b':
+							board.addBishop(white, p);
+							break;
+						case 'r':
+							board.addRook(white, p);
+							break;
+						case 'q':
+							board.addQueen(white, p);
+							break;
+						case 'k':
+							board.addKing(white, p);
+							break;
+					}
 					cout << defaultBoard << endl;
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
