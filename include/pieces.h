@@ -4,34 +4,40 @@
 
 #include "piece.h"
 
-class Pawn: public Piece {
+class Pawn final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    Pawn(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
-class Knight: public Piece {
+class Knight final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    Knight(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
-class Bishop: public Piece {
+class Bishop final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    Bishop(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
-class Rook: public Piece {
+class Rook final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    Rook(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
-class Queen: public Piece {
+class Queen final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    Queen(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
-class King: public Piece {
+class King final: public Piece {
   public:
-    void calculateLegalMoves() override;
+    King(bool colour, const Posn &posn);
+    void calculateLegalMoves(const Board &board) override;
 };
 
 #endif // PIECES_H

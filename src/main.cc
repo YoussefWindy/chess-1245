@@ -55,7 +55,7 @@ int main() {
 	defaultBoard.addPiece('r', {7, 7});
 
 	// Pawns
-	for (int i = 0; i < WIDTH; i++) {
+	for (unsigned int i = 0; i < WIDTH; i++) {
 		defaultBoard.addPiece('P', {1, i});
 		defaultBoard.addPiece('p', {6, i});
 	}
@@ -89,9 +89,9 @@ int main() {
 				continue;
 			}
 			if (whiteTurn && whiteAI) {
-				board.doMove(whiteAI->think());
+				board.movePiece(whiteAI->think());
 			} else if (!whiteTurn && blackAI) {
-				board.doMove(blackAI->think());
+				board.movePiece(blackAI->think());
 			} else {
 				cin >> arg1 >> arg2;
 				Posn start{arg1}, end{arg2};
@@ -99,12 +99,10 @@ int main() {
 					cerr << "Please input valid board coordinates." << endl;
 					continue;
 				}
-				Move move{start, end};
-				if (!board.validateMove(move)) {
+				if (!board.movePiece({start, end})) {
 					cerr << "Please input a valid move action." << endl;
 					continue;
 				}
-				board.doMove(move);
 			}
 			whiteTurn = !whiteTurn;
 		} else if (command == "setup") {

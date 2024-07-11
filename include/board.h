@@ -2,7 +2,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "piece.h"
+#include "pieces.h"
 
 #include <iostream>
 #include <vector>
@@ -31,22 +31,20 @@ class Board {
 	Iterator begin() const;
 	Iterator end() const;
 
-	// Move methods
-	bool validateMove(Move) const; // Not implemented yet
-	void doMove(Move); // Not implemented yet
-
-	// Setup methods
-	void addPiece(const char name, const Posn pos);
-	void removePiece(const Posn pos);
+	// Piece methods
+	void addPiece(char name, const Posn &posn);
+	bool movePiece(const Move &move); // returns true if move is valid, false otherwise
+	void removePiece(const Posn &posn);
 
 	// Getter/Checker methods
-	const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH];
-	bool positionInCheck(Posn pos, bool colour) const;
+	const std::shared_ptr<Piece> (&getBoard() const)[HEIGHT][WIDTH]; //  we'll see if we need this or not, the below fn kind of make it obsolete
+	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
+	bool positionInCheck(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
 	// discuss above two methods
 	bool validate() const; // needs work
 };
 
-std::ostream& operator<<(std::ostream& out, const Board& b);
+std::ostream& operator<<(std::ostream& out, const Board& board);
 
 #endif // BOARD_H

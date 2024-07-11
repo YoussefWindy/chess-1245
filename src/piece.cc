@@ -2,17 +2,11 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, Posn): name{name}, posn{posn} {
-	if ('b' <= name && name <= 'r') {
-		colour = 0;
-	} else {
-		colour = 1;
-	}
-}
+Piece::Piece(char name, bool colour, const Posn &posn): name{name}, colour{colour}, posn{posn} {}
 
-bool Piece::canReach(Posn pos) const {
+bool Piece::canMoveTo(const Posn &posn) const {
 	for (Posn posn: legalMoves) {
-		if (pos == posn) return true;
+		if (this->posn == posn) return true;
 	}
 	return false;
 }
@@ -47,7 +41,7 @@ void Piece::setName(char value) {
 	this->name = value;
 }
 
-void Piece::setPosn(Posn posn) {
+void Piece::setPosn(const Posn &posn) {
 	this->posn = posn;
 }
 
@@ -59,8 +53,7 @@ void Piece::setY(unsigned int posY) {
 	this->posn.y = posY;
 }
 
-std::ostream& operator<<(std::ostream& out, const Piece& p) {
-	out << p.getName();
-
+std::ostream& operator<<(std::ostream &out, const Piece &posn) {
+	out << posn.getName();
 	return out;
 }

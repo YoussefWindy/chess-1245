@@ -1,38 +1,47 @@
 #include "../include/AI.h"
 
+Move empty = {{0, 0}, {0, 0}};
+
 AI::AI(Board &b, bool w, int d): board{b}, white{w}, difficulty{d} {}
 
 Move AI::think() const {
     switch (difficulty) {
         case 1:
-            return think1();
+            return thinkLevel1();
         case 2:
-            return think2();
+            return thinkLevel2();
         case 3:
-            return think3();
+            return thinkLevel3();
         case 4:
-            return think4();
+            return thinkLevel4();
         case 5:
-            return think5();
+            return thinkLevel5();
+        default:
+            return empty;
     }
 }
 
-Move AI::think1() const {
+Move AI::thinkLevel1() const {
     // Fill in
+    return empty;
 }
 
-Move AI::think2() const {
+Move AI::thinkLevel2() const {
     // Fill in
+    return empty;
 }
 
-Move AI::think3() const {
+Move AI::thinkLevel3() const {
     // Fill in
+    return empty;
 }
 
-Move AI::think4() const {
+Move AI::thinkLevel4() const {
     // Fill in
+    return empty;
 }
 
-Move AI::think5() const {
+Move AI::thinkLevel5() const {
     // Fill in
+    return empty;
 }
