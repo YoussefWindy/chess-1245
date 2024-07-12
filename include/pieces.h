@@ -43,7 +43,6 @@ class King final: public Piece {
   public:
     King(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
-    int calculateNumPins(const Board  &board) const;
 };
 
 #endif // PIECES_H

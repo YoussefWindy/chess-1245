@@ -89,14 +89,13 @@ int main() {
 				board.movePiece(blackAI->think());
 			} else {
 				cin >> arg1 >> arg2;
-				Posn start{arg1}, end{arg2};
-				if (!start.validate() || !end.validate()) {
+				try {
+					Posn start{arg1}, end{arg2};
+					board.movePiece({start, end});
+				} catch (BadPosn &e) {
 					cerr << "Please input valid board coordinates." << endl;
-					continue;
-				}
-				if (!board.movePiece({start, end})) {
+				} catch (BadMove &e) {
 					cerr << "Please input a valid move action." << endl;
-					continue;
 				}
 			}
 			whiteTurn = !whiteTurn;
@@ -131,32 +130,33 @@ int main() {
 						cerr << "Please input a valid piece name." << endl;
 						continue;
 					}
-					Posn p{arg1};
-					if (!p.validate()) {
+					try {
+						Posn p{arg1};
+						bool white = 'B' <= piece && piece <= 'R';
+						piece -= white ? ('A' - 'a') : 0;
+						switch (piece) {
+							case 'p':
+								board.addPawn(white, p);
+								break;
+							case 'n':
+								board.addKnight(white, p);
+								break;
+							case 'b':
+								board.addBishop(white, p);
+								break;
+							case 'r':
+								board.addRook(white, p);
+								break;
+							case 'q':
+								board.addQueen(white, p);
+								break;
+							case 'k':
+								board.addKing(white, p);
+								break;
+						}
+					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 						continue;
-					}
-					bool white = 'B' <= piece && piece <= 'R';
-					piece -= white ? ('A' - 'a') : 0;
-					switch (piece) {
-						case 'p':
-							board.addPawn(white, p);
-							break;
-						case 'n':
-							board.addKnight(white, p);
-							break;
-						case 'b':
-							board.addBishop(white, p);
-							break;
-						case 'r':
-							board.addRook(white, p);
-							break;
-						case 'q':
-							board.addQueen(white, p);
-							break;
-						case 'k':
-							board.addKing(white, p);
-							break;
 					}
 					cout << defaultBoard << endl;
 				} else if (command == "-") { // remove a piece from the board
