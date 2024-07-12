@@ -38,7 +38,7 @@ class Board {
 	void addRook(bool colour, const Posn &posn);
 	void addQueen(bool colour, const Posn &posn);
 	void addKing(bool colour, const Posn &posn);
-	bool movePiece(Move &&move); // returns true if move is valid, false otherwise
+	void movePiece(Move &&move); // returns true if move is valid, false otherwise
 	void removePiece(const Posn &posn);
 
 	// Getter/Checker methods

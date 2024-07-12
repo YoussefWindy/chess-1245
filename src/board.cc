@@ -106,15 +106,13 @@ void Board::addKing(bool colour, const Posn &posn) {
     board[posn.x][posn.y] = make_shared<King>(colour, posn);
 }
 
-bool Board::movePiece(Move &&move) {
-	if (board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-		board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
-		removePiece(move.oldPos);
-		log.emplace_back(move);
-		return true;
-	} else {
-		return false;
+void Board::movePiece(Move &&move) {
+	if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
+		throw BadMove{move};
 	}
+	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
+	removePiece(move.oldPos);
+	log.emplace_back(move);
 }
 
 void Board::removePiece(const Posn &posn) {
