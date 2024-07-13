@@ -13,6 +13,7 @@ class Board {
 private:
 	// 2D array of smart pointers to Piece objects
 	std::vector<std::vector<std::shared_ptr<Piece>>> board;
+	// std::shared_ptr<Piece> board[size][size];
 public:
 	Board();
 	~Board();

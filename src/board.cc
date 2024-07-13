@@ -30,6 +30,7 @@ void Board::movePiece(int posX, int posY, int newX, int newY) {
 		board[posX][posY]->getColour() == board[newX][newY]->getColour()) {
 			return;
 	}
+
 	// Set new position on board
 	board[newX][newY] = board[posX][posY];
 	
