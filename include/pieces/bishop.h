@@ -8,7 +8,7 @@ class Bishop final: public Piece {
   public:
     Bishop(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
-    int calculateNumPins(const Board  &board) const;
+    int calculateNumPinned(const Board &board) const override;
 };
 
 #endif // BISHOP_H

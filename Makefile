@@ -11,22 +11,22 @@ OBJDIR := obj
 BINDIR := bin
 
 # Files
-SOURCES := $(wildcard $(SRCDIR)/**/*.cc)
-INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/**/*.tpp)
+SOURCES := $(wildcard $(SRCDIR)/**/*.cc $(SRCDIR)/*.cc)
+INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/*.h)# $(INCDIR)/*.tpp)
 OBJECTS := $(patsubst $(SRCDIR)/**/%.cc,$(OBJDIR)/%.o,$(SOURCES))
 EXECUTABLE := $(BINDIR)/chess
 
 # Targets
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJECTS) | $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
-
 $(OBJDIR)/%.o: $(SRCDIR)/%.cc | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
+
+$(EXECUTABLE): $(OBJECTS) | $(BINDIR)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 $(BINDIR):
 	mkdir -p $(BINDIR)
