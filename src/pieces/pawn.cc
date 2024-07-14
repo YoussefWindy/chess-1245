@@ -1,6 +1,6 @@
 // src/pieces/pawn.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/pawn.h"
 
 Pawn::Pawn(bool colour, const Posn &posn): Piece{colour, colour ? "P" : "p", posn} {}
 

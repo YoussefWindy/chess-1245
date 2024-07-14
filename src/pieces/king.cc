@@ -1,6 +1,6 @@
 // src/pieces/king.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/king.h"
 
 King::King(bool colour, const Posn &posn): Piece{colour, colour ? "K" : "k", posn} {}
 

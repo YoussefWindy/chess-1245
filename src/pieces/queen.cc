@@ -1,6 +1,6 @@
 // src/pieces/queen.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/queen.h"
 
 Queen::Queen(bool colour, const Posn &posn): Piece{colour, colour ? "Q" : "q", posn} {}
 

@@ -1,6 +1,6 @@
 // src/pieces/rook.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/rook.h"
 
 Rook::Rook(bool colour, const Posn &posn): Piece{colour, colour ? "R" : "r", posn} {}
 

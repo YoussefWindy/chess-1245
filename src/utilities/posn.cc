@@ -1,7 +1,6 @@
-// src/utilities.cc
+// src/utilities/posn.cc
 
-#include "../include/utilities.h"
-#include <memory>
+#include "../../include/utilities.h"
 
 Posn::Posn(unsigned int x, unsigned int y): x{x}, y{y} {
 	if (!validate()) throw BadPosn{*this};
@@ -18,13 +17,3 @@ bool Posn::validate() const {
 bool Posn::operator==(const Posn &other) const {
 	return x == other.x && y == other.y;
 }
-
-Move::Move(Posn o, Posn n): oldPos{o}, newPos{n} {}
-
-bool Move::operator==(const Move &other) const {
-	return oldPos == other.oldPos && newPos == other.newPos;
-}
-
-BadPosn::BadPosn(const Posn &posn): posn{posn} {}
-
-BadMove::BadMove(const Move &move): move{move} {}
