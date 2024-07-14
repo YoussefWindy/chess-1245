@@ -192,8 +192,6 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 		}
 		out << std::endl;
 	}
-	out << "  ";
-	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c;
 	}
 	return out;	

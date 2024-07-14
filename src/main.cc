@@ -49,6 +49,16 @@ int main() {
 	defaultBoard.addKnight(false, {7, 6});
 	defaultBoard.addRook(false, {7, 7});
 
+	cout << board << endl << endl;
+
+	board.movePiece(6, 4, 4, 4);
+
+	cout << board << endl << endl;
+
+	board.movePiece(7, 7, 6, 7);
+
+	cout << board << endl;
+  
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		defaultBoard.addPawn(true, {1, i});

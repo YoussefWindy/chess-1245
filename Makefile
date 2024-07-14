@@ -6,11 +6,13 @@ MAKEFILE_NAME = ${firstword ${MAKEFILE_LIST}}
 
 # Directories
 SRCDIR := src
+INCDIR := include
 OBJDIR := obj
 BINDIR := bin
 
 # Files
-SOURCES := $(wildcard $(SRCDIR)/*.cc)
+SOURCES := $(wildcard $(SRCDIR)/**/*.cc)
+INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/**/*.tpp)
 OBJECTS := $(patsubst $(SRCDIR)/%.cc,$(OBJDIR)/%.o,$(SOURCES))
 EXECUTABLE := $(BINDIR)/chess
 
@@ -21,7 +23,7 @@ $(EXECUTABLE): $(OBJECTS) | $(BINDIR)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cc | $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -33,4 +35,3 @@ clean:
 	rm -rf $(OBJDIR) $(BINDIR)
 
 .PHONY: all clean
-
