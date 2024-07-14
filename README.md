@@ -45,6 +45,7 @@ make
 
 ## To Do
 - DD1: UML diagram & plan of attack
+- Fix Board::addPiece()
 - Implement individual piece classes
 - Discuss Board Iterators
 - Board::validate()

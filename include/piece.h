@@ -3,7 +3,8 @@
 #define PIECE_H
 
 #include "utilities.h"
-#include "board.h"
+
+class Board; // forward declaration
 
 class Piece {
   protected:
@@ -15,6 +16,7 @@ class Piece {
   public:
 	Piece(char name, bool colour, const Posn &posn);
 	virtual void calculateLegalMoves(const Board &board) = 0;
+	virtual int calculateNumPinned(const Board &board) const = 0;
 	bool canMoveTo(const Posn &posn) const;
 	bool canMove() const;
 
@@ -32,8 +34,8 @@ class Piece {
 	void setY(unsigned int value);
 };
 
-const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr
-
 std::ostream& operator<<(std::ostream &out, const Piece &posn);
+
+const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr
 
 #endif // PIECE_H

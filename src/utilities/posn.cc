@@ -6,7 +6,13 @@ Posn::Posn(unsigned int x, unsigned int y): x{x}, y{y} {
 	if (!validate()) throw BadPosn{*this};
 }
 
-Posn::Posn(const std::string &pos): x{pos[0] - 'a'}, y{pos[1] - '1'} {
+Posn::Posn(const std::string &pos) {
+	try {
+		x = pos[0] - 'a';
+		y = pos[1] - '1';
+	} catch (...) {
+		throw BadPosn{{WIDTH, HEIGHT}};
+	}
 	if (!validate()) throw BadPosn{*this};
 }
 

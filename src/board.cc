@@ -1,5 +1,6 @@
 // src/board.cc
 
+#include "../include/piece.h"
 #include "../include/board.h"
 
 Board::Board() {
@@ -118,6 +119,13 @@ void Board::undoMoves(int x) {
 		removePiece(log.back().newPos);
 		log.pop_back();
 	}
+}
+
+bool Board::isPinned(const Posn &posn) const {
+	for (auto p: board[posn.x][posn.y]->getColour() ? whitePieces : blackPieces) {
+		if (p->calculateNumPinned(*this) == 1) return true;
+	}
+	return false;
 }
 
 bool Board::inCheck(const Posn &posn, bool colour) const {

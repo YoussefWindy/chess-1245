@@ -9,7 +9,7 @@ class Rook final: public Piece {
   public:
     Rook(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
-    int calculateNumPins(const Board  &board) const;
+    int calculateNumPinned(const Board &board) const override;
 };
 
 #endif // ROOK_H
