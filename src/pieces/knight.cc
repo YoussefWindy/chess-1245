@@ -1,6 +1,6 @@
 // src/pieces/knight.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/knight.h"
 
 Knight::Knight(bool colour, const Posn &posn): Piece{colour, colour ? "N" : "n", posn} {}
 

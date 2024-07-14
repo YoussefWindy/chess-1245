@@ -2,11 +2,9 @@
 
 #include "../include/board.h"
 
-using namespace std;
-
 Board::Board() {
-	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < HEIGHT; j++) {
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = emptyptr;
 		}
 	}
@@ -15,8 +13,8 @@ Board::Board() {
 
 Board::Board(const Board &other): whitePieces{other.whitePieces},
   blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
-	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < HEIGHT; j++) {
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = other.board[i][j];
 		}
 	}
@@ -24,8 +22,8 @@ Board::Board(const Board &other): whitePieces{other.whitePieces},
 
 Board::Board(Board &&other): whitePieces{other.whitePieces},
   blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
-	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < HEIGHT; j++) {
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = move(other.board[i][j]);
 		}
 	}
@@ -54,20 +52,21 @@ Board::~Board() {
 	// cout << "Destroyed Board!" << endl;
 }
 
-Board::Iterator::Iterator(const shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
+Board::Iterator::Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
   i{begin ? 0 : 8}, j{0}, board{board} {}
 
-shared_ptr<Piece> Board::Iterator::operator*() const {
+std::shared_ptr<Piece> Board::Iterator::operator*() const {
 	return board[i][j];
 }
 
-Board::Iterator &Board::Iterator::operator++() {
+Board::Iterator& Board::Iterator::operator++() {
 	if (j == 7) {
 		i++;
 		j = 0;
 	} else {
 		j++;
 	}
+	return *this;
 }
 
 bool Board::Iterator::operator!=(const Iterator &other) const {
@@ -83,27 +82,27 @@ Board::Iterator Board::end() const {
 }
 
 void Board::addPawn(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<Pawn>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<Pawn>(colour, posn);
 }
 
 void Board::addKnight(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<Knight>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<Knight>(colour, posn);
 }
 
 void Board::addBishop(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<Bishop>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<Bishop>(colour, posn);
 }
 
 void Board::addRook(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<Rook>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<Rook>(colour, posn);
 }
 
 void Board::addQueen(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<Queen>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<Queen>(colour, posn);
 }
 
 void Board::addKing(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = make_shared<King>(colour, posn);
+    board[posn.x][posn.y] = std::make_shared<King>(colour, posn);
 }
 
 void Board::movePiece(Move &&move) {
@@ -119,7 +118,7 @@ void Board::removePiece(const Posn &posn) {
 	board[posn.x][posn.y] = emptyptr;
 }
 
-const shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
     return board;
 }
 
@@ -161,11 +160,11 @@ bool Board::checkmate(bool colour) const {
 
 bool Board::validate() const {
 	bool white, black;
-	for (shared_ptr<Piece> p: *this) {
+	for (std::shared_ptr<Piece> p: *this) {
 		if (p->getName() == 'K') white = true;
 	}
 	if (!white) return false;
-	for (shared_ptr<Piece> p: *this) {
+	for (std::shared_ptr<Piece> p: *this) {
 		if (p->getName() == 'k') black = true;
 	}
 	if (!black) return false;
@@ -173,14 +172,14 @@ bool Board::validate() const {
 	return true;
 }
 
-ostream& operator<<(ostream& out, const Board& board) {
+std::ostream& operator<<(std::ostream& out, const Board& board) {
 	// Iterate over the board
 	for (unsigned int row = 0; row < HEIGHT; row++) {
 		// Row number
 		out << (HEIGHT - row) << ' ';
 		for (unsigned int col = 0; col < WIDTH; col++) {
 			// Get copy of piece data
-			shared_ptr<Piece> piece = board[{HEIGHT - row - 1, col}];
+			std::shared_ptr<Piece> piece = board[{HEIGHT - row - 1, col}];
 			if (piece) {
 				out << piece->getName();
 			} else {
@@ -191,7 +190,7 @@ ostream& operator<<(ostream& out, const Board& board) {
 				}
 			}
 		}
-		out << endl;
+		out << std::endl;
 	}
 	out << "  ";
 	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {

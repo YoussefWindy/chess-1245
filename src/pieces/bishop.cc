@@ -1,6 +1,6 @@
 // src/pieces/bishop.cc
 
-#include "../../include/pieces.h"
+#include "../../include/pieces/bishop.h"
 
 Bishop::Bishop(bool colour, const Posn &posn): Piece{colour, colour ? "B" : "b", posn} {}
 
