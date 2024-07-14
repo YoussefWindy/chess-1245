@@ -30,39 +30,39 @@ int main() {
 
 	// Initial default board
 	// White pieces
-	defaultBoard.addRook(true, {0, 0});
-	defaultBoard.addKnight(true, {0, 1});
-	defaultBoard.addBishop(true, {0, 2});
-	defaultBoard.addQueen(true, {0, 3});
-	defaultBoard.addKing(true, {0, 4});
-	defaultBoard.addBishop(true, {0, 5});
-	defaultBoard.addKnight(true, {0, 6});
-	defaultBoard.addRook(true, {0, 7});
+	defaultBoard.addPiece<Rook>(true, {0, 0});
+	defaultBoard.addPiece<Knight>(true, {0, 1});
+	defaultBoard.addPiece<Bishop>(true, {0, 2});
+	defaultBoard.addPiece<Queen>(true, {0, 3});
+	defaultBoard.addPiece<King>(true, {0, 4});
+	defaultBoard.addPiece<Bishop>(true, {0, 5});
+	defaultBoard.addPiece<Knight>(true, {0, 6});
+	defaultBoard.addPiece<Rook>(true, {0, 7});
 
 	// Black pieces
-	defaultBoard.addRook(false, {7, 0});
-	defaultBoard.addKnight(false, {7, 1});
-	defaultBoard.addBishop(false, {7, 2});
-	defaultBoard.addQueen(false, {7, 3});
-	defaultBoard.addKing(false, {7, 4});
-	defaultBoard.addBishop(false, {7, 5});
-	defaultBoard.addKnight(false, {7, 6});
-	defaultBoard.addRook(false, {7, 7});
+	defaultBoard.addPiece<Rook>(false, {7, 0});
+	defaultBoard.addPiece<Knight>(false, {7, 1});
+	defaultBoard.addPiece<Bishop>(false, {7, 2});
+	defaultBoard.addPiece<Queen>(false, {7, 3});
+	defaultBoard.addPiece<King>(false, {7, 4});
+	defaultBoard.addPiece<Bishop>(false, {7, 5});
+	defaultBoard.addPiece<Knight>(false, {7, 6});
+	defaultBoard.addPiece<Rook>(false, {7, 7});
 
 	cout << board << endl << endl;
 
-	board.movePiece(6, 4, 4, 4);
+	board.movePiece({{6, 4}, {4, 4}});
 
 	cout << board << endl << endl;
 
-	board.movePiece(7, 7, 6, 7);
+	board.movePiece({{7, 7}, {6, 7}});
 
 	cout << board << endl;
   
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
-		defaultBoard.addPawn(true, {1, i});
-		defaultBoard.addPawn(false, {6, i});
+		defaultBoard.addPiece<Pawn>(true, {1, i});
+		defaultBoard.addPiece<Pawn>(false, {6, i});
 	}
 
 	while (cin >> command) {
@@ -146,22 +146,22 @@ int main() {
 						piece -= white ? ('A' - 'a') : 0;
 						switch (piece) {
 							case 'p':
-								board.addPawn(white, p);
+								board.addPiece<Pawn>(white, p);
 								break;
 							case 'n':
-								board.addKnight(white, p);
+								board.addPiece<Knight>(white, p);
 								break;
 							case 'b':
-								board.addBishop(white, p);
+								board.addPiece<Bishop>(white, p);
 								break;
 							case 'r':
-								board.addRook(white, p);
+								board.addPiece<Rook>(white, p);
 								break;
 							case 'q':
-								board.addQueen(white, p);
+								board.addPiece<Queen>(white, p);
 								break;
 							case 'k':
-								board.addKing(white, p);
+								board.addPiece<King>(white, p);
 								break;
 						}
 					} catch (BadPosn &e) {

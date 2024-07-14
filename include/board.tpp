@@ -3,7 +3,7 @@
 #define BOARD_TPP
 
 #include "board.h"
-#include "piece.h"
+#include <memory>
 
 template <typename T>
 void Board::addPiece(bool colour, const Posn &posn) {

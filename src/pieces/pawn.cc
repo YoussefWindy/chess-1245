@@ -2,7 +2,7 @@
 
 #include "../../include/pieces/pawn.h"
 
-Pawn::Pawn(bool colour, const Posn &posn): Piece{colour, colour ? "P" : "p", posn} {}
+Pawn::Pawn(bool colour, const Posn &posn): Piece{colour ? 'P' : 'p', colour, posn} {}
 
 void Pawn::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

@@ -13,7 +13,7 @@ BINDIR := bin
 # Files
 SOURCES := $(wildcard $(SRCDIR)/**/*.cc)
 INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/**/*.tpp)
-OBJECTS := $(patsubst $(SRCDIR)/%.cc,$(OBJDIR)/%.o,$(SOURCES))
+OBJECTS := $(patsubst $(SRCDIR)/**/%.cc,$(OBJDIR)/%.o,$(SOURCES))
 EXECUTABLE := $(BINDIR)/chess
 
 # Targets

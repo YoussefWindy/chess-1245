@@ -2,7 +2,7 @@
 
 #include "../../include/pieces/knight.h"
 
-Knight::Knight(bool colour, const Posn &posn): Piece{colour, colour ? "N" : "n", posn} {}
+Knight::Knight(bool colour, const Posn &posn): Piece{colour ? 'N' : 'n', colour, posn} {}
 
 void Knight::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
