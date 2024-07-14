@@ -1,7 +1,5 @@
-# Grey Compiler (g++-11 wont install on my system)
-CXX = g++
-# Youssef & Andrew Compiler
-# CXX = g++-11
+# Compiler
+CXX = g++-11
 # Flags
 CXXFLAGS = -std=c++20 -g -Wall -Werror=vla -MMD
 MAKEFILE_NAME = ${firstword ${MAKEFILE_LIST}}

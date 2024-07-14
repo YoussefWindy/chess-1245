@@ -1,94 +1,211 @@
 // src/board.cc
 
 #include "../include/board.h"
-#include "../include/piece.h"
-
-#include <iostream>
-#include <string>
-#include <memory>
 
 Board::Board() {
-	board.resize(8, std::vector<std::shared_ptr<Piece>>(8, nullptr));
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
+			board[i][j] = emptyptr;
+		}
+	}
+	// cout << "Created Board!" << endl;
+}
+
+Board::Board(const Board &other): whitePieces{other.whitePieces},
+  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
+			board[i][j] = other.board[i][j];
+		}
+	}
+}
+
+Board::Board(Board &&other): whitePieces{other.whitePieces},
+  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		for (unsigned int j = 0; j < HEIGHT; j++) {
+			board[i][j] = move(other.board[i][j]);
+		}
+	}
+}
+
+void Board::swap(Board &one, Board &two) {
+	std::swap(one.board, two.board);
+	std::swap(one.whitePieces, two.whitePieces);
+	std::swap(one.blackPieces, two.blackPieces);
+	std::swap(one.deadPieces, two.deadPieces);
+	std::swap(one.log, two.log);
+}
+
+Board& Board::operator=(const Board &other) {
+	Board tmp = other;
+	swap(*this, tmp);
+	return *this;
+}
+
+Board& Board::operator=(Board &&other) {
+	swap(*this, other);
+	return *this;
 }
 
 Board::~Board() {
+	// cout << "Destroyed Board!" << endl;
 }
 
-// Getter
-const std::vector<std::vector<std::shared_ptr<Piece>>>& Board::getBoard() const {
-	return board;
+Board::Iterator::Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
+  i{begin ? 0 : 8}, j{0}, board{board} {}
+
+std::shared_ptr<Piece> Board::Iterator::operator*() const {
+	return board[i][j];
 }
 
-// Setter
-void Board::addPiece(char name, int posX, int posY) {
-    board[posX][posY] = std::make_shared<Piece>(name, posX, posY);
-}
-
-void Board::movePiece(int posX, int posY, int newX, int newY) {
-	// Check if new position has a piece
-	if (board[newX][newY] != nullptr &&
-		board[posX][posY]->getColour() == board[newX][newY]->getColour()) {
-			return;
+Board::Iterator& Board::Iterator::operator++() {
+	if (j == 7) {
+		i++;
+		j = 0;
+	} else {
+		j++;
 	}
-
-	// Set new position on board
-	board[newX][newY] = board[posX][posY];
-	
-	// Clear old position
-	board[posX][posY] = nullptr;
-	
-	// Update piece data
-	board[newX][newY]->setX(newX);
-	board[newX][newY]->setY(newY);
+	return *this;
 }
 
-// IO
-std::ostream& operator<<(std::ostream& out, const Board& b) {
-	// Get board data
-	auto boardData = b.getBoard();
-	
-	// Iterate over the board
-	for (int row = 0; row < b.size; ++row) {
-		// Row number
-		out << (8 - row) << ' ';
+bool Board::Iterator::operator!=(const Iterator &other) const {
+	return i != other.i || j != other.j;
+}
 
-		for (int col = 0; col < b.size; ++col) {
+Board::Iterator Board::begin() const {
+	return {board, true};
+}
+
+Board::Iterator Board::end() const {
+	return {board, false};
+}
+
+void Board::addPawn(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<Pawn>(colour, posn);
+}
+
+void Board::addKnight(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<Knight>(colour, posn);
+}
+
+void Board::addBishop(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<Bishop>(colour, posn);
+}
+
+void Board::addRook(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<Rook>(colour, posn);
+}
+
+void Board::addQueen(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<Queen>(colour, posn);
+}
+
+void Board::addKing(bool colour, const Posn &posn) {
+    board[posn.x][posn.y] = std::make_shared<King>(colour, posn);
+}
+
+void Board::movePiece(Move &&move) {
+	if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
+		throw BadMove{move};
+	}
+	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
+	removePiece(move.oldPos);
+	log.emplace_back(move);
+}
+
+void Board::removePiece(const Posn &posn) {
+	board[posn.x][posn.y] = emptyptr;
+}
+
+const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+    return board;
+}
+
+const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
+	return board[posn.x][posn.y];
+}
+
+Move Board::getLastMove() const {
+	return log.back();
+}
+
+void Board::undoMoves(int x) {
+	for (int i = 0; i < x; i++) {
+		if (log.empty()) break;
+		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
+		removePiece(log.back().newPos);
+		log.pop_back();
+	}
+}
+
+bool Board::inCheck(const Posn &posn, bool colour) const {
+	for (auto piece: !colour ? whitePieces : blackPieces) {
+		if (piece->canMoveTo(posn)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Board::checkmate(bool colour) const {
+	for (auto piece: colour ? whitePieces : blackPieces) {
+		if (piece->getName() == colour ? "K" : "k") {
+			return !piece->canMove();
+		}
+	}
+	// incomplete
+	return false;
+}
+
+bool Board::validate() const {
+	bool white, black;
+	for (std::shared_ptr<Piece> p: *this) {
+		if (p->getName() == 'K') white = true;
+	}
+	if (!white) return false;
+	for (std::shared_ptr<Piece> p: *this) {
+		if (p->getName() == 'k') black = true;
+	}
+	if (!black) return false;
+	// incomplete
+	return true;
+}
+
+std::ostream& operator<<(std::ostream& out, const Board& board) {
+	// Iterate over the board
+	for (unsigned int row = 0; row < HEIGHT; row++) {
+		// Row number
+		out << (HEIGHT - row) << ' ';
+		for (unsigned int col = 0; col < WIDTH; col++) {
 			// Get copy of piece data
-			std::shared_ptr<Piece> piece = boardData[b.size - row - 1][col];
+			std::shared_ptr<Piece> piece = board[{HEIGHT - row - 1, col}];
 			if (piece) {
-				out << *piece;
+				out << piece->getName();
 			} else {
-				if (col % 2 == 0) {
+				if ((row + col) % 2) {
 				out << '_';
 				} else {
 				out << ' ';
 				}
 			}
 		}
-
 		out << std::endl;
 	}
-
-	out << std::endl << "  ";
-
-	for (char c = 'a'; c < 'a' + b.size; ++c) {
 		out << c;
 	}
-
 	return out;	
 }
 
 /*
+	8 _ _n_ _ 
+	7 _ _ _ _ 
+	6 _ _ _ _ 
+	5 _ _ _ _ 
+	4 _ _ _ _ 
+	3 _ _ _ _ 
+	2 _ _ _ _ 
+	1 b _ _ _ 
 
-8 _ _n_ _ 
-7 _ _ _ _ 
-6 _ _ _ _ 
-5 _ _ _ _ 
-4 _ _ _ _ 
-3 _ _ _ _ 
-2 _ _ _ _ 
-1 b _ _ _ 
-
-  abcdefgh
-
+	abcdefgh
 */

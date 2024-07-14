@@ -2,50 +2,58 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, int posX, int posY) : name{name}, posX{static_cast<unsigned int>(posX)}, posY{static_cast<unsigned int>(posY)} {
-	if ('a' <= name && name <= 'z') {
-		colour = 0;
-	} else {
-		colour = 1;
+Piece::Piece(char name, bool colour, const Posn &posn): name{name}, colour{colour}, posn{posn} {}
+
+bool Piece::canMoveTo(const Posn &posn) const {
+	for (Posn posn: legalMoves) {
+		if (this->posn == posn) return true;
 	}
+	return false;
 }
 
-// Getter
-char Piece::getName(void) const {
-	return this->name;
+bool Piece::canMove() const {
+	return !legalMoves.empty();
 }
 
-bool Piece::getColour(void) const {
-	return this->colour;
+// Getters
+char Piece::getName() const {
+	return name;
 }
 
-unsigned int Piece::getX(void) const {
-	return this->posX;
+bool Piece::getColour() const {
+	return colour;
 }
 
-unsigned int Piece::getY(void) const {
-	return this->posY;
+Posn Piece::getPosn() const {
+	return posn;
 }
 
-// Setter
+unsigned int Piece::getX() const {
+	return posn.x;
+}
+
+unsigned int Piece::getY() const {
+	return posn.y;
+}
+
+// Setters
 void Piece::setName(char value) {
 	this->name = value;
 }
 
+void Piece::setPosn(const Posn &posn) {
+	this->posn = posn;
+}
+
 void Piece::setX(unsigned int posX) {
-	if (posX < this->MAX_X) {
-		this->posX = posX;
-	}
+	this->posn.x = posX;
 }
 
 void Piece::setY(unsigned int posY) {
-	if (posY < this->MAX_Y) {
-		this->posY = posY;
-	}
+	this->posn.y = posY;
 }
 
-std::ostream& operator<<(std::ostream& out, const Piece& p) {
-	out << p.getName();
-
+std::ostream& operator<<(std::ostream &out, const Piece &posn) {
+	out << posn.getName();
 	return out;
 }

@@ -7,7 +7,7 @@ A simple GUI Chess game for CS246 A5 project
 
 ## Overview
 
-This project is a chess game developed in C++ as the final assignment (A5) for the CS246 course. The game allows two players to compete against each other with all the standard rules and mechanics of chess implemented.
+This project is a chess game developed in C++ as the final assignment (A5) for the CS246 course. The game allows two players and/or chess AI to compete against each other with all the standard rules and mechanics of chess implemented.
 
 ## Authors
 
@@ -44,14 +44,31 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do
-- Board object needs an iterator ???
+- DD1: UML diagram & plan of attack
+- Implement individual piece classes
+- Discuss Board Iterators
+- Board::validate()
+- Board::checkmate()
+- Checkmates: consider pins & "rescues"
+- Path-checking during Piece::calculateLegalMoves()
+- Enhancement idea: move quality/score meter thing
 
 ## Working On
-- ???
+
+### Andrew
+-
+
+### Grey
+-
+
+### Youssef
+- main.cc user interface in text-based display and input from cin
+- Implementing individual piece classes
+- AI class
 
 ## Completed Tasks
 - overloading operator<<
-- Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files") have been added, yippie!
+- Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
