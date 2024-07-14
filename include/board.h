@@ -32,12 +32,8 @@ class Board {
 	Iterator end() const;
 
 	// Piece methods
-	void addPawn(bool colour, const Posn &posn);
-	void addKnight(bool colour, const Posn &posn);
-	void addBishop(bool colour, const Posn &posn);
-	void addRook(bool colour, const Posn &posn);
-	void addQueen(bool colour, const Posn &posn);
-	void addKing(bool colour, const Posn &posn);
+	template <typename T>
+	void addPiece(bool colour, const Posn &posn);
 	void movePiece(Move &&move); // returns true if move is valid, false otherwise
 	void removePiece(const Posn &posn);
 

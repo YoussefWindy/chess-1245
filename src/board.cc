@@ -80,31 +80,12 @@ Board::Iterator Board::begin() const {
 Board::Iterator Board::end() const {
 	return {board, false};
 }
-
-void Board::addPawn(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<Pawn>(colour, posn);
+/*
+template <typename T>
+void Board::addPiece(bool colour, const Posn &posn) {
+	board[posn.x][posn.y] = std::make_shared<T>(colour, posn);
 }
-
-void Board::addKnight(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<Knight>(colour, posn);
-}
-
-void Board::addBishop(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<Bishop>(colour, posn);
-}
-
-void Board::addRook(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<Rook>(colour, posn);
-}
-
-void Board::addQueen(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<Queen>(colour, posn);
-}
-
-void Board::addKing(bool colour, const Posn &posn) {
-    board[posn.x][posn.y] = std::make_shared<King>(colour, posn);
-}
-
+*/
 void Board::movePiece(Move &&move) {
 	if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		throw BadMove{move};
@@ -192,9 +173,11 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 		}
 		out << std::endl;
 	}
+	out << "  ";
+	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c;
 	}
-	return out;	
+	return out;
 }
 
 /*
