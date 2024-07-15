@@ -2,8 +2,8 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, bool colour, const Posn &posn): name{name}, colour{colour},
-  posn{posn}, hasMoved{false}, isProtected{false}, hasPathToKing{false} {}
+Piece::Piece(char name, bool colour, const Posn &posn, bool v, bool h, bool p, bool n): name{name}, colour{colour},
+  posn{posn}, vertical{v}, horizontal{h}, positive{p}, negative{n}, hasMoved{false}, isProtected{false} {}
 
 bool Piece::canMoveTo(const Posn &posn) const {
 	for (Posn posn: legalMoves) {
@@ -43,10 +43,6 @@ bool Piece::getHasMoved() const {
 
 bool Piece::getIsProtected() const {
 	return isProtected;
-}
-
-bool Piece::getHasPathToKing() const {
-	return hasPathToKing;
 }
 
 // Setters

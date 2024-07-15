@@ -3,8 +3,8 @@
 #include "../../include/board.h"
 #include "../../include/pieces/king.h"
 
-King::King(bool colour, const Posn &posn): Piece{colour ? 'K' : 'k', colour, posn},
- canCastleLeft{false}, canCastleRight{false} {}
+King::King(bool colour, const Posn &posn): canCastleLeft{false}, canCastleRight{false},
+  Piece{colour ? 'K' : 'k', colour, posn, true, true, true, true} {}
 
 void King::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
@@ -43,8 +43,8 @@ void King::calculateLegalMoves(const Board &board) {
     }
 }
 
-int King::calculateNumPinned(const Board &board) const {
-    return 0; // kings can't pin lol
+void King::calculatePins(const Board &board) {
+    // Fill in
 }
 
 int King::canCastle() const {
