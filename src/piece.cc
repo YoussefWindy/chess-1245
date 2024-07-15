@@ -2,7 +2,8 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, bool colour, const Posn &posn): name{name}, colour{colour}, posn{posn} {}
+Piece::Piece(char name, bool colour, const Posn &posn): name{name}, colour{colour},
+  posn{posn}, hasMoved{false}, isProtected{false}, hasPathToKing{false} {}
 
 bool Piece::canMoveTo(const Posn &posn) const {
 	for (Posn posn: legalMoves) {
@@ -36,13 +37,26 @@ unsigned int Piece::getY() const {
 	return posn.y;
 }
 
-// Setters
-void Piece::setName(char value) {
-	this->name = value;
+bool Piece::getHasMoved() const {
+	return hasMoved;
 }
 
-void Piece::setPosn(const Posn &posn) {
+bool Piece::getIsProtected() const {
+	return isProtected;
+}
+
+bool Piece::getHasPathToKing() const {
+	return hasPathToKing;
+}
+
+// Setters
+void Piece::move(const Posn &posn) {
+	hasMoved = true;
 	this->posn = posn;
+}
+
+void Piece::setName(char value) {
+	this->name = value;
 }
 
 void Piece::setX(unsigned int posX) {
@@ -51,6 +65,10 @@ void Piece::setX(unsigned int posX) {
 
 void Piece::setY(unsigned int posY) {
 	this->posn.y = posY;
+}
+
+void Piece::protect(bool isProtected) {
+	this->isProtected = isProtected;
 }
 
 std::ostream& operator<<(std::ostream &out, const Piece &posn) {

@@ -11,8 +11,8 @@ class Piece {
 	char name;
 	bool colour;
 	Posn posn;
-	std::vector<Posn> legalMoves;
-	bool hasPath = false;
+	std::vector<Posn> legalMoves, path;
+	bool hasMoved, isProtected, hasPathToKing;
   public:
 	Piece(char name, bool colour, const Posn &posn);
 	virtual void calculateLegalMoves(const Board &board) = 0;
@@ -26,12 +26,16 @@ class Piece {
 	Posn getPosn() const;
 	unsigned int getX() const;
 	unsigned int getY() const;
+	bool getHasMoved() const;
+	bool getIsProtected() const;
+	bool getHasPathToKing() const;
 
 	// Setters
+	void move(const Posn &posn);
 	void setName(char value);
-	void setPosn(const Posn &posn);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
+	void protect(bool isProtected = true);
 };
 
 std::ostream& operator<<(std::ostream &out, const Piece &posn);

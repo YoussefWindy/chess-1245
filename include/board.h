@@ -7,6 +7,7 @@
 class Board {
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
+	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
   public:
 	Board();
@@ -34,8 +35,10 @@ class Board {
 	// Piece methods
 	template <typename T>
 	void addPiece(bool colour, const Posn &posn);
-	void movePiece(Move &&move); // returns true if move is valid, false otherwise
+	void movePiece(Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
+	template <typename T>
+	void promote(bool colour, const Posn &posn);
 
 	// Getter/Checker methods
 	const std::shared_ptr<Piece> (&getBoard() const)[HEIGHT][WIDTH]; //  we'll see if we need this or not, the below fn kind of make it obsolete
