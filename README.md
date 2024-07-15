@@ -44,31 +44,30 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do
-- DD1: UML diagram & plan of attack
-- Fix Board::addPiece()
-- Implement individual piece classes
-- Board::validate()
-- Board::checkmate()
-- Checkmates: consider pins & "rescues"
-- Path-checking during Piece::calculateLegalMoves()
+- DD1: plan of attack
 - Enhancement idea: move quality/score meter thing
 
 ## Working On
 
 ### Andrew
 - Implement individual piece classes (rook, bishop, queen)
-- UML Diagram
-- Plan of Attack
 
 ### Grey
--
+- Board::validate()
+- Board::checkmate()
+- Plan of attack
 
 ### Youssef
 - main.cc user interface in text-based display and input from cin
-- Implementing individual piece classes
+- King::calculatePins()
 - AI class
+- Plan of attack
 
 ## Completed Tasks
+- Pieces:
+    - Pawn
+    - Knight
+    - King
 - overloading operator<<
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
 - UML Diagram

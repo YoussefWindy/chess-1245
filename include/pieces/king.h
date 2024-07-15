@@ -9,8 +9,8 @@ class King final: public Piece {
   public:
     King(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
-    int calculateNumPinned(const Board &board) const override;
-    int canCastle() const;
+    void calculatePins(const Board &board);
+    int canCastle() const; // consider removing this may be unnecessary
 };
 
 #endif // KING_H
