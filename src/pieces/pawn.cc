@@ -8,44 +8,24 @@ Pawn::Pawn(bool colour, const Posn &posn): Piece{colour ? 'P' : 'p', colour, pos
 void Pawn::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
     if (board.isPinned(posn)) return;
-    if (colour) { // if white
-        if (!board[{posn.x, posn.y + 1}]) { // if space in front is free
-            legalMoves.emplace_back(posn.x, posn.y + 1); // can move forward one space
-            if (posn.y < HEIGHT - 2 && !hasMoved && !board[{posn.x, posn.y + 2}]) { // if two spaces ahead is free
-                legalMoves.emplace_back(posn.x, 3); // double movement if on starting space
-            }
+    if (!board[{posn.x, posn.y + (colour ? 1 : -1)}]) { // if space in front is free
+        legalMoves.emplace_back(posn.x, posn.y + (colour ? 1 : -1)); // can move forward one space
+        if ((colour ? posn.y < HEIGHT - 2 : posn.y > 1) && !hasMoved && !board[{posn.x, posn.y + (colour ? 2: -2)}]) { // if two spaces ahead is free
+            legalMoves.emplace_back(posn.x, colour ? 3 : HEIGHT - 4); // double movement if on starting space
         }
-        if (posn.x && board[{posn.x - 1, posn.y + 1}]) {
-            if (!board[{posn.x - 1, posn.y + 1}]->getColour()) { // normal capture left
-                legalMoves.emplace_back(posn.x - 1, posn.y + 1); // can capture left
+    }
+    for (int i = 0; i < 2; i++) { // i = 0 looks to the right, i = 1 looks to the left
+        if ((i ? posn.x : posn.x < WIDTH) && board[{posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]) {
+            if (board[{posn.x + (i ? -1 : 1), posn.y + 1}]->getColour() != colour) { // normal capture
+                legalMoves.emplace_back(posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)); // can capture
             } else {
-                board[{posn.x - 1, posn.y + 1}]->protect(); // is protecting left
+                board[{posn.x  + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]->protect(); // is protecting
             }
-        } else if (posn.x && posn.y == HEIGHT - 4 && board[{posn.x - 1, HEIGHT - 4}] && board[{posn.x - 1, HEIGHT - 4}]->getName() == 'p' // en passant left
-          && board.getLastMove() == Move{{posn.x - 1, HEIGHT - 2}, {posn.x - 1, HEIGHT - 4}}) {
-
-        }
-        if (posn.x < WIDTH - 1 && ((!board[{posn.x + 1, posn.y + 1}]->getColour()) // normal capture right
-          || (posn.y == HEIGHT - 4 && board[{posn.x + 1, HEIGHT - 4}]->getName() == 'p' // en passant right
-          && board.getLastMove() == Move{{posn.x + 1, HEIGHT - 2}, {posn.x + 1, HEIGHT - 4}}))) {
-            legalMoves.emplace_back(posn.x + 1, posn.y + 1); // can capture right
-        }
-    } else {
-        if (!board[{posn.x, posn.y - 1}]) { // if black and space in front is free
-            legalMoves.emplace_back(posn.x, posn.y - 1); // can move forward one space
-            if (posn.y > 1 && !hasMoved && !board[{posn.x, posn.y - 2}]) { // if two spaces ahead is free
-                legalMoves.emplace_back(posn.x, HEIGHT - 4); // double movement if on starting space
-            }
-        }
-        if (posn.x && ((!board[{posn.x - 1, posn.y - 1}]->getColour()) // normal capture left
-          || (posn.y == 3 && board[{posn.x - 1, 3}]->getName() == 'P' // en passant left
-          && board.getLastMove() == Move{{posn.x - 1, 1}, {posn.x - 1, 3}}))) {
-            legalMoves.emplace_back(posn.x - 1, posn.y - 1); // can capture left
-        }
-        if (posn.x < WIDTH - 1 && ((!board[{posn.x + 1, posn.y - 1}]->getColour()) // normal capture right
-          || (posn.y == 3 && board[{posn.x + 1, 3}]->getName() == 'P' // en passant right
-          && board.getLastMove() == Move{{posn.x + 1, 1}, {posn.x + 1, 3}}))) {
-            legalMoves.emplace_back(posn.x + 1, posn.y - 1); // can capture right
+        } else if ((i ? posn.x : posn.x < WIDTH) && posn.y == (colour ? HEIGHT - 4 : 3) && // en passant
+            board[{posn.x + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}] &&
+            board[{posn.x + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}]->getName() == (colour ? 'p' : 'P')
+            && board.getLastMove() == Move{{posn.x + (i ? -1 : 1), colour ? HEIGHT - 2 : 1}, {posn.x  + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}}) {
+                legalMoves.emplace_back(posn.x + (i ? -1 : 1), colour ? HEIGHT - 3 : 2);
         }
     }
     if (!legalMoves.empty()) promotable = posn.y == HEIGHT - 2;
