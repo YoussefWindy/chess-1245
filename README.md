@@ -57,7 +57,10 @@ make
 ## Working On
 
 ### Andrew
--
+- Implement individual piece classes (rook, bishop, queen)
+- Board::validate()
+- work on path-checking concept
+- look at Board::addPiece()
 
 ### Grey
 -
@@ -70,6 +73,7 @@ make
 ## Completed Tasks
 - overloading operator<<
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
+- UML Diagram
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
