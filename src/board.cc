@@ -84,16 +84,7 @@ Board::Iterator Board::begin() const {
 Board::Iterator Board::end() const {
 	return {board, false};
 }
-/*
-template <typename T>
-void Board::addPiece(bool colour, const Posn &posn) {
-	board[posn.x][posn.y] = make_shared<T>(colour, posn);
-	(colour ? whitePieces : blackPieces).emplace_back(board[posn.x][posn.y]);
-	if (is_same<T, King>::value) {
-		colour ? whiteKing : blackKing = static_pointer_cast<King>(board[posn.x][posn.y]);
-	}
-}
-*/
+
 void Board::movePiece(Move &&move) {
 	if (!board[move.oldPos.x][move.oldPos.y] || !board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		throw BadMove{move};
@@ -122,18 +113,6 @@ void Board::removePiece(const Posn &posn) {
 	}
 	board[posn.x][posn.y] = emptyptr;
 }
-/*
-template <typename T>
-void Board::promote(bool colour, const Posn &posn) {
-	deadPieces.emplace_back(board[posn.x][posn.y]);
-	for (auto it = (colour ? whitePieces : blackPieces).begin(); i < (colour ? whitePieces : blackPieces).end(); it++) {
-		if (*it->get()->getPosn() == posn) {
-			(colour ? whitePieces : blackPieces).erase(it);
-			break;
-		}
-	}
-	addPiece<T>(colour, {posn.x, posn.y + colour ? 1 : -1});
-}*/
 
 const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
     return board;

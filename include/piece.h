@@ -11,12 +11,13 @@ class Piece {
 	char name;
 	bool colour;
 	Posn posn;
-	std::vector<Posn> legalMoves, path;
-	bool hasMoved, isProtected, hasPathToKing;
+	std::vector<Posn> legalMoves;
+	bool vertical, horizontal, positive, negative;
+	bool hasMoved, isProtected;
   public:
-	Piece(char name, bool colour, const Posn &posn);
+	Piece(char name, bool colour, const Posn &posn, bool vertical = false,
+  	  bool horizontal = false, bool positive = false, bool negative = false);
 	virtual void calculateLegalMoves(const Board &board) = 0;
-	virtual int calculateNumPinned(const Board &board) const = 0;
 	bool canMoveTo(const Posn &posn) const;
 	bool canMove() const;
 
@@ -28,7 +29,6 @@ class Piece {
 	unsigned int getY() const;
 	bool getHasMoved() const;
 	bool getIsProtected() const;
-	bool getHasPathToKing() const;
 
 	// Setters
 	void move(const Posn &posn);

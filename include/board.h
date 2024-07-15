@@ -55,4 +55,6 @@ class Board {
 
 std::ostream& operator<<(std::ostream& out, const Board& board);
 
+#include "board.tpp"
+
 #endif // BOARD_H

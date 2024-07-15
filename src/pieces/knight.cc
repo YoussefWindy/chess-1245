@@ -3,7 +3,8 @@
 #include "../../include/board.h"
 #include "../../include/pieces/knight.h"
 
-Knight::Knight(bool colour, const Posn &posn): Piece{colour ? 'N' : 'n', colour, posn} {}
+Knight::Knight(bool colour, const Posn &posn):
+  Piece{colour ? 'N' : 'n', colour, posn, false, false, false, false} {}
 
 void Knight::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
@@ -24,8 +25,4 @@ void Knight::calculateLegalMoves(const Board &board) {
             } catch (BadPosn &e) {}
         }
     }
-}
-
-int Knight::calculateNumPinned(const Board &board) const {
-    return 0; // knights can't pin lol
 }
