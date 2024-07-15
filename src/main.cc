@@ -21,6 +21,35 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
+template <typename T> void Board::addPiece(bool colour, const Posn &posn) {
+	board[posn.x][posn.y] = make_shared<T>(colour, posn);
+	(colour ? whitePieces : blackPieces).emplace_back(board[posn.x][posn.y]);
+	if (is_same<T, King>::value) {
+		(colour ? whiteKing : blackKing) = static_pointer_cast<King>(board[posn.x][posn.y]);
+	}
+}
+
+template <typename T>
+void Board::promote(bool colour, const Posn &posn) {
+	deadPieces.emplace_back(board[posn.x][posn.y]);
+	if (colour) {
+		for (auto it = whitePieces.begin(); it != whitePieces.end(); it++) {
+			if (it->get()->getPosn() == posn) {
+				whitePieces.erase(it);
+				break;
+			}
+		}
+	} else {
+		for (auto it = blackPieces.begin(); it != blackPieces.end(); it++) {
+			if (it->get()->getPosn() == posn) {
+				blackPieces.erase(it);
+				break;
+			}
+		}
+	}
+	addPiece<T>(colour, {posn.x, posn.y + colour ? 1 : -1});
+}
+
 int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
@@ -101,11 +130,40 @@ int main() {
 				cin >> arg1 >> arg2;
 				try {
 					Posn start{arg1}, end{arg2};
-					board.movePiece({start, end});
+					if (board[start] && (board[start]->getName() == 'P' || board[start]->getName() == 'p')) {
+						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
+						if (tmp->canPromote() && end.y == (start.y + tmp->getColour() ? 1 : -1)) {
+							char piece;
+							cin >> piece;
+							bool white = 'B' <= piece && piece <= 'R';
+							piece -= white ? ('A' - 'a') : 0;
+							switch (piece) {
+								case 'n':
+									board.promote<Knight>(white, tmp->getPosn());
+									break;
+								case 'b':
+									board.promote<Bishop>(white, tmp->getPosn());
+									break;
+								case 'r':
+									board.promote<Rook>(white, tmp->getPosn());
+									break;
+								case 'q':
+									board.promote<Queen>(white, tmp->getPosn());
+									break;
+								default:
+									cerr << "Please input a valid piece type to promote into." << endl;
+									whiteTurn = !whiteTurn;
+							}
+						}
+					} else {
+						board.movePiece({start, end});
+					}
 				} catch (BadPosn &e) {
 					cerr << "Please input valid board coordinates." << endl;
+					continue;
 				} catch (BadMove &e) {
 					cerr << "Please input a valid move action." << endl;
+					continue;
 				}
 			}
 			whiteTurn = !whiteTurn;

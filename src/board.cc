@@ -9,11 +9,12 @@ Board::Board() {
 			board[i][j] = emptyptr;
 		}
 	}
+	whiteKing = blackKing = std::static_pointer_cast<King>(emptyptr);
 	// cout << "Created Board!" << endl;
 }
 
-Board::Board(const Board &other): whitePieces{other.whitePieces},
-  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+Board::Board(const Board &other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces},
+  deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = other.board[i][j];
@@ -21,8 +22,8 @@ Board::Board(const Board &other): whitePieces{other.whitePieces},
 	}
 }
 
-Board::Board(Board &&other): whitePieces{other.whitePieces},
-  blackPieces{other.blackPieces}, deadPieces{other.deadPieces}, log{other.log} {
+Board::Board(Board &&other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces},
+  deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = move(other.board[i][j]);
@@ -35,6 +36,8 @@ void Board::swap(Board &one, Board &two) {
 	std::swap(one.whitePieces, two.whitePieces);
 	std::swap(one.blackPieces, two.blackPieces);
 	std::swap(one.deadPieces, two.deadPieces);
+	std::swap(one.whiteKing, two.whiteKing);
+	std::swap(one.blackKing, two.blackKing);
 	std::swap(one.log, two.log);
 }
 
@@ -84,21 +87,53 @@ Board::Iterator Board::end() const {
 /*
 template <typename T>
 void Board::addPiece(bool colour, const Posn &posn) {
-	board[posn.x][posn.y] = std::make_shared<T>(colour, posn);
+	board[posn.x][posn.y] = make_shared<T>(colour, posn);
+	(colour ? whitePieces : blackPieces).emplace_back(board[posn.x][posn.y]);
+	if (is_same<T, King>::value) {
+		colour ? whiteKing : blackKing = static_pointer_cast<King>(board[posn.x][posn.y]);
+	}
 }
 */
 void Board::movePiece(Move &&move) {
-	if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
+	if (!board[move.oldPos.x][move.oldPos.y] || !board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		throw BadMove{move};
 	}
+	board[move.oldPos.x][move.oldPos.y]->move(move.newPos);
 	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
 	removePiece(move.oldPos);
+	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) {
+		std::shared_ptr<King> tmp = std::static_pointer_cast<King>(board[move.newPos.x][move.newPos.y]);
+		if (tmp->canCastle() && abs(move.oldPos.x - move.newPos.x) > 1) {
+			if (move.oldPos.x < move.newPos.x) {
+				movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}});
+			} else {
+				movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}});
+			}
+		}
+	}
 	log.emplace_back(move);
 }
 
 void Board::removePiece(const Posn &posn) {
+	if (board[posn.x][posn.y] && board[posn.x][posn.y]->getName() == 'K') {
+		whiteKing = std::static_pointer_cast<King>(emptyptr);
+	} else if (board[posn.x][posn.y] && board[posn.x][posn.y]->getName() == 'k') {
+		blackKing = std::static_pointer_cast<King>(emptyptr);
+	}
 	board[posn.x][posn.y] = emptyptr;
 }
+/*
+template <typename T>
+void Board::promote(bool colour, const Posn &posn) {
+	deadPieces.emplace_back(board[posn.x][posn.y]);
+	for (auto it = (colour ? whitePieces : blackPieces).begin(); i < (colour ? whitePieces : blackPieces).end(); it++) {
+		if (*it->get()->getPosn() == posn) {
+			(colour ? whitePieces : blackPieces).erase(it);
+			break;
+		}
+	}
+	addPiece<T>(colour, {posn.x, posn.y + colour ? 1 : -1});
+}*/
 
 const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
     return board;
@@ -148,15 +183,7 @@ bool Board::checkmate(bool colour) const {
 }
 
 bool Board::validate() const {
-	bool white, black;
-	for (std::shared_ptr<Piece> p: *this) {
-		if (p->getName() == 'K') white = true;
-	}
-	if (!white) return false;
-	for (std::shared_ptr<Piece> p: *this) {
-		if (p->getName() == 'k') black = true;
-	}
-	if (!black) return false;
+	if (!whiteKing || !blackKing) return false;
 	// incomplete
 	return true;
 }

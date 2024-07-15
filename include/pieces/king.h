@@ -5,11 +5,12 @@
 #include "../piece.h"
 
 class King final: public Piece {
-    bool hasMoved = false;
+    bool canCastleLeft, canCastleRight;
   public:
     King(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
     int calculateNumPinned(const Board &board) const override;
+    int canCastle() const;
 };
 
 #endif // KING_H
