@@ -47,7 +47,6 @@ make
 - DD1: UML diagram & plan of attack
 - Fix Board::addPiece()
 - Implement individual piece classes
-- Discuss Board Iterators
 - Board::validate()
 - Board::checkmate()
 - Checkmates: consider pins & "rescues"
@@ -58,9 +57,8 @@ make
 
 ### Andrew
 - Implement individual piece classes (rook, bishop, queen)
-- Board::validate()
-- work on path-checking concept
-- look at Board::addPiece()
+- UML Diagram
+- Plan of Attack
 
 ### Grey
 -
