@@ -17,6 +17,7 @@ void Bishop::calculateLegalMoves(const Board &board) {
                 legalMoves.emplace_back(Posn{posn.x + i, posn.y + i});
                 break;
             } else {
+                board[Posn{posn.x + i, posn.y + i}]->protect();
                 break;
             }
         }
@@ -27,6 +28,7 @@ void Bishop::calculateLegalMoves(const Board &board) {
                 legalMoves.emplace_back(Posn{posn.x - i, posn.y - i});
                 break;
             } else {
+                board[Posn{posn.x - i, posn.y - i}]->protect();
                 break;
             }
         }
@@ -39,6 +41,7 @@ void Bishop::calculateLegalMoves(const Board &board) {
                 legalMoves.emplace_back(Posn{posn.x + i, posn.y - i});
                 break;
             } else {
+                board[Posn{posn.x + i, posn.y - i}]->protect();
                 break;
             }
         }
@@ -49,6 +52,7 @@ void Bishop::calculateLegalMoves(const Board &board) {
                 legalMoves.emplace_back(Posn{posn.x - i, posn.y + i});
                 break;
             } else {
+                board[Posn{posn.x - i, posn.y + i}]->protect();
                 break;
             }
         }
