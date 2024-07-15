@@ -14,8 +14,12 @@ void Knight::calculateLegalMoves(const Board &board) {
             unsigned int y = posn.y + i % 2 ? i > 1 ? -2 : 2 : j ? -1 : 1;
             try {
                 Posn p{x, y};
-                if (board[p] && board[p]->getColour() != colour) {
-                    legalMoves.emplace_back(p);
+                if (board[p]) {
+                    if (board[p]->getColour() != colour) {
+                        legalMoves.emplace_back(p);
+                    } else {
+                        board[p]->protect();
+                    }
                 }
             } catch (BadPosn &e) {}
         }
@@ -23,5 +27,5 @@ void Knight::calculateLegalMoves(const Board &board) {
 }
 
 int Knight::calculateNumPinned(const Board &board) const {
-    return 0;
+    return 0; // knights can't pin lol
 }

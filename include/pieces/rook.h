@@ -5,7 +5,6 @@
 #include "../piece.h"
 
 class Rook final: public Piece {
-    bool hasMoved = false;
   public:
     Rook(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
