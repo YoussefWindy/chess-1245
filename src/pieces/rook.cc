@@ -11,7 +11,7 @@ void Rook::calculateLegalMoves(const Board &board) {
     if (board.isPinned(posn)) return;
     if (vertical) {
         for (int i = 1; posn.y + i < 8; i++) {
-            if (board[Posn{posn.x, posn.y + i]]) {
+            if (board[Posn{posn.x, posn.y + i}]) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y + i});
             } else if (board[Posn{posn.x, posn.y + i}]->getColour() != colour) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y + i});
