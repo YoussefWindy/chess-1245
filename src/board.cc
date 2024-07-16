@@ -150,7 +150,6 @@ void Board::movePiece(Move &&move) {
 	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y]; // move the piece
 	removePiece(move.oldPos);
 	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) { // check for castling
-		std::shared_ptr<King> tmp = board[move.newPos.x][move.newPos.y]->getColour() ? whiteKing : blackKing;
 		if (move.newPos.x - move.oldPos.x > 1) { // castling right
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
@@ -174,10 +173,6 @@ void Board::removePiece(const Posn &posn) {
 	}
 	board[posn.x][posn.y] = emptyptr;
 }
-
-// const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
-//     return board;
-// }
 
 const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
 	return board[posn.x][posn.y];

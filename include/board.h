@@ -51,7 +51,6 @@ class Board {
 	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
 
 	// Getter methods
-	// const std::shared_ptr<Piece> (&getBoard() const)[HEIGHT][WIDTH]; //  we'll see if we need this or not, the below fn kind of makes it obsolete
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
 	Move getLastMove() const;
 
