@@ -242,6 +242,7 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c << ' ';
 	}
+	out << std::endl;
 	return out;
 }
 
