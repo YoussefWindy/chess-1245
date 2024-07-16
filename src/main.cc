@@ -25,7 +25,7 @@ int main() {
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
 	bool text, graphics;
 	Board board, defaultBoard;
-	AI *whiteAI, *blackAI;
+	unique_ptr<AI> whiteAI, blackAI;
 	// Andrew: declare graphical display
 	// Initial default board
 	// White pieces
@@ -89,11 +89,12 @@ int main() {
 			int p1 = parsePlayer(arg1);
 			int p2 = parsePlayer(arg2);
 			if (p1 < 0 || p2 < 0) continue;
-			whiteAI = p1 ? new AI{board, true, p1} : nullptr;
-			blackAI = p2 ? new AI{board, false, p2} : nullptr;
+			whiteAI = p1 ? make_unique<AI>(board, true, p1) : nullptr;
+			blackAI = p2 ? make_unique<AI>(board, false, p2) : nullptr;
 			board = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
+			board.runCalculations(whiteTurn);
 			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
