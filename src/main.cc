@@ -4,8 +4,6 @@
 
 using namespace std;
 
-Board defaultBoard;
-
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
 	else if (s == "computer[1]") return 1;
@@ -25,9 +23,10 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
-	Board board;
-	AI *whiteAI, *blackAI;
-
+	bool text, graphics;
+	Board board, defaultBoard;
+	unique_ptr<AI> whiteAI, blackAI;
+	// Andrew: declare graphical display
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {0, 0});
@@ -38,7 +37,6 @@ int main() {
 	defaultBoard.addPiece<Bishop>(true, {0, 5});
 	defaultBoard.addPiece<Knight>(true, {0, 6});
 	defaultBoard.addPiece<Rook>(true, {0, 7});
-
 	// Black pieces
 	defaultBoard.addPiece<Rook>(false, {7, 0});
 	defaultBoard.addPiece<Knight>(false, {7, 1});
@@ -48,45 +46,63 @@ int main() {
 	defaultBoard.addPiece<Bishop>(false, {7, 5});
 	defaultBoard.addPiece<Knight>(false, {7, 6});
 	defaultBoard.addPiece<Rook>(false, {7, 7});
-
-	cout << board << endl << endl;
-
-	board.movePiece({{6, 4}, {4, 4}});
-
-	cout << board << endl << endl;
-
-	board.movePiece({{7, 7}, {6, 7}});
-
-	cout << board << endl;
-  
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		defaultBoard.addPiece<Pawn>(true, {1, i});
 		defaultBoard.addPiece<Pawn>(false, {6, i});
 	}
-
+	cout << "Would you like to use a text-based display a graphical display, or both? (t/g/b): ";
+	while (cin >> arg1) {
+		if (arg1 == "t" || arg1 == "T") {
+			text = true;
+			graphics = false;
+			cout << "Text-based display selected." << endl << defaultBoard << endl;
+			break;
+		} else if (arg1 == "g" || arg1 == "G") {
+			text = false;
+			graphics = true;
+			cout << "Graphical display selected." << endl;
+			// Andrew: initialize graphical display
+			break;
+		} else if (arg1 == "b" || arg1 == "B") {
+			text = graphics = true;
+			cout << "Both displays selected." << endl << defaultBoard << endl;
+			// Andrew: initialize graphical display
+			break;
+		}
+		cout << endl << "Please input \"t\" or \"g\"." << endl;
+	}
 	while (cin >> command) {
-		cout << board << endl;
-
+		if (gameActive) {
+			if (text) cout << board << endl;
+			if (graphics) {
+				// Andrew: update graphical display
+			}
+		}
+		cout << "Command: ";
 		if (command == "game") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
 			cin >> arg1 >> arg2;
-			int p1 = parsePlayer(arg1), p2 = parsePlayer(arg2);
+			int p1 = parsePlayer(arg1);
+			int p2 = parsePlayer(arg2);
 			if (p1 < 0 || p2 < 0) continue;
-			whiteAI = p1 ? new AI{board, true, p1} : nullptr;
-			blackAI = p2 ? new AI{board, false, p2} : nullptr;
+			whiteAI = p1 ? make_unique<AI>(board, true, p1) : nullptr;
+			blackAI = p2 ? make_unique<AI>(board, false, p2) : nullptr;
 			board = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
+			board.runCalculations(whiteTurn);
+			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl;
 				continue;
 			}
-			// stuff
+			(!whiteTurn ? whiteWins : blackWins) += 1;
+			cout << (!whiteTurn ? "White" : "Black") << " wins!" << endl;
 			gameActive = false;
 		} else if (command == "move") {
 			if (!gameActive) {
@@ -103,7 +119,7 @@ int main() {
 					Posn start{arg1}, end{arg2};
 					if (board[start] && (board[start]->getName() == 'P' || board[start]->getName() == 'p')) {
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
-						if (tmp->canPromote() && end.y == (start.y + tmp->getColour() ? 1 : -1)) {
+						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
@@ -125,6 +141,8 @@ int main() {
 									cerr << "Please input a valid piece type to promote into." << endl;
 									whiteTurn = !whiteTurn;
 							}
+						} else {
+							board.movePiece({start, end});
 						}
 					} else {
 						board.movePiece({start, end});
@@ -137,24 +155,36 @@ int main() {
 					continue;
 				}
 			}
+			switch (board.runCalculations(whiteTurn)) {
+				case 0:
+					whiteWins += 0.5;
+					blackWins += 0.5;
+					gameActive = false;
+					cout << "Stalemate!" << endl;
+					break;
+				case 1:
+					cout << (whiteTurn ? "White" : "Black") << " is in check." << endl;
+					break;
+				case 2:
+					(whiteTurn ? whiteWins : blackWins) += 1;
+					gameActive = false;
+					cout << "Checkmate! " << (whiteTurn ? "White" : "Black") << " wins!" << endl;
+					break;
+			}
 			whiteTurn = !whiteTurn;
 		} else if (command == "undo") {
 			int num = 0;
 			if (!(cin >> num)) continue;
-			bool confirm = false;
 			while (cin >> arg1) {
 				cout << "Are you SURE you want to undo "
 					<< num << " moves? (y/n): ";
 				if (arg1 == "y" || arg1 == "Y") {
-					confirm = true;
+					whiteTurn = board.undoMoves(num) ? num % 2 ? !whiteTurn : whiteTurn : defaultWhiteTurn;
 					break;
 				} else if (arg1 == "n" || arg1 == "N") {
 					break;
 				}
 				cout << endl << "Please input \"y\" or \"n\"." << endl;
-			}
-			if (confirm) {
-				board.undoMoves(num);
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
@@ -190,8 +220,15 @@ int main() {
 								board.addPiece<Queen>(white, p);
 								break;
 							case 'k':
-								board.addPiece<King>(white, p);
-								break;
+								if (board.hasKing(white)) {
+									cerr << "There cannot be two " << (white ? "white" : "black")
+										 << " kings on the board at once!!" << endl;
+								} else {
+									board.addPiece<King>(white, p);
+									break;
+								}
+							default:
+								cerr << "Please input a valid piece type." << endl;
 						}
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
@@ -200,19 +237,20 @@ int main() {
 					cout << defaultBoard << endl;
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
-					Posn p{arg1};
-					if (!p.validate()) {
+					try {
+						Posn p{arg1};
+						defaultBoard.removePiece(p);
+						cout << defaultBoard << endl;
+					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 						continue;
 					}
-					defaultBoard.removePiece(p);
-					cout << defaultBoard << endl;
 				} else if (command == "=") { // change default starting colour
 					cin >> arg1;
-					if (arg1 == "white") {
+					if (arg1 == "white" || arg1 == "w") {
 						defaultWhiteTurn = true;
 						cout << "White will now have the first turn." << endl;
-					} else if (arg1 == "black") {
+					} else if (arg1 == "black" || arg1 == "b") {
 						defaultWhiteTurn = false;
 						cout << "Black will now have the first turn." << endl;
 					} else {
@@ -230,8 +268,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 	} // while
-
-	cout << "Final Score:" << endl
+	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
 	return 0;

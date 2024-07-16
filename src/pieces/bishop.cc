@@ -8,7 +8,6 @@ Bishop::Bishop(bool colour, const Posn &posn):
 
 void Bishop::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (board.isPinned(posn)) return;
     if (positive) {
         for (int i = 1; posn.x + i < 8 && posn.y + i < 8; i++) {
             if (board[Posn{posn.x + i, posn.y + i}]) {
@@ -57,6 +56,5 @@ void Bishop::calculateLegalMoves(const Board &board) {
             }
         }
     }
-    positive = true; 
-    negative = true;
+    positive = negative = true;
 }

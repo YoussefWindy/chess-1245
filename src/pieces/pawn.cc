@@ -3,12 +3,11 @@
 #include "../../include/board.h"
 #include "../../include/pieces/pawn.h"
 
-Pawn::Pawn(bool colour, const Posn &posn): promotable{false},
-  Piece{colour ? 'P' : 'p', colour, posn, true, false, true, true} {}
+Pawn::Pawn(bool colour, const Posn &posn):
+  Piece{colour ? 'P' : 'p', colour, posn, true, false, true, true}, promotable{false} {}
 
 void Pawn::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (board.isPinned(posn)) return;
     if (vertical && !board[{posn.x, posn.y + (colour ? 1 : -1)}]) { // if space in front is free
         legalMoves.emplace_back(posn.x, posn.y + (colour ? 1 : -1)); // can move forward one space
         if ((colour ? posn.y < HEIGHT - 2 : posn.y > 1) && !hasMoved && !board[{posn.x, posn.y + (colour ? 2: -2)}]) { // if two spaces ahead is free
@@ -31,6 +30,7 @@ void Pawn::calculateLegalMoves(const Board &board) {
         }
     }
     if (!legalMoves.empty()) promotable = posn.y == HEIGHT - 2;
+    vertical = positive = negative = true;
 }
 
 bool Pawn::canPromote() const {

@@ -8,10 +8,9 @@ Rook::Rook(bool colour, const Posn &posn):
 
 void Rook::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (board.isPinned(posn)) return;
     if (vertical) {
         for (int i = 1; posn.y + i < 8; i++) {
-            if (board[Posn{posn.x, posn.y + i}]) {
+            if (board[{posn.x, posn.y + i}]) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y + i});
             } else if (board[Posn{posn.x, posn.y + i}]->getColour() != colour) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y + i});
@@ -22,7 +21,7 @@ void Rook::calculateLegalMoves(const Board &board) {
             }
         }
         for (int i = 1; posn.y - i >= 0; i++) {
-            if (board[Posn{posn.x, posn.y - i}]) {
+            if (board[{posn.x, posn.y - i}]) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y - i});
             } else if (board[Posn{posn.x, posn.y - i}]->getColour() != colour) {
                 legalMoves.emplace_back(Posn{posn.x, posn.y - i});
@@ -35,7 +34,7 @@ void Rook::calculateLegalMoves(const Board &board) {
     }
     if (horizontal) {
         for (int i = 1; posn.x + i < 8; i++) {
-            if (board[Posn{posn.x + i, posn.y}]) {
+            if (board[{posn.x + i, posn.y}]) {
                 legalMoves.emplace_back(Posn{posn.x + i, posn.y});
             } else if (board[Posn{posn.x + i, posn.y}]->getColour() != colour) {
                 legalMoves.emplace_back(Posn{posn.x + i, posn.y});
@@ -46,7 +45,7 @@ void Rook::calculateLegalMoves(const Board &board) {
             }
         }
         for (int i = 1; posn.x - i >= 0; i++) {
-            if (board[Posn{posn.x - i, posn.y}]) {
+            if (board[{posn.x - i, posn.y}]) {
                 legalMoves.emplace_back(Posn{posn.x - i, posn.y});
             } else if (board[Posn{posn.x - i, posn.y}]->getColour() != colour) {
                 legalMoves.emplace_back(Posn{posn.x - i, posn.y});
@@ -57,6 +56,5 @@ void Rook::calculateLegalMoves(const Board &board) {
             }
         }
     }
-    vertical = true;
-    horizontal = true;
+    vertical = horizontal = true;
 }

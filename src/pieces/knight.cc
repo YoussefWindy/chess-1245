@@ -4,11 +4,14 @@
 #include "../../include/pieces/knight.h"
 
 Knight::Knight(bool colour, const Posn &posn):
-  Piece{colour ? 'N' : 'n', colour, posn, false, false, false, false} {}
+  Piece{colour ? 'N' : 'n', colour, posn, true, false, false, false} {}
 
 void Knight::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (board.isPinned(posn)) return;
+    if (!vertical) {
+        vertical = true;
+        return;
+    }
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 2; j++) {
             unsigned int x = posn.x + !(i % 2) ? i ? -2 : 2 : j ? -1 : 1;
@@ -25,4 +28,8 @@ void Knight::calculateLegalMoves(const Board &board) {
             } catch (BadPosn &e) {}
         }
     }
+}
+
+void Knight::pin(bool these, bool params, bool dont, bool matter) {
+    vertical = false;
 }

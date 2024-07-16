@@ -50,27 +50,24 @@ make
 ## Working On
 
 ### Andrew
-- Implement individual piece classes (rook, bishop, queen)
+- XWindow
 
 ### Grey
 - Board::validate()
 - Board::checkmate()
-- Plan of attack
 
 ### Youssef
 - main.cc user interface in text-based display and input from cin
-- King::calculatePins()
 - AI class
-- Plan of attack
 
 ## Completed Tasks
-- Pieces:
-    - Pawn
-    - Knight
-    - King
-- overloading operator<<
+- All the pieces! 🥳
+- Utilities:
+    - Posn & BadPosn
+    - Move & BadMove
+- Plan of attack (DD1)
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
-- UML Diagram
+- UML Diagram (DD1)
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch

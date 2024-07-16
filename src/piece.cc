@@ -63,6 +63,13 @@ void Piece::setY(unsigned int posY) {
 	this->posn.y = posY;
 }
 
+void Piece::pin(bool vertical, bool horizontal, bool positive, bool negative) {
+	if (this->vertical) this->vertical = vertical;
+	if (this->horizontal) this->horizontal = horizontal;
+	if (this->positive) this->positive = positive;
+	if (this->negative) this->negative = negative;
+}
+
 void Piece::protect(bool isProtected) {
 	this->isProtected = isProtected;
 }
