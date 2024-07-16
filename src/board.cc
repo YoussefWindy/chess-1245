@@ -56,15 +56,40 @@ Board::~Board() {
 	// cout << "Destroyed Board!" << endl;
 }
 
+bool Board::inCheck(const Posn &posn, bool colour) const {
+	for (auto piece: !colour ? whitePieces : blackPieces) {
+		if (piece->canMoveTo(posn)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Board::checkmate(bool colour) const {
+	if ((colour ? whiteKing : blackKing)->canMove()) return false;
+	// incomplete
+	return true;
+}
+
+bool Board::stalemate(bool colour) const {
+	// Invariant: this method should only ever be called if colour isn't in check, so we won't check for that
+	for (auto piece: colour ? whitePieces : blackPieces) {
+		if (piece->canMove()) {
+			return false;
+		}
+	}
+	return true;
+}
+
 Board::Iterator::Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
-  i{begin ? 0 : 8}, j{0}, board{board} {}
+  i{begin ? 0 : WIDTH}, j{0}, board{board} {}
 
 std::shared_ptr<Piece> Board::Iterator::operator*() const {
 	return board[i][j];
 }
 
 Board::Iterator& Board::Iterator::operator++() {
-	if (j == 7) {
+	if (j == HEIGHT - 1) {
 		i++;
 		j = 0;
 	} else {
@@ -85,38 +110,74 @@ Board::Iterator Board::end() const {
 	return {board, false};
 }
 
-void Board::movePiece(Move &&move) {
-	if (!board[move.oldPos.x][move.oldPos.y] || !board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-		throw BadMove{move};
-	}
-	board[move.oldPos.x][move.oldPos.y]->move(move.newPos);
-	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y];
-	removePiece(move.oldPos);
-	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) {
-		std::shared_ptr<King> tmp = std::static_pointer_cast<King>(board[move.newPos.x][move.newPos.y]);
-		if (tmp->canCastle() && abs(move.oldPos.x - move.newPos.x) > 1) {
-			if (move.oldPos.x < move.newPos.x) {
-				movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}});
-			} else {
-				movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}});
-			}
+int Board::runCalculations(bool colour) {
+	whiteKing->calculatePins(*this);
+	blackKing->calculatePins(*this);
+	for (auto p: whitePieces) {
+		if (p->getName() != 'K') {
+			p->calculateLegalMoves(*this);
 		}
 	}
-	log.emplace_back(move);
+	for (auto p: blackPieces) {
+		if (p->getName() != 'k') {
+			p->calculateLegalMoves(*this);
+		}
+	}
+	whiteKing->calculateLegalMoves(*this);
+	blackKing->calculateLegalMoves(*this);
+	if (inCheck((colour ? whiteKing : blackKing)->getPosn(), colour)) {
+		if (checkmate(colour)) {
+			return 2; // checkmate
+		} else {
+			return 1; // check
+		}
+	} else if (stalemate(colour)) {
+		return 0; // stalemate
+	} else {
+		return -1; // nothing
+	}
+}
+
+void Board::movePiece(Move &&move) {
+	if (!(board[move.oldPos.x][move.oldPos.y] && board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos))) {
+		throw BadMove{move};
+	}
+	if (board[move.newPos.x][move.newPos.y]) { // if a capture is taking place
+		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
+		removePiece(move.newPos);
+	}
+	board[move.oldPos.x][move.oldPos.y]->move(move.newPos); // update the piece's internal posn
+	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y]; // move the piece
+	removePiece(move.oldPos);
+	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) { // check for castling
+		std::shared_ptr<King> tmp = board[move.newPos.x][move.newPos.y]->getColour() ? whiteKing : blackKing;
+		if (move.newPos.x - move.oldPos.x > 1) { // castling right
+			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
+		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
+			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
+		}
+	}
+	log.emplace_back(move); // log move
 }
 
 void Board::removePiece(const Posn &posn) {
-	if (board[posn.x][posn.y] && board[posn.x][posn.y]->getName() == 'K') {
-		whiteKing = std::static_pointer_cast<King>(emptyptr);
-	} else if (board[posn.x][posn.y] && board[posn.x][posn.y]->getName() == 'k') {
-		blackKing = std::static_pointer_cast<King>(emptyptr);
+	if (!board[posn.x][posn.y]) return;
+	bool colour = board[posn.x][posn.y]->getColour();
+	if (board[posn.x][posn.y]->getName() == (colour ? 'K' : 'k')) {
+		colour ? whiteKing : blackKing = std::static_pointer_cast<King>(emptyptr);
+	}
+	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
+		if (it->get()->getPosn() == posn) {
+			(colour ? whitePieces : blackPieces).erase(it);
+			break;
+		}
 	}
 	board[posn.x][posn.y] = emptyptr;
 }
 
-const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
-    return board;
-}
+// const std::shared_ptr<Piece> (&Board::getBoard() const)[HEIGHT][WIDTH] {
+//     return board;
+// }
 
 const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
 	return board[posn.x][posn.y];
@@ -126,39 +187,38 @@ Move Board::getLastMove() const {
 	return log.back();
 }
 
-void Board::undoMoves(int x) {
+bool Board::undoMoves(int x) {
 	for (int i = 0; i < x; i++) {
-		if (log.empty()) break;
+		if (log.empty()) return false;
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
 		removePiece(log.back().newPos);
+		if (deadPieces.back()->getPosn() == log.back().newPos) {
+			switch (deadPieces.back()->getName()) {
+				case 'p':
+					addPiece<Pawn>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+				case 'n':
+					addPiece<Knight>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+				case 'b':
+					addPiece<Bishop>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+				case 'r':
+					addPiece<Rook>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+				case 'q':
+					addPiece<Queen>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+				case 'k':
+					addPiece<King>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
+					break;
+			}
+			(deadPieces.back()->getColour() ? whitePieces : blackPieces).emplace_back(deadPieces.back());
+			deadPieces.pop_back();
+		}
 		log.pop_back();
 	}
-}
-
-bool Board::isPinned(const Posn &posn) const {
-	for (auto p: board[posn.x][posn.y]->getColour() ? whitePieces : blackPieces) {
-		if (p->calculateNumPinned(*this) == 1) return true;
-	}
-	return false;
-}
-
-bool Board::inCheck(const Posn &posn, bool colour) const {
-	for (auto piece: !colour ? whitePieces : blackPieces) {
-		if (piece->canMoveTo(posn)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-bool Board::checkmate(bool colour) const {
-	for (auto piece: colour ? whitePieces : blackPieces) {
-		if (piece->getName() == colour ? "K" : "k") {
-			return !piece->canMove();
-		}
-	}
-	// incomplete
-	return false;
+	return true;
 }
 
 bool Board::validate() const {
@@ -167,42 +227,38 @@ bool Board::validate() const {
 	return true;
 }
 
+bool Board::hasKing(bool colour) const {
+	return (colour ? whiteKing : blackKing) ? true : false;
+}
+
 std::ostream& operator<<(std::ostream& out, const Board& board) {
-	// Iterate over the board
-	for (unsigned int row = 0; row < HEIGHT; row++) {
-		// Row number
-		out << (HEIGHT - row) << ' ';
+	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
+		out << (HEIGHT - row) << "  "; // Row number
 		for (unsigned int col = 0; col < WIDTH; col++) {
-			// Get copy of piece data
-			std::shared_ptr<Piece> piece = board[{HEIGHT - row - 1, col}];
-			if (piece) {
-				out << piece->getName();
-			} else {
-				if ((row + col) % 2) {
-				out << '_';
-				} else {
-				out << ' ';
-				}
+			if (board[{HEIGHT - row - 1, col}]) { // if there's a piece there
+				out << board[{HEIGHT - row - 1, col}]->getName() << ((row + col) % 2 ? '_' : ' ');
+			} else { // if it's a blank space
+				out << ((row + col) % 2 ? "__" : "  ");
 			}
 		}
-		out << std::endl;
+		out << std::endl << std::endl;
 	}
 	out << "  ";
 	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
-		out << c;
+		out << c << ' ';
 	}
 	return out;
 }
 
 /*
-	8 _ _n_ _ 
-	7 _ _ _ _ 
-	6 _ _ _ _ 
-	5 _ _ _ _ 
-	4 _ _ _ _ 
-	3 _ _ _ _ 
-	2 _ _ _ _ 
-	1 b _ _ _ 
+	8   __  __n __  __
+	7 __  __  __  __  
+	6   __  __  __  __
+	5 __  __  __  __  
+	4   __  __  __  __
+	3 __  __  __  __  
+	2   __  __  __  __
+	1 __b __  __  __  
 
-	abcdefgh
+	  a b c d e f g h
 */

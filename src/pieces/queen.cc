@@ -8,7 +8,6 @@ Queen::Queen(bool colour, const Posn &posn):
 
 void Queen::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (board.isPinned(posn)) return;
     if (vertical) {
         for (int i = 1; posn.y + i < 8; i++) {
             if (board[Posn{posn.x, posn.y + i}]) {
@@ -97,8 +96,5 @@ void Queen::calculateLegalMoves(const Board &board) {
             }
         }
     }
-    vertical = true;
-    horizontal = true;
-    positive = true;
-    negative = true;
+    vertical = horizontal = positive = negative = true;
 }

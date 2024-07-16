@@ -35,6 +35,7 @@ class Piece {
 	void setName(char value);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
+	void pin(bool vertical, bool horizontal, bool positive, bool negative);
 	void protect(bool isProtected = true);
 };
 

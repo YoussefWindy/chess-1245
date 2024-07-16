@@ -5,10 +5,16 @@
 #include "pieces.h"
 
 class Board {
+	friend class King;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
+
+	// Checking for check and checkmate
+	bool inCheck(const Posn &posn, bool colour) const;
+	bool checkmate(bool colour) const; // needs work
+	bool stalemate(bool colour) const;
   public:
 	Board();
 	Board(const Board &);
@@ -20,7 +26,7 @@ class Board {
 
 	class Iterator {
 		friend class Board;
-		int i, j;
+		unsigned int i, j;
 		const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT];
 		Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin);
 	  public:
@@ -32,6 +38,9 @@ class Board {
 	Iterator begin() const;
 	Iterator end() const;
 
+	// THE BIG BOY METHOD - handles all end of turn calculations
+	int runCalculations(bool colour);
+
 	// Piece methods
 	template <typename T>
 	void addPiece(bool colour, const Posn &posn);
@@ -39,18 +48,16 @@ class Board {
 	void removePiece(const Posn &posn);
 	template <typename T>
 	void promote(bool colour, const Posn &posn);
+	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
 
-	// Getter/Checker methods
-	const std::shared_ptr<Piece> (&getBoard() const)[HEIGHT][WIDTH]; //  we'll see if we need this or not, the below fn kind of make it obsolete
+	// Getter methods
+	// const std::shared_ptr<Piece> (&getBoard() const)[HEIGHT][WIDTH]; //  we'll see if we need this or not, the below fn kind of makes it obsolete
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
 	Move getLastMove() const;
-	void undoMoves(int num);
 
-	bool isPinned(const Posn &posn) const;
-	bool inCheck(const Posn &posn, bool colour) const;
-	bool checkmate(bool colour) const; // needs work
-	// discuss above two methods
+	// Other checking methods
 	bool validate() const; // needs work
+	bool hasKing(bool colour) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);
