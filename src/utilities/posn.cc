@@ -17,7 +17,7 @@ Posn::Posn(const std::string &pos) {
 }
 
 bool Posn::validate() const {
-	return 0 <= x && x < WIDTH  && 0 <= y && y < HEIGHT;
+	return 0 <= x && x < WIDTH && 0 <= y && y < HEIGHT;
 }
 
 bool Posn::operator==(const Posn &other) const {

@@ -29,3 +29,7 @@ void Knight::calculateLegalMoves(const Board &board) {
         }
     }
 }
+
+void Knight::pin(bool these, bool params, bool dont, bool matter) {
+    vertical = false;
+}
