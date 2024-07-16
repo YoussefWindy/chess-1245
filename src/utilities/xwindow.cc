@@ -88,4 +88,7 @@ void XWindow::drawBoard() {
     }
 
     XFlush(d);
+
+    // Clean up
+    XFreeFont(d, font_info);
 }
