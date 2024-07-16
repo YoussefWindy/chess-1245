@@ -12,26 +12,27 @@ BINDIR := bin
 
 # Files
 SOURCES := $(wildcard $(SRCDIR)/**/*.cc $(SRCDIR)/*.cc)
-INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/*.h)# $(INCDIR)/*.tpp)
-OBJECTS := $(patsubst $(SRCDIR)/**/%.cc,$(OBJDIR)/%.o,$(SOURCES))
-EXECUTABLE := $(BINDIR)/chess
+INCLUDE := $(wildcard $(INCDIR)/**/*.h $(INCDIR)/*.h $(INCDIR)/*.tpp)
+OBJECTS := $(patsubst $(SRCDIR)/%.cc, $(OBJDIR)/%.o, $(SOURCES))
+DEPENDS := $(patsubst $(OBJDIR)/%.o, $(OBJDIR)/%.d, $(SOURCES))
+EXEC := $(BINDIR)/chess
 
-# Targets
-all: $(EXECUTABLE)
+.PHONY: clean
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc | $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
+all: $(EXEC)
+
+$(EXEC): $(OBJECTS) | $(BINDIR)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
-$(EXECUTABLE): $(OBJECTS) | $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
-
 $(BINDIR):
 	mkdir -p $(BINDIR)
 
-clean:
-	rm -rf $(OBJDIR) $(BINDIR)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cc | $(OBJDIR)
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
-.PHONY: all clean
+clean:
+	rm -rf $(DEPDIR) $(OBJDIR) $(BINDIR)

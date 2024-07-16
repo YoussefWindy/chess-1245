@@ -4,8 +4,6 @@
 
 using namespace std;
 
-Board defaultBoard;
-
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
 	else if (s == "computer[1]") return 1;
@@ -24,10 +22,11 @@ bool verifyPiece(char c) {
 int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
-	bool gameActive = false, defaultWhiteTurn = true, whiteTurn, graphics;
-	Board board;
+	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
+	bool text, graphics;
+	Board board, defaultBoard;
 	AI *whiteAI, *blackAI;
-
+	// Andrew: declare graphical display
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {0, 0});
@@ -38,7 +37,6 @@ int main() {
 	defaultBoard.addPiece<Bishop>(true, {0, 5});
 	defaultBoard.addPiece<Knight>(true, {0, 6});
 	defaultBoard.addPiece<Rook>(true, {0, 7});
-
 	// Black pieces
 	defaultBoard.addPiece<Rook>(false, {7, 0});
 	defaultBoard.addPiece<Knight>(false, {7, 1});
@@ -48,44 +46,40 @@ int main() {
 	defaultBoard.addPiece<Bishop>(false, {7, 5});
 	defaultBoard.addPiece<Knight>(false, {7, 6});
 	defaultBoard.addPiece<Rook>(false, {7, 7});
-
-	cout << board << endl << endl;
-
-	board.movePiece({{6, 4}, {4, 4}});
-
-	cout << board << endl << endl;
-
-	board.movePiece({{7, 7}, {6, 7}});
-
-	cout << board << endl;
-  
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		defaultBoard.addPiece<Pawn>(true, {1, i});
 		defaultBoard.addPiece<Pawn>(false, {6, i});
 	}
-
-	cout << "Would you like to use a text-based display or a graphical display? (t/g): ";
+	cout << "Would you like to use a text-based display a graphical display, or both? (t/g/b): ";
 	while (cin >> arg1) {
-		if (arg1 == "t" || arg1 == "G") {
+		if (arg1 == "t" || arg1 == "T") {
+			text = true;
 			graphics = false;
+			cout << "Text-based display selected." << endl << defaultBoard << endl;
 			break;
 		} else if (arg1 == "g" || arg1 == "G") {
+			text = false;
 			graphics = true;
+			cout << "Graphical display selected." << endl;
+			// Andrew: initialize graphical display
+			break;
+		} else if (arg1 == "b" || arg1 == "B") {
+			text = graphics = true;
+			cout << "Both displays selected." << endl << defaultBoard << endl;
+			// Andrew: initialize graphical display
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;
 	}
-
 	while (cin >> command) {
 		if (gameActive) {
+			if (text) cout << board << endl;
 			if (graphics) {
-				// Andrew, this space is for you
-			} else {
-				cout << board << endl;
+				// Andrew: update graphical display
 			}
 		}
-
+		cout << "Command: ";
 		if (command == "game") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl;
@@ -100,6 +94,7 @@ int main() {
 			board = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
+			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl;
@@ -241,19 +236,20 @@ int main() {
 					cout << defaultBoard << endl;
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
-					Posn p{arg1};
-					if (!p.validate()) {
+					try {
+						Posn p{arg1};
+						defaultBoard.removePiece(p);
+						cout << defaultBoard << endl;
+					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 						continue;
 					}
-					defaultBoard.removePiece(p);
-					cout << defaultBoard << endl;
 				} else if (command == "=") { // change default starting colour
 					cin >> arg1;
-					if (arg1 == "white") {
+					if (arg1 == "white" || arg1 == "w") {
 						defaultWhiteTurn = true;
 						cout << "White will now have the first turn." << endl;
-					} else if (arg1 == "black") {
+					} else if (arg1 == "black" || arg1 == "b") {
 						defaultWhiteTurn = false;
 						cout << "Black will now have the first turn." << endl;
 					} else {
@@ -271,8 +267,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 	} // while
-
-	cout << "Final Score:" << endl
+	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
 	return 0;
