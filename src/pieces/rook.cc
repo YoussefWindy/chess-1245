@@ -8,51 +8,27 @@ Rook::Rook(bool colour, const Posn &posn):
 
 void Rook::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    if (vertical) {
-        for (int i = 1; posn.y + i < 8; i++) {
-            if (board[{posn.x, posn.y + i}]) {
-                legalMoves.emplace_back(Posn{posn.x, posn.y + i});
-            } else if (board[Posn{posn.x, posn.y + i}]->getColour() != colour) {
-                legalMoves.emplace_back(Posn{posn.x, posn.y + i});
-                break;
-            } else {
-                board[Posn{posn.x, posn.y + i}]->protect();
-                break;
-            }
-        }
-        for (int i = 1; posn.y - i >= 0; i++) {
-            if (board[{posn.x, posn.y - i}]) {
-                legalMoves.emplace_back(Posn{posn.x, posn.y - i});
-            } else if (board[Posn{posn.x, posn.y - i}]->getColour() != colour) {
-                legalMoves.emplace_back(Posn{posn.x, posn.y - i});
-                break;
-            } else {
-                board[Posn{posn.x, posn.y - i}]->protect();
-                break;
-            }
-        }
-    }
-    if (horizontal) {
-        for (int i = 1; posn.x + i < 8; i++) {
-            if (board[{posn.x + i, posn.y}]) {
-                legalMoves.emplace_back(Posn{posn.x + i, posn.y});
-            } else if (board[Posn{posn.x + i, posn.y}]->getColour() != colour) {
-                legalMoves.emplace_back(Posn{posn.x + i, posn.y});
-                break;
-            } else {
-                board[Posn{posn.x + i, posn.y}]->protect();
-                break;
-            }
-        }
-        for (int i = 1; posn.x - i >= 0; i++) {
-            if (board[{posn.x - i, posn.y}]) {
-                legalMoves.emplace_back(Posn{posn.x - i, posn.y});
-            } else if (board[Posn{posn.x - i, posn.y}]->getColour() != colour) {
-                legalMoves.emplace_back(Posn{posn.x - i, posn.y});
-                break;
-            } else {
-                board[Posn{posn.x - i, posn.y}]->protect();
-                break;
+    for (int i = -1; i < 2; ++i) {
+        for (int j = -1; j < 2; ++j) {
+            if (i == 0 && j == 0) continue;
+            if (i && j) continue;
+            if (!vertical && i) continue;
+            if (!horizontal && j) continue;
+            for (int k = 1; k < 8; ++k) {
+                try {
+                    Posn p{posn.x + i * k, posn.y + j * k};
+                    if (!board[p]) {
+                        legalMoves.emplace_back(p);
+                    } else if (board[p]->getColour() != colour) {
+                        legalMoves.emplace_back(p);
+                        break;
+                    } else {
+                        board[p]->protect();
+                        break;
+                    }
+                } catch (BadPosn &e) {
+                    break;
+                }
             }
         }
     }
