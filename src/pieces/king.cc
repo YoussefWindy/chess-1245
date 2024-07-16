@@ -3,12 +3,11 @@
 #include "../../include/board.h"
 #include "../../include/pieces/king.h"
 
-King::King(bool colour, const Posn &posn): canCastleLeft{false}, canCastleRight{false},
+King::King(bool colour, const Posn &posn):
   Piece{colour ? 'K' : 'k', colour, posn, true, true, true, true} {}
 
 void King::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
-    canCastleLeft = canCastleRight = false;
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
             if (!i && !j) continue; // if i = j = 0, this means we are checking the square the king is currently on
@@ -27,15 +26,14 @@ void King::calculateLegalMoves(const Board &board) {
             if (p->getName() == (colour ? 'R' : 'r') && !p->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
               posn.y == p->getY() && (posn.x - p->getX() == 4 || p->getX() - posn.x == 3)) { // and is either 4 spaces to the left or 3 to the right of this
                 bool pathInCheck = false;
-                for (int j = 1; j < (posn.x < p->getX() ? 3 : 4); j++) {
-                    Posn pos{posn.x + (posn.x < p->getX() ? j : -j), posn.y};
+                for (int j = 1; j < (posn.x < p->getX() ? 3 : 4); j++) { // making sure there are no pieces in between and that
+                    Posn pos{posn.x + (posn.x < p->getX() ? j : -j), posn.y}; // none of the positions in between are in check
                     if (board[pos] || board.inCheck(pos, colour)) {
                         pathInCheck = true;
                         break;
                     }
                 }
-                if (!pathInCheck && !board.inCheck(p->getPosn(), colour)) {
-                    posn.x < p->getX() ? canCastleRight : canCastleLeft = true;
+                if (!pathInCheck && !board.inCheck(p->getPosn(), colour)) { // if none of the spaces in between are in check and the rook isn't in check either
                     legalMoves.emplace_back(Posn{posn.x + (posn.x < p->getX() ? 2 : -2), posn.y});
                 }
             }
@@ -44,17 +42,5 @@ void King::calculateLegalMoves(const Board &board) {
 }
 
 void King::calculatePins(const Board &board) {
-    // Fill in
-}
-
-int King::canCastle() const {
-    if (canCastleLeft && canCastleRight) {
-        return 2;
-    } else if (canCastleRight) {
-        return 1;
-    } else if (canCastleLeft) {
-        return -1;
-    } else {
-        return 0;
-    }
+    
 }

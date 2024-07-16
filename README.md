@@ -50,12 +50,11 @@ make
 ## Working On
 
 ### Andrew
-- Implement individual piece classes (rook, bishop, queen)
+- XWindow
 
 ### Grey
 - Board::validate()
 - Board::checkmate()
-- Plan of attack
 
 ### Youssef
 - main.cc user interface in text-based display and input from cin
@@ -67,7 +66,10 @@ make
 - Pieces:
     - Pawn
     - Knight
-    - King
+    - Bishop
+    - Rook
+    - Queen
+    - 
 - overloading operator<<
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
 - UML Diagram
