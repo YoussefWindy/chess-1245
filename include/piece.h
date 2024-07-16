@@ -35,7 +35,7 @@ class Piece {
 	void setName(char value);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
-	void pin(bool vertical, bool horizontal, bool positive, bool negative);
+	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
 	void protect(bool isProtected = true);
 };
 
