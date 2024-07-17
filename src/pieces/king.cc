@@ -4,7 +4,7 @@
 #include "../../include/pieces/king.h"
 
 King::King(bool colour, const Posn &posn):
-  Piece{colour ? 'K' : 'k', colour, posn, true, true, true, true} {}
+  Piece{colour ? 'K' : 'k', colour, 10, posn, true, true, true, true} {}
 
 void King::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
@@ -14,13 +14,13 @@ void King::calculateLegalMoves(const Board &board) {
             try {
                 Posn p{posn.x + i, posn.y + j};
                 if ((!board[p] || (board[p]->getColour() != colour // if square is empty, or square is not belonging to us already
-                  && board[p]->getIsProtected())) && !board.inCheck(p, colour)) { // AND not protected, and square is not in check
+                  && board[p]->getIsProtected())) && !board.check(p, colour)) { // AND not protected, and square is not in check
                     legalMoves.emplace_back(p);
                 }
             } catch (BadPosn &e) {}
         }
     }
-    if (!hasMoved && !board.inCheck(posn, colour)) { // if king hasn't moved yet and is not in check
+    if (!hasMoved && !board.check(posn, colour)) { // if king hasn't moved yet and is not in check
         for (unsigned int i = 0; i < WIDTH; i++) { // look at all pieces of this's colour on this's row
             std::shared_ptr<Piece> p = board[{i, posn.y}];
             if (p->getName() == (colour ? 'R' : 'r') && !p->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
@@ -28,12 +28,12 @@ void King::calculateLegalMoves(const Board &board) {
                 bool pathInCheck = false;
                 for (int j = 1; j < (posn.x < p->getX() ? 3 : 4); j++) { // making sure there are no pieces in between and that
                     Posn pos{posn.x + (posn.x < p->getX() ? j : -j), posn.y}; // none of the positions in between are in check
-                    if (board[pos] || board.inCheck(pos, colour)) {
+                    if (board[pos] || board.check(pos, colour)) {
                         pathInCheck = true;
                         break;
                     }
                 }
-                if (!pathInCheck && !board.inCheck(p->getPosn(), colour)) { // if none of the spaces in between are in check and the rook isn't in check either
+                if (!pathInCheck && !board.check(p->getPosn(), colour)) { // if none of the spaces in between are in check and the rook isn't in check either
                     legalMoves.emplace_back(Posn{posn.x + (posn.x < p->getX() ? 2 : -2), posn.y});
                 }
             }

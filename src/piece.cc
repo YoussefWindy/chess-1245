@@ -2,8 +2,9 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, bool colour, const Posn &posn, bool v, bool h, bool p, bool n): name{name}, colour{colour},
-  posn{posn}, vertical{v}, horizontal{h}, positive{p}, negative{n}, hasMoved{false}, isProtected{false} {}
+Piece::Piece(char name, bool colour, int value, const Posn &posn, bool v, bool h, bool p, bool n):
+  name{name}, colour{colour}, value{value}, posn{posn}, vertical{v},
+  horizontal{h}, positive{p}, negative{n}, hasMoved{false}, isProtected{false} {}
 
 bool Piece::canMoveTo(const Posn &posn) const {
 	for (Posn posn: legalMoves) {
@@ -25,6 +26,10 @@ bool Piece::getColour() const {
 	return colour;
 }
 
+int Piece::getValue() const {
+	return value;
+}
+
 Posn Piece::getPosn() const {
 	return posn;
 }
@@ -35,6 +40,10 @@ unsigned int Piece::getX() const {
 
 unsigned int Piece::getY() const {
 	return posn.y;
+}
+
+const std::vector<Posn>& Piece::getLegalMoves() const {
+	return legalMoves;
 }
 
 bool Piece::getHasMoved() const {
@@ -74,7 +83,7 @@ void Piece::protect(bool isProtected) {
 	this->isProtected = isProtected;
 }
 
-std::ostream& operator<<(std::ostream &out, const Piece &posn) {
+inline std::ostream& operator<<(std::ostream &out, const Piece &posn) {
 	out << posn.getName();
 	return out;
 }

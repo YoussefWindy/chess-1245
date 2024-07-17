@@ -4,7 +4,7 @@
 #include "../../include/pieces/knight.h"
 
 Knight::Knight(bool colour, const Posn &posn):
-  Piece{colour ? 'N' : 'n', colour, posn, true, false, false, false} {}
+  Piece{colour ? 'N' : 'n', colour, 3, posn, true, false, false, false} {}
 
 void Knight::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

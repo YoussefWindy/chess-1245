@@ -56,7 +56,7 @@ Board::~Board() {
 	// cout << "Destroyed Board!" << endl;
 }
 
-bool Board::inCheck(const Posn &posn, bool colour) const {
+bool Board::check(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMoveTo(posn)) {
 			return true;
@@ -125,7 +125,7 @@ int Board::runCalculations(bool colour) {
 	}
 	whiteKing->calculateLegalMoves(*this);
 	blackKing->calculateLegalMoves(*this);
-	if (inCheck((colour ? whiteKing : blackKing)->getPosn(), colour)) {
+	if (check((colour ? whiteKing : blackKing)->getPosn(), colour)) {
 		if (checkmate(colour)) {
 			return 2; // checkmate
 		} else {
@@ -179,7 +179,7 @@ const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
 }
 
 Move Board::getLastMove() const {
-	return log.back();
+	return log.empty() ? Move{{0, 0}, {0, 0}} : log.back();
 }
 
 bool Board::undoMoves(int x) {
@@ -231,9 +231,9 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 		out << (HEIGHT - row) << "  "; // Row number
 		for (unsigned int col = 0; col < WIDTH; col++) {
 			if (board[{HEIGHT - row - 1, col}]) { // if there's a piece there
-				out << board[{HEIGHT - row - 1, col}]->getName() << ((row + col) % 2 ? '_' : ' ');
+				out << board[{HEIGHT - row - 1, col}]->getName() << ((row + col) % 2 ? ' ' : '_');
 			} else { // if it's a blank space
-				out << ((row + col) % 2 ? "__" : "  ");
+				out << ((row + col) % 2 ? "  " : "__");
 			}
 		}
 		out << std::endl << std::endl;

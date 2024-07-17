@@ -10,7 +10,6 @@ int parsePlayer(string &s) {
 	else if (s == "computer[2]") return 2;
 	else if (s == "computer[3]") return 3;
 	else if (s == "computer[4]") return 4;
-	else if (s == "computer[5]") return 5;
 	else return -1;
 }
 
@@ -88,7 +87,10 @@ int main() {
 			cin >> arg1 >> arg2;
 			int p1 = parsePlayer(arg1);
 			int p2 = parsePlayer(arg2);
-			if (p1 < 0 || p2 < 0) continue;
+			if (p1 < 0 || p2 < 0) {
+				cerr << "Please input either \"human\" or \"computer[1-4]\" for the players" << endl;
+				continue;
+			}
 			whiteAI = p1 ? make_unique<AI>(board, true, p1) : nullptr;
 			blackAI = p2 ? make_unique<AI>(board, false, p2) : nullptr;
 			board = defaultBoard;

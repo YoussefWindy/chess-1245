@@ -10,12 +10,13 @@ class Piece {
   protected:
 	char name;
 	bool colour;
+	int value;
 	Posn posn;
 	std::vector<Posn> legalMoves;
 	bool vertical, horizontal, positive, negative;
 	bool hasMoved, isProtected;
   public:
-	Piece(char name, bool colour, const Posn &posn, bool vertical = false,
+	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
 	virtual void calculateLegalMoves(const Board &board) = 0;
 	bool canMoveTo(const Posn &posn) const;
@@ -24,9 +25,11 @@ class Piece {
 	// Getters
 	char getName() const;
 	bool getColour() const;
+	int getValue() const;
 	Posn getPosn() const;
 	unsigned int getX() const;
 	unsigned int getY() const;
+	const std::vector<Posn>& getLegalMoves() const;
 	bool getHasMoved() const;
 	bool getIsProtected() const;
 
