@@ -4,7 +4,7 @@
 #include "../../include/pieces/queen.h"
 
 Queen::Queen(bool colour, const Posn &posn):
-  Piece{colour ? 'Q' : 'q', colour, posn, true, true, true, true} {}
+  Piece{colour ? 'Q' : 'q', colour, 9, posn, true, true, true, true} {}
 
 void Queen::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

@@ -7,7 +7,7 @@
 struct Move {
     Posn oldPos, newPos;
     Move(Posn o = {0, 0}, Posn n = {0, 0});
-    bool operator==(const Move &other) const; // This one might be unnecessary, can remove if we don't use it
+    bool operator==(const Move &other) const;
 };
 
 #endif // MOVE_H

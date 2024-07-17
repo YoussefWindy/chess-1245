@@ -4,7 +4,7 @@
 #include "../../include/pieces/bishop.h"
 
 Bishop::Bishop(bool colour, const Posn &posn):
-  Piece{colour ? 'B' : 'b', colour, posn, false, false, true, true} {}
+  Piece{colour ? 'B' : 'b', colour, 3, posn, false, false, true, true} {}
 
 void Bishop::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

@@ -4,15 +4,19 @@
 
 #include "board.h"
 
+// The AI class is all-knowing.
+// It has access to all private Board and Piece
+// fields and methods in order to make decisions.
 class AI {
-    Board &board;
-    bool white;
+    Board &boardRef;
+    mutable Board board;
+    bool colour;
     int difficulty;
-    Move thinkLevel1() const;
-    Move thinkLevel2() const;
-    Move thinkLevel3() const;
-    Move thinkLevel4() const;
-    Move thinkLevel5() const;
+    mutable bool checkFound, checkmateFound, noLevel2, noLevel3;
+    Move thinkAt1() const;
+    Move thinkAt2() const;
+    Move thinkAt3() const;
+    Move thinkAt4() const;
   public:
     AI(Board &board, bool colour, int difficulty);
     Move think() const;

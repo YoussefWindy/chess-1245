@@ -4,7 +4,7 @@
 #include "../../include/pieces/pawn.h"
 
 Pawn::Pawn(bool colour, const Posn &posn):
-  Piece{colour ? 'P' : 'p', colour, posn, true, false, true, true}, promotable{false} {}
+  Piece{colour ? 'P' : 'p', colour, 1, posn, true, false, true, true}, promotable{false} {}
 
 void Pawn::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

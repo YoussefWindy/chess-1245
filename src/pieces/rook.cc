@@ -4,7 +4,7 @@
 #include "../../include/pieces/rook.h"
 
 Rook::Rook(bool colour, const Posn &posn):
-  Piece{colour ? 'R' : 'r', colour, posn, true, true, false, false} {}
+  Piece{colour ? 'R' : 'r', colour, 5, posn, true, true, false, false} {}
 
 void Rook::calculateLegalMoves(const Board &board) {
     legalMoves.clear();

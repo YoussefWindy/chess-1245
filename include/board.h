@@ -6,13 +6,14 @@
 
 class Board {
 	friend class King;
+	friend class AI;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
 
 	// Checking for check and checkmate
-	bool inCheck(const Posn &posn, bool colour) const;
+	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
 	bool stalemate(bool colour) const;
   public:
