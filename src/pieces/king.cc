@@ -34,7 +34,7 @@ void King::calculateLegalMoves(const Board &board) {
                     }
                 }
                 if (!pathInCheck && !board.check(p->getPosn(), colour)) { // if none of the spaces in between are in check and the rook isn't in check either
-                    legalMoves.emplace_back(Posn{posn.x + (posn.x < p->getX() ? 2 : -2), posn.y});
+                    legalMoves.emplace_back(posn.x + (posn.x < p->getX() ? 2 : -2), posn.y);
                 }
             }
         }

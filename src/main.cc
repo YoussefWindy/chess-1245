@@ -6,10 +6,9 @@ using namespace std;
 
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
-	else if (s == "computer[1]") return 1;
-	else if (s == "computer[2]") return 2;
-	else if (s == "computer[3]") return 3;
-	else if (s == "computer[4]") return 4;
+	else if (s.substr(0, 9) == "computer[" && s.back() == ']') {
+		return stoi(s.substr(9, s.size() - 10));
+	}
 	else return -1;
 }
 
