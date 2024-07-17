@@ -46,7 +46,7 @@ void King::calculatePins(const Board &board) {
         for (int j = -1; j < 2; j++) {
             if (!i && !j) continue; // if i = j = 0, this means we are checking the square the king is currently on
             std::shared_ptr<Piece> allyFound = emptyptr;
-            for (int k = 0;; k++) { // to scale in each direction
+            for (int k = 1;; k++) { // to scale in each direction
                 try {
                     Posn p{posn.x + i * k, posn.y + j * k}; // will throw an exception if out of bounds, so I don't have to actually check
                     if (!board[p]) continue; // if there's nothing there, we don't care and move on
