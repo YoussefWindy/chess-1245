@@ -13,10 +13,14 @@ class AI {
     bool colour;
     int difficulty;
     mutable bool checkFound, checkmateFound, noLevel2, noLevel3;
+    const std::vector<Posn> calculateThreatenedPosns() const;
+    const std::vector<Move> calculateCapturingMoves() const;
+    const std::vector<Move> calculateCheckingMoves() const;
+    const std::vector<Move> calculateCheckmatingMoves() const;
     Move thinkAt1() const;
     Move thinkAt2() const;
     Move thinkAt3() const;
-    Move thinkAt4() const;
+    Move thinkAtX(int x) const;
   public:
     AI(Board &board, bool colour, int difficulty);
     Move think() const;
