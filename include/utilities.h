@@ -8,6 +8,7 @@
 #include <memory>
 #include "utilities/badposn.h"
 #include "utilities/badmove.h"
+#include "utilities/badsetup.h"
 #include "utilities/xwindow.h"
 
 const unsigned int WIDTH = 8; // Board size; if we wanted to implement a custom
