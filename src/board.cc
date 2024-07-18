@@ -227,6 +227,7 @@ bool Board::validate() const {
 			++numWhiteKings;
 		}
 
+		// Pawn is on the wrong side
 		if (p->getName() == 'P') {
 			Posn pawnPosn = p->getPosn();
 			if (pawnPosn.x == 7) return false;
@@ -239,7 +240,8 @@ bool Board::validate() const {
 		if (p->getName() == 'k') {
 			++numBlackKings;
 		}
-
+		
+		// Pawn is on the wrong side
 		if (p->getName() == 'p') {
 			Posn pawnPosn = p->getPosn();
 			if (pawnPosn.x == 0) return false;

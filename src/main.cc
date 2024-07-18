@@ -206,26 +206,26 @@ int main() {
 						piece -= white ? ('A' - 'a') : 0;
 						switch (piece) {
 							case 'p':
-								board.addPiece<Pawn>(white, p);
+								defaultBoard.addPiece<Pawn>(white, p);
 								break;
 							case 'n':
-								board.addPiece<Knight>(white, p);
+								defaultBoard.addPiece<Knight>(white, p);
 								break;
 							case 'b':
-								board.addPiece<Bishop>(white, p);
+								defaultBoard.addPiece<Bishop>(white, p);
 								break;
 							case 'r':
-								board.addPiece<Rook>(white, p);
+								defaultBoard.addPiece<Rook>(white, p);
 								break;
 							case 'q':
-								board.addPiece<Queen>(white, p);
+								defaultBoard.addPiece<Queen>(white, p);
 								break;
 							case 'k':
-								if (board.hasKing(white)) {
+								if (defaultBoard.hasKing(white)) {
 									cerr << "There cannot be two " << (white ? "white" : "black")
 										 << " kings on the board at once!!" << endl;
 								} else {
-									board.addPiece<King>(white, p);
+									defaultBoard.addPiece<King>(white, p);
 									break;
 								}
 							default:
@@ -258,7 +258,9 @@ int main() {
 						cerr << "Please input a valid colour." << endl;
 					}
 				} else if (command == "clear") {
+					// Iterate over every space on the board
 					for (auto space : defaultBoard) {
+						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
 					cout << defaultBoard << endl;
