@@ -3,7 +3,8 @@
 #define XWINDOW_H
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include "../board.h"
+
+class Board;
 
 class XWindow {
     Display *d;
@@ -11,10 +12,10 @@ class XWindow {
     GC gc;
     int s;
     unsigned long colours[3];
-    Board *board;
+    Board &board;
 
     public:
-    XWindow(int width, int height, Board *board);
+    XWindow(int width, int height, Board &board);
     ~XWindow();
 
     void drawBoard();

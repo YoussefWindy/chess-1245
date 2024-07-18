@@ -22,7 +22,7 @@ EXEC := $(BINDIR)/chess
 all: $(EXEC)
 
 $(EXEC): $(OBJECTS) | $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC) -lX11
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
