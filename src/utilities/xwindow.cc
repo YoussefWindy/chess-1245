@@ -11,7 +11,7 @@
 
 using namespace std;
 
-XWindow::XWindow(int width, int height, Board &board) : board{board} {
+XWindow::XWindow(int width, int height, Board &board) : width(width), height(height), board{board} {
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
@@ -97,4 +97,12 @@ void XWindow::drawBoard() {
 
     // Clean up
     XFreeFont(d, font_info);
+}
+
+int XWindow::getWidth() const {
+    return width;
+}
+
+int XWindow::getHeight() const {
+    return height;
 }
