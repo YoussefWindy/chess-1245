@@ -2,8 +2,12 @@
 
 #include "../../include/utilities/xwindow.h"
 #include "../../include/board.h"
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <iostream>
 #include <cstdlib>
+#include <string>
+#include <unistd.h>
 
 using namespace std;
 

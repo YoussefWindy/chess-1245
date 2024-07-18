@@ -1,7 +1,7 @@
 # Compiler
 CXX = g++-11
 # Flags
-CXXFLAGS = -std=c++20 -g -Wall -Werror=vla -MMD
+CXXFLAGS = -std=c++20 -g -Wall -Werror=vla -MMD -lX11
 MAKEFILE_NAME = ${firstword ${MAKEFILE_LIST}}
 
 # Directories
