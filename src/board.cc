@@ -26,7 +26,7 @@ Board::Board(Board &&other): whitePieces{other.whitePieces}, blackPieces{other.b
   deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
-			board[i][j] = move(other.board[i][j]);
+			board[i][j] = std::move(other.board[i][j]);
 		}
 	}
 }
