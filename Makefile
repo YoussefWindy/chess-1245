@@ -1,7 +1,7 @@
 # Compiler
 CXX = g++-11
 # Flags
-CXXFLAGS = -std=c++20 -g -Wall -Werror=vla -MMD -lX11
+CXXFLAGS = -std=c++20 -g -Wall -Werror=vla -MMD
 MAKEFILE_NAME = ${firstword ${MAKEFILE_LIST}}
 
 # Directories
@@ -22,7 +22,7 @@ EXEC := $(BINDIR)/chess
 all: $(EXEC)
 
 $(EXEC): $(OBJECTS) | $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC) -lX11
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
