@@ -1,12 +1,17 @@
 // src/utilities/xwindow.cc
 
 #include "../../include/utilities/xwindow.h"
+#include "../../include/board.h"
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <iostream>
 #include <cstdlib>
+#include <string>
+#include <unistd.h>
 
 using namespace std;
 
-XWindow::XWindow(int width, int height) {
+XWindow::XWindow(int width, int height, Board &board) : board{board} {
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
@@ -42,7 +47,6 @@ XWindow::XWindow(int width, int height) {
     // Synchronize
     XSynchronize(d, True);
     XFlush(d);
-    usleep(1000);
 }
 
 XWindow::~XWindow() {
@@ -52,7 +56,7 @@ XWindow::~XWindow() {
 
 void XWindow::drawBoard() {
     // Load font
-    char* font_name = "fixed";
+    const char* font_name = "fixed";
     auto font_info = XLoadQueryFont(d, font_name);
     XSetFont(d, gc, font_info->fid);
 
@@ -79,10 +83,12 @@ void XWindow::drawBoard() {
     }
 
     // Draw the "pieces"
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j) {
-            if (board->getPiece({i, j})) {
-                XDrawString(d, w, gc, i * 100 + 40, j * 100 + 40, &board->getPiece({i, j})->getSymbol(), 1);
+    for (unsigned int i = 0; i < 8; ++i) {
+        for (unsigned int j = 0; j < 8; ++j) {
+            if (board[{i, j}]) {
+                const char name = board[{i, j}]->getName();
+                const char name_str[2] = {name, '\0'};
+                XDrawString(d, w, gc, i * 100 + 40, j * 100 + 40, name_str, 1);
             }
         }
     }
