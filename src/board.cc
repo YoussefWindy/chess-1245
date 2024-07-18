@@ -255,34 +255,23 @@ bool Board::hasKing(bool colour) const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Board& board) {
+	out << std::endl;
 	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
-		out << (HEIGHT - row) << "  "; // Row number
+		out << (HEIGHT - row) << " "; // Row number
 		for (unsigned int col = 0; col < WIDTH; col++) {
 			if (board[{HEIGHT - row - 1, col}]) { // if there's a piece there
-				out << board[{HEIGHT - row - 1, col}]->getName() << ((row + col) % 2 ? ' ' : '_');
+				out << board[{HEIGHT - row - 1, col}]->getName();
 			} else { // if it's a blank space
-				out << ((row + col) % 2 ? "  " : "__");
+				out << ((row + col) % 2 ? ' ' : '_');
 			}
 		}
-		out << std::endl << std::endl;
+		out << std::endl;
 	}
-	out << "  ";
+	out << std::endl << "  ";
 	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
-		out << c << ' ';
+		out << c;
 	}
 	out << std::endl;
+
 	return out;
 }
-
-/*
-	8   __  __n __  __
-	7 __  __  __  __  
-	6   __  __  __  __
-	5 __  __  __  __  
-	4   __  __  __  __
-	3 __  __  __  __  
-	2   __  __  __  __
-	1 __b __  __  __  
-
-	  a b c d e f g h
-*/
