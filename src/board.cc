@@ -217,8 +217,36 @@ bool Board::undoMoves(int x) {
 }
 
 bool Board::validate() const {
-	if (!whiteKing || !blackKing) return false;
-	// incomplete
+	// Check number of w/b kings == 1 each
+	int numWhiteKings = 0;
+	int numBlackKings = 0;
+
+	// Check white pieces
+	for (auto p: whitePieces) {
+		if (p->getName() == 'K') {
+			++numWhiteKings;
+		}
+
+		if (p->getName() == 'P') {
+			Posn pawnPosn = p->getPosn();
+			if (pawnPosn.x == 7) return false;
+		}
+	}
+	if (numWhiteKings != 1) return false;
+
+	// Check black pieces
+	for (auto p: blackPieces) {
+		if (p->getName() == 'k') {
+			++numBlackKings;
+		}
+
+		if (p->getName() == 'p') {
+			Posn pawnPosn = p->getPosn();
+			if (pawnPosn.x == 0) return false;
+		}
+	}
+	if (numBlackKings != 1) return false;
+
 	return true;
 }
 
