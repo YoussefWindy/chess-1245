@@ -257,6 +257,11 @@ int main() {
 					} else {
 						cerr << "Please input a valid colour." << endl;
 					}
+				} else if (command == "clear") {
+					for (auto space : defaultBoard) {
+						if (space) defaultBoard.removePiece(space->getPosn());
+					}
+					cout << defaultBoard << endl;
 				} else if (command == "done" && defaultBoard.validate()) { // valid board setup
 					break;
 				} else if (command == "done") { // invalid board setup
