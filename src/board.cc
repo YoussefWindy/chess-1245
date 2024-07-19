@@ -62,8 +62,43 @@ bool Board::check(const Posn &posn, bool colour) const {
 }
 
 bool Board::checkmate(bool colour) const {
-	if ((colour ? whiteKing : blackKing)->canMove()) return false;
-	// incomplete
+	auto cKing = colour ? whiteKing : blackKing;
+	
+	// Check if the king can move
+	if (cKing->canMove()) return false;
+	
+	// Check for number of pieces attacking the King
+	// if there are more than one, checkmate,
+	// otherwise save the attacking piece Posn
+	int numAttacking = 0;
+	Posn attackingPosn{0, 0};
+	for (auto p : (colour ? whitePieces : blackPieces)) {
+		// Check every legal move of the given opposing piece
+		for (auto oppPosn : p->getLegalMoves()) {
+			// Check if the king's Posn is in the legal moves
+			if (oppPosn == cKing->getPosn()) {
+				++numAttacking;
+				attackingPosn = oppPosn;
+			}
+			if (numAttacking > 1) return true;
+		}
+	}
+
+	// Check if any ally pieces can capture the attacking piece
+	for (auto p : colour ? blackPieces : whitePieces) {
+		// Check every legal move of given ally piece
+		for (auto allyPosn : p->getLegalMoves()) {
+			// Ally piece can capture attacking
+			// no need to check if the given ally piece is pinned as
+			// that is naturally included by omission in legal moves
+			if (allyPosn == attackingPosn) {
+				return true;
+			}
+		}
+	}
+
+	// the fucking hard part
+
 	return true;
 }
 
@@ -230,12 +265,7 @@ void Board::validate() const {
 }
 
 bool Board::hasKing(bool colour) const {
-	for (auto p : (colour ? whitePieces : blackPieces)) {
-		if (p->getName() == 'k' || p->getName() == 'K') return true;
-	}
-
-	return false;
-	// return (colour ? whiteKing : blackKing) ? true : false;
+	return (colour ? whiteKing : blackKing) ? true : false;
 }
 
 std::ostream& operator<<(std::ostream& out, const Board& board) {
