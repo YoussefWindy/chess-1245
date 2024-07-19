@@ -23,7 +23,7 @@ class Board {
 	void swap(Board &, Board &);
 	Board& operator=(const Board &);
 	Board& operator=(Board &&);
-	~Board();
+	~Board() = default;
 
 	class Iterator {
 		friend class Board;
@@ -56,7 +56,7 @@ class Board {
 	Move getLastMove() const;
 
 	// Other checking methods
-	bool validate() const; // needs work
+	void validate() const; // Will throw a BadSetup exception if setup is invalid
 	bool hasKing(bool colour) const;
 };
 

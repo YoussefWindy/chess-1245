@@ -11,7 +11,6 @@ Board::Board() {
 		}
 	}
 	whiteKing = blackKing = std::static_pointer_cast<King>(emptyptr);
-	// cout << "Created Board!" << endl;
 }
 
 Board::Board(const Board &other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces},
@@ -27,7 +26,7 @@ Board::Board(Board &&other): whitePieces{other.whitePieces}, blackPieces{other.b
   deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
-			board[i][j] = move(other.board[i][j]);
+			board[i][j] = std::move(other.board[i][j]);
 		}
 	}
 }
@@ -51,10 +50,6 @@ Board& Board::operator=(const Board &other) {
 Board& Board::operator=(Board &&other) {
 	swap(*this, other);
 	return *this;
-}
-
-Board::~Board() {
-	// cout << "Destroyed Board!" << endl;
 }
 
 bool Board::check(const Posn &posn, bool colour) const {
@@ -164,7 +159,7 @@ void Board::removePiece(const Posn &posn) {
 	if (!board[posn.x][posn.y]) return;
 	bool colour = board[posn.x][posn.y]->getColour();
 	if (board[posn.x][posn.y]->getName() == (colour ? 'K' : 'k')) {
-		colour ? whiteKing : blackKing = std::static_pointer_cast<King>(emptyptr);
+		(colour ? whiteKing : blackKing) = std::static_pointer_cast<King>(emptyptr);
 	}
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
 		if (it->get()->getPosn() == posn) {
@@ -217,40 +212,21 @@ bool Board::undoMoves(int x) {
 	return true;
 }
 
-bool Board::validate() const {
-	// Check number of w/b kings == 1 each
-	int numWhiteKings = 0;
-	int numBlackKings = 0;
-
-	// Check white pieces
-	for (auto p: whitePieces) {
-		if (p->getName() == 'K') {
-			++numWhiteKings;
-		}
-
-		// Pawn is on the wrong side
+void Board::validate() const {
+	if (!hasKing(true)) throw BadSetup{"no white king on the board!"};
+	if (!hasKing(false)) throw BadSetup{"no black king on the board!"};
+	for (auto p: whitePieces) { // Check white pawns
 		if (p->getName() == 'P') {
 			Posn pawnPosn = p->getPosn();
-			if (pawnPosn.x == 7) return false;
+			if (pawnPosn.y == HEIGHT - 1) throw BadSetup{"there is a white pawn on the last row!"};
 		}
 	}
-	if (numWhiteKings != 1) return false;
-
-	// Check black pieces
-	for (auto p: blackPieces) {
-		if (p->getName() == 'k') {
-			++numBlackKings;
-		}
-		
-		// Pawn is on the wrong side
+	for (auto p: blackPieces) { // Check black pawns
 		if (p->getName() == 'p') {
 			Posn pawnPosn = p->getPosn();
-			if (pawnPosn.x == 0) return false;
+			if (!pawnPosn.y) throw BadSetup{"there is a black pawn on the last row!"};
 		}
 	}
-	if (numBlackKings != 1) return false;
-
-	return true;
 }
 
 bool Board::hasKing(bool colour) const {
@@ -267,10 +243,10 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
 		out << (HEIGHT - row) << " "; // Row number
 		for (unsigned int col = 0; col < WIDTH; col++) {
-			if (board[{HEIGHT - row - 1, col}]) { // if there's a piece there
-				out << board[{HEIGHT - row - 1, col}]->getName();
+			if (board[{col, HEIGHT - row - 1}]) { // if there's a piece there
+				out << board[{col, HEIGHT - row - 1}]->getName();
 			} else { // if it's a blank space
-				out << ((row + col) % 2 ? ' ' : '_');
+				out << ((col + row) % 2 ? '_' : ' ');
 			}
 		}
 		out << std::endl;
