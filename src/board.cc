@@ -2,7 +2,7 @@
 
 #include "../include/piece.h"
 #include "../include/board.h"
-#include <iostream>
+#include "../include/board.tpp"
 
 Board::Board() {
 	for (unsigned int i = 0; i < WIDTH; i++) {
@@ -14,11 +14,20 @@ Board::Board() {
 }
 
 Board::Board(const Board &other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces},
-  deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
+  deadPieces{other.deadPieces}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
-			board[i][j] = other.board[i][j];
+			board[i][j] = emptyptr;
 		}
+	}
+	for (auto p: other.whitePieces) {
+		addPieceHelp(p->getName(), p->getPosn());
+	}
+	for (auto p: other.blackPieces) {
+		addPieceHelp(p->getName(), p->getPosn());
+	}
+	for (auto p: other.deadPieces) {
+		deadPieces.emplace_back(p); // <-- LAZY! FIX THIS
 	}
 }
 
@@ -26,7 +35,7 @@ Board::Board(Board &&other): whitePieces{other.whitePieces}, blackPieces{other.b
   deadPieces{other.deadPieces}, whiteKing{other.whiteKing}, blackKing{other.blackKing}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
-			board[i][j] = std::move(other.board[i][j]);
+			board[i][j] = other.board[i][j];
 		}
 	}
 }
@@ -50,6 +59,31 @@ Board& Board::operator=(const Board &other) {
 Board& Board::operator=(Board &&other) {
 	swap(*this, other);
 	return *this;
+}
+
+void Board::addPieceHelp(char name, const Posn &posn) {
+	bool white = 'B' <= name && name <= 'R';
+	name -= (white ? ('A' - 'a') : 0);
+	switch (name) {
+		case 'p':
+			addPiece<Pawn>(white, posn);
+			break;
+		case 'n':
+			addPiece<Knight>(white, posn);
+			break;
+		case 'b':
+			addPiece<Bishop>(white, posn);
+			break;
+		case 'r':
+			addPiece<Rook>(white, posn);
+			break;
+		case 'q':
+			addPiece<Queen>(white, posn);
+			break;
+		case 'k':
+			addPiece<King>(white, posn);
+			break;
+	}
 }
 
 bool Board::check(const Posn &posn, bool colour) const {
@@ -107,21 +141,38 @@ Board::Iterator Board::end() const {
 }
 
 int Board::runCalculations(bool colour) {
-	whiteKing->calculatePins(*this);
-	blackKing->calculatePins(*this);
+    std::vector<Posn> defensivePositions;
+	std::cerr << 1 << std::endl;
+	for (auto p: whitePieces) p->protect(false);
+	for (auto p: blackPieces) p->protect(false);
+	std::cerr << 2 << std::endl;
+	bool inCheck = (colour ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
+	(!colour ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
+	std::cerr << 3 << std::endl;
 	for (auto p: whitePieces) {
 		if (p->getName() != 'K') {
 			p->calculateLegalMoves(*this);
+			if (inCheck) {
+				p->intersect(defensivePositions);
+			}
 		}
 	}
+	std::cerr << 4 << std::endl;
 	for (auto p: blackPieces) {
 		if (p->getName() != 'k') {
+	std::cerr << p->getName() << std::endl;
 			p->calculateLegalMoves(*this);
+			if (inCheck) {
+	std::cerr << "what" << std::endl;
+				p->intersect(defensivePositions);
+			}
 		}
 	}
+	std::cerr << 5 << std::endl;
 	whiteKing->calculateLegalMoves(*this);
 	blackKing->calculateLegalMoves(*this);
-	if (check((colour ? whiteKing : blackKing)->getPosn(), colour)) {
+	std::cerr << 6 << std::endl;
+	if (inCheck) {
 		if (checkmate(colour)) {
 			return 2; // checkmate
 		} else {
@@ -132,27 +183,37 @@ int Board::runCalculations(bool colour) {
 	} else {
 		return -1; // nothing
 	}
+	std::cerr << 7 << std::endl;
 }
 
-void Board::movePiece(Move &&move) {
-	if (!(board[move.oldPos.x][move.oldPos.y] && board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos))) {
+void Board::movePiece(bool colour, Move &&move) {
+	std::cerr << "start" << std::endl;
+	if (!board[move.oldPos.x][move.oldPos.y] || board[move.oldPos.x][move.oldPos.y]->getColour() != colour
+	  || !board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		throw BadMove{move};
 	}
+	std::cerr << "good" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]) { // if a capture is taking place
+		std::cerr << "capture" << std::endl;
 		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
 		removePiece(move.newPos);
+		move.capture = true;
 	}
+	std::cerr << "up" << std::endl;
 	board[move.oldPos.x][move.oldPos.y]->move(move.newPos); // update the piece's internal posn
 	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y]; // move the piece
 	removePiece(move.oldPos);
+	std::cerr << "down" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) { // check for castling
+		std::cerr << "we're castling??" << std::endl;
 		if (move.newPos.x - move.oldPos.x > 1) { // castling right
-			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
+			movePiece(colour, {{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
-			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
+			movePiece(colour, {{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
 		}
 	}
 	log.emplace_back(move); // log move
+	std::cerr << "end" << std::endl;
 }
 
 void Board::removePiece(const Posn &posn) {
@@ -184,26 +245,7 @@ bool Board::undoMoves(int x) {
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
 		removePiece(log.back().newPos);
 		if (deadPieces.back()->getPosn() == log.back().newPos) {
-			switch (deadPieces.back()->getName()) {
-				case 'p':
-					addPiece<Pawn>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-				case 'n':
-					addPiece<Knight>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-				case 'b':
-					addPiece<Bishop>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-				case 'r':
-					addPiece<Rook>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-				case 'q':
-					addPiece<Queen>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-				case 'k':
-					addPiece<King>(deadPieces.back()->getColour(), deadPieces.back()->getPosn());
-					break;
-			}
+			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
 			(deadPieces.back()->getColour() ? whitePieces : blackPieces).emplace_back(deadPieces.back());
 			deadPieces.pop_back();
 		}

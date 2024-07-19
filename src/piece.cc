@@ -6,9 +6,25 @@ Piece::Piece(char name, bool colour, int value, const Posn &posn, bool v, bool h
   name{name}, colour{colour}, value{value}, posn{posn}, vertical{v},
   horizontal{h}, positive{p}, negative{n}, hasMoved{false}, isProtected{false} {}
 
+void Piece::intersect(std::vector<Posn> &positions) {
+	for (auto it = legalMoves.begin(); it != legalMoves.end(); it++) {
+		bool found = false;
+		for (auto p: positions) {
+			if (p == *it) {
+				found = true;
+				break;
+			}
+		}
+		if (!found) {
+			legalMoves.erase(it);
+			it--;
+		}
+	}
+}
+
 bool Piece::canMoveTo(const Posn &posn) const {
-	for (Posn posn: legalMoves) {
-		if (this->posn == posn) return true;
+	for (Posn p: legalMoves) {
+		if (p == posn) return true;
 	}
 	return false;
 }

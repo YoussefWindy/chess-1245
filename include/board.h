@@ -5,13 +5,14 @@
 #include "pieces.h"
 
 class Board {
-	friend class King;
 	friend class AI;
+	friend class King;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
 
+	void addPieceHelp(char name, const Posn &posn);
 	// Checking for check and checkmate
 	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
@@ -45,10 +46,9 @@ class Board {
 	// Piece methods
 	template <typename T>
 	void addPiece(bool colour, const Posn &posn);
-	void movePiece(Move &&move); // will throw a BadMove exception if move is invalid
+	void movePiece(bool colour, Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
-	template <typename T>
-	void promote(bool colour, const Posn &posn);
+	void promote(bool colour, Move &&move, unsigned int type);
 	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
 
 	// Getter methods
@@ -61,7 +61,5 @@ class Board {
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);
-
-#include "board.tpp"
 
 #endif // BOARD_H

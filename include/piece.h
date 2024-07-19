@@ -15,10 +15,12 @@ class Piece {
 	std::vector<Posn> legalMoves;
 	bool vertical, horizontal, positive, negative;
 	bool hasMoved, isProtected;
+	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
   public:
 	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
 	virtual void calculateLegalMoves(const Board &board) = 0;
+	void intersect(std::vector<Posn> &positions);
 	bool canMoveTo(const Posn &posn) const;
 	bool canMove() const;
 
@@ -38,12 +40,11 @@ class Piece {
 	void setName(char value);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
-	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
 	void protect(bool isProtected = true);
 };
 
 std::ostream& operator<<(std::ostream &out, const Piece &posn);
 
-const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr
+const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr, returns false when boolean-checked
 
 #endif // PIECE_H
