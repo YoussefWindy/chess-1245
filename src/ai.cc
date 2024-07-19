@@ -28,7 +28,7 @@ Move AI::thinkAt1() const {
     int num = (colour ? board.whitePieces : board.blackPieces).size();
     std::shared_ptr<Piece> piece;
     do {
-        piece = piece = (colour ? board.whitePieces : board.blackPieces)[std::rand() % num];
+        piece = (colour ? board.whitePieces : board.blackPieces)[std::rand() % num];
     } while (piece->getLegalMoves().empty());
     return {piece->getPosn(), piece->getLegalMoves()[std::rand() % piece->getLegalMoves().size()]};
 }
@@ -41,7 +41,8 @@ Move AI::thinkAt2() const {
         return thinkAt1();
     } else if (checkingMoves.empty()) {
         Move maxWorth = capturingMoves.front();
-        for (int i = 1, value = 0; i < capturingMoves.size(); i++, value = 0) {
+        for (unsigned int i = 1; i < capturingMoves.size(); i++) {
+            int value = 0;
             if (board[capturingMoves[i].newPos]->getIsProtected()) {
                 for (auto piece: colour ? board.whitePieces : board.blackPieces) {
                     if (piece->canMoveTo(capturingMoves[i].newPos)) {
@@ -107,7 +108,7 @@ const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
     for (auto piece: colour ? board.whitePieces : board.blackPieces) {
         for (Posn posn: piece->getLegalMoves()) {
-            board.movePiece({piece->getPosn(), posn});
+            board.movePiece(colour, {piece->getPosn(), posn});
             if ((!checkmate && board.check((colour ? board.whiteKing : board.blackKing)->getPosn(), colour))
               || (checkmate && board.checkmate(colour))) {
                 tmp.emplace_back(board.log.back());

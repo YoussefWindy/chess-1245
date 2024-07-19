@@ -19,6 +19,7 @@ class Piece {
 	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
 	virtual void calculateLegalMoves(const Board &board) = 0;
+	void intersect(std::vector<Posn> &positions);
 	bool canMoveTo(const Posn &posn) const;
 	bool canMove() const;
 
@@ -44,6 +45,6 @@ class Piece {
 
 std::ostream& operator<<(std::ostream &out, const Piece &posn);
 
-const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr
+const std::shared_ptr<Piece> emptyptr = std::shared_ptr<Piece>{}; // empty std::shared_ptr<Piece>, kind of similar to nullptr, returns false when boolean-checked
 
 #endif // PIECE_H

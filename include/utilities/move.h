@@ -6,7 +6,9 @@
 
 struct Move {
     Posn oldPos, newPos;
-    Move(Posn o = {0, 0}, Posn n = {0, 0});
+    bool capture;
+    unsigned int promotion;
+    Move(Posn o, Posn n, bool c = false, unsigned int p = 0);
     bool operator==(const Move &other) const;
 };
 

@@ -79,7 +79,6 @@ int main() {
 	}
 	cout << "Command: ";
 	while (cin >> command) {
-		if (gameActive) display(text, graphics, board);
 		if (command == "game") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl;
@@ -113,48 +112,52 @@ int main() {
 				continue;
 			}
 			if (whiteTurn && whiteAI) {
-				board.movePiece(whiteAI->think());
+				board.movePiece(whiteTurn, whiteAI->think());
 			} else if (!whiteTurn && blackAI) {
-				board.movePiece(blackAI->think());
+				board.movePiece(whiteTurn, blackAI->think());
 			} else {
 				cin >> arg1 >> arg2;
 				try {
 					Posn start{arg1}, end{arg2};
-					if (board[start] && (board[start]->getName() == 'P' || board[start]->getName() == 'p')) {
+					board.movePiece(whiteTurn, {start, end});
+					if ((whiteTurn && board[start]->getName() == 'P') || (!whiteTurn && board[start]->getName() == 'p')) {
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
-							piece -= (white ? ('A' - 'a') : 0);
-							switch (piece) {
-								case 'n':
-									board.promote<Knight>(white, tmp->getPosn());
-									break;
-								case 'b':
-									board.promote<Bishop>(white, tmp->getPosn());
-									break;
-								case 'r':
-									board.promote<Rook>(white, tmp->getPosn());
-									break;
-								case 'q':
-									board.promote<Queen>(white, tmp->getPosn());
-									break;
-								default:
-									cerr << "Please input a valid piece type to promote into." << endl;
-									whiteTurn = !whiteTurn;
+							if (white != whiteTurn) {
+								cerr << "Please input a valid piece type to promote into." << endl;
+								whiteTurn = !whiteTurn;
+							} else {
+								piece -= (white ? ('A' - 'a') : 0);
+								switch (piece) {
+									case 'n':
+										board.promote(white, {start, end}, 1);
+										break;
+									case 'b':
+										board.promote(white, {start, end}, 2);
+										break;
+									case 'r':
+										board.promote(white, {start, end}, 3);
+										break;
+									case 'q':
+										board.promote(white, {start, end}, 4);
+										break;
+									default:
+										cerr << "Please input a valid piece type to promote into." << endl;
+										whiteTurn = !whiteTurn;
+								}
 							}
-						} else {
-							board.movePiece({start, end});
 						}
-					} else {
-						board.movePiece({start, end});
 					}
 				} catch (BadPosn &e) {
-					cerr << "Please input valid board coordinates." << endl;
+					cerr << "Please input valid board coordinates." << endl
+						 << (whiteTurn ? "White" : "Black" ) << "'s move: ";
 					continue;
 				} catch (BadMove &e) {
-					cerr << "Please input a valid move action." << endl;
+					cerr << "Please input a valid move action." << endl
+						 << (whiteTurn ? "White" : "Black" ) << "'s move: ";
 					continue;
 				}
 			}
@@ -199,7 +202,7 @@ int main() {
 					char piece;
 					cin >> piece >> arg1;
 					if (!verifyPiece(piece)) {
-						cerr << "Please input a valid piece name." << endl;
+						cerr << "Please input a valid piece name." << endl << "Command: ";
 						continue;
 					}
 					try {
@@ -232,23 +235,19 @@ int main() {
 									defaultBoard.addPiece<King>(white, p);
 									break;
 								}
-							default:
-								cerr << "Please input a valid piece type." << endl;
 						}
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
-						continue;
 					}
-					cout << defaultBoard << endl;
+					display(text, graphics, defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						cout << defaultBoard << endl;
+						display(text, graphics, defaultBoard);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
-						continue;
 					}
 				} else if (command == "=") { // change default starting colour
 					cin >> arg1;
@@ -267,7 +266,7 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					cout << defaultBoard << endl;
+					display(text, graphics, defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
@@ -277,20 +276,30 @@ int main() {
 					} catch (BadSetup &e) {
 						cerr << "Board setup invalid: " << e.why() << endl;
 					}
-				} else if (command == "replay") {
-					if (gameActive || !(whiteWins || blackWins)) {
-						cerr << "You must have completed a game and not be currently playing a game to enter replay mode" << endl;
-						continue;
-					}
-					// replay mode stuff here
 				} else { // invalid command
 					cerr << "Please input a valid setup command." << endl;
 				} // switch
+				cerr << "Command: ";
 			} // while
+		} else if (command == "replay") {
+			if (gameActive) {
+				cerr << "You must not be currently playing a game to enter replay mode." << endl
+					 << (whiteTurn ? "White" : "Black") << "'s turn: ";
+					 continue;
+			} else if (!(whiteWins || blackWins)) {
+				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
+				continue;
+			}
+			// replay mode stuff here
 		} else {
 			cerr << "Please input a valid command." << endl;
 		} // switch
-		cout << "Command: ";
+		if (gameActive) {
+			display(text, graphics, board);
+			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
+		} else {
+			cerr << "Command: ";
+		}
 	} // while
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl

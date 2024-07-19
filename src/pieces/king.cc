@@ -41,7 +41,7 @@ void King::calculateLegalMoves(const Board &board) {
     }
 }
 
-void King::calculatePins(const Board &board) {
+bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
             if (!i && !j) continue; // if i = j = 0, this means we are checking the square the king is currently on

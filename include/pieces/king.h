@@ -8,7 +8,7 @@ class King final: public Piece {
   public:
     King(bool colour, const Posn &posn);
     void calculateLegalMoves(const Board &board) override;
-    void calculatePins(const Board &board);
+    bool calculatePins(const Board &board, std::vector<Posn> &positions);
 };
 
 #endif // KING_H

@@ -16,20 +16,20 @@ void Pawn::calculateLegalMoves(const Board &board) {
     }
     for (int i = 0; i < 2; i++) { // i = 0 looks to the right, i = 1 looks to the left
         if (!(i ? positive : negative)) continue;
-        if ((i ? posn.x : posn.x < WIDTH) && board[{posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]) {
+        if ((i ? posn.x : posn.x < WIDTH - 1) && board[{posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]) {
             if (board[{posn.x + (i ? -1 : 1), posn.y + 1}]->getColour() != colour) { // normal capture
                 legalMoves.emplace_back(posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)); // can capture
             } else {
                 board[{posn.x  + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]->protect(); // is protecting
             }
-        } else if ((i ? posn.x : posn.x < WIDTH) && posn.y == (colour ? HEIGHT - 4 : 3) && // en passant
+        } else if ((i ? posn.x : posn.x < WIDTH - 1) && posn.y == (colour ? HEIGHT - 4 : 3) && // en passant
             board[{posn.x + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}] &&
             board[{posn.x + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}]->getName() == (colour ? 'p' : 'P')
-            && board.getLastMove() == Move{{posn.x + (i ? -1 : 1), colour ? HEIGHT - 2 : 1}, {posn.x  + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}}) {
+            && board.getLastMove() == Move{{posn.x + (i ? -1 : 1), colour ? HEIGHT - 2 : 1}, {posn.x  + (i ? -1 : 1), colour ? HEIGHT - 4 : 3}, false, 0}) {
                 legalMoves.emplace_back(posn.x + (i ? -1 : 1), colour ? HEIGHT - 3 : 2);
         }
     }
-    if (!legalMoves.empty()) promotable = posn.y == HEIGHT - 2;
+    if (!legalMoves.empty()) promotable = (posn.y == (colour ? HEIGHT - 2 : 1));
     vertical = positive = negative = true;
 }
 
