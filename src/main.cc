@@ -277,6 +277,12 @@ int main() {
 					} catch (BadSetup &e) {
 						cerr << "Board setup invalid: " << e.why() << endl;
 					}
+				} else if (command == "replay") {
+					if (gameActive || !(whiteWins || blackWins)) {
+						cerr << "You must have completed a game and not be currently playing a game to enter replay mode" << endl;
+						continue;
+					}
+					// replay mode stuff here
 				} else { // invalid command
 					cerr << "Please input a valid setup command." << endl;
 				} // switch
