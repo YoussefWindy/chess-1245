@@ -76,7 +76,7 @@ bool Board::checkmate(bool colour) const {
 	// if there are more than one, checkmate,
 	// otherwise save the attacking piece Posn
 	int numAttacking = 0;
-	Posn attackingPosns;
+	Posn attackingPosn{0, 0};
 	for (auto p : (colour ? whitePieces : blackPieces)) {
 		// Check every legal move of the given opposing piece
 		for (auto oppPosn : p->getLegalMoves()) {
