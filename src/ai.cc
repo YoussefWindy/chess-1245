@@ -20,7 +20,7 @@ Move AI::think() const {
         case 3:
             return thinkAt3();
         default:
-            return thinkAtX(difficulty);
+            return thinkAt4();
     }
 }
 
@@ -75,7 +75,7 @@ Move AI::thinkAt3() const {
     }
 }
 
-Move AI::thinkAtX(int x) const {
+Move AI::thinkAt4() const {
     // Fill in
     return empty;
 }

@@ -20,7 +20,7 @@ class AI {
     Move thinkAt1() const;
     Move thinkAt2() const;
     Move thinkAt3() const;
-    Move thinkAtX(int x) const;
+    Move thinkAt4() const;
   public:
     AI(Board &board, bool colour, int difficulty);
     Move think() const;

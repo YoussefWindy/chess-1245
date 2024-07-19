@@ -142,10 +142,13 @@ Board::Iterator Board::end() const {
 
 int Board::runCalculations(bool colour) {
     std::vector<Posn> defensivePositions;
+	std::cerr << 1 << std::endl;
 	for (auto p: whitePieces) p->protect(false);
 	for (auto p: blackPieces) p->protect(false);
+	std::cerr << 2 << std::endl;
 	bool inCheck = (colour ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
 	(!colour ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
+	std::cerr << 3 << std::endl;
 	for (auto p: whitePieces) {
 		if (p->getName() != 'K') {
 			p->calculateLegalMoves(*this);
@@ -154,16 +157,21 @@ int Board::runCalculations(bool colour) {
 			}
 		}
 	}
+	std::cerr << 4 << std::endl;
 	for (auto p: blackPieces) {
 		if (p->getName() != 'k') {
+	std::cerr << p->getName() << std::endl;
 			p->calculateLegalMoves(*this);
 			if (inCheck) {
+	std::cerr << "what" << std::endl;
 				p->intersect(defensivePositions);
 			}
 		}
 	}
+	std::cerr << 5 << std::endl;
 	whiteKing->calculateLegalMoves(*this);
 	blackKing->calculateLegalMoves(*this);
+	std::cerr << 6 << std::endl;
 	if (inCheck) {
 		if (checkmate(colour)) {
 			return 2; // checkmate
@@ -175,22 +183,29 @@ int Board::runCalculations(bool colour) {
 	} else {
 		return -1; // nothing
 	}
+	std::cerr << 7 << std::endl;
 }
 
 void Board::movePiece(bool colour, Move &&move) {
+	std::cerr << "start" << std::endl;
 	if (!board[move.oldPos.x][move.oldPos.y] || board[move.oldPos.x][move.oldPos.y]->getColour() != colour
 	  || !board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		throw BadMove{move};
 	}
+	std::cerr << "good" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]) { // if a capture is taking place
+		std::cerr << "capture" << std::endl;
 		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
 		removePiece(move.newPos);
 		move.capture = true;
 	}
+	std::cerr << "up" << std::endl;
 	board[move.oldPos.x][move.oldPos.y]->move(move.newPos); // update the piece's internal posn
 	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y]; // move the piece
 	removePiece(move.oldPos);
+	std::cerr << "down" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) { // check for castling
+		std::cerr << "we're castling??" << std::endl;
 		if (move.newPos.x - move.oldPos.x > 1) { // castling right
 			movePiece(colour, {{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
@@ -198,6 +213,7 @@ void Board::movePiece(bool colour, Move &&move) {
 		}
 	}
 	log.emplace_back(move); // log move
+	std::cerr << "end" << std::endl;
 }
 
 void Board::removePiece(const Posn &posn) {

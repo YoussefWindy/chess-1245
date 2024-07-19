@@ -7,6 +7,7 @@ King::King(bool colour, const Posn &posn):
   Piece{colour ? 'K' : 'k', colour, 10, posn, true, true, true, true} {}
 
 void King::calculateLegalMoves(const Board &board) {
+    std::cerr << "King " << 1 << std::endl;
     legalMoves.clear();
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
@@ -20,25 +21,30 @@ void King::calculateLegalMoves(const Board &board) {
             } catch (BadPosn &e) {}
         }
     }
+    std::cerr << "King " << 2 << std::endl;
     if (!hasMoved && !board.check(posn, colour)) { // if king hasn't moved yet and is not in check
         for (unsigned int i = 0; i < WIDTH; i++) { // look at all pieces of this's colour on this's row
             std::shared_ptr<Piece> p = board[{i, posn.y}];
-            if (p->getName() == (colour ? 'R' : 'r') && !p->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
+    std::cerr << "King " << 3 << i << std::endl;
+            if (p && p->getName() == (colour ? 'R' : 'r') && !p->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
               posn.y == p->getY() && (posn.x - p->getX() == 4 || p->getX() - posn.x == 3)) { // and is either 4 spaces to the left or 3 to the right of this
                 bool pathInCheck = false;
                 for (int j = 1; j < (posn.x < p->getX() ? 3 : 4); j++) { // making sure there are no pieces in between and that
+    std::cerr << "King " << 4 << j << std::endl;
                     Posn pos{posn.x + (posn.x < p->getX() ? j : -j), posn.y}; // none of the positions in between are in check
                     if (board[pos] || board.check(pos, colour)) {
                         pathInCheck = true;
                         break;
                     }
                 }
+    std::cerr << "King " << 5 << i << std::endl;
                 if (!pathInCheck && !board.check(p->getPosn(), colour)) { // if none of the spaces in between are in check and the rook isn't in check either
                     legalMoves.emplace_back(posn.x + (posn.x < p->getX() ? 2 : -2), posn.y);
                 }
             }
         }
     }
+    std::cerr << "King " << 6 << std::endl;
 }
 
 bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {

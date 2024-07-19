@@ -5,8 +5,8 @@
 #include "pieces.h"
 
 class Board {
-	friend class King;
 	friend class AI;
+	friend class King;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;

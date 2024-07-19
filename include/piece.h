@@ -15,6 +15,7 @@ class Piece {
 	std::vector<Posn> legalMoves;
 	bool vertical, horizontal, positive, negative;
 	bool hasMoved, isProtected;
+	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
   public:
 	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
@@ -39,7 +40,6 @@ class Piece {
 	void setName(char value);
 	void setX(unsigned int value);
 	void setY(unsigned int value);
-	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
 	void protect(bool isProtected = true);
 };
 

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+bool text, graphics;
+
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
 	else if (s.substr(0, 9) == "computer[" && s.back() == ']') {
@@ -17,7 +19,7 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(bool text, bool graphics, Board &board) {
+void display(Board &board) {
 	if (text) cout << board << endl;
 	if (graphics) {
 		// Andrew: update graphical display
@@ -28,7 +30,6 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
-	bool text, graphics;
 	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Andrew: declare graphical display
@@ -120,8 +121,8 @@ int main() {
 				try {
 					Posn start{arg1}, end{arg2};
 					board.movePiece(whiteTurn, {start, end});
-					if ((whiteTurn && board[start]->getName() == 'P') || (!whiteTurn && board[start]->getName() == 'p')) {
-						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
+					if ((whiteTurn && board[end]->getName() == 'P') || (!whiteTurn && board[end]->getName() == 'p')) {
+						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
@@ -197,6 +198,7 @@ int main() {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
+			display(defaultBoard);
 			while (cin >> command) {
 				if (command == "+") { // add a piece to the board
 					char piece;
@@ -239,13 +241,13 @@ int main() {
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
-					display(text, graphics, defaultBoard);
+					display(defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(text, graphics, defaultBoard);
+						display(defaultBoard);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -266,11 +268,11 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					display(text, graphics, defaultBoard);
+					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(text, graphics, defaultBoard);
+						display(defaultBoard);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -295,7 +297,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 		if (gameActive) {
-			display(text, graphics, board);
+			display(board);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
