@@ -2,6 +2,7 @@
 
 #include "../include/piece.h"
 #include "../include/board.h"
+#include <iostream>
 
 Board::Board() {
 	for (unsigned int i = 0; i < WIDTH; i++) {
@@ -229,7 +230,12 @@ void Board::validate() const {
 }
 
 bool Board::hasKing(bool colour) const {
-	return (colour ? whiteKing : blackKing) ? true : false;
+	for (auto p : (colour ? whitePieces : blackPieces)) {
+		if (p->getName() == 'k' || p->getName() == 'K') return true;
+	}
+
+	return false;
+	// return (colour ? whiteKing : blackKing) ? true : false;
 }
 
 std::ostream& operator<<(std::ostream& out, const Board& board) {

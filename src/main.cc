@@ -261,6 +261,13 @@ int main() {
 					} else {
 						cerr << "Please input a valid colour." << endl;
 					}
+				} else if (command == "clear") {
+					// Iterate over every space on the board
+					for (auto space : defaultBoard) {
+						// If a piece exists in that square, remove it
+						if (space) defaultBoard.removePiece(space->getPosn());
+					}
+					cout << defaultBoard << endl;
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
