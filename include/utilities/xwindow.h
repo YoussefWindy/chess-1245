@@ -15,7 +15,7 @@ class XWindow {
     Board &board;
 
     public:
-    XWindow(int width = 800, int height = 800, Board &board);
+    XWindow(int width, int height, Board &board);
     ~XWindow();
 
     int getWidth() const;

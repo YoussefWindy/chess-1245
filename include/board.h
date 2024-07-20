@@ -7,6 +7,7 @@
 class Board {
 	friend class AI;
 	friend class King;
+	friend class XWindow;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;

@@ -67,10 +67,10 @@ void XWindow::drawBoard() {
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if ((i + j) % 2) {
-                XFillRectangle(d, w, gc, i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
             } else {
                 XSetForeground(d, gc, colours[2]);
-                XFillRectangle(d, w, gc, i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
                 XSetForeground(d, gc, colours[1]);
             }
         }
@@ -78,8 +78,8 @@ void XWindow::drawBoard() {
 
     // Demarcate the board
     for (int i = 0; i < 8; ++i) {
-        XDrawString(d, w, gc, i * 100 + 40, 20, "87654321", 8);
-        XDrawString(d, w, gc, 20, i * 100 + 40, "abcdefgh", 8);
+        XDrawString(d, w, gc, i * 100 + 240, 20, "87654321", 8);
+        XDrawString(d, w, gc, 220, i * 100 + 40, "abcdefgh", 8);
     }
 
     // Draw the "pieces"
@@ -88,8 +88,25 @@ void XWindow::drawBoard() {
             if (board[{i, j}]) {
                 const char name = board[{i, j}]->getName();
                 const char name_str[2] = {name, '\0'};
-                XDrawString(d, w, gc, i * 100 + 40, j * 100 + 40, name_str, 1);
+                XDrawString(d, w, gc, i * 100 + 240, j * 100 + 40, name_str, 1);
             }
+        }
+    }
+
+    // Draw the dead pieces on the side
+    int white_offset = 0;
+    int black_offset = 0;
+    for (auto piece: board.deadPieces) {
+        const char name = piece->getName();
+        const char name_str[2] = {name, '\0'};
+        if (piece->getColour()) {
+            XSetForeground(d, gc, colours[0]);
+            XDrawString(d, w, gc, 800 + (40 * (white_offset % 8)), 40 * (white_offset - 8 * (white_offset % 8)), name_str, 1);
+            white_offset += 1;
+        } else {
+            XSetForeground(d, gc, colours[1]);
+            XDrawString(d, w, gc, 800 + (40 * (black_offset % 8)), 400 + (40 * (black_offset - 8 * (black_offset % 8))), name_str, 1);
+            black_offset += 1;
         }
     }
 
