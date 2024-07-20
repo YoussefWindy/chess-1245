@@ -19,17 +19,17 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board) {
+void display(Board &board, XWindow &xw) {
 	if (text) cout << board << endl;
 	if (graphics) {
-		// Andrew: update graphical display
+		xw.drawBoard(board);
 	}
 }
 
 int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
-	bool gameActive = false, defaultWhiteTurn = true, whiteTurn, graphics = false;
+	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
 	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	XWindow xw = XWindow(1000, 800);
@@ -68,12 +68,10 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			graphics = true;
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			graphics = true;
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;
@@ -198,8 +196,7 @@ int main() {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
-			display(defaultBoard);
-			if (graphics) xw.drawBoard(defaultBoard);
+			display(defaultBoard, xw);
 			while (cin >> command) {
 				if (command == "+") { // add a piece to the board
 					char piece;
@@ -242,15 +239,13 @@ int main() {
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
-					display(defaultBoard);
-					if (graphics) xw.drawBoard(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(defaultBoard);
-						if (graphics) xw.drawBoard(defaultBoard);
+						display(defaultBoard, xw);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -271,13 +266,11 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					display(defaultBoard);
-					if (graphics) xw.drawBoard(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(defaultBoard);
-						if (graphics) xw.drawBoard(defaultBoard);
+						display(defaultBoard, xw);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -302,8 +295,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 		if (gameActive) {
-			display(board);
-			if (graphics) xw.drawBoard(board);
+			display(board, xw);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
