@@ -91,8 +91,8 @@ void XWindow::drawBoard(Board &board) {
     for (int i = 0; i < 8; ++i) {
         const char num_str[2] = {num_demarc[i], '\0'};
         const char alpha_str[2] = {alpha_demarc[i], '\0'};
-        XDrawString(d, w, gc, i * 100 + 40 + horiz_off, vert_off - 20, alpha_str, 1);
-        XDrawString(d, w, gc, horiz_off - 20, (7 - i) * 100 + 50 + vert_off, num_str, 1);
+        XDrawString(d, w, gc, i * 100 + 40 + horiz_off, height - vert_off + 70, alpha_str, 1);
+        XDrawString(d, w, gc, horiz_off - 40, (7 - i) * 100 + 50 + vert_off, num_str, 1);
     }
 
     // Draw the "pieces"
