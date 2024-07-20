@@ -59,6 +59,10 @@ void XWindow::drawBoard(Board &board) {
     // Load font
     const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
     auto font_info = XLoadQueryFont(d, font_name);
+    if (!font_info) {
+        cerr << "Cannot open font: loaded fixed" << endl;
+        font_info = XLoadQueryFont(d, "fixed");
+    }
     XSetFont(d, gc, font_info->fid);
 
     // Draw the board
