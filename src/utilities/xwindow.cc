@@ -11,7 +11,7 @@
 
 using namespace std;
 
-XWindow::XWindow(int width, int height, Board &board) : width(width), height(height), board{board} {
+XWindow::XWindow(int width, int height) : width(width), height(height) {
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
@@ -54,7 +54,7 @@ XWindow::~XWindow() {
     XCloseDisplay(d);
 }
 
-void XWindow::drawBoard() {
+void XWindow::drawBoard(Board &board) {
     // Load font
     const char* font_name = "fixed";
     auto font_info = XLoadQueryFont(d, font_name);

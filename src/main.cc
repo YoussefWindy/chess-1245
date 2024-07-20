@@ -29,10 +29,10 @@ void display(Board &board) {
 int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
-	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
+	bool gameActive = false, defaultWhiteTurn = true, whiteTurn, graphics = false;
 	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	// Andrew: declare graphical display
+	XWindow xw = XWindow(1000, 800);
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {"a1"});
@@ -68,12 +68,12 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			// Andrew: initialize graphical display
+			graphics = true;
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			// Andrew: initialize graphical display
+			graphics = true;
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;
@@ -199,6 +199,7 @@ int main() {
 				continue;
 			}
 			display(defaultBoard);
+			if (graphics) xw.drawBoard(defaultBoard);
 			while (cin >> command) {
 				if (command == "+") { // add a piece to the board
 					char piece;
@@ -242,12 +243,14 @@ int main() {
 						cerr << "Please input valid board coordinates." << endl;
 					}
 					display(defaultBoard);
+					if (graphics) xw.drawBoard(defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
 						display(defaultBoard);
+						if (graphics) xw.drawBoard(defaultBoard);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -269,10 +272,12 @@ int main() {
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
 					display(defaultBoard);
+					if (graphics) xw.drawBoard(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
 						display(defaultBoard);
+						if (graphics) xw.drawBoard(defaultBoard);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -298,6 +303,7 @@ int main() {
 		} // switch
 		if (gameActive) {
 			display(board);
+			if (graphics) xw.drawBoard(board);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
