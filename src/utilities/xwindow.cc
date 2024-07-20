@@ -114,11 +114,11 @@ void XWindow::drawBoard(Board &board) {
         const char name_str[2] = {name, '\0'};
         if (piece->getColour()) {
             XSetForeground(d, gc, colours[0]);
-            XDrawString(d, w, gc, 1000 + (40 * (white_offset / 7)), 50 * (white_offset - 7 * (white_offset % 7)) + vert_off, name_str, 1);
+            XDrawString(d, w, gc, 1000 + (40 * (white_offset / 7)), 50 * (white_offset - 7 * (white_offset / 7)) + vert_off, name_str, 1);
             white_offset += 1;
         } else {
             XSetForeground(d, gc, colours[1]);
-            XDrawString(d, w, gc, 1000 + (40 * (black_offset / 7)), 400 + (50 * (black_offset - 7 * (black_offset % 7))) + vert_off, name_str, 1);
+            XDrawString(d, w, gc, 1000 + (40 * (black_offset / 7)), (50 * (black_offset - 7 * (black_offset / 7))) + 400 + vert_off, name_str, 1);
             black_offset += 1;
         }
     }
