@@ -11,7 +11,7 @@ class XWindow {
     Window w;
     GC gc;
     int s, width, height;
-    unsigned long colours[3];
+    unsigned long colours[4];
 
     public:
     XWindow(int width, int height);

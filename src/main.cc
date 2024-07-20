@@ -32,7 +32,7 @@ int main() {
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
 	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	XWindow xw = XWindow(1000, 800);
+	XWindow *xw = nullptr;
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {"a1"});
@@ -68,10 +68,12 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
+			xw = new XWindow(1200, 800);
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
+			xw = new XWindow(1200, 800);
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;

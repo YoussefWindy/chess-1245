@@ -34,6 +34,7 @@ XWindow::XWindow(int width, int height) : width(width), height(height) {
     colours[0] = 0xFFFFFF; // White
     colours[1] = 0x8B4513; // Dark brown (takes the place of black on the board)
     colours[2] = 0xF5F5DC; // Beige
+    colours[3] = 0x000000; // Black
 
     XSetForeground(d, gc, colours[2]);
 
@@ -56,7 +57,7 @@ XWindow::~XWindow() {
 
 void XWindow::drawBoard(Board &board) {
     // Load font
-    const char* font_name = "fixed";
+    const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
     auto font_info = XLoadQueryFont(d, font_name);
     XSetFont(d, gc, font_info->fid);
 
@@ -67,19 +68,24 @@ void XWindow::drawBoard(Board &board) {
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if ((i + j) % 2) {
-                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, (8 - j) * 100, 100, 100);
             } else {
                 XSetForeground(d, gc, colours[2]);
-                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, (8 - j) * 100, 100, 100);
                 XSetForeground(d, gc, colours[1]);
             }
         }
     }
 
     // Demarcate the board
+    XSetForeground(d, gc, colours[3]);
+    const char* num_demarc = "12345678";
+    const char* alpha_demarc = "abcdefgh";
     for (int i = 0; i < 8; ++i) {
-        XDrawString(d, w, gc, i * 100 + 240, 20, "87654321", 8);
-        XDrawString(d, w, gc, 220, i * 100 + 40, "abcdefgh", 8);
+        const char num_str[2] = {num_demarc[i], '\0'};
+        const char alpha_str[2] = {alpha_demarc[i], '\0'};
+        XDrawString(d, w, gc, (8 - i) * 100 + 40, 20, num_str, 1);
+        XDrawString(d, w, gc, 20, i * 100 + 40, alpha_str, 1);
     }
 
     // Draw the "pieces"
@@ -88,7 +94,7 @@ void XWindow::drawBoard(Board &board) {
             if (board[{i, j}]) {
                 const char name = board[{i, j}]->getName();
                 const char name_str[2] = {name, '\0'};
-                XDrawString(d, w, gc, i * 100 + 240, j * 100 + 40, name_str, 1);
+                XDrawString(d, w, gc, i * 100 + 40, (8 - j) * 100 + 40, name_str, 1);
             }
         }
     }
