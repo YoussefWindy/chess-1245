@@ -68,13 +68,13 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			xw = new XWindow(1200, 800);
+			xw = new XWindow(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			xw = new XWindow(1200, 800);
+			xw = new XWindow(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		}

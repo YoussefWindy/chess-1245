@@ -56,6 +56,9 @@ XWindow::~XWindow() {
 }
 
 void XWindow::drawBoard(Board &board) {
+    int vert_off = 100;
+    int horiz_off = 100;
+
     // Load font
     const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
     auto font_info = XLoadQueryFont(d, font_name);
@@ -98,7 +101,7 @@ void XWindow::drawBoard(Board &board) {
             if (board[{i, j}]) {
                 const char name = board[{i, j}]->getName();
                 const char name_str[2] = {name, '\0'};
-                XDrawString(d, w, gc, i * 100 + 40, (8 - j) * 100 + 40, name_str, 1);
+                XDrawString(d, w, gc, i * 100 + 40 + horiz_off, (8 - j) * 100 + 40 + vert_off, name_str, 1);
             }
         }
     }
@@ -111,11 +114,11 @@ void XWindow::drawBoard(Board &board) {
         const char name_str[2] = {name, '\0'};
         if (piece->getColour()) {
             XSetForeground(d, gc, colours[0]);
-            XDrawString(d, w, gc, 800 + (40 * (white_offset % 8)), 40 * (white_offset - 8 * (white_offset % 8)), name_str, 1);
+            XDrawString(d, w, gc, 1100 + (40 * (white_offset % 8)), 40 * (white_offset - 8 * (white_offset % 8)) + vert_off, name_str, 1);
             white_offset += 1;
         } else {
             XSetForeground(d, gc, colours[1]);
-            XDrawString(d, w, gc, 800 + (40 * (black_offset % 8)), 400 + (40 * (black_offset - 8 * (black_offset % 8))), name_str, 1);
+            XDrawString(d, w, gc, 1100 + (40 * (black_offset % 8)), 400 + (40 * (black_offset - 8 * (black_offset % 8))) + vert_off, name_str, 1);
             black_offset += 1;
         }
     }
