@@ -75,10 +75,10 @@ void XWindow::drawBoard(Board &board) {
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if ((i + j) % 2) {
-                XFillRectangle(d, w, gc, 100 + i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, horiz_off + i * 100, j * 100 + vert_off, 100, 100);
             } else {
                 XSetForeground(d, gc, colours[2]);
-                XFillRectangle(d, w, gc, 100 + i * 100, j * 100, 100, 100);
+                XFillRectangle(d, w, gc, horiz_off + i * 100, j * 100 + vert_off, 100, 100);
                 XSetForeground(d, gc, colours[1]);
             }
         }
@@ -92,7 +92,7 @@ void XWindow::drawBoard(Board &board) {
         const char num_str[2] = {num_demarc[i], '\0'};
         const char alpha_str[2] = {alpha_demarc[i], '\0'};
         XDrawString(d, w, gc, i * 100 + 40, 20, num_str, 1);
-        XDrawString(d, w, gc, 20, (8 - i) * 100 + 40, alpha_str, 1);
+        XDrawString(d, w, gc, 20, (7 - i) * 100 + 40, alpha_str, 1);
     }
 
     // Draw the "pieces"
@@ -101,7 +101,7 @@ void XWindow::drawBoard(Board &board) {
             if (board[{i, j}]) {
                 const char name = board[{i, j}]->getName();
                 const char name_str[2] = {name, '\0'};
-                XDrawString(d, w, gc, i * 100 + 40 + horiz_off, (8 - j) * 100 + 40 + vert_off, name_str, 1);
+                XDrawString(d, w, gc, i * 100 + 40 + horiz_off, (7 - j) * 100 + 40 + vert_off, name_str, 1);
             }
         }
     }
@@ -114,11 +114,11 @@ void XWindow::drawBoard(Board &board) {
         const char name_str[2] = {name, '\0'};
         if (piece->getColour()) {
             XSetForeground(d, gc, colours[0]);
-            XDrawString(d, w, gc, 1100 + (40 * (white_offset % 8)), 40 * (white_offset - 8 * (white_offset % 8)) + vert_off, name_str, 1);
+            XDrawString(d, w, gc, 1100 + (40 * (white_offset % 7)), 40 * (white_offset - 7 * (white_offset % 7)) + vert_off, name_str, 1);
             white_offset += 1;
         } else {
             XSetForeground(d, gc, colours[1]);
-            XDrawString(d, w, gc, 1100 + (40 * (black_offset % 8)), 400 + (40 * (black_offset - 8 * (black_offset % 8))) + vert_off, name_str, 1);
+            XDrawString(d, w, gc, 1100 + (40 * (black_offset % 7)), 400 + (40 * (black_offset - 7 * (black_offset % 7))) + vert_off, name_str, 1);
             black_offset += 1;
         }
     }
