@@ -67,15 +67,15 @@ void XWindow::drawBoard(Board &board) {
 
     // Draw the board
     XSetForeground(d, gc, colours[2]);
-    XFillRectangle(d, w, gc, 0, 0, 1000, 800);
+    XFillRectangle(d, w, gc, 0, 0, width, height);
     XSetForeground(d, gc, colours[1]);
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if ((i + j) % 2) {
-                XFillRectangle(d, w, gc, 200 + i * 100, (8 - j) * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
             } else {
                 XSetForeground(d, gc, colours[2]);
-                XFillRectangle(d, w, gc, 200 + i * 100, (8 - j) * 100, 100, 100);
+                XFillRectangle(d, w, gc, 200 + i * 100, j * 100, 100, 100);
                 XSetForeground(d, gc, colours[1]);
             }
         }
