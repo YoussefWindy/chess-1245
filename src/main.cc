@@ -19,10 +19,10 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board, XWindow &xw) {
+void display(Board &board, XWindow *xw) {
 	if (text) cout << board << endl;
 	if (graphics) {
-		xw.drawBoard(board);
+		xw->drawBoard(board);
 	}
 }
 
@@ -306,5 +306,6 @@ int main() {
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
+	if (xw) delete xw;
 	return 0;
 } // main
