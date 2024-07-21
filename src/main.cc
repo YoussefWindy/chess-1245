@@ -1,6 +1,7 @@
 // src/main.cc
 
 #include "../include/ai.h"
+#include <sstream>
 
 using namespace std;
 
@@ -12,6 +13,25 @@ int parsePlayer(string &s) {
 		return stoi(s.substr(9, s.size() - 10));
 	}
 	else return -1;
+}
+
+bool isInteger(const std::string& str) {
+    if (str.empty()) return false;
+    for (char ch : str) {
+		if (ch == ' ') continue;
+        if (ch < '0' || ch > '9') return false;
+    }
+    return true;
+}
+
+std::string stripWhitespace(const std::string& input) {
+    std::string result;
+    for (char c : input) {
+        if (!isspace(c)) {
+            result += c;
+        }
+    }
+    return result;
 }
 
 bool verifyPiece(char c) {
@@ -30,7 +50,7 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
-	Board board, defaultBoard;
+	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	XWindow *xw = nullptr;
 	// Initial default board
@@ -97,6 +117,7 @@ int main() {
 			whiteAI = (p1 ? make_unique<AI>(board, true, p1) : nullptr);
 			blackAI = (p2 ? make_unique<AI>(board, false, p2) : nullptr);
 			board = defaultBoard;
+			replayBoard = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
 			board.runCalculations(whiteTurn);
@@ -286,6 +307,14 @@ int main() {
 				cerr << "Command: ";
 			} // while
 		} else if (command == "replay") {
+			/*
+			COMMANDS FOR REPLAY
+			next _/#/all -> play the next move
+			       -> if at the end of the moves, do nothing
+			prev _/#/all -> undo most recent move played
+			     -> if at the beginning of the moves, do nothing
+			done -> exit replay mode
+			*/
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
 					 << (whiteTurn ? "White" : "Black") << "'s turn: ";
@@ -294,7 +323,48 @@ int main() {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
 				continue;
 			}
-			// replay mode stuff here
+			
+			auto gameLog = board.getLog();
+			cout << endl << "SIZE OF LOG: " << gameLog.size() << endl;
+			
+			while (cin >> command) {
+				bool currentTurn = defaultWhiteTurn;
+				int currentMove = 0;
+				
+				replayBoard.runCalculations(currentTurn);
+				
+				if (command == "next") {
+					getline(std::cin, arg1);
+					arg1 = stripWhitespace(arg1);
+					
+					if (arg1.empty()) {
+						Move tempMove = gameLog[currentMove];
+						cout << "TEST POINT 1, CURRENT MOVE: " << currentMove << endl;
+						replayBoard.movePiece(currentTurn, std::move(tempMove));
+						currentMove = currentMove + 1;
+						currentTurn = !currentTurn;
+						display(replayBoard, xw);
+					} else if (isInteger(arg1)) {
+						// Get number argument
+						int number;
+						stringstream ss(arg1);
+						ss >> number;
+						// Do number of moves
+					} else if (arg1 == "all") {
+						// Do all remaining moves
+						cout << endl << "doing all remaining moves" << endl;
+					} else {
+						cerr << "Please input a valid next argument." << endl;
+					}
+				} else if (command == "prev") {
+					// Do prev move
+				} else if (command == "done") {
+					// Do done
+				} else {
+					cerr << "Please input a valid replay command." << endl;
+				} // command == ****
+			} // while (cin >> command)
+			
 		} else {
 			cerr << "Please input a valid command." << endl;
 		} // switch

@@ -59,6 +59,8 @@ class Board {
 	// Other checking methods
 	void validate() const; // Will throw a BadSetup exception if setup is invalid
 	bool hasKing(bool colour) const;
+
+	const std::vector<Move> getLog() const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);

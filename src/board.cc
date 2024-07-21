@@ -280,6 +280,10 @@ bool Board::hasKing(bool colour) const {
 	// return (colour ? whiteKing : blackKing) ? true : false;
 }
 
+const std::vector<Move> Board::getLog() const {
+	return this->log;
+}
+
 std::ostream& operator<<(std::ostream& out, const Board& board) {
 	out << std::endl;
 	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
