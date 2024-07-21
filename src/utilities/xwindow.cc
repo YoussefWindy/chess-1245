@@ -118,7 +118,7 @@ void XWindow::drawBoard(Board &board) {
             white_offset += 1;
         } else {
             XSetForeground(d, gc, colours[1]);
-            XDrawString(d, w, gc, 1000 + (40 * (black_offset / 7)), (50 * (black_offset - 7 * (black_offset / 7))) + 400 + vert_off, name_str, 1);
+            XDrawString(d, w, gc, 1000 + (40 * (black_offset / 7)), (50 * (black_offset - 7 * (black_offset / 7))) + 500 + vert_off, name_str, 1);
             black_offset += 1;
         }
     }
