@@ -4,6 +4,8 @@
 #include "../include/board.h"
 #include "../include/board.tpp"
 
+const Move emptyMove = {{0, 0}, {0, 0}};
+
 Board::Board() {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
@@ -86,6 +88,11 @@ void Board::addPieceHelp(char name, const Posn &posn) {
 	}
 }
 
+void Board::movePiece(bool colour, const Move &move) {
+	Move tmp = move;
+	movePiece(colour, std::move(move));
+}
+
 bool Board::check(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMoveTo(posn)) {
@@ -108,36 +115,48 @@ bool Board::stalemate(bool colour) const {
 			return false;
 		}
 	}
+	if (log.size() < 6) return false;
+	// TODO: handle 3 same moves in a row thing
 	return true;
 }
 
-Board::Iterator::Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin):
-  i{begin ? 0 : WIDTH}, j{0}, board{board} {}
+Board::Iterator::Iterator(bool whiteTurn, const Board &board, const std::vector<Move> &log, bool begin):
+  i{begin ? 0 : log.size() - 1}, whiteTurn{whiteTurn}, board(const_cast<Board&>(board)), log{log} {}
 
-std::shared_ptr<Piece> Board::Iterator::operator*() const {
-	return board[i][j];
+const std::shared_ptr<Piece> (&Board::Iterator::operator*() const)[WIDTH][HEIGHT] {
+	return board.board;
 }
 
 Board::Iterator& Board::Iterator::operator++() {
-	if (j == HEIGHT - 1) {
-		i++;
-		j = 0;
-	} else {
-		j++;
+	if (i == log.size() - 1) {
+		throw BadMove{emptyMove};
 	}
+	board.movePiece(whiteTurn, log[i]);
+	i++;
+	whiteTurn = !whiteTurn;
+	return *this;
+}
+
+Board::Iterator& Board::Iterator::operator--() {
+	if (!i) {
+		throw BadMove{emptyMove};
+	}
+	board.undoMoves();
+	i--;
+	whiteTurn = !whiteTurn;
 	return *this;
 }
 
 bool Board::Iterator::operator!=(const Iterator &other) const {
-	return i != other.i || j != other.j;
+	return i != other.i;
 }
 
-Board::Iterator Board::begin() const {
-	return {board, true};
+Board::Iterator Board::begin(bool turn) const {
+	return {turn, *this, log, true};
 }
 
-Board::Iterator Board::end() const {
-	return {board, false};
+Board::Iterator Board::end(bool turn) const {
+	return {turn, *this, log, false};
 }
 
 int Board::runCalculations(bool colour) {

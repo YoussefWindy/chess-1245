@@ -16,15 +16,6 @@ int parsePlayer(string &s) {
 	else return -1;
 }
 
-bool isInteger(const std::string& str) {
-    if (str.empty()) return false;
-    for (char ch : str) {
-		if (ch == ' ') continue;
-        if (ch < '0' || ch > '9') return false;
-    }
-    return true;
-}
-
 std::string stripWhitespace(const std::string& input) {
     std::string result;
     for (char c : input) {
@@ -286,11 +277,8 @@ int main() {
 						cerr << "Please input a valid colour." << endl;
 					}
 				} else if (command == "clear") {
-					// Iterate over every space on the board
-					for (auto space : defaultBoard) {
-						// If a piece exists in that square, remove it
-						if (space) defaultBoard.removePiece(space->getPosn());
-					}
+					Board tmp;
+					defaultBoard = tmp;
 					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
@@ -334,6 +322,11 @@ int main() {
 				replayBoard.runCalculations(currentTurn);
 				
 				if (command == "next") {
+					int num;
+					if (cin >> num) {
+						// Do number of moves
+						continue;
+					}
 					getline(std::cin, arg1);
 					arg1 = stripWhitespace(arg1);
 					
@@ -343,13 +336,7 @@ int main() {
 						replayBoard.movePiece(currentTurn, std::move(tempMove));
 						currentMove = currentMove + 1;
 						currentTurn = !currentTurn;
-						display(replayBoard, xw);
-					} else if (isInteger(arg1)) {
-						// Get number argument
-						int number;
-						stringstream ss(arg1);
-						ss >> number;
-						// Do number of moves
+						display(replayBoard);
 					} else if (arg1 == "all") {
 						// Do all remaining moves
 						cout << endl << "doing all remaining moves" << endl;
