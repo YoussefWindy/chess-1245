@@ -17,6 +17,23 @@ int parsePlayer(string &s) {
 	else return -1;
 }
 
+bool isInteger(const std::string& str) {
+    if (str.empty()) return false;
+    for (char ch : str) {
+		if (ch == ' ') continue;
+        if (ch < '0' || ch > '9') return false;
+    }
+    return true;
+}
+
+void toLowercase(std::string& str) {
+    for (char& ch : str) {
+        if (ch >= 'A' && ch <= 'Z') {
+            ch += 'a' - 'A'; // Convert uppercase to lowercase
+        }
+    }
+}
+
 void stripWhitespace(std::string& str) {
     std::string result;
     for (char ch : str) {
@@ -34,9 +51,7 @@ bool verifyPiece(char c) {
 
 void display(Board &board) {
 	if (text) cout << board << endl;
-	if (graphics) {
-		xw->drawBoard(board);
-	}
+	if (graphics) xw->drawBoard(board);
 }
 
 int main() {
@@ -326,7 +341,7 @@ int main() {
 			
 			// Get game log
 			auto gameLog = board.getLog();
-      unsigned int currentMove = 0;
+      		unsigned int currentMove = 0;
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
@@ -337,11 +352,7 @@ int main() {
 				bool atEnd = currentMove == gameLog.size() ? true : false;
 
 				if (command == "next") {
-					int num;
-					if (cin >> num) {
-						// Do number of moves
-						continue;
-					}
+					// Get argument
 					getline(std::cin, arg1);
 					stripWhitespace(arg1);
 					toLowercase(arg1);

@@ -67,8 +67,8 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                     } else if (!allyFound) tmp.emplace_back(p);
                     if (board[p]->getName() == (!colour ? 'Q' : 'q')) { // if it's a queen, it will pin no matter the axis
                         if (allyFound) allyFound->pin(!i && j, i && !j, i == j, !(i + j));
-                        else if (numChecks) {
-                            positions.clear();
+                        else if (numChecks) { // if there is already a threatening piece, two simultaneous checks means
+                            positions.clear(); // there is no way to block or capture both sources of check in one move
                             return true;
                         } else {
                             positions = tmp;
@@ -77,8 +77,8 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                         }
                     } else if (board[p]->getName() == (!colour ? 'R' : 'r') && ((!i && j) || (i && !j))) { // if it's a rook and is looking vertical/horizontal
                         if (allyFound) allyFound->pin(!i && j, i && !j, false, false);
-                        else if (numChecks) {
-                            positions.clear();
+                        else if (numChecks) { // if there is already a threatening piece, two simultaneous checks means
+                            positions.clear(); // there is no way to block or capture both sources of check in one move
                             return true;
                         } else {
                             positions = tmp;
@@ -87,8 +87,8 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                         }
                     } else if (board[p]->getName() == (!colour ? 'B' : 'b') && i && j) { // if it's a bishop and is looking diagonally
                         if (allyFound) allyFound->pin(false, false, i == j, !(i + j));
-                        else if (numChecks) {
-                            positions.clear();
+                        else if (numChecks) { // if there is already a threatening piece, two simultaneous checks means
+                            positions.clear(); // there is no way to block or capture both sources of check in one move
                             return true;
                         } else {
                             positions = tmp;
@@ -96,8 +96,8 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                             break;
                         }
                     } else if (board[p]->getName() == (!colour ? 'P' : 'p') && (colour ? i > 0 && j > 0 : i < 0 && j < 0)) {
-                        if (numChecks) {
-                            positions.clear();
+                        if (numChecks) { // if there is already a threatening piece, two simultaneous checks means that
+                            positions.clear(); // there is no way to block or capture both sources of check in one move
                             return true;
                         } else {
                             positions.emplace_back(p);
@@ -118,8 +118,8 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
             try {
                 Posn p{x, y};
                 if (board[p] && board[p]->getName() == (!colour ? 'N' : 'n')) {
-                    if (numChecks) {
-                        positions.clear();
+                    if (numChecks) { // if there is already a threatening piece, two simultaneous checks means that
+                        positions.clear(); // there is no way to block or capture both sources of check in one move
                         return true;
                     } else {
                         positions.emplace_back(p);

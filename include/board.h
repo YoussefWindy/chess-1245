@@ -8,11 +8,12 @@ class Board {
 	friend class AI;
 	friend class King;
 	friend class XWindow;
+	friend std::ostream& operator<<(std::ostream& out, const Board& board);
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
-  bool whiteTurn;
+  	bool whiteTurn;
 
 	void addPieceHelp(char name, const Posn &posn);
 	void movePiece(bool colour, const Move &);
@@ -32,10 +33,9 @@ class Board {
 	class Iterator { // Iterator class for replay functionality
 		friend class Board;
 		long unsigned int i;
-		bool whiteTurn;
 		Board &board;
 		const std::vector<Move> &log;
-		Iterator(bool whiteStarts, const Board &board, const std::vector<Move> &log, bool begin);
+		Iterator(const Board &board, const std::vector<Move> &log, bool begin);
 	  public:
 		const std::shared_ptr<Piece> (&operator*() const)[WIDTH][HEIGHT];
 		Iterator& operator++();
@@ -43,8 +43,8 @@ class Board {
 		bool operator!=(const Iterator &other) const;
 	};
 
-	Iterator begin(bool whitStarts) const;
-	Iterator end(bool whitStarts) const;
+	Iterator begin() const;
+	Iterator end() const;
 
 	// THE BIG BOY METHOD - handles all end of turn calculations
 	int runCalculations(bool colour);

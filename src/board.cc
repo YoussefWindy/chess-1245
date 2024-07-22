@@ -91,7 +91,6 @@ void Board::addPieceHelp(char name, const Posn &posn) {
 }
 
 void Board::movePiece(bool colour, const Move &move) {
-	Move tmp = move;
 	movePiece(colour, std::move(move));
 }
 
@@ -122,8 +121,8 @@ bool Board::stalemate(bool colour) const {
 	return true;
 }
 
-Board::Iterator::Iterator(bool whiteTurn, const Board &board, const std::vector<Move> &log, bool begin):
-  i{begin ? 0 : log.size() - 1}, whiteTurn{whiteTurn}, board(const_cast<Board&>(board)), log{log} {}
+Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
+  i{begin ? 0 : log.size() - 1}, board(const_cast<Board&>(board)), log{log} {}
 
 const std::shared_ptr<Piece> (&Board::Iterator::operator*() const)[WIDTH][HEIGHT] {
 	return board.board;
@@ -133,9 +132,9 @@ Board::Iterator& Board::Iterator::operator++() {
 	if (i == log.size() - 1) {
 		throw BadMove{emptyMove};
 	}
-	board.movePiece(whiteTurn, log[i]);
+	board.movePiece(board.whiteTurn, log[i]);
 	i++;
-	whiteTurn = !whiteTurn;
+	board.whiteTurn = !board.whiteTurn;
 	return *this;
 }
 
@@ -145,7 +144,7 @@ Board::Iterator& Board::Iterator::operator--() {
 	}
 	board.undoMoves();
 	i--;
-	whiteTurn = !whiteTurn;
+	board.whiteTurn = !board.whiteTurn;
 	return *this;
 }
 
@@ -153,12 +152,12 @@ bool Board::Iterator::operator!=(const Iterator &other) const {
 	return i != other.i;
 }
 
-Board::Iterator Board::begin(bool turn) const {
-	return {turn, *this, log, true};
+Board::Iterator Board::begin() const {
+	return {*this, log, true};
 }
 
-Board::Iterator Board::end(bool turn) const {
-	return {turn, *this, log, false};
+Board::Iterator Board::end() const {
+	return {*this, log, false};
 }
 
 int Board::runCalculations(bool colour) {
@@ -338,6 +337,21 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 				out << board[{col, HEIGHT - row - 1}]->getName();
 			} else { // if it's a blank space
 				out << ((col + row) % 2 ? '_' : ' ');
+			}
+		}
+		if (row == 1) {
+			out << "   ";
+			for (auto p: board.deadPieces) {
+				if (p->getColour()) {
+					out << p->getName();
+				}
+			}
+		} else if (row == HEIGHT - 2) {
+			out << "   ";
+			for (auto p: board.deadPieces) {
+				if (!p->getColour()) {
+					out << p->getName();
+				}
 			}
 		}
 		out << std::endl;
