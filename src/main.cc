@@ -1,11 +1,13 @@
 // src/main.cc
 
 #include "../include/ai.h"
+#include <ostream>
 #include <sstream>
 
 using namespace std;
 
 bool text, graphics;
+unique_ptr<XWindow> xw;
 
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
@@ -24,14 +26,22 @@ bool isInteger(const std::string& str) {
     return true;
 }
 
-std::string stripWhitespace(const std::string& input) {
-    std::string result;
-    for (char c : input) {
-        if (!isspace(c)) {
-            result += c;
+void toLowercase(std::string& str) {
+    for (char& ch : str) {
+        if (ch >= 'A' && ch <= 'Z') {
+            ch += 'a' - 'A'; // Convert uppercase to lowercase
         }
     }
-    return result;
+}
+
+void stripWhitespace(std::string& str) {
+    std::string result;
+    for (char ch : str) {
+        if (ch != ' ') {
+            result += ch;
+        }
+    }
+    str = result;
 }
 
 bool verifyPiece(char c) {
@@ -39,7 +49,7 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board, XWindow *xw) {
+void display(Board &board) {
 	if (text) cout << board << endl;
 	if (graphics) {
 		xw->drawBoard(board);
@@ -52,7 +62,6 @@ int main() {
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
 	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	XWindow *xw = nullptr;
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {"a1"});
@@ -77,31 +86,35 @@ int main() {
 		defaultBoard.addPiece<Pawn>(true, {i, 1});
 		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2});
 	}
-	cout << "Would you like to use a text-based display a graphical display, or both? (t/g/b): ";
+	cout << "Text Display, Draphical Display, Both? (t/g/b): ";
 	while (cin >> arg1) {
-		if (arg1 == "t" || arg1 == "T") {
+		toLowercase(arg1);
+
+		if (arg1 == "t") {
 			text = true;
 			graphics = false;
 			cout << "Text-based display selected." << endl << defaultBoard << endl;
 			break;
-		} else if (arg1 == "g" || arg1 == "G") {
+		} else if (arg1 == "g") {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			xw = new XWindow(1200, 1000);
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
-		} else if (arg1 == "b" || arg1 == "B") {
+		} else if (arg1 == "b") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			xw = new XWindow(1200, 1000);
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;
 	}
-	cout << "Command: ";
+	cout << "Start Command: ";
 	while (cin >> command) {
+		toLowercase(command);
+
 		if (command == "game") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl;
@@ -221,8 +234,9 @@ int main() {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
-			display(defaultBoard, xw);
+			display(defaultBoard);
 			while (cin >> command) {
+				toLowercase(command);
 				if (command == "+") { // add a piece to the board
 					char piece;
 					cin >> piece >> arg1;
@@ -246,7 +260,7 @@ int main() {
 								defaultBoard.addPiece<Bishop>(white, p);
 								break;
 							case 'r':
-								defaultBoard.addPiece<Rook>(white, p);
+		defaultBoard.addPiece<Rook>(white, p);
 								break;
 							case 'q':
 								defaultBoard.addPiece<Queen>(white, p);
@@ -264,13 +278,13 @@ int main() {
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
-					display(defaultBoard, xw);
+					display(defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(defaultBoard, xw);
+						display(defaultBoard);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -291,11 +305,11 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					display(defaultBoard, xw);
+					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(defaultBoard, xw);
+						display(defaultBoard);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -314,6 +328,9 @@ int main() {
 			prev _/#/all -> undo most recent move played
 			     -> if at the beginning of the moves, do nothing
 			done -> exit replay mode
+
+      TODO
+      - fix printing extra board in looping next/prev
 			*/
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
@@ -322,44 +339,167 @@ int main() {
 			} else if (!(whiteWins || blackWins)) {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
 				continue;
+			} else if (board.getLog().size() == 0) {
+				cerr << "Game log is empty, no moves to be reviewed." << endl << "Command: ";
+				continue;
 			}
 			
+			// Get game log
 			auto gameLog = board.getLog();
-			cout << endl << "SIZE OF LOG: " << gameLog.size() << endl;
+      unsigned int currentMove = 0;
 			
+			cout << "Replay Command: ";
 			while (cin >> command) {
-				bool currentTurn = defaultWhiteTurn;
-				int currentMove = 0;
-				
-				replayBoard.runCalculations(currentTurn);
+				// Cleanup command input
+				toLowercase(command);
+
+				bool atStart = currentMove == 0 ? true : false;
+				bool atEnd = currentMove == gameLog.size() ? true : false;
 				
 				if (command == "next") {
+					// Get argument
 					getline(std::cin, arg1);
-					arg1 = stripWhitespace(arg1);
+					stripWhitespace(arg1);
+					toLowercase(arg1);
 					
-					if (arg1.empty()) {
-						Move tempMove = gameLog[currentMove];
-						cout << "TEST POINT 1, CURRENT MOVE: " << currentMove << endl;
-						replayBoard.movePiece(currentTurn, std::move(tempMove));
-						currentMove = currentMove + 1;
-						currentTurn = !currentTurn;
-						display(replayBoard, xw);
-					} else if (isInteger(arg1)) {
+					if (arg1.empty() || isInteger(arg1) || arg1 == "all") {
 						// Get number argument
-						int number;
-						stringstream ss(arg1);
-						ss >> number;
-						// Do number of moves
-					} else if (arg1 == "all") {
-						// Do all remaining moves
-						cout << endl << "doing all remaining moves" << endl;
+						int numMoves;
+						if (arg1.empty()) {
+							// If empty argument, default to 1 move
+							// not 1 of each colour
+							numMoves = 1;
+						} else if (!isInteger(arg1)) {
+							// All moves
+							numMoves = gameLog.size() - currentMove + 1;
+						} else {
+							// Get user number of moves
+							stringstream ss(arg1);
+							ss >> numMoves;
+						}
+
+						bool atEndInside = false;
+						
+						// Iterate over the number of moves asked to run
+						for (int i = 0; i < numMoves; ++i) {
+              cout << "CMOVE B: " << currentMove << endl;
+              // Generate legal moves
+				      replayBoard.runCalculations(replayBoard.getTurn());
+
+							// If already hit the end of the moves
+							if (atEnd && atEndInside) continue;
+
+							// Update hitEnd
+							if (currentMove < gameLog.size()) atEnd = false;
+
+							// Check if last move
+							if (!atEnd) {
+								// Get move
+								Move tempMove = gameLog[currentMove];
+
+								// Next move
+								replayBoard.movePiece(replayBoard.getTurn(), std::move(tempMove));
+								
+                // Increment move
+								if (!atEnd) {
+									++currentMove;
+								} else {
+									// Reached end
+									atEndInside = true;
+								}
+
+								// Display move
+								display(replayBoard);
+
+							} else {
+								cerr << "At the last move." << endl;
+
+								// Display move
+								display(replayBoard);
+
+								break;
+							}
+
+							// If reached the end of the log
+							if (currentMove == gameLog.size()) atEnd = true;
+              
+              cout << "CMOVE A: " << currentMove << endl;
+						} // for (0 -> numMoves)
 					} else {
 						cerr << "Please input a valid next argument." << endl;
 					}
+
+					cout << "Replay Command: ";
 				} else if (command == "prev") {
-					// Do prev move
-				} else if (command == "done") {
-					// Do done
+					// Get argument
+					getline(std::cin, arg1);
+					stripWhitespace(arg1);
+					toLowercase(arg1);
+					
+					if (arg1.empty() || isInteger(arg1) || arg1 == "all") {
+						// Get number argument
+						int numMoves;
+						if (arg1.empty()) {
+							// If empty argument, default to 1 move
+							// not 1 of each colour
+							numMoves = 1;
+						} else if (!isInteger(arg1)) {
+							// All moves
+							numMoves = gameLog.size() - currentMove + 1;
+						} else {
+							// Get user number of moves
+							stringstream ss(arg1);
+							ss >> numMoves;
+						}
+						bool atStartInside = false;
+						
+						// Iterate over the number of moves asked to run
+						for (int i = 0; i < numMoves; ++i) {
+              cout << "CMOVE B: " << currentMove << endl;
+							// Generate legal moves
+				      replayBoard.runCalculations(replayBoard.getTurn());
+				    
+              // If already hit the start of the moves
+							if (atStart && atStartInside) continue;
+
+							// Update hitStart
+							if (currentMove > 0) atStart = false;
+
+							// Check if last move
+							if (!atStart) {
+								// Undo move
+								replayBoard.undoMoves(1);
+
+                // Decrement move
+								if (!atStart) {
+									--currentMove;
+								} else {
+									// Reached start
+									atStartInside = true;
+								}
+
+								// Display move
+								display(replayBoard);
+
+							} else {
+								cerr << "At the first move." << endl;
+
+								// Display move
+								display(replayBoard);
+
+								break;
+							}
+
+							// If reached the start of the log
+							if (currentMove == 0) atStart = true;
+              
+              cout << "CMOVE A: " << currentMove << endl;
+						} // for (0 -> numMoves)
+					} else {
+						cerr << "Please input a valid next argument." << endl;
+					}
+        } else if (command == "done") {
+					break;
 				} else {
 					cerr << "Please input a valid replay command." << endl;
 				} // command == ****
@@ -369,7 +509,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 		if (gameActive) {
-			display(board, xw);
+			display(board);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
@@ -378,6 +518,5 @@ int main() {
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
-	if (xw) delete xw;
 	return 0;
 } // main

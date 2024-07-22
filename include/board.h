@@ -12,6 +12,7 @@ class Board {
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
+  bool whiteTurn;
 
 	void addPieceHelp(char name, const Posn &posn);
 	// Checking for check and checkmate
@@ -51,6 +52,7 @@ class Board {
 	void removePiece(const Posn &posn);
 	void promote(bool colour, Move &&move, unsigned int type);
 	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
+  bool getTurn() const;
 
 	// Getter methods
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
