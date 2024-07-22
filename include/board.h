@@ -7,6 +7,7 @@
 class Board {
 	friend class AI;
 	friend class King;
+	friend class XWindow;
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
@@ -58,6 +59,8 @@ class Board {
 	// Other checking methods
 	void validate() const; // Will throw a BadSetup exception if setup is invalid
 	bool hasKing(bool colour) const;
+
+	const std::vector<Move> getLog() const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);

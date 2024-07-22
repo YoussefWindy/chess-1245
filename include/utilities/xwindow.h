@@ -11,17 +11,16 @@ class XWindow {
     Window w;
     GC gc;
     int s, width, height;
-    unsigned long colours[3];
-    Board &board;
+    unsigned long colours[4];
 
     public:
-    XWindow(int width = 800, int height = 800, Board &board);
+    XWindow(int width, int height);
     ~XWindow();
 
     int getWidth() const;
     int getHeight() const;
 
-    void drawBoard();
+    void drawBoard(Board &board);
 };
 
 #endif // XWINDOW_H

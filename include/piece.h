@@ -15,7 +15,6 @@ class Piece {
 	std::vector<Posn> legalMoves;
 	bool vertical, horizontal, positive, negative;
 	bool hasMoved, isProtected;
-	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
   public:
 	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
@@ -23,6 +22,7 @@ class Piece {
 	void intersect(std::vector<Posn> &positions);
 	bool canMoveTo(const Posn &posn) const;
 	bool canMove() const;
+	virtual void pin(bool vertical, bool horizontal, bool positive, bool negative); // see Knight class for why this is virtual
 
 	// Getters
 	char getName() const;

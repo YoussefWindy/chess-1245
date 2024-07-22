@@ -1,6 +1,7 @@
 // src/main.cc
 
 #include "../include/ai.h"
+#include <sstream>
 
 using namespace std;
 
@@ -14,15 +15,34 @@ int parsePlayer(string &s) {
 	else return -1;
 }
 
+bool isInteger(const std::string& str) {
+    if (str.empty()) return false;
+    for (char ch : str) {
+		if (ch == ' ') continue;
+        if (ch < '0' || ch > '9') return false;
+    }
+    return true;
+}
+
+std::string stripWhitespace(const std::string& input) {
+    std::string result;
+    for (char c : input) {
+        if (!isspace(c)) {
+            result += c;
+        }
+    }
+    return result;
+}
+
 bool verifyPiece(char c) {
 	return c == 'b' || c == 'B' || c == 'r' || c == 'R' || c == 'n' || c == 'N'
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board) {
+void display(Board &board, XWindow *xw) {
 	if (text) cout << board << endl;
 	if (graphics) {
-		// Andrew: update graphical display
+		xw->drawBoard(board);
 	}
 }
 
@@ -30,9 +50,9 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
-	Board board, defaultBoard;
+	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	// Andrew: declare graphical display
+	XWindow *xw = nullptr;
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {"a1"});
@@ -68,12 +88,14 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			// Andrew: initialize graphical display
+			xw = new XWindow(1200, 1000);
+			xw->drawBoard(defaultBoard);
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			// Andrew: initialize graphical display
+			xw = new XWindow(1200, 1000);
+			xw->drawBoard(defaultBoard);
 			break;
 		}
 		cout << endl << "Please input \"t\" or \"g\"." << endl;
@@ -95,6 +117,7 @@ int main() {
 			whiteAI = (p1 ? make_unique<AI>(board, true, p1) : nullptr);
 			blackAI = (p2 ? make_unique<AI>(board, false, p2) : nullptr);
 			board = defaultBoard;
+			replayBoard = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
 			board.runCalculations(whiteTurn);
@@ -198,7 +221,7 @@ int main() {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
-			display(defaultBoard);
+			display(defaultBoard, xw);
 			while (cin >> command) {
 				if (command == "+") { // add a piece to the board
 					char piece;
@@ -241,13 +264,13 @@ int main() {
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
-					display(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(defaultBoard);
+						display(defaultBoard, xw);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -268,11 +291,11 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					display(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(defaultBoard);
+						display(defaultBoard, xw);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -284,6 +307,14 @@ int main() {
 				cerr << "Command: ";
 			} // while
 		} else if (command == "replay") {
+			/*
+			COMMANDS FOR REPLAY
+			next _/#/all -> play the next move
+			       -> if at the end of the moves, do nothing
+			prev _/#/all -> undo most recent move played
+			     -> if at the beginning of the moves, do nothing
+			done -> exit replay mode
+			*/
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
 					 << (whiteTurn ? "White" : "Black") << "'s turn: ";
@@ -292,12 +323,53 @@ int main() {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
 				continue;
 			}
-			// replay mode stuff here
+			
+			auto gameLog = board.getLog();
+			cout << endl << "SIZE OF LOG: " << gameLog.size() << endl;
+			
+			while (cin >> command) {
+				bool currentTurn = defaultWhiteTurn;
+				int currentMove = 0;
+				
+				replayBoard.runCalculations(currentTurn);
+				
+				if (command == "next") {
+					getline(std::cin, arg1);
+					arg1 = stripWhitespace(arg1);
+					
+					if (arg1.empty()) {
+						Move tempMove = gameLog[currentMove];
+						cout << "TEST POINT 1, CURRENT MOVE: " << currentMove << endl;
+						replayBoard.movePiece(currentTurn, std::move(tempMove));
+						currentMove = currentMove + 1;
+						currentTurn = !currentTurn;
+						display(replayBoard, xw);
+					} else if (isInteger(arg1)) {
+						// Get number argument
+						int number;
+						stringstream ss(arg1);
+						ss >> number;
+						// Do number of moves
+					} else if (arg1 == "all") {
+						// Do all remaining moves
+						cout << endl << "doing all remaining moves" << endl;
+					} else {
+						cerr << "Please input a valid next argument." << endl;
+					}
+				} else if (command == "prev") {
+					// Do prev move
+				} else if (command == "done") {
+					// Do done
+				} else {
+					cerr << "Please input a valid replay command." << endl;
+				} // command == ****
+			} // while (cin >> command)
+			
 		} else {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 		if (gameActive) {
-			display(board);
+			display(board, xw);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
@@ -306,5 +378,6 @@ int main() {
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
+	if (xw) delete xw;
 	return 0;
 } // main
