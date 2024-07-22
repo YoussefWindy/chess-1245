@@ -17,23 +17,6 @@ int parsePlayer(string &s) {
 	else return -1;
 }
 
-bool isInteger(const std::string& str) {
-    if (str.empty()) return false;
-    for (char ch : str) {
-		if (ch == ' ') continue;
-        if (ch < '0' || ch > '9') return false;
-    }
-    return true;
-}
-
-void toLowercase(std::string& str) {
-    for (char& ch : str) {
-        if (ch >= 'A' && ch <= 'Z') {
-            ch += 'a' - 'A'; // Convert uppercase to lowercase
-        }
-    }
-}
-
 void stripWhitespace(std::string& str) {
     std::string result;
     for (char ch : str) {
@@ -300,11 +283,8 @@ int main() {
 						cerr << "Please input a valid colour." << endl;
 					}
 				} else if (command == "clear") {
-					// Iterate over every space on the board
-					for (auto space : defaultBoard) {
-						// If a piece exists in that square, remove it
-						if (space) defaultBoard.removePiece(space->getPosn());
-					}
+					Board tmp;
+					defaultBoard = tmp;
 					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
@@ -357,7 +337,11 @@ int main() {
 				bool atEnd = currentMove == gameLog.size() ? true : false;
 				
 				if (command == "next") {
-					// Get argument
+					int num;
+					if (cin >> num) {
+						// Do number of moves
+						continue;
+					}
 					getline(std::cin, arg1);
 					stripWhitespace(arg1);
 					toLowercase(arg1);
