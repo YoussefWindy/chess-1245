@@ -12,6 +12,7 @@ class Board {
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
 	std::vector<Move> log;
+  bool whiteTurn;
 
 	void addPieceHelp(char name, const Posn &posn);
 	void movePiece(bool colour, const Move &);
@@ -54,7 +55,8 @@ class Board {
 	void movePiece(bool colour, Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
 	void promote(bool colour, Move &&move, unsigned int type);
-	bool undoMoves(int num = 1); // returns true is num is less than the number of moves played so far, false otherwise
+	bool undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
+  bool getTurn() const;
 
 	// Getter methods
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
