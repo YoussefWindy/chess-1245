@@ -15,6 +15,7 @@ class Board {
   bool whiteTurn;
 
 	void addPieceHelp(char name, const Posn &posn);
+	void movePiece(bool colour, const Move &);
 	// Checking for check and checkmate
 	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
@@ -28,19 +29,22 @@ class Board {
 	Board& operator=(Board &&);
 	~Board() = default;
 
-	class Iterator {
+	class Iterator { // Iterator class for replay functionality
 		friend class Board;
-		unsigned int i, j;
-		const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT];
-		Iterator(const std::shared_ptr<Piece> (&board)[WIDTH][HEIGHT], bool begin);
+		long unsigned int i;
+		bool whiteTurn;
+		Board &board;
+		const std::vector<Move> &log;
+		Iterator(bool whiteStarts, const Board &board, const std::vector<Move> &log, bool begin);
 	  public:
-		std::shared_ptr<Piece> operator*() const;
+		const std::shared_ptr<Piece> (&operator*() const)[WIDTH][HEIGHT];
 		Iterator& operator++();
+		Iterator& operator--();
 		bool operator!=(const Iterator &other) const;
 	};
 
-	Iterator begin() const;
-	Iterator end() const;
+	Iterator begin(bool whitStarts) const;
+	Iterator end(bool whitStarts) const;
 
 	// THE BIG BOY METHOD - handles all end of turn calculations
 	int runCalculations(bool colour);
@@ -51,7 +55,7 @@ class Board {
 	void movePiece(bool colour, Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
 	void promote(bool colour, Move &&move, unsigned int type);
-	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
+	bool undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
   bool getTurn() const;
 
 	// Getter methods
@@ -66,5 +70,7 @@ class Board {
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);
+
+// const Move emptyMove = {{0, 0}, {0, 0}};
 
 #endif // BOARD_H
