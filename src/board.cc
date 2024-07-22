@@ -104,17 +104,16 @@ bool Board::check(const Posn &posn, bool colour) const {
 }
 
 bool Board::checkmate(bool colour) const {
-	if ((colour ? whiteKing : blackKing)->canMove()) return false;
-	// incomplete
+	for (auto piece: colour ? whitePieces : blackPieces) {
+		if (piece->canMove()) return false;
+	}
 	return true;
 }
 
 bool Board::stalemate(bool colour) const {
 	// Invariant: this method should only ever be called if colour isn't in check, so we won't check for that
 	for (auto piece: colour ? whitePieces : blackPieces) {
-		if (piece->canMove()) {
-			return false;
-		}
+		if (piece->canMove()) return false;
 	}
 	if (log.size() < 6) return false;
 	// TODO: handle 3 same moves in a row thing
@@ -172,7 +171,7 @@ int Board::runCalculations(bool colour) {
 	for (auto p: whitePieces) {
 		if (p->getName() != 'K') {
 			p->calculateLegalMoves(*this);
-			if (inCheck) {
+			if (colour && inCheck) {
 				p->intersect(defensivePositions);
 			}
 		}
@@ -182,7 +181,7 @@ int Board::runCalculations(bool colour) {
 		if (p->getName() != 'k') {
 	// std::cerr << p->getName() << std::endl;
 			p->calculateLegalMoves(*this);
-			if (inCheck) {
+			if (!colour && inCheck) {
 	// std::cerr << "what" << std::endl;
 				p->intersect(defensivePositions);
 			}
@@ -233,8 +232,7 @@ void Board::movePiece(bool colour, Move &&move) {
 		move.capture = true;
 	}
 	// std::cerr << "up" << std::endl;
-	board[move.oldPos.x][move.oldPos.y]->move(move.newPos); // update the piece's internal posn
-	board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y]; // move the piece
+	(board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y])->move(move.newPos); // move the piece
 	removePiece(move.oldPos);
 	// std::cerr << "down" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (board[move.newPos.x][move.newPos.y]->getColour() ? 'K' : 'k')) { // check for castling
@@ -298,7 +296,7 @@ bool Board::getTurn() const {
   return this->whiteTurn;
 }
 
-void Board::validate() const {
+void Board::validate() {
 	if (!hasKing(true)) throw BadSetup{"no white king on the board!"};
 	if (!hasKing(false)) throw BadSetup{"no black king on the board!"};
 	for (auto p: whitePieces) { // Check white pawns
@@ -313,6 +311,8 @@ void Board::validate() const {
 			if (!pawnPosn.y) throw BadSetup{"there is a black pawn on the last row!"};
 		}
 	}
+	if (runCalculations(true) > 0) throw BadSetup{"white is in check!"};
+	if (runCalculations(false) > 0) throw BadSetup{"black is in check!"};
 }
 
 bool Board::hasKing(bool colour) const {

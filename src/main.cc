@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Display stuff
 bool text, graphics;
 unique_ptr<XWindow> xw;
 
@@ -55,10 +56,11 @@ void display(Board &board) {
 }
 
 int main() {
+	// Declarations
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
-	Board board, defaultBoard, replayBoard;
+	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
 	// White pieces
@@ -107,9 +109,9 @@ int main() {
 			xw->drawBoard(defaultBoard);
 			break;
 		}
-		cout << endl << "Please input \"t\" or \"g\"." << endl;
+		cout << endl << "Please input \"t\", \"g\", or \"b\"." << endl;
 	}
-	cout << "Start Command: ";
+	cout << "Command: ";
 	while (cin >> command) {
 		toLowercase(command);
 
@@ -128,7 +130,6 @@ int main() {
 			whiteAI = (p1 ? make_unique<AI>(board, true, p1) : nullptr);
 			blackAI = (p2 ? make_unique<AI>(board, false, p2) : nullptr);
 			board = defaultBoard;
-			replayBoard = defaultBoard;
 			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
 			board.runCalculations(whiteTurn);
@@ -196,7 +197,7 @@ int main() {
 					continue;
 				}
 			}
-			switch (board.runCalculations(whiteTurn)) {
+			switch (board.runCalculations(!whiteTurn)) {
 				case 0:
 					whiteWins += 0.5;
 					blackWins += 0.5;
@@ -217,12 +218,13 @@ int main() {
 			int num = 0;
 			if (!(cin >> num)) continue;
 			while (cin >> arg1) {
+				toLowercase(arg1);
 				cout << "Are you SURE you want to undo "
 					<< num << " moves? (y/n): ";
-				if (arg1 == "y" || arg1 == "Y") {
+				if (arg1 == "y") {
 					whiteTurn = (board.undoMoves(num) ? num % 2 ? !whiteTurn : whiteTurn : defaultWhiteTurn);
 					break;
-				} else if (arg1 == "n" || arg1 == "N") {
+				} else if (arg1 == "n") {
 					break;
 				}
 				cout << endl << "Please input \"y\" or \"n\"." << endl;
@@ -345,6 +347,7 @@ int main() {
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
+				Board replayBoard = defaultBoard;
 				// Cleanup command input
 				toLowercase(command);
 

@@ -63,7 +63,7 @@ class Board {
 	Move getLastMove() const;
 
 	// Other checking methods
-	void validate() const; // Will throw a BadSetup exception if setup is invalid
+	void validate(); // Will throw a BadSetup exception if setup is invalid
 	bool hasKing(bool colour) const;
 
 	const std::vector<Move> getLog() const;

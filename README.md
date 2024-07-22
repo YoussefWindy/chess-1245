@@ -43,9 +43,13 @@ make
 # Development Notes
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
-## To Do
-- DD1: plan of attack
-- Enhancement idea: move quality/score meter thing
+## To Do (in order)
+- Sort out legal moves stuff
+- Finish making the AI
+- Finish replay functionality
+- Stress test EVERYTHING
+- DD2: uml-final.pdf
+- DD2: design.pdf
 
 ## Working On
 
@@ -61,13 +65,12 @@ make
 - AI class
 
 ## Completed Tasks
-- All the pieces! 🥳
-- Utilities:
-    - Posn & BadPosn
-    - Move & BadMove
-- Plan of attack (DD1)
 - Makefile now does stuff as some [files](https://www.youtube.com/watch?v=dQw4w9WgXcQ "files ;)") have been added, yippie!
+- Utilities
+- All the pieces! 🥳
+- Plan of attack (DD1)
 - UML Diagram (DD1)
+- Checks and checkmate
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
