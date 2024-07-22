@@ -216,6 +216,13 @@ void Board::movePiece(bool colour, Move &&move) {
     std::cout << "SECOND" << std::endl;
     throw BadMove{move};
   } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
+    auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
+    std::cout << testmoves.size() << std::endl;
+    for (auto i : testmoves) {
+      std::cout << "move.oldPos = (" << move.oldPos.x << ", " << move.oldPos.y << ')' << std::endl;
+      std::cout << "move.newPos = (" << move.newPos.x << ", " << move.newPos.y << ')' << std::endl;
+      std::cout << "Posn i = (" << i.x << ", " << i.y << ')' << std::endl;
+    }
     std::cout << "THIRD" << std::endl;
     throw BadMove{move};
 	}

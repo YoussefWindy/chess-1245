@@ -335,7 +335,7 @@ int main() {
 
 				bool atStart = currentMove == 0 ? true : false;
 				bool atEnd = currentMove == gameLog.size() ? true : false;
-				
+
 				if (command == "next") {
 					int num;
 					if (cin >> num) {
@@ -366,7 +366,6 @@ int main() {
 						
 						// Iterate over the number of moves asked to run
 						for (int i = 0; i < numMoves; ++i) {
-              cout << "CMOVE B: " << currentMove << endl;
               // Generate legal moves
 				      replayBoard.runCalculations(replayBoard.getTurn());
 
@@ -406,8 +405,6 @@ int main() {
 
 							// If reached the end of the log
 							if (currentMove == gameLog.size()) atEnd = true;
-              
-              cout << "CMOVE A: " << currentMove << endl;
 						} // for (0 -> numMoves)
 					} else {
 						cerr << "Please input a valid next argument." << endl;
@@ -439,10 +436,6 @@ int main() {
 						
 						// Iterate over the number of moves asked to run
 						for (int i = 0; i < numMoves; ++i) {
-              cout << "CMOVE B: " << currentMove << endl;
-							// Generate legal moves
-				      replayBoard.runCalculations(replayBoard.getTurn());
-				    
               // If already hit the start of the moves
 							if (atStart && atStartInside) continue;
 
@@ -476,8 +469,6 @@ int main() {
 
 							// If reached the start of the log
 							if (currentMove == 0) atStart = true;
-              
-              cout << "CMOVE A: " << currentMove << endl;
 						} // for (0 -> numMoves)
 					} else {
 						cerr << "Please input a valid next argument." << endl;
