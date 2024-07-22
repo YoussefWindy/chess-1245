@@ -6,6 +6,7 @@
 using namespace std;
 
 bool text, graphics;
+unique_ptr<XWindow> xw;
 
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
@@ -39,7 +40,7 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board, XWindow *xw) {
+void display(Board &board) {
 	if (text) cout << board << endl;
 	if (graphics) {
 		xw->drawBoard(board);
@@ -52,7 +53,6 @@ int main() {
 	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
 	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	XWindow *xw = nullptr;
 	// Initial default board
 	// White pieces
 	defaultBoard.addPiece<Rook>(true, {"a1"});
@@ -88,13 +88,13 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			xw = new XWindow(1200, 1000);
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		} else if (arg1 == "b" || arg1 == "B") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			xw = new XWindow(1200, 1000);
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		}
@@ -221,7 +221,7 @@ int main() {
 				cerr << "Game is already active." << endl;
 				continue;
 			}
-			display(defaultBoard, xw);
+			display(defaultBoard);
 			while (cin >> command) {
 				if (command == "+") { // add a piece to the board
 					char piece;
@@ -264,13 +264,13 @@ int main() {
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
-					display(defaultBoard, xw);
+					display(defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(defaultBoard, xw);
+						display(defaultBoard);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -291,11 +291,11 @@ int main() {
 						// If a piece exists in that square, remove it
 						if (space) defaultBoard.removePiece(space->getPosn());
 					}
-					display(defaultBoard, xw);
+					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(defaultBoard, xw);
+						display(defaultBoard);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -369,7 +369,7 @@ int main() {
 			cerr << "Please input a valid command." << endl;
 		} // switch
 		if (gameActive) {
-			display(board, xw);
+			display(board);
 			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
@@ -378,6 +378,5 @@ int main() {
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
-	if (xw) delete xw;
 	return 0;
 } // main
