@@ -48,86 +48,32 @@ void King::calculateLegalMoves(const Board &board) {
 }
 
 bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
-    unsigned int numChecks = 0;
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
             if (!i && !j) continue; // if i = j = 0, this means we are checking the square the king is currently on
             std::shared_ptr<Piece> allyFound = emptyptr;
-            std::vector<Posn> tmp;
             for (int k = 1;; k++) { // to scale in each direction
                 try {
                     Posn p{posn.x + i * k, posn.y + j * k}; // will throw an exception if out of bounds, so I don't have to actually check
-                    if (!board[p]) { // if there's nothing there, we note that square and move on
-                        tmp.emplace_back(p);
-                        continue;
-                    } else if (board[p]->getColour() == colour) { // if we find an ally
+                    if (!board[p]) continue; // if there's nothing there, we don't care and move on
+                    else if (board[p]->getColour() == colour) { // if the piece is on our team
                         if (allyFound) break; // if this is the second piece found on this axis, no pin will happen
-                        else allyFound = board[p];
-                        continue;
-                    } else if (!allyFound) tmp.emplace_back(p);
-                    if (board[p]->getName() == (!colour ? 'Q' : 'q')) { // if it's a queen, it will pin no matter the axis
-                        if (allyFound) allyFound->pin(!i && j, i && !j, i == j, !(i + j));
-                        else if (numChecks) {
-                            positions.clear();
-                            return true;
-                        } else {
-                            positions = tmp;
-                            numChecks++;
-                            break;
-                        }
-                    } else if (board[p]->getName() == (!colour ? 'R' : 'r') && ((!i && j) || (i && !j))) { // if it's a rook and is looking vertical/horizontal
-                        if (allyFound) allyFound->pin(!i && j, i && !j, false, false);
-                        else if (numChecks) {
-                            positions.clear();
-                            return true;
-                        } else {
-                            positions = tmp;
-                            numChecks++;
-                            break;
-                        }
-                    } else if (board[p]->getName() == (!colour ? 'B' : 'b') && i && j) { // if it's a bishop and is looking diagonally
-                        if (allyFound) allyFound->pin(false, false, i == j, !(i + j));
-                        else if (numChecks) {
-                            positions.clear();
-                            return true;
-                        } else {
-                            positions = tmp;
-                            numChecks++;
-                            break;
-                        }
-                    } else if (board[p]->getName() == (!colour ? 'P' : 'p') && (colour ? i > 0 && j > 0 : i < 0 && j < 0)) {
-                        if (numChecks) {
-                            positions.clear();
-                            return true;
-                        } else {
-                            positions.emplace_back(p);
-                            numChecks++;
-                            break;
-                        }
-                    }
+                        else allyFound = board[p]; // if this is the first one found on this axis, remember where it is
+                    } else if (allyFound && board[p]->getName() == (!colour ? 'Q' : 'q')) { // if it's a queen, it will pin no matter the axis
+                        allyFound->pin(!i && j, i && !j, i == j, !(i + j));
+                    } else if (allyFound && board[p]->getName() == (!colour ? 'R' : 'r')) { // if it's a rook
+                        if ((!i && j) || (i && !j)) { // only pin if looking at vertical or horizontal
+                            allyFound->pin(!i && j, i && !j, false, false);
+                        } else break;
+                    } else if (allyFound && board[p]->getName() == (!colour ? 'B' : 'b')) { // if it's a bishop
+                        if (i && j) { // only pin if looking at diagonal axis
+                            allyFound->pin(false, false, i == j, !(i + j));
+                        } else break;
+                    } else break; // if it's not a queen, bishop, or rook, no pin will happen
                 } catch (BadPosn &e) {
                     break; // if p is out of bounds, break the k loop
                 }
             }
         }
     }
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 2; j++) {
-            unsigned int x = posn.x + (!(i % 2) ? i ? -2 : 2 : j ? -1 : 1);
-            unsigned int y = posn.y + (i % 2 ? (i > 1 ? -2 : 2) : j ? -1 : 1);
-            try {
-                Posn p{x, y};
-                if (board[p] && board[p]->getName() == (!colour ? 'N' : 'n')) {
-                    if (numChecks) {
-                        positions.clear();
-                        return true;
-                    } else {
-                        positions.emplace_back(p);
-                        numChecks++;
-                    }
-                }
-            } catch (BadPosn &e) {}
-        }
-    }
-    return numChecks;
 }
