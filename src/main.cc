@@ -45,6 +45,10 @@ void stripWhitespace(std::string& str) {
     str = result;
 }
 
+void setBoardDefault(Board& board) {
+
+}
+
 bool verifyPiece(char c) {
 	return c == 'b' || c == 'B' || c == 'r' || c == 'R' || c == 'n' || c == 'N'
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
