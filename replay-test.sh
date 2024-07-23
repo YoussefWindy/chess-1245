@@ -64,6 +64,9 @@ sleep 0.05
 #xdotool type "next all"
 #xdotool key Return
 #sleep 0.05
+#xdotool type "prev all"
+#xdotool key Return
+#sleep 0.05
 #xdotool type "next"
 #xdotool key Return
 #sleep 0.05
