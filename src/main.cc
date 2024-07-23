@@ -59,7 +59,7 @@ int main() {
 	// Declarations
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
-	bool gameActive = false, defaultWhiteTurn = true, whiteTurn;
+	bool gameActive = false;
 	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
@@ -130,74 +130,74 @@ int main() {
 			whiteAI = (p1 ? make_unique<AI>(board, true, p1) : nullptr);
 			blackAI = (p2 ? make_unique<AI>(board, false, p2) : nullptr);
 			board = defaultBoard;
-			whiteTurn = defaultWhiteTurn;
 			gameActive = true;
-			board.runCalculations(whiteTurn);
+			board.runCalculations();
 			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl;
 				continue;
 			}
-			(!whiteTurn ? whiteWins : blackWins) += 1;
-			cout << (!whiteTurn ? "White" : "Black") << " wins!" << endl;
+			(!board.getTurn() ? whiteWins : blackWins) += 1;
+			cout << (!board.getTurn() ? "White" : "Black") << " wins!" << endl;
 			gameActive = false;
 		} else if (command == "move") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl;
 				continue;
 			}
-			if (whiteTurn && whiteAI) {
-				board.movePiece(whiteTurn, whiteAI->think());
-			} else if (!whiteTurn && blackAI) {
-				board.movePiece(whiteTurn, blackAI->think());
+			if (board.getTurn() && whiteAI) {
+				board.movePiece(whiteAI->think());
+			} else if (!board.getTurn() && blackAI) {
+				board.movePiece(blackAI->think());
 			} else {
 				cin >> arg1 >> arg2;
 				try {
 					Posn start{arg1}, end{arg2};
-					board.movePiece(whiteTurn, {start, end});
-					if ((whiteTurn && board[end]->getName() == 'P') || (!whiteTurn && board[end]->getName() == 'p')) {
+					board.movePiece({start, end});
+					cerr << "we're here now" << endl;
+					if (board[end]->getName() == (board.getTurn() ? 'P' : 'p')) {
+						cerr << "uhhhhh" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
-							if (white != whiteTurn) {
+							if (white != board.getTurn()) {
 								cerr << "Please input a valid piece type to promote into." << endl;
-								whiteTurn = !whiteTurn;
 							} else {
 								piece -= (white ? ('A' - 'a') : 0);
 								switch (piece) {
 									case 'n':
-										board.promote(white, {start, end}, 1);
+										board.promote({start, end}, 1);
 										break;
 									case 'b':
-										board.promote(white, {start, end}, 2);
+										board.promote({start, end}, 2);
 										break;
 									case 'r':
-										board.promote(white, {start, end}, 3);
+										board.promote({start, end}, 3);
 										break;
 									case 'q':
-										board.promote(white, {start, end}, 4);
+										board.promote({start, end}, 4);
 										break;
 									default:
 										cerr << "Please input a valid piece type to promote into." << endl;
-										whiteTurn = !whiteTurn;
 								}
 							}
 						}
 					}
 				} catch (BadPosn &e) {
 					cerr << "Please input valid board coordinates." << endl
-						 << (whiteTurn ? "White" : "Black" ) << "'s move: ";
+						 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
 					continue;
 				} catch (BadMove &e) {
 					cerr << "Please input a valid move action." << endl
-						 << (whiteTurn ? "White" : "Black" ) << "'s move: ";
+						 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
 					continue;
 				}
 			}
-			switch (board.runCalculations(!whiteTurn)) {
+			cerr << "over here" << endl;
+			switch (board.runCalculations()) {
 				case 0:
 					whiteWins += 0.5;
 					blackWins += 0.5;
@@ -205,15 +205,14 @@ int main() {
 					cout << "Stalemate!" << endl;
 					break;
 				case 1:
-					cout << (whiteTurn ? "White" : "Black") << " is in check." << endl;
+					cout << (board.getTurn() ? "White" : "Black") << " is in check." << endl;
 					break;
 				case 2:
-					(whiteTurn ? whiteWins : blackWins) += 1;
+					(board.getTurn() ? whiteWins : blackWins) += 1;
 					gameActive = false;
-					cout << "Checkmate! " << (whiteTurn ? "White" : "Black") << " wins!" << endl;
+					cout << "Checkmate! " << (board.getTurn() ? "White" : "Black") << " wins!" << endl;
 					break;
 			}
-			whiteTurn = !whiteTurn;
 		} else if (command == "undo") {
 			int num = 0;
 			if (!(cin >> num)) continue;
@@ -222,7 +221,7 @@ int main() {
 				cout << "Are you SURE you want to undo "
 					<< num << " moves? (y/n): ";
 				if (arg1 == "y") {
-					whiteTurn = (board.undoMoves(num) ? num % 2 ? !whiteTurn : whiteTurn : defaultWhiteTurn);
+					board.undoMoves(num);
 					break;
 				} else if (arg1 == "n") {
 					break;
@@ -235,6 +234,7 @@ int main() {
 				continue;
 			}
 			display(defaultBoard);
+			cerr << "Command: ";
 			while (cin >> command) {
 				toLowercase(command);
 				if (command == "+") { // add a piece to the board
@@ -291,10 +291,10 @@ int main() {
 				} else if (command == "=") { // change default starting colour
 					cin >> arg1;
 					if (arg1 == "white" || arg1 == "w") {
-						defaultWhiteTurn = true;
+						defaultBoard.setTurn(true);
 						cout << "White will now have the first turn." << endl;
 					} else if (arg1 == "black" || arg1 == "b") {
-						defaultWhiteTurn = false;
+						defaultBoard.setTurn(false);
 						cout << "Black will now have the first turn." << endl;
 					} else {
 						cerr << "Please input a valid colour." << endl;
@@ -331,7 +331,7 @@ int main() {
 			*/
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
-					 << (whiteTurn ? "White" : "Black") << "'s turn: ";
+					 << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 					 continue;
 			} else if (!(whiteWins || blackWins)) {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
@@ -381,7 +381,7 @@ int main() {
 						// Iterate over the number of moves asked to run
 						for (int i = 0; i < numMoves; ++i) {
               // Generate legal moves
-				      replayBoard.runCalculations(replayBoard.getTurn());
+				      replayBoard.runCalculations();
 
 							// If already hit the end of the moves
 							if (atEnd && atEndInside) continue;
@@ -395,7 +395,7 @@ int main() {
 								Move tempMove = gameLog[currentMove];
 
 								// Next move
-								replayBoard.movePiece(replayBoard.getTurn(), std::move(tempMove));
+								replayBoard.movePiece(std::move(tempMove));
 								
                 // Increment move
 								if (!atEnd) {
@@ -497,9 +497,10 @@ int main() {
 		} else {
 			cerr << "Please input a valid command." << endl;
 		} // switch
+		cerr << "bruh" << endl;
 		if (gameActive) {
 			display(board);
-			cerr << (whiteTurn ? "White" : "Black") << "'s turn: ";
+			cerr << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 		} else {
 			cerr << "Command: ";
 		}

@@ -108,7 +108,7 @@ const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
     for (auto piece: colour ? board.whitePieces : board.blackPieces) {
         for (Posn posn: piece->getLegalMoves()) {
-            board.movePiece(colour, {piece->getPosn(), posn});
+            board.movePiece({piece->getPosn(), posn});
             if ((!checkmate && board.check((colour ? board.whiteKing : board.blackKing)->getPosn(), colour))
               || (checkmate && board.checkmate(colour))) {
                 tmp.emplace_back(board.log.back());

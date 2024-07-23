@@ -12,11 +12,11 @@ class Board {
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
+  	bool turn;
 	std::vector<Move> log;
-  	bool whiteTurn;
 
 	void addPieceHelp(char name, const Posn &posn);
-	void movePiece(bool colour, const Move &);
+	void movePiece(const Move &);
 	// Checking for check and checkmate
 	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
@@ -47,30 +47,30 @@ class Board {
 	Iterator end() const;
 
 	// THE BIG BOY METHOD - handles all end of turn calculations
-	int runCalculations(bool colour);
+	int runCalculations();
 
 	// Piece methods
 	template <typename T>
 	void addPiece(bool colour, const Posn &posn);
-	void movePiece(bool colour, Move &&move); // will throw a BadMove exception if move is invalid
+	void movePiece(Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
-	void promote(bool colour, Move &&move, unsigned int type);
-	bool undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
-  bool getTurn() const;
+	void promote(Move &&move, unsigned int type);
+	void undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
 
 	// Getter methods
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
 	Move getLastMove() const;
+  	bool getTurn() const;
 
 	// Other checking methods
 	void validate(); // Will throw a BadSetup exception if setup is invalid
 	bool hasKing(bool colour) const;
 
-	const std::vector<Move> getLog() const;
+	void setTurn(bool colour);
+
+	const std::vector<Move> getLog() const; // I don't like this
 };
 
 std::ostream& operator<<(std::ostream& out, const Board& board);
-
-// const Move emptyMove = {{0, 0}, {0, 0}};
 
 #endif // BOARD_H

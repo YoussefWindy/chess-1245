@@ -13,23 +13,23 @@ void Board::addPiece(bool colour, const Posn &posn) {
 	}
 }
 
-void Board::promote(bool colour, Move &&move, unsigned int type) {
+void Board::promote(Move &&move, unsigned int type) {
 	deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
-	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
+	for (auto it = (turn ? whitePieces : blackPieces).begin(); it != (turn ? whitePieces : blackPieces).end(); it++) {
 		if ((*it)->getPosn() == move.newPos) {
-			(colour ? whitePieces : blackPieces).erase(it);
+			(turn ? whitePieces : blackPieces).erase(it);
 			break;
 		}
 	}
 	switch (type) {
 		case 1:
-			addPiece<Knight>(colour, {move.newPos.x, move.newPos.y + (colour ? 1 : -1)});
+			addPiece<Knight>(turn, {move.newPos.x, move.newPos.y + (turn ? 1 : -1)});
 		case 2:
-			addPiece<Bishop>(colour, {move.newPos.x, move.newPos.y + (colour ? 1 : -1)});
+			addPiece<Bishop>(turn, {move.newPos.x, move.newPos.y + (turn ? 1 : -1)});
 		case 3:
-			addPiece<Rook>(colour, {move.newPos.x, move.newPos.y + (colour ? 1 : -1)});
+			addPiece<Rook>(turn, {move.newPos.x, move.newPos.y + (turn ? 1 : -1)});
 		case 4:
-			addPiece<Queen>(colour, {move.newPos.x, move.newPos.y + (colour ? 1 : -1)});
+			addPiece<Queen>(turn, {move.newPos.x, move.newPos.y + (turn ? 1 : -1)});
 	}
 	log.back().promotion = type;
 }
