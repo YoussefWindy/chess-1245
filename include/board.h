@@ -11,7 +11,7 @@ class Board {
 	friend std::ostream& operator<<(std::ostream& out, const Board& board);
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
-	std::shared_ptr<King> whiteKing, blackKing;
+	std::shared_ptr<Piece> whiteKing, blackKing;
   bool turn;
 	std::vector<Move> log;
 

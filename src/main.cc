@@ -117,7 +117,7 @@ int main() {
 
 		if (command == "game") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl;
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 				continue;
 			}
 			cin >> arg1 >> arg2;
@@ -135,7 +135,7 @@ int main() {
 			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
-				cerr << "Game is not active." << endl;
+				cerr << "Game is not active." << endl << "Command: ";
 				continue;
 			}
 			(!board.getTurn() ? whiteWins : blackWins) += 1;
@@ -143,7 +143,7 @@ int main() {
 			gameActive = false;
 		} else if (command == "move") {
 			if (!gameActive) {
-				cerr << "Game is not active." << endl;
+				cerr << "Game is not active." << endl << "Command: ";
 				continue;
 			}
 			if (board.getTurn() && whiteAI) {
@@ -155,35 +155,35 @@ int main() {
 				try {
 					Posn start{arg1}, end{arg2};
 					board.movePiece({start, end});
-					cerr << "we're here now" << endl;
+					// cerr << "we're here now" << endl;
 					if (board[end]->getName() == (!board.getTurn() ? 'P' : 'p')) {
-						cerr << "uhhhhh promo!" << endl;
+						// cerr << "uhhhhh promo!" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
-							cerr << "piece is " << piece << " and white is " << white << endl;
+							// cerr << "piece is " << piece << " and white is " << white << endl;
 							if (white == board.getTurn()) {
 								cerr << "Please input a valid piece type to promote into." << endl;
 							} else {
 								piece -= (white ? ('A' - 'a') : 0);
-								cerr << "piece is now " << piece << endl;
+								// cerr << "piece is now " << piece << endl;
 								switch (piece) {
 									case 'n':
-										cerr << "about to promote to n" << endl;
+										// cerr << "about to promote to n" << endl;
 										board.promote({start, end}, 1);
 										break;
 									case 'b':
-										cerr << "about to promote to b" << endl;
+										// cerr << "about to promote to b" << endl;
 										board.promote({start, end}, 2);
 										break;
 									case 'r':
-										cerr << "about to promote to r" << endl;
+										// cerr << "about to promote to r" << endl;
 										board.promote({start, end}, 3);
 										break;
 									case 'q':
-										cerr << "about to promote to q" << endl;
+										// cerr << "about to promote to q" << endl;
 										board.promote({start, end}, 4);
 										break;
 									default:
@@ -203,7 +203,7 @@ int main() {
 					continue;
 				}
 			}
-			cerr << "over here" << endl;
+			// cerr << "over here" << endl;
 			switch (board.runCalculations()) {
 				case 0:
 					whiteWins += 0.5;
@@ -221,6 +221,10 @@ int main() {
 					break;
 			}
 		} else if (command == "undo") {
+			if (!gameActive) {
+				cerr << "Game is not active." << endl << "Command: ";
+				continue;
+			}
 			int num = 0;
 			if (!(cin >> num)) continue;
 			while (cin >> arg1) {
@@ -237,7 +241,7 @@ int main() {
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl;
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 				continue;
 			}
 			display(defaultBoard);
@@ -551,7 +555,7 @@ int main() {
 				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s turn: " : "Command: ");
 			continue;
 		} // switch
-		cerr << "bruh" << endl;
+		// cerr << "bruh" << endl;
 		if (gameActive) {
 			display(board);
 			cerr << (board.getTurn() ? "White" : "Black") << "'s turn: ";
