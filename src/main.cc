@@ -18,7 +18,7 @@ int parsePlayer(string &s) {
 	else return -1;
 }
 
-bool isInteger(const std::string& str) {
+bool isInteger(const string& str) {
     if (str.empty()) return false;
     for (char ch : str) {
 		if (ch == ' ') continue;
@@ -27,7 +27,7 @@ bool isInteger(const std::string& str) {
     return true;
 }
 
-void toLowercase(std::string& str) {
+void toLowercase(string& str) {
     for (char& ch : str) {
         if (ch >= 'A' && ch <= 'Z') {
             ch += 'a' - 'A'; // Convert uppercase to lowercase
@@ -35,8 +35,8 @@ void toLowercase(std::string& str) {
     }
 }
 
-void stripWhitespace(std::string& str) {
-    std::string result;
+void stripWhitespace(string& str) {
+    string result;
     for (char ch : str) {
         if (ch != ' ') {
             result += ch;
@@ -87,8 +87,8 @@ int main() {
 	defaultBoard.addPiece<Rook>(false, {"h8"});
 	// Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
-		defaultBoard.addPiece<Pawn>(true, {i, 1});
-		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2});
+		defaultBoard.addPiece<Pawn>(true, {i, 1}); // white
+		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black
 	}
 	cout << "Text Display, Draphical Display, Both? (t/g/b): ";
 	while (cin >> arg1) {
@@ -160,32 +160,39 @@ int main() {
 					Posn start{arg1}, end{arg2};
 					board.movePiece({start, end});
 					cerr << "we're here now" << endl;
-					if (board[end]->getName() == (board.getTurn() ? 'P' : 'p')) {
-						cerr << "uhhhhh" << endl;
+					if (board[end]->getName() == (!board.getTurn() ? 'P' : 'p')) {
+						cerr << "uhhhhh promo!" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
-							if (white != board.getTurn()) {
+							cerr << "piece is " << piece << " and white is " << white << endl;
+							if (white == board.getTurn()) {
 								cerr << "Please input a valid piece type to promote into." << endl;
 							} else {
 								piece -= (white ? ('A' - 'a') : 0);
+								cerr << "piece is now " << piece << endl;
 								switch (piece) {
 									case 'n':
+										cerr << "about to promote to n" << endl;
 										board.promote({start, end}, 1);
 										break;
 									case 'b':
+										cerr << "about to promote to b" << endl;
 										board.promote({start, end}, 2);
 										break;
 									case 'r':
+										cerr << "about to promote to r" << endl;
 										board.promote({start, end}, 3);
 										break;
 									case 'q':
+										cerr << "about to promote to q" << endl;
 										board.promote({start, end}, 4);
 										break;
 									default:
 										cerr << "Please input a valid piece type to promote into." << endl;
+										board.undoMoves();
 								}
 							}
 						}
@@ -212,9 +219,9 @@ int main() {
 					cout << (board.getTurn() ? "White" : "Black") << " is in check." << endl;
 					break;
 				case 2:
-					(board.getTurn() ? whiteWins : blackWins) += 1;
+					(!board.getTurn() ? whiteWins : blackWins) += 1;
 					gameActive = false;
-					cout << "Checkmate! " << (board.getTurn() ? "White" : "Black") << " wins!" << endl;
+					cout << "Checkmate! " << (!board.getTurn() ? "White" : "Black") << " wins!" << endl;
 					break;
 			}
 		} else if (command == "undo") {
@@ -222,7 +229,7 @@ int main() {
 			if (!(cin >> num)) continue;
 			while (cin >> arg1) {
 				toLowercase(arg1);
-				cout << "Are you SURE you want to undo "
+				cerr << "Are you SURE you want to undo "
 					<< num << " moves? (y/n): ";
 				if (arg1 == "y") {
 					board.undoMoves(num);
@@ -230,7 +237,7 @@ int main() {
 				} else if (arg1 == "n") {
 					break;
 				}
-				cout << endl << "Please input \"y\" or \"n\"." << endl;
+				cerr << endl << "Please input \"y\" or \"n\"." << endl;
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
@@ -238,6 +245,7 @@ int main() {
 				continue;
 			}
 			display(defaultBoard);
+			cout << "Entered setup mode." << endl;
 			cerr << "Command: ";
 			while (cin >> command) {
 				toLowercase(command);
@@ -271,16 +279,19 @@ int main() {
 								break;
 							case 'k':
 								if (defaultBoard.hasKing(white)) {
-									cerr << "There cannot be two " << (white ? "white" : "black")
-										 << " kings on the board at once!!" << endl;
-									break;
+									throw BadSetup{"There cannot be two " + string(white ? "white" : "black") + " kings on the board at once!"
+										+ "\n If you are trying to move a king, please remove it first then add it."};
 								} else {
 									defaultBoard.addPiece<King>(white, p);
 									break;
 								}
 						}
 					} catch (BadPosn &e) {
-						cerr << "Please input valid board coordinates." << endl;
+						cerr << "Please input valid board coordinates." << endl << "Command: ";
+						continue;
+					} catch (BadSetup &e) {
+						cerr << e.why() << endl << "Command: ";
+						continue;
 					}
 					display(defaultBoard);
 				} else if (command == "-") { // remove a piece from the board
@@ -305,6 +316,7 @@ int main() {
 					}
 				} else if (command == "clear") {
 					Board tmp;
+					tmp.setTurn(defaultBoard.getTurn());
 					defaultBoard = tmp;
 					display(defaultBoard);
 				} else if (command == "done") { // valid board setup
@@ -363,7 +375,7 @@ int main() {
 
 				if (command == "next") {
 					// Get argument
-					getline(std::cin, arg1);
+					getline(cin, arg1);
 					stripWhitespace(arg1);
 					toLowercase(arg1);
 					
@@ -408,7 +420,7 @@ int main() {
                 Posn pieceNewPos = tempMove.newPos;
 
 								// Next move
-								replayBoard.movePiece(std::move(tempMove));
+								replayBoard.movePiece(move(tempMove));
 								
                 // Increment move
 								if (!atEnd) {
@@ -471,7 +483,7 @@ int main() {
 					cout << "Replay Command: ";
 				} else if (command == "prev") {
 					// Get argument
-					getline(std::cin, arg1);
+					getline(cin, arg1);
 					stripWhitespace(arg1);
 					toLowercase(arg1);
 					
@@ -539,7 +551,9 @@ int main() {
 			} // while (cin >> command)
 			
 		} else {
-			cerr << "Please input a valid command." << endl;
+			cerr << "Please input a valid command." << endl
+				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s turn: " : "Command: ");
+			continue;
 		} // switch
 		cerr << "bruh" << endl;
 		if (gameActive) {
