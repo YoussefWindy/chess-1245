@@ -18,7 +18,7 @@ void Pawn::calculateLegalMoves(const Board &board) {
         }
     }
     for (int i = 0; i < 2; i++) { // i = 0 looks to the right, i = 1 looks to the left
-        if (!(i ? positive : negative)) continue;
+        if (!(i ? negative : positive)) continue;
     // std::cerr << "Pawn" << 4 << i << std::endl;
         if ((i ? posn.x : posn.x < WIDTH - 1) && board[{posn.x + (i ? -1 : 1), posn.y + (colour ? 1 : -1)}]) {
     // std::cerr << "Pawn" << 4 << i << std::endl;
