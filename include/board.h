@@ -12,7 +12,7 @@ class Board {
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<King> whiteKing, blackKing;
-  	bool turn;
+  bool turn;
 	std::vector<Move> log;
 
 	void addPieceHelp(char name, const Posn &posn);

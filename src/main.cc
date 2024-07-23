@@ -60,7 +60,7 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false;
-	Board board, defaultBoard;
+	Board board, replayBoard, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
 	// White pieces
@@ -350,7 +350,7 @@ int main() {
 			cout << "Replay Command: ";
 			while (cin >> command) {
 				Board replayBoard = defaultBoard;
-				replayBoard.runCalculations(replayBoard.getTurn());
+				replayBoard.runCalculations();
 				// Cleanup command input
 				toLowercase(command);
 

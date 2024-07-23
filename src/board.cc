@@ -294,10 +294,6 @@ void Board::undoMoves(int x) {
     runCalculations();
 }
 
-const char Board::getPiece(const Posn &posn) const {
-  return this->board[posn.x][posn.y]->getName();
-}
-
 bool Board::getTurn() const {
   return turn;
 }
