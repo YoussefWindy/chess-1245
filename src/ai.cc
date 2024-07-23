@@ -2,7 +2,7 @@
 
 #include "../include/ai.h"
 
-Move empty = {{0, 0}, {0, 0}};
+const Move emptyMove = {{0, 0}, {0, 0}};
 
 AI::AI(Board &b, bool w, int d): boardRef{b}, board{b},
   colour{w}, difficulty{d}, noLevel2{false}, noLevel3{false} {}
@@ -63,11 +63,11 @@ Move AI::thinkAt2() const {
 Move AI::thinkAt3() const {
     Move tryCheck = thinkAt2();
     if (!checkingMoves.empty()) return tryCheck;
-    Move maxWorth = empty;
+    Move maxWorth = emptyMove;
 
-    if (noLevel2 && !(maxWorth == empty)) {
+    if (noLevel2 && !(maxWorth == emptyMove)) {
         return maxWorth;
-    } else if ((noLevel2 && maxWorth == empty) || board[maxWorth.oldPos]->getValue() < board[tryCheck.newPos]->getValue()) {
+    } else if ((noLevel2 && maxWorth == emptyMove) || board[maxWorth.oldPos]->getValue() < board[tryCheck.newPos]->getValue()) {
         noLevel3 = noLevel2;
         return tryCheck;
     } else {
@@ -77,7 +77,7 @@ Move AI::thinkAt3() const {
 
 Move AI::thinkAt4() const {
     // Fill in
-    return empty;
+    return emptyMove;
 }
 
 const std::vector<Posn> AI::calculateThreatenedPosns() const {
@@ -108,7 +108,7 @@ const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
     for (auto piece: colour ? board.whitePieces : board.blackPieces) {
         for (Posn posn: piece->getLegalMoves()) {
-            board.movePiece(colour, {piece->getPosn(), posn});
+            board.movePiece({piece->getPosn(), posn});
             if ((!checkmate && board.check((colour ? board.whiteKing : board.blackKing)->getPosn(), colour))
               || (checkmate && board.checkmate(colour))) {
                 tmp.emplace_back(board.log.back());
