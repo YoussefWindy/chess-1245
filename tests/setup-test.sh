@@ -12,40 +12,34 @@ sleep 0.05
 xdotool type "clear"
 xdotool key Return
 sleep 0.05
-xdotool type "+ k a1"
+xdotool type "+ K a1"
 xdotool key Return
 sleep 0.05
-xdotool type "+ K h8"
+xdotool type "+ k h8"
 xdotool key Return
 sleep 0.05
 # FAILURE TEST - extra kings
-xdotool type "+ K g8"
+xdotool type "+ k g8"
 xdotool key Return
 sleep 0.05
-xdotool type "+ k b1"
+xdotool type "+ K b1"
 xdotool key Return
 sleep 0.05
-xdotool type "+ K h7"
+xdotool type "+ k h7"
 xdotool key Return
 sleep 0.05
-xdotool type "+ k a1"
+xdotool type "+ K a1"
 xdotool key Return
 sleep 0.05
 # THESE MIGHT SEGFAULT
-xdotool type "+ K h8"
+xdotool type "+ k h8"
 xdotool key Return
 sleep 0.05
-xdotool type "+ k a1"
+xdotool type "+ K a1"
 xdotool key Return
 sleep 0.05
 # Should be valid, 2 kings, no checks, no pawns in promotion zones
-xdotool type "done"
-xdotool key Return
-sleep 0.05
-xdotool type "setup"
-xdotool key Return
-sleep 0.05
-xdotool type "- a1"
+xdotool type -- "- a1"
 xdotool key Return
 sleep 0.05
 # FAILURE TEST - should not be allowed to exit, as only 1 king
@@ -55,7 +49,7 @@ sleep 0.05
 xdotool type "+ K a1"
 xdotool key Return
 sleep 0.05
-xdotool type "- h8"
+xdotool type -- "- h8"
 xdotool key Return
 sleep 0.05
 # FAILURE TEST - same as previous
@@ -106,14 +100,14 @@ sleep 0.05
 xdotool type "done"
 xdotool key Return
 sleep 0.05
-xdotool type "- e8"
+xdotool type -- "- e8"
 xdotool key Return
 sleep 0.05
 # FAILURE TEST - same as previous
 xdotool type "done"
 xdotool key Return
 sleep 0.05
-xdotool type "- f1"
+xdotool type -- "- f1"
 xdotool key Return
 sleep 0.05
 # should succeed as offending pawns have been removed
@@ -142,7 +136,7 @@ sleep 0.05
 xdotool type "setup"
 xdotool key Return
 sleep 0.05
-xdotool type "- d4"
+xdotool type -- "- d4"
 xdotool key Return
 sleep 0.05
 # FAILUIRE TEST - white king in check
