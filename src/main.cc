@@ -429,37 +429,37 @@ int main() {
 								// Display move
 								display(replayBoard);
                 
-                // Colour
-                cout << "Piece Moved : " << (pieceColour ? "Black " : "White ");
-                // Piece type
-                if (pieceName == 'p' || pieceName == 'P') cout << "Pawn";
-                else if (pieceName == 'r' || pieceName == 'R') cout << "Rook";
-                else if (pieceName == 'n' || pieceName == 'N') cout << "Knight";
-                else if (pieceName == 'b' || pieceName == 'B') cout << "Bishop";
-                else if (pieceName == 'q' || pieceName == 'Q') cout << "Queen";
-                else if (pieceName == 'k' || pieceName == 'K') cout << "King";
-                else cout << "Unknown, an error has occurred";
-                cout << endl;
-                
-                // Initial position
-                cout << "Moved From " << static_cast<char>('a' + pieceOldPos.x) << pieceOldPos.y + 1 << endl;
-                cout << "Moved To " << static_cast<char>('a' + pieceNewPos.x) << pieceNewPos.y + 1 << endl;
-                
-                // Captured pieces
-                if (tempMove.capture) {
-                  cout << "Captured " << (pieceColour ? "White " : "Black ");
-                  if (capturedName == 'p' || capturedName == 'P') cout << "Pawn";
-                  else if (capturedName == 'r' || capturedName == 'R') cout << "Rook";
-                  else if (capturedName == 'n' || capturedName == 'N') cout << "Knight";
-                  else if (capturedName == 'b' || capturedName == 'B') cout << "Bishop";
-                  else if (capturedName == 'q' || capturedName == 'Q') cout << "Queen";
-                  else if (capturedName == 'k' || capturedName == 'K') cout << "King";
+                // Display Move Info
+                if (text) {
+                  // Colour
+                  cout << "Piece Moved : " << (pieceColour ? "Black " : "White ");
+                  // Piece type
+                  if (pieceName == 'p' || pieceName == 'P') cout << "Pawn";
+                  else if (pieceName == 'r' || pieceName == 'R') cout << "Rook";
+                  else if (pieceName == 'n' || pieceName == 'N') cout << "Knight";
+                  else if (pieceName == 'b' || pieceName == 'B') cout << "Bishop";
+                  else if (pieceName == 'q' || pieceName == 'Q') cout << "Queen";
+                  else if (pieceName == 'k' || pieceName == 'K') cout << "King";
                   else cout << "Unknown, an error has occurred";
                   cout << endl;
-                }
-
-                // 
-
+                
+                  // Initial position
+                  cout << "Moved From " << static_cast<char>('a' + pieceOldPos.x) << pieceOldPos.y + 1 << endl;
+                  cout << "Moved To " << static_cast<char>('a' + pieceNewPos.x) << pieceNewPos.y + 1 << endl;
+                 
+                  // Captured pieces
+                  if (tempMove.capture) {
+                    cout << "Captured " << (pieceColour ? "White " : "Black ");
+                    if (capturedName == 'p' || capturedName == 'P') cout << "Pawn";
+                    else if (capturedName == 'r' || capturedName == 'R') cout << "Rook";
+                    else if (capturedName == 'n' || capturedName == 'N') cout << "Knight";
+                    else if (capturedName == 'b' || capturedName == 'B') cout << "Bishop";
+                    else if (capturedName == 'q' || capturedName == 'Q') cout << "Queen";
+                    else if (capturedName == 'k' || capturedName == 'K') cout << "King";
+                    else cout << "Unknown, an error has occurred";
+                    cout << endl;
+                  }
+                } // if text based display
               } else {
 								cerr << "At the last move." << endl;
 
