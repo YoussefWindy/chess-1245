@@ -50,7 +50,7 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board) {
+void display(const Board &board) {
 	if (text) cout << board << endl;
 	if (graphics) xw->drawBoard(board);
 }
@@ -60,7 +60,7 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false;
-	Board board, replayBoard, defaultBoard;
+	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
 	// White pieces
@@ -89,7 +89,6 @@ int main() {
 	cout << "Text Display, Draphical Display, Both? (t/g/b): ";
 	while (cin >> arg1) {
 		toLowercase(arg1);
-
 		if (arg1 == "t") {
 			text = true;
 			graphics = false;
@@ -109,12 +108,11 @@ int main() {
 			xw->drawBoard(defaultBoard);
 			break;
 		}
-		cout << endl << "Please input \"t\", \"g\", or \"b\"." << endl;
+		cout << endl << "Please input \"t\", \"g\", or \"b\": " << endl;
 	}
 	cout << "Command: ";
 	while (cin >> command) {
 		toLowercase(command);
-
 		if (command == "game") {
 			if (gameActive) {
 				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
@@ -227,17 +225,16 @@ int main() {
 			}
 			int num = 0;
 			if (!(cin >> num)) continue;
+			cerr << "Are you SURE you want to undo " << num << " moves? (y/n): ";
 			while (cin >> arg1) {
 				toLowercase(arg1);
-				cerr << "Are you SURE you want to undo "
-					<< num << " moves? (y/n): ";
 				if (arg1 == "y") {
 					board.undoMoves(num);
 					break;
 				} else if (arg1 == "n") {
 					break;
 				}
-				cerr << endl << "Please input \"y\" or \"n\"." << endl;
+				cerr << endl << "Please input \"y\" or \"n\": " << endl;
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
@@ -361,7 +358,7 @@ int main() {
 			auto gameLog = board.getLog();
       unsigned int currentMove = 0;
 
-      display(replayBoard);
+      display(defaultBoard);
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
@@ -549,7 +546,57 @@ int main() {
 					cerr << "Please input a valid replay command." << endl;
 				} // command == ****
 			} // while (cin >> command)
-			
+		} else if (command == "simplereplay") {
+			if (gameActive) {
+				cerr << "You must not be currently playing a game to enter replay mode." << endl
+					 << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+					 continue;
+			} else if (!(whiteWins || blackWins)) {
+				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
+				continue;
+			}
+			int num = -1;
+			Board replayBoard;
+			if (cin >> num) {
+				if (num < 0) {
+					cerr << "Please input a non-negative number." << endl << "Command: ";
+					continue;
+				}
+				replayBoard = board; // Starting replayBoard from the back
+			} else {
+				replayBoard = defaultBoard; // Starting replayBoard from the front
+			}
+			auto it = (num >= 0 ? replayBoard.begin(board) : replayBoard.end(board));
+			for (int i = 0; i < num; i++) {
+				try {
+					--it;
+				} catch (BadMove &e) {
+					cerr << "The last game is only " << i << " moves long." << endl;
+				}
+			}
+			while (cin >> command) {
+				toLowercase(command);
+				if (command == "next") {
+					try {
+						++it;
+					} catch (BadMove &e) {
+						cerr << "You have reached the end, you cannot go further." << endl;
+					}
+				} else if (command == "back") {
+					try {
+						--it;
+					} catch (BadMove &e) {
+						cerr << "You are at the beginning, you cannot go back further." << endl;
+					}
+				} else if (command == "done") {
+					break;
+				} else {
+					cerr << "Please input a valid replay command." << endl << "Command: ";
+					continue;
+				}
+				display(*it);
+				cerr << "Command: ";
+			}
 		} else {
 			cerr << "Please input a valid command." << endl
 				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s turn: " : "Command: ");

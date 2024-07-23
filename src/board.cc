@@ -131,14 +131,12 @@ bool Board::stalemate(bool colour) const {
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
   i{begin ? 0 : log.size() - 1}, board(const_cast<Board&>(board)), log{log} {}
 
-const std::shared_ptr<Piece> (&Board::Iterator::operator*() const)[WIDTH][HEIGHT] {
-	return board.board;
+const Board& Board::Iterator::operator*() const {
+	return board;
 }
 
 Board::Iterator& Board::Iterator::operator++() {
-	if (i == log.size() - 1) {
-		throw BadMove{emptyMove};
-	}
+	if (i == log.size() - 1) throw BadMove{emptyMove};
 	board.movePiece(log[i]);
 	i++;
 	board.turn = !board.turn;
@@ -146,9 +144,7 @@ Board::Iterator& Board::Iterator::operator++() {
 }
 
 Board::Iterator& Board::Iterator::operator--() {
-	if (!i) {
-		throw BadMove{emptyMove};
-	}
+	if (!i) throw BadMove{emptyMove};
 	board.undoMoves();
 	i--;
 	board.turn = !board.turn;
@@ -156,15 +152,15 @@ Board::Iterator& Board::Iterator::operator--() {
 }
 
 bool Board::Iterator::operator!=(const Iterator &other) const {
-	return i != other.i;
+	return i != other.i && log != other.log;
 }
 
-Board::Iterator Board::begin() const {
-	return {*this, log, true};
+Board::Iterator Board::begin(const Board &board) const {
+	return {*this, board.log, true};
 }
 
-Board::Iterator Board::end() const {
-	return {*this, log, false};
+Board::Iterator Board::end(const Board &board) const {
+	return {*this, board.log, false};
 }
 
 int Board::runCalculations() {
