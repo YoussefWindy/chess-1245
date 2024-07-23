@@ -9,14 +9,14 @@
 // fields and methods in order to make decisions.
 class AI {
     Board &boardRef;
-    mutable Board board;
+    mutable Board boardState;
     bool colour;
     int difficulty;
-    mutable bool noLevel2, noLevel3;
     mutable std::vector<Move> checkingMoves, capturingMoves;
-    const std::vector<Posn> calculateThreatenedPosns() const;
-    const std::vector<Move> calculateCapturingMoves() const;
+    mutable std::vector<Posn> threatenedPosns;
     const std::vector<Move> calculateCheckingMoves(bool checkmatee) const;
+    const std::vector<Move> calculateCapturingMoves() const;
+    const std::vector<Posn> calculateThreatenedPosns() const;
     Move thinkAt1() const;
     Move thinkAt2() const;
     Move thinkAt3() const;

@@ -37,14 +37,14 @@ class Board {
 		const std::vector<Move> &log;
 		Iterator(const Board &board, const std::vector<Move> &log, bool begin);
 	  public:
-		const std::shared_ptr<Piece> (&operator*() const)[WIDTH][HEIGHT];
+		const Board& operator*() const;
 		Iterator& operator++();
 		Iterator& operator--();
 		bool operator!=(const Iterator &other) const;
 	};
 
-	Iterator begin() const;
-	Iterator end() const;
+	Iterator begin(const Board &board) const;
+	Iterator end(const Board &board) const;
 
 	// THE BIG BOY METHOD - handles all end of turn calculations
 	int runCalculations();
