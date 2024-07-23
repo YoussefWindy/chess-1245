@@ -44,10 +44,8 @@ make
 **Anything That Needs To Be Noted/Remembered Goes Here**
 
 ## To Do (in order)
-- Sort out legal moves stuff
 - Finish making the AI
-- Finish replay functionality
-- Stress test EVERYTHING
+- Stress test EVERYTHING (this thing is gunna need so much therapy after im done stressing it out)
 - DD2: uml-final.pdf
 - DD2: design.pdf
 
@@ -57,8 +55,9 @@ make
 - XWindow
 
 ### Grey
-- Board::validate()
-- Board::checkmate()
+- build stress test suite
+    - small suites for specific features
+    - larger suites for stress testing
 
 ### Youssef
 - main.cc user interface in text-based display and input from cin
@@ -71,6 +70,7 @@ make
 - Plan of attack (DD1)
 - UML Diagram (DD1)
 - Checks and checkmate
+- replaying game
 
 ## Rules
 - Anytime we want to work on files, we first checkout to our respective branch
