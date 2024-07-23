@@ -189,22 +189,22 @@ int Board::runCalculations(bool colour) {
 }
 
 void Board::movePiece(bool colour, Move &&move) {
+  auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
+  // std::cout << "test moves size = " << testmoves.size() << std::endl;
+  // for (auto i : testmoves) {
+    // std::cout << "move.oldPos = (" << move.oldPos.x << ", " << move.oldPos.y << ')' << std::endl;
+    // std::cout << "move.newPos = (" << move.newPos.x << ", " << move.newPos.y << ')' << std::endl;
+    // std::cout << "Posn i = (" << i.x << ", " << i.y << ')' << std::endl;
+  // }
 	// std::cerr << "start" << std::endl;
 	if (!board[move.oldPos.x][move.oldPos.y]) {
-    std::cout << "FIRST" << std::endl;
+    // std::cout << "FIRST" << std::endl;
     throw BadMove{move};
   } else if (board[move.oldPos.x][move.oldPos.y]->getColour() != colour) {
-    std::cout << "SECOND" << std::endl;
+    // std::cout << "SECOND" << std::endl;
     throw BadMove{move};
-  } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-    auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
-    std::cout << testmoves.size() << std::endl;
-    for (auto i : testmoves) {
-      std::cout << "move.oldPos = (" << move.oldPos.x << ", " << move.oldPos.y << ')' << std::endl;
-      std::cout << "move.newPos = (" << move.newPos.x << ", " << move.newPos.y << ')' << std::endl;
-      std::cout << "Posn i = (" << i.x << ", " << i.y << ')' << std::endl;
-    }
-    std::cout << "THIRD" << std::endl;
+  } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) { 
+    // std::cout << "THIRD" << std::endl;
     throw BadMove{move};
 	}
 	// std::cerr << "good" << std::endl;
@@ -262,6 +262,7 @@ bool Board::undoMoves(int x) {
 		if (log.empty()) return false;
     whiteTurn = !whiteTurn;
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
+    board[log.back().newPos.x][log.back().newPos.y]->move(log.back().oldPos);
 		removePiece(log.back().newPos);
 		if (deadPieces.size() != 0 && deadPieces.back()->getPosn() == log.back().newPos) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
@@ -274,6 +275,10 @@ bool Board::undoMoves(int x) {
 	}
 
 	return true;
+}
+
+const char Board::getPiece(const Posn &posn) const {
+  return this->board[posn.x][posn.y]->getName();
 }
 
 bool Board::getTurn() const {

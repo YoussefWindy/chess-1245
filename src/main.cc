@@ -347,9 +347,12 @@ int main() {
 			// Get game log
 			auto gameLog = board.getLog();
       unsigned int currentMove = 0;
+
+      display(replayBoard);
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
+				replayBoard.runCalculations(replayBoard.getTurn());
 				// Cleanup command input
 				toLowercase(command);
 
@@ -396,6 +399,12 @@ int main() {
 								// Get move
 								Move tempMove = gameLog[currentMove];
 
+                char pieceName = replayBoard.getPiece(tempMove.oldPos);
+                bool pieceColour = ('a' <= pieceName && pieceName <= 'z') ? true : false;
+                char capturedName = tempMove.capture ? replayBoard.getPiece(tempMove.newPos) : '!';
+                Posn pieceOldPos = tempMove.oldPos;
+                Posn pieceNewPos = tempMove.newPos;
+
 								// Next move
 								replayBoard.movePiece(replayBoard.getTurn(), std::move(tempMove));
 								
@@ -409,8 +418,39 @@ int main() {
 
 								// Display move
 								display(replayBoard);
+                
+                // Colour
+                cout << "Piece Moved : " << (pieceColour ? "Black " : "White ");
+                // Piece type
+                if (pieceName == 'p' || pieceName == 'P') cout << "Pawn";
+                else if (pieceName == 'r' || pieceName == 'R') cout << "Rook";
+                else if (pieceName == 'n' || pieceName == 'N') cout << "Knight";
+                else if (pieceName == 'b' || pieceName == 'B') cout << "Bishop";
+                else if (pieceName == 'q' || pieceName == 'Q') cout << "Queen";
+                else if (pieceName == 'k' || pieceName == 'K') cout << "King";
+                else cout << "Unknown, an error has occurred";
+                cout << endl;
+                
+                // Initial position
+                cout << "Moved From " << static_cast<char>('a' + pieceOldPos.x) << pieceOldPos.y + 1 << endl;
+                cout << "Moved To " << static_cast<char>('a' + pieceNewPos.x) << pieceNewPos.y + 1 << endl;
+                
+                // Captured pieces
+                if (tempMove.capture) {
+                  cout << "Captured " << (pieceColour ? "White " : "Black ");
+                  if (capturedName == 'p' || capturedName == 'P') cout << "Pawn";
+                  else if (capturedName == 'r' || capturedName == 'R') cout << "Rook";
+                  else if (capturedName == 'n' || capturedName == 'N') cout << "Knight";
+                  else if (capturedName == 'b' || capturedName == 'B') cout << "Bishop";
+                  else if (capturedName == 'q' || capturedName == 'Q') cout << "Queen";
+                  else if (capturedName == 'k' || capturedName == 'K') cout << "King";
+                  else cout << "Unknown, an error has occurred";
+                  cout << endl;
+                }
 
-							} else {
+                // 
+
+              } else {
 								cerr << "At the last move." << endl;
 
 								// Display move
@@ -442,7 +482,7 @@ int main() {
 							numMoves = 1;
 						} else if (!isInteger(arg1)) {
 							// All moves
-							numMoves = gameLog.size() - currentMove + 1;
+							numMoves = currentMove + 1;
 						} else {
 							// Get user number of moves
 							stringstream ss(arg1);

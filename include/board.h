@@ -53,6 +53,7 @@ class Board {
 	void promote(bool colour, Move &&move, unsigned int type);
 	bool undoMoves(int num); // returns true is num is less than the number of moves played so far, false otherwise
   bool getTurn() const;
+  const char getPiece(const Posn &posn) const;
 
 	// Getter methods
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
