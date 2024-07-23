@@ -105,7 +105,9 @@ bool Board::check(const Posn &posn, bool colour) const {
 }
 
 bool Board::checkmate(bool colour) const {
+	// Invariant: this method should only ever be called if colour is in check, so we won't check for that
 	for (auto piece: colour ? whitePieces : blackPieces) {
+		std::cerr << "Checking " << piece->getName() << std::endl;
 		if (piece->canMove()) return false;
 	}
 	return true;
@@ -113,7 +115,7 @@ bool Board::checkmate(bool colour) const {
 
 bool Board::stalemate(bool colour) const {
 	// Invariant: this method should only ever be called if colour isn't in check, so we won't check for that
-	for (auto piece: colour ? whitePieces : blackPieces) {
+	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMove()) return false;
 	}
 	if (log.size() < 6) return false;
@@ -172,11 +174,15 @@ int Board::runCalculations() {
 	(!turn ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
 	std::cerr << 3 << std::endl;
 	for (auto p: whitePieces) {
+		std::cerr << p->getName() << " at " << char('a' + p->getX()) << p->getY() + 1 << ": ";
 		if (p->getName() != 'K') {
 			p->calculateLegalMoves(*this);
+			std::cerr << "success";
 			if (turn && inCheck) {
+				std::cerr << " but we're checking here?";
 				p->intersect(defensivePositions);
 			}
+			std::cerr << std::endl;
 		}
 	}
 	std::cerr << 4 << std::endl;
@@ -192,17 +198,25 @@ int Board::runCalculations() {
 	}
 	std::cerr << 5 << std::endl;
 	whiteKing->calculateLegalMoves(*this);
+	std::cerr << "White king's moves: ";
+	for (auto p: whiteKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
 	blackKing->calculateLegalMoves(*this);
-	std::cerr << 6 << std::endl;
+	std::cerr << std::endl << "Black king's moves: ";
+	for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
+	std::cerr << std::endl;
 	if (inCheck) {
 		if (checkmate(turn)) {
+			std::cerr << "checkmate" << std::endl;
 			return 2; // checkmate
 		} else {
+			std::cerr << "check" << std::endl;
 			return 1; // check
 		}
 	} else if (stalemate(turn)) {
+		std::cerr << "stalemate" << std::endl;
 		return 0; // stalemate
 	} else {
+		std::cerr << "nothign" << std::endl;
 		return -1; // nothing
 	}
 }
@@ -219,7 +233,7 @@ void Board::movePiece(Move &&move) {
 		auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
 		std::cout << testmoves.size() << std::endl;
 		for (auto i : testmoves) {
-			std::cout << "(" << char('a' + i.x) << i.y << ')' << std::endl;
+			std::cout << char('a' + i.x) << i.y + 1 << std::endl;
 		}
 		std::cout << "THIRD" << std::endl;
 		throw BadMove{move};
@@ -255,18 +269,24 @@ void Board::movePiece(Move &&move) {
 
 void Board::removePiece(const Posn &posn) {
 	if (!board[posn.x][posn.y]) return;
+	std::cerr << "hmm" << std::endl;
 	bool colour = board[posn.x][posn.y]->getColour();
 	if (board[posn.x][posn.y]->getName() == (colour ? 'K' : 'k')) {
 		(colour ? whiteKing : blackKing) = std::static_pointer_cast<King>(emptyptr);
 	}
+	std::cerr << "hhmmm" << std::endl;
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
-		if (it->get()->getPosn() == posn) {
+		if ((*it)->getPosn() == posn) {
+			std::cerr << "hhhmmmm" << std::endl;
 			(colour ? whitePieces : blackPieces).erase(it);
-		} else if (it->get()->getName() == (colour ? 'K' : 'k')) {
+			break;
+		} else if ((std::cerr << "bruh how" << std::endl) && (*it)->getName() == (colour ? 'K' : 'k')) {
 			(colour ? whiteKing : blackKing) = std::static_pointer_cast<King>(*it);
 		}
 	}
+	std::cerr << "???" << std::endl;
 	board[posn.x][posn.y] = emptyptr;
+	std::cerr << "ur kidding" << std::endl;
 }
 
 const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {

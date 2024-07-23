@@ -16,6 +16,7 @@ void King::calculateLegalMoves(const Board &board) {
                 Posn p{posn.x + i, posn.y + j};
                 if ((!board[p] || (board[p]->getColour() != colour // if square is empty, or square is not belonging to us already
                   && !board[p]->getIsProtected())) && !board.check(p, colour)) { // AND not protected, and square is not in check
+                    std::cerr << "King can move to " << char('a' + p.x) << p.y + 1 << std::endl;
                     legalMoves.emplace_back(p);
                 }
             } catch (BadPosn &e) {}
