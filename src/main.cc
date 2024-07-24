@@ -164,9 +164,8 @@ int main() {
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
-							bool white = 'B' <= piece && piece <= 'R';
 							// cerr << "piece is " << piece << " and white is " << white << endl;
-							piece -= (white ? ('A' - 'a') : 0);
+							piece -= (!board.getTurn() ? ('A' - 'a') : 0);
 							// cerr << "piece is now " << piece << endl;
 							switch (piece) {
 								case 'n':

@@ -227,18 +227,18 @@ int Board::runCalculations() {
 void Board::movePiece(Move &&move) {
 	// std::cerr << "start" << std::endl;
 	if (!board[move.oldPos.x][move.oldPos.y]) {
-		std::cout << "FIRST" << std::endl;
+		// std::cout << "FIRST" << std::endl;
 		throw BadMove{move};
   } else if (board[move.oldPos.x][move.oldPos.y]->getColour() != turn) {
-		std::cout << "SECOND" << std::endl;
+		// std::cout << "SECOND" << std::endl;
 		throw BadMove{move};
   } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-		auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
-		std::cout << testmoves.size() << std::endl;
-		for (auto i : testmoves) {
-			std::cout << char('a' + i.x) << i.y + 1 << std::endl;
-		}
-		std::cout << "THIRD" << std::endl;
+		// auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
+		// std::cout << testmoves.size() << std::endl;
+		// for (auto i : testmoves) {
+		// 	std::cout << char('a' + i.x) << i.y + 1 << std::endl;
+		// }
+		// std::cout << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
 	// std::cerr << "good" << std::endl;
@@ -260,11 +260,11 @@ void Board::movePiece(Move &&move) {
 	if (board[move.newPos.x][move.newPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
 		// std::cerr << "we're castling??" << std::endl;
 		if (move.newPos.x - move.oldPos.x > 1) { // castling right
-			std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
+			// std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 			log.pop_back();
 		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
-			std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
+			// std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
 			log.pop_back();
 		}
