@@ -16,19 +16,19 @@ void Board::addPiece(bool colour, const Posn &posn) {
 	}
 }
 
-void Board::promote(const Move &move, unsigned int type) {
+void Board::promote(const Posn &posn, unsigned int type) {
 	// std::cerr << "type is " << type << ". turn is " << (turn ? "white" : "black") << std::endl;
-	removePiece(move.newPos);
+	removePiece(posn);
 	// std::cerr << "this work" << std::endl;
 	switch (type) {
 		case 1:
-			addPiece<Knight>(turn, {move.newPos.x, move.newPos.y});
+			addPiece<Knight>(turn, {posn.x, posn.y});
 		case 2:
-			addPiece<Bishop>(turn, {move.newPos.x, move.newPos.y});
+			addPiece<Bishop>(turn, {posn.x, posn.y});
 		case 3:
-			addPiece<Rook>(turn, {move.newPos.x, move.newPos.y});
+			addPiece<Rook>(turn, {posn.x, posn.y});
 		case 4:
-			addPiece<Queen>(turn, {move.newPos.x, move.newPos.y});
+			addPiece<Queen>(turn, {posn.x, posn.y});
 	}
 	// std::cerr << char('a' + log.back().oldPos.x) << log.back().oldPos.y + 1
 	//   << "-->" << char('a' + log.back().newPos.x) << log.back().newPos.y + 1 << " "

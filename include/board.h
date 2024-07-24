@@ -54,7 +54,7 @@ class Board {
 	void addPiece(bool colour, const Posn &posn);
 	void movePiece(Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
-	void promote(const Move &move, unsigned int type);
+	void promote(const Posn &posn, unsigned int type);
 	void undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
 
 	// Getter methods
