@@ -20,7 +20,7 @@ class XWindow {
     int getWidth() const;
     int getHeight() const;
 
-    void drawBoard(Board &board);
+    void drawBoard(const Board &board);
 };
 
 #endif // XWINDOW_H

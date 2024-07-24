@@ -55,7 +55,7 @@ XWindow::~XWindow() {
     XCloseDisplay(d);
 }
 
-void XWindow::drawBoard(Board &board) {
+void XWindow::drawBoard(const Board &board) {
     int vert_off = 100;
     int horiz_off = 100;
 

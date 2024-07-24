@@ -54,7 +54,7 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(Board &board) {
+void display(const Board &board) {
 	if (text) cout << board << endl;
 	if (graphics) xw->drawBoard(board);
 }
@@ -64,7 +64,7 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false;
-	Board board, replayBoard, defaultBoard;
+	Board board, defaultBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
 	// White pieces
@@ -90,10 +90,9 @@ int main() {
 		defaultBoard.addPiece<Pawn>(true, {i, 1}); // white
 		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black
 	}
-	cout << "Text Display, Draphical Display, Both? (t/g/b): ";
+	cout << "Do you want a Text Display, Graphical Display, or Both? (t/g/b): ";
 	while (cin >> arg1) {
 		toLowercase(arg1);
-
 		if (arg1 == "t") {
 			text = true;
 			graphics = false;
@@ -113,15 +112,14 @@ int main() {
 			xw->drawBoard(defaultBoard);
 			break;
 		}
-		cout << endl << "Please input \"t\", \"g\", or \"b\"." << endl;
+		cout << endl << "Please input \"t\", \"g\", or \"b\": " << endl;
 	}
 	cout << "Command: ";
 	while (cin >> command) {
 		toLowercase(command);
-
 		if (command == "game") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl;
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 				continue;
 			}
 			cin >> arg1 >> arg2;
@@ -139,7 +137,7 @@ int main() {
 			cout << "The game has begun!" << endl;
 		} else if (command == "resign") {
 			if (!gameActive) {
-				cerr << "Game is not active." << endl;
+				cerr << "Game is not active." << endl << "Command: ";
 				continue;
 			}
 			(!board.getTurn() ? whiteWins : blackWins) += 1;
@@ -147,7 +145,7 @@ int main() {
 			gameActive = false;
 		} else if (command == "move") {
 			if (!gameActive) {
-				cerr << "Game is not active." << endl;
+				cerr << "Game is not active." << endl << "Command: ";
 				continue;
 			}
 			if (board.getTurn() && whiteAI) {
@@ -159,35 +157,35 @@ int main() {
 				try {
 					Posn start{arg1}, end{arg2};
 					board.movePiece({start, end});
-					cerr << "we're here now" << endl;
+					// cerr << "we're here now" << endl;
 					if (board[end]->getName() == (!board.getTurn() ? 'P' : 'p')) {
-						cerr << "uhhhhh promo!" << endl;
+						// cerr << "uhhhhh promo!" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
-							cerr << "piece is " << piece << " and white is " << white << endl;
+							// cerr << "piece is " << piece << " and white is " << white << endl;
 							if (white == board.getTurn()) {
 								cerr << "Please input a valid piece type to promote into." << endl;
 							} else {
 								piece -= (white ? ('A' - 'a') : 0);
-								cerr << "piece is now " << piece << endl;
+								// cerr << "piece is now " << piece << endl;
 								switch (piece) {
 									case 'n':
-										cerr << "about to promote to n" << endl;
+										// cerr << "about to promote to n" << endl;
 										board.promote({start, end}, 1);
 										break;
 									case 'b':
-										cerr << "about to promote to b" << endl;
+										// cerr << "about to promote to b" << endl;
 										board.promote({start, end}, 2);
 										break;
 									case 'r':
-										cerr << "about to promote to r" << endl;
+										// cerr << "about to promote to r" << endl;
 										board.promote({start, end}, 3);
 										break;
 									case 'q':
-										cerr << "about to promote to q" << endl;
+										// cerr << "about to promote to q" << endl;
 										board.promote({start, end}, 4);
 										break;
 									default:
@@ -207,7 +205,7 @@ int main() {
 					continue;
 				}
 			}
-			cerr << "over here" << endl;
+			// cerr << "over here" << endl;
 			switch (board.runCalculations()) {
 				case 0:
 					whiteWins += 0.5;
@@ -225,23 +223,26 @@ int main() {
 					break;
 			}
 		} else if (command == "undo") {
+			if (!gameActive) {
+				cerr << "Game is not active." << endl << "Command: ";
+				continue;
+			}
 			int num = 0;
 			if (!(cin >> num)) continue;
+			cerr << "Are you SURE you want to undo " << num << " moves? (y/n): ";
 			while (cin >> arg1) {
 				toLowercase(arg1);
-				cerr << "Are you SURE you want to undo "
-					<< num << " moves? (y/n): ";
 				if (arg1 == "y") {
 					board.undoMoves(num);
 					break;
 				} else if (arg1 == "n") {
 					break;
 				}
-				cerr << endl << "Please input \"y\" or \"n\"." << endl;
+				cerr << endl << "Please input \"y\" or \"n\": " << endl;
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl;
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
 				continue;
 			}
 			display(defaultBoard);
@@ -361,7 +362,7 @@ int main() {
 			auto gameLog = board.getLog();
       unsigned int currentMove = 0;
 
-      display(replayBoard);
+      display(defaultBoard);
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
@@ -549,13 +550,63 @@ int main() {
 					cerr << "Please input a valid replay command." << endl;
 				} // command == ****
 			} // while (cin >> command)
-			
+		} else if (command == "simplereplay") {
+			if (gameActive) {
+				cerr << "You must not be currently playing a game to enter replay mode." << endl
+					 << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+					 continue;
+			} else if (!(whiteWins || blackWins)) {
+				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
+				continue;
+			}
+			int num = -1;
+			Board replayBoard;
+			if (cin >> num) {
+				if (num < 0) {
+					cerr << "Please input a non-negative number." << endl << "Command: ";
+					continue;
+				}
+				replayBoard = board; // Starting replayBoard from the back
+			} else {
+				replayBoard = defaultBoard; // Starting replayBoard from the front
+			}
+			auto it = (num >= 0 ? replayBoard.begin(board) : replayBoard.end(board));
+			for (int i = 0; i < num; i++) {
+				try {
+					--it;
+				} catch (BadMove &e) {
+					cerr << "The last game is only " << i << " moves long." << endl;
+				}
+			}
+			while (cin >> command) {
+				toLowercase(command);
+				if (command == "next") {
+					try {
+						++it;
+					} catch (BadMove &e) {
+						cerr << "You have reached the end, you cannot go further." << endl;
+					}
+				} else if (command == "back") {
+					try {
+						--it;
+					} catch (BadMove &e) {
+						cerr << "You are at the beginning, you cannot go back further." << endl;
+					}
+				} else if (command == "done") {
+					break;
+				} else {
+					cerr << "Please input a valid replay command." << endl << "Command: ";
+					continue;
+				}
+				display(*it);
+				cerr << "Command: ";
+			}
 		} else {
 			cerr << "Please input a valid command." << endl
 				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s turn: " : "Command: ");
 			continue;
 		} // switch
-		cerr << "bruh" << endl;
+		// cerr << "bruh" << endl;
 		if (gameActive) {
 			display(board);
 			cerr << (board.getTurn() ? "White" : "Black") << "'s turn: ";

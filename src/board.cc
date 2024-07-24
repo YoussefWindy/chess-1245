@@ -14,11 +14,10 @@ Board::Board() : turn{true} {
 			board[i][j] = emptyptr;
 		}
 	}
-	whiteKing = blackKing = std::static_pointer_cast<King>(emptyptr);
+	whiteKing = blackKing = emptyptr;
 }
 
-Board::Board(const Board &other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces},
-  deadPieces{other.deadPieces}, turn{other.turn}, log{other.log} {
+Board::Board(const Board &other): turn{other.turn}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = emptyptr;
@@ -26,9 +25,15 @@ Board::Board(const Board &other): whitePieces{other.whitePieces}, blackPieces{ot
 	}
 	for (auto p: other.whitePieces) {
 		addPieceHelp(p->getName(), p->getPosn());
+		if (p->getName() == 'K') {
+			whiteKing = board[p->getX()][p->getY()];
+		}
 	}
 	for (auto p: other.blackPieces) {
 		addPieceHelp(p->getName(), p->getPosn());
+		if (p->getName() == 'k') {
+			blackKing = board[p->getX()][p->getY()];
+		}
 	}
 	for (auto p: other.deadPieces) {
 		deadPieces.emplace_back(p); // <-- LAZY! FIX THIS
@@ -107,7 +112,7 @@ bool Board::check(const Posn &posn, bool colour) const {
 bool Board::checkmate(bool colour) const {
 	// Invariant: this method should only ever be called if colour is in check, so we won't check for that
 	for (auto piece: colour ? whitePieces : blackPieces) {
-		std::cerr << "Checking " << piece->getName() << std::endl;
+		// std::cerr << "Checking " << piece->getName() << std::endl;
 		if (piece->canMove()) return false;
 	}
 	return true;
@@ -126,14 +131,12 @@ bool Board::stalemate(bool colour) const {
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
   i{begin ? 0 : log.size() - 1}, board(const_cast<Board&>(board)), log{log} {}
 
-const std::shared_ptr<Piece> (&Board::Iterator::operator*() const)[WIDTH][HEIGHT] {
-	return board.board;
+const Board& Board::Iterator::operator*() const {
+	return board;
 }
 
 Board::Iterator& Board::Iterator::operator++() {
-	if (i == log.size() - 1) {
-		throw BadMove{emptyMove};
-	}
+	if (i == log.size() - 1) throw BadMove{emptyMove};
 	board.movePiece(log[i]);
 	i++;
 	board.turn = !board.turn;
@@ -141,9 +144,7 @@ Board::Iterator& Board::Iterator::operator++() {
 }
 
 Board::Iterator& Board::Iterator::operator--() {
-	if (!i) {
-		throw BadMove{emptyMove};
-	}
+	if (!i) throw BadMove{emptyMove};
 	board.undoMoves();
 	i--;
 	board.turn = !board.turn;
@@ -151,78 +152,80 @@ Board::Iterator& Board::Iterator::operator--() {
 }
 
 bool Board::Iterator::operator!=(const Iterator &other) const {
-	return i != other.i;
+	return i != other.i && log != other.log;
 }
 
-Board::Iterator Board::begin() const {
-	return {*this, log, true};
+Board::Iterator Board::begin(const Board &board) const {
+	return {*this, board.log, true};
 }
 
-Board::Iterator Board::end() const {
-	return {*this, log, false};
+Board::Iterator Board::end(const Board &board) const {
+	return {*this, board.log, false};
 }
 
 int Board::runCalculations() {
     std::vector<Posn> defensivePositions;
-	std::cerr << 1 << std::endl;
+	std::shared_ptr<King> tmpWhite = std::static_pointer_cast<King>(whiteKing);
+	std::shared_ptr<King> tmpBlack = std::static_pointer_cast<King>(blackKing);
+	// std::cerr << 1 << std::endl;
 	for (auto p: whitePieces) p->protect(false);
 	for (auto p: blackPieces) p->protect(false);
-	std::cerr << 2 << std::endl;
-	std::cerr << whiteKing << std::endl << blackKing << std::endl;
-	bool inCheck = (turn ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
-	std::cerr << 2.5 << std::endl;
-	(!turn ? whiteKing : blackKing)->calculatePins(*this, defensivePositions);
-	std::cerr << 3 << std::endl;
+	// std::cerr << 2 << std::endl;
+	// std::cerr << whiteKing << std::endl << blackKing << std::endl;
+	bool inCheck = (turn ? tmpWhite : tmpBlack)->calculatePins(*this, defensivePositions);
+	// std::cerr << 2.5 << std::endl;
+	(!turn ? tmpWhite : tmpBlack)->calculatePins(*this, defensivePositions);
+	// std::cerr << 3 << std::endl;
 	for (auto p: whitePieces) {
-		std::cerr << p->getName() << " at " << char('a' + p->getX()) << p->getY() + 1 << ": ";
+		// std::cerr << p->getName() << " at " << char('a' + p->getX()) << p->getY() + 1 << ": ";
 		if (p->getName() != 'K') {
 			p->calculateLegalMoves(*this);
-			std::cerr << "success";
+			// std::cerr << "success";
 			if (turn && inCheck) {
 				std::cerr << " but we're checking here?";
 				p->intersect(defensivePositions);
 			}
-			std::cerr << std::endl;
+			// std::cerr << std::endl;
 		}
 	}
-	std::cerr << 4 << std::endl;
+	// std::cerr << 4 << std::endl;
 	for (auto p: blackPieces) {
 		if (p->getName() != 'k') {
-			std::cerr << p->getName() << std::endl;
+			// std::cerr << p->getName() << std::endl;
 			p->calculateLegalMoves(*this);
 			if (!turn && inCheck) {
-				std::cerr << "what" << std::endl;
+				// std::cerr << "what" << std::endl;
 				p->intersect(defensivePositions);
 			}
 		}
 	}
-	std::cerr << 5 << std::endl;
+	// std::cerr << 5 << std::endl;
 	whiteKing->calculateLegalMoves(*this);
-	std::cerr << "White king's moves: ";
-	for (auto p: whiteKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
+	// std::cerr << "White king's moves: ";
+	// for (auto p: whiteKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
 	blackKing->calculateLegalMoves(*this);
-	std::cerr << std::endl << "Black king's moves: ";
-	for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
-	std::cerr << std::endl;
+	// std::cerr << std::endl << "Black king's moves: ";
+	// for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
+	// std::cerr << std::endl;
 	if (inCheck) {
 		if (checkmate(turn)) {
-			std::cerr << "checkmate" << std::endl;
+			// std::cerr << "checkmate" << std::endl;
 			return 2; // checkmate
 		} else {
-			std::cerr << "check" << std::endl;
+			// std::cerr << "check" << std::endl;
 			return 1; // check
 		}
 	} else if (stalemate(turn)) {
-		std::cerr << "stalemate" << std::endl;
+		// std::cerr << "stalemate" << std::endl;
 		return 0; // stalemate
 	} else {
-		std::cerr << "nothign" << std::endl;
+		// std::cerr << "nothign" << std::endl;
 		return -1; // nothing
 	}
 }
 
 void Board::movePiece(Move &&move) {
-	std::cerr << "start" << std::endl;
+	// std::cerr << "start" << std::endl;
 	if (!board[move.oldPos.x][move.oldPos.y]) {
 		std::cout << "FIRST" << std::endl;
 		throw BadMove{move};
@@ -238,20 +241,24 @@ void Board::movePiece(Move &&move) {
 		std::cout << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
-	std::cerr << "good" << std::endl;
+	// std::cerr << "good" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]) { // if a capture is taking place
 		// std::cerr << "capture" << std::endl;
 		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
 		removePiece(move.newPos);
 		move.capture = true;
+	} else if (board[move.oldPos.x][move.oldPos.y]->getName() == (turn ? 'P' : 'p') && abs(move.newPos.x - move.oldPos.x) == 1) {
+		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y + (turn ? -1 : 1)]);
+		removePiece({move.newPos.x, move.newPos.y + (turn ? -1 : 1)});
+		move.capture = true;
 	}
-	std::cerr << "up" << std::endl;
+	// std::cerr << "up" << std::endl;
 	(board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y])->move(move.newPos); // move the piece
 	removePiece(move.oldPos);
-	std::cerr << "down" << std::endl << "position is " << char('a' + move.newPos.x) << move.newPos.y + 1 << std::endl;
-	std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
+	// std::cerr << "down" << std::endl << "position is " << char('a' + move.newPos.x) << move.newPos.y + 1 << std::endl;
+	// std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
-		std::cerr << "we're castling??" << std::endl;
+		// std::cerr << "we're castling??" << std::endl;
 		if (move.newPos.x - move.oldPos.x > 1) { // castling right
 			std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
@@ -264,29 +271,29 @@ void Board::movePiece(Move &&move) {
 	}
 	log.emplace_back(move); // log move
 	turn = !turn;
-	std::cerr << "end" << std::endl;
+	// std::cerr << "end" << std::endl;
 }
 
 void Board::removePiece(const Posn &posn) {
 	if (!board[posn.x][posn.y]) return;
-	std::cerr << "hmm" << std::endl;
+	// std::cerr << "hmm" << std::endl;
 	bool colour = board[posn.x][posn.y]->getColour();
 	if (board[posn.x][posn.y]->getName() == (colour ? 'K' : 'k')) {
-		(colour ? whiteKing : blackKing) = std::static_pointer_cast<King>(emptyptr);
+		(colour ? whiteKing : blackKing) = emptyptr;
 	}
-	std::cerr << "hhmmm" << std::endl;
+	// std::cerr << "hhmmm" << std::endl;
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
 		if ((*it)->getPosn() == posn) {
-			std::cerr << "hhhmmmm" << std::endl;
+			// std::cerr << "hhhmmmm" << std::endl;
 			(colour ? whitePieces : blackPieces).erase(it);
 			break;
-		} else if ((std::cerr << "bruh how" << std::endl) && (*it)->getName() == (colour ? 'K' : 'k')) {
-			(colour ? whiteKing : blackKing) = std::static_pointer_cast<King>(*it);
+		} else if (/*(std::cerr << "bruh how" << std::endl) && */(*it)->getName() == (colour ? 'K' : 'k')) {
+			(colour ? whiteKing : blackKing) = *it;
 		}
 	}
-	std::cerr << "???" << std::endl;
+	// std::cerr << "???" << std::endl;
 	board[posn.x][posn.y] = emptyptr;
-	std::cerr << "ur kidding" << std::endl;
+	// std::cerr << "ur kidding" << std::endl;
 }
 
 const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
