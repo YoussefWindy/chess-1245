@@ -156,7 +156,7 @@ int main() {
 					// cerr << "we're here now" << endl;
 					if (board[start]->getName() == (board.getTurn() ? 'P' : 'p')) {
 						// cerr << "uhhhhh promo!" << endl;
-						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
+						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
@@ -274,7 +274,7 @@ int main() {
 							case 'k':
 								if (defaultBoard.hasKing(white)) {
 									throw BadSetup{"There cannot be two " + string(white ? "white" : "black") + " kings on the board at once!"
-										+ "\n If you are trying to move a king, please remove it first then add it."};
+										+ "\nIf you are trying to move a king, please remove it first then add it."};
 								} else {
 									defaultBoard.addPiece<King>(white, p);
 									break;
