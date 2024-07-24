@@ -7,7 +7,6 @@ move a7 a5
 move b5 a6
 move a8 a7
 move h2 h4
-move move
 move a7 b7
 move a6 a7
 move g7 g5
@@ -18,7 +17,7 @@ move h4 g3
 move g1 h3
 move g3 g2 
 move h3 g5
-move g2 g1 Q
+move g2 g1 q
 move b7 a7
 move h1 g2
 move a7 a8

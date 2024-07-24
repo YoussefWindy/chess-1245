@@ -1,0 +1,78 @@
+Legal moves of r: 
+Therefore, legalMoves is empty
+Legal moves of n: c6, a6, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: 
+Therefore, legalMoves is empty
+Legal moves of n: c6, a6, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, a6, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a6, a8, b7, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Legal moves of r: a7, b6, b5, b4, b3, b2, 
+Therefore, legalMoves is not empty
+White's turn: Legal moves of R: a2, a3, a4, a5, a6, a7, 
+Therefore, legalMoves is not empty
+Black's turn: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: Legal moves of r: a7, b6, b5, b4, b3, 
+Therefore, legalMoves is not empty
+White's turn: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: 
