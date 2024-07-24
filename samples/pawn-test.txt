@@ -470,7 +470,8 @@ White's turn:
   abcdefgh
 
 Black's turn: Please input a valid move action.
-Black's move: 
+Black's move: White wins!
+Command: 
 Final Score:
-White: 0
+White: 1
 Black: 0

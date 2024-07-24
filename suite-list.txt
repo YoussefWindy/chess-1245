@@ -1,6 +1,7 @@
 ai-stress-test
+bishop-test
+castling
 knight-test
 pawn-test-bad-promotion
 pawn-test
-replay-test
 setup-test

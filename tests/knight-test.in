@@ -56,8 +56,9 @@ move c6 d4
 move d5 b6
 move d4 f3
 move b6 c4
-move g2 e4
+move g3 e4
 move f3 d2
 move c4 d6
 move d2 e4
 move d6 e4
+resign

@@ -18,4 +18,4 @@ move g1 h3
 move g3 g2 
 move h3 g5
 move g2 g1 Q
-
+resign
