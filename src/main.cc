@@ -166,32 +166,28 @@ int main() {
 							cin >> piece;
 							bool white = 'B' <= piece && piece <= 'R';
 							// cerr << "piece is " << piece << " and white is " << white << endl;
-							if (white == board.getTurn()) {
-								cerr << "Please input a valid piece type to promote into." << endl;
-							} else {
-								piece -= (white ? ('A' - 'a') : 0);
-								// cerr << "piece is now " << piece << endl;
-								switch (piece) {
-									case 'n':
-										// cerr << "about to promote to n" << endl;
-										board.promote({start, end}, 1);
-										break;
-									case 'b':
-										// cerr << "about to promote to b" << endl;
-										board.promote({start, end}, 2);
-										break;
-									case 'r':
-										// cerr << "about to promote to r" << endl;
-										board.promote({start, end}, 3);
-										break;
-									case 'q':
-										// cerr << "about to promote to q" << endl;
-										board.promote({start, end}, 4);
-										break;
-									default:
-										cerr << "Please input a valid piece type to promote into." << endl;
-										board.undoMoves();
-								}
+							piece -= (white ? ('A' - 'a') : 0);
+							// cerr << "piece is now " << piece << endl;
+							switch (piece) {
+								case 'n':
+									// cerr << "about to promote to n" << endl;
+									board.promote({start, end}, 1);
+									break;
+								case 'b':
+									// cerr << "about to promote to b" << endl;
+									board.promote({start, end}, 2);
+									break;
+								case 'r':
+									// cerr << "about to promote to r" << endl;
+									board.promote({start, end}, 3);
+									break;
+								case 'q':
+									// cerr << "about to promote to q" << endl;
+									board.promote({start, end}, 4);
+									break;
+								default:
+									cerr << "Please input a valid piece type to promote into." << endl;
+									board.undoMoves();
 							}
 						}
 					}
