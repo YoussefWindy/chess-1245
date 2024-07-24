@@ -1,0 +1,6 @@
+ai-stress-test
+knight-test
+pawn-test-bad-promotion
+pawn-test
+replay-test
+setup-test

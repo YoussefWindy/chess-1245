@@ -24,7 +24,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 rnbqkbnr
 7 pppppppp   
 6  _ _ _ _
@@ -36,7 +36,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 rnbqkbnr
 7 p pppppp   
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 rnbqkbnr
 7 p pppppp   
 6  _ _ _ _
@@ -60,7 +60,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 rnbqkbnr
 7 _ pppppp   
 6  _ _ _ _
@@ -72,7 +72,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 rnbqkbnr
 7 _ pppppp   
 6 P_ _ _ _
@@ -84,7 +84,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8  nbqkbnr
 7 r pppppp   
 6 P_ _ _ _
@@ -96,7 +96,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8  nbqkbnr
 7 r pppppp   
 6 P_ _ _ _
@@ -108,7 +108,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8  nbqkbnr
 7 _rpppppp   
 6 P_ _ _ _
@@ -120,7 +120,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8  nbqkbnr
 7 Prpppppp   
 6  _ _ _ _
@@ -132,7 +132,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8  nbqkbnr
 7 Prpppp_p   
 6  _ _ _ _
@@ -144,7 +144,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   
 6  _ _ _ _
@@ -156,7 +156,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   P
 6  _ _ _ _
@@ -168,7 +168,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   P
 6  _ _ _ _
@@ -180,7 +180,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
@@ -192,7 +192,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
@@ -204,7 +204,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
@@ -216,7 +216,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+White's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
@@ -228,7 +228,7 @@ Command: The game has begun!
 
   abcdefgh
 
-
+Black's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
@@ -240,131 +240,237 @@ Command: The game has begun!
 
   abcdefgh
 
-SECOND
-7
-g1
-h2
-h3
-h4
-h5
-h6
-h7
-THIRD
-FIRST
-SECOND
-
+White's turn: 
 8 Qnbqkbnr
 7 _rpppp_p   PP
 6  _ _ _ _
 5 _ _ _ N 
-4  _ _P_ _
+4  _ _ _ _
 3 _ _ _ _ 
-2  PPP P _   pp
-1 RNBQKBqR
+2  PPPPP _   ppq
+1 RNBQKBR 
 
   abcdefgh
 
-FIRST
-SECOND
-FIRST
-
+Black's turn: 
 8 Qnbqkbnr
-7 _rp pp_p   PP
-6  _ p _ _
+7 r pppp_p   PP
+6  _ _ _ _
+5 _ _ _ N 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPPPP _   ppq
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q pppp_p   PP
+6  _ _ _ _
+5 _ _ _ N 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPPPP _   ppqr
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q ppp _p   PP
+6  _ _ p _
+5 _ _ _ N 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPPPP _   ppqr
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q ppp _p   PP
+6  _ _ p _
 5 _ _ _ N 
 4  _ _P_ _
 3 _ _ _ _ 
-2  PPP P _   pp
-1 RNBQKBqR
+2  PPP P _   ppqr
+1 RNBQKBR 
 
   abcdefgh
 
-FIRST
-FIRST
-SECOND
+Black's turn: 
+8  nbqkbnr
+7 Q ppp _p   PP
+6  _ _ _ _
+5 _ _ _pN 
+4  _ _P_ _
+3 _ _ _ _ 
+2  PPP P _   ppqr
+1 RNBQKBR 
 
-8 Qnbqkbnr
-7 _rp pp_p   PP
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q ppp _p   PP
+6  _ _ _ _
+5 _ _ PpN 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPP P _   ppqr
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: Please input a valid move action.
+Black's move: 
+8  nbqkbnr
+7 Q p p _p   PP
 6  _ p _ _
-5 _ _ _ N 
+5 _ _ PpN 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPP P _   ppqr
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q p p _p   PP
+6  _ P _ _
+5 _ _ _pN 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPP P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q _ p _p   PPP
+6  _ p _ _
+5 _ _ _pN 
+4  _ _ _ _
+3 _ _ _ _ 
+2  PPP P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q _ p _p   PPP
+6  _ p _ _
+5 _ _ _pN 
+4  _P_ _ _
+3 _ _ _ _ 
+2  P P P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPP
+6  _ p _ _
+5 _ _ ppN 
+4  _P_ _ _
+3 _ _ _ _ 
+2  P P P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPP
+6  _ p _ _
+5 _ _ ppN 
+4  _P_ _ _
+3 _ _P_ _ 
+2  P _ P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPP
+6  _ _ _ _
+5 _ _pppN 
+4  _P_ _ _
+3 _ _P_ _ 
+2  P _ P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPP
+6  _ _ _ _
+5 _ _pppN 
+4  _P_ _ _
+3 _P_P_ _ 
+2  _ _ P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPPP
+6  _ _ _ _
+5 _ _ ppN 
+4  _p_ _ _
+3 _P_P_ _ 
+2  _ _ P _   ppqrp
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPPP
+6  _ _ _ _
+5 _ _ ppN 
+4  _P_ _ _
+3 _ _P_ _ 
+2  _ _ P _   ppqrpp
+1 RNBQKBR 
+
+  abcdefgh
+
+Black's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPPP
+6  _ _ _ _
+5 _ _ _pN 
+4  _P_p_ _
+3 _ _P_ _ 
+2  _ _ P _   ppqrpp
+1 RNBQKBR 
+
+  abcdefgh
+
+White's turn: 
+8  nbqkbnr
+7 Q _ _ _p   PPPP
+6  _ _ _ _
+5 _ _ _pN 
 4  _P_P_ _
 3 _ _ _ _ 
-2  P P P _   pp
-1 RNBQKBqR
+2  _ _ P _   ppqrppp
+1 RNBQKBR 
 
   abcdefgh
 
-
-8 Qnbqkbnr
-7 _rp _p_p   PP
-6  _ p _ _
-5 _ _ p N 
-4  _P_P_ _
-3 _ _ _ _ 
-2  P P P _   pp
-1 RNBQKBqR
-
-  abcdefgh
-
-
-8 Qnbqkbnr
-7 _rp _p_p   PP
-6  _ p _ _
-5 _ _ p N 
-4  _P_P_ _
-3 _ _P_ _ 
-2  P _ P _   pp
-1 RNBQKBqR
-
-  abcdefgh
-
-
-8 Qnbqkbnr
-7 _rp _p_p   PP
-6  _ _ _ _
-5 _ _pp N 
-4  _P_P_ _
-3 _ _P_ _ 
-2  P _ P _   pp
-1 RNBQKBqR
-
-  abcdefgh
-
-
-8 Qnbqkbnr
-7 _rp _p_p   PP
-6  _ _ _ _
-5 _ _pp N 
-4  _P_P_ _
-3 _P_P_ _ 
-2  _ _ P _   pp
-1 RNBQKBqR
-
-  abcdefgh
-
-FIRST
-SECOND
-0
-THIRD
-SECOND
-SECOND
-FIRST
-
-8 Qnbqkbnr
-7 _rp _p_    PP
-6  _ _ _ p
-5 _ _pp N 
-4  _P_P_ _
-3 _P_P_ _ 
-2  _ _ P _   pp
-1 RNBQKBqR
-
-  abcdefgh
-
-SECOND
-SECOND
-FIRST
-
+Black's turn: Please input a valid move action.
+Black's move: 
 Final Score:
 White: 0
 Black: 0

@@ -1,0 +1,135 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: The game has begun!
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+White's turn: R
+N
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _N_ 
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: q
+n
+
+8 r_bqkbnr
+7 pppppppp   
+6 n_ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _N_ 
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: P
+
+8 r_bqkbnr
+7 pppppppp   
+6 n_ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ P _N_ 
+2 PP PPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: p
+
+8 r_bqkbnr
+7 p pppppp   
+6 n_ _ _ _
+5 _p_ _ _ 
+4  _ _ _ _
+3 _ P _N_ 
+2 PP PPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: P
+
+8 r_bqkbnr
+7 p pppppp   
+6 n_ _ _ _
+5 _p_ _ _ 
+4  _P_ _ _
+3 _ _ _N_ 
+2 PP PPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: b
+
+8 r_ qkbnr
+7 pbpppppp   
+6 n_ _ _ _
+5 _p_ _ _ 
+4  _P_ _ _
+3 _ _ _N_ 
+2 PP PPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: Q
+
+8 r_ qkbnr
+7 pbpppppp   
+6 n_ _ _ _
+5 _p_ _ _ 
+4  _P_ _ _
+3 _Q_ _N_ 
+2 PP PPPPP   
+1 RNB KB_R
+
+  abcdefgh
+
+Black's turn: p
+
+8 r_ qkbnr
+7 pbpp_ppp   
+6 n_ _p_ _
+5 _p_ _ _ 
+4  _P_ _ _
+3 _Q_ _N_ 
+2 PP PPPPP   
+1 RNB KB_R
+
+  abcdefgh
+
+White's turn: K
+terminate called after throwing an instance of 'BadMove'
+  what():  std::exception

@@ -18,16 +18,15 @@ move g1 h3
 move g3 g2 
 move h3 g5
 move g2 g1 q
+move h1 g1
 move b7 a7
-move h1 g2
-move a7 a8
+move a8 a7
 move f7 f6
 move e2 e4
 move f6 f5
 move e4 e5
 move f5 e4
 move d7 d6
-move e5 e6
 move e5 d6
 move c7 d6
 move c2 c4
@@ -35,13 +34,9 @@ move e7 e5
 move d2 d3
 move d6 d5
 move b2 b3
-move b5 c4
+move d5 c4
 move b3 c4
 move e5 e4
 move d3 e4
-move f2 f4
-move f5 f4
-move h7 h6
-move e5 e6
-move h6 g5
-move f4 g5
+move f2 f3
+
