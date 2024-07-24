@@ -247,6 +247,10 @@ void Board::movePiece(Move &&move) {
 		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
 		removePiece(move.newPos);
 		move.capture = true;
+	} else if (board[move.oldPos.x][move.oldPos.y]->getName() == (turn ? 'P' : 'p') && abs(move.newPos.x - move.oldPos.x) == 1) {
+		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y + (turn ? -1 : 1)]);
+		removePiece({move.newPos.x, move.newPos.y + (turn ? -1 : 1)});
+		move.capture = true;
 	}
 	// std::cerr << "up" << std::endl;
 	(board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y])->move(move.newPos); // move the piece
@@ -267,7 +271,7 @@ void Board::movePiece(Move &&move) {
 	}
 	log.emplace_back(move); // log move
 	turn = !turn;
-	std::cerr << "end" << std::endl;
+	// std::cerr << "end" << std::endl;
 }
 
 void Board::removePiece(const Posn &posn) {
