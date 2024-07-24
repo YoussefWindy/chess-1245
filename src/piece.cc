@@ -2,9 +2,9 @@
 
 #include "../include/piece.h"
 
-Piece::Piece(char name, bool colour, int value, const Posn &posn, bool v, bool h, bool p, bool n):
-  name{name}, colour{colour}, value{value}, posn{posn}, vertical{v},
-  horizontal{h}, positive{p}, negative{n}, hasMoved{false}, isProtected{false} {}
+Piece::Piece(char name, bool colour, unsigned int value, const Posn &posn, bool v, bool h, bool p, bool n):
+  name{name}, colour{colour}, isProtected{false}, value{value}, numMoves{0},
+  posn{posn}, vertical{v}, horizontal{h}, positive{p}, negative{n} {}
 
 void Piece::intersect(std::vector<Posn> &positions) {
 	for (auto it = legalMoves.begin(); it != legalMoves.end(); it++) {
@@ -68,7 +68,7 @@ const std::vector<Posn>& Piece::getLegalMoves() const {
 }
 
 bool Piece::getHasMoved() const {
-	return hasMoved;
+	return numMoves;
 }
 
 bool Piece::getIsProtected() const {
@@ -76,8 +76,9 @@ bool Piece::getIsProtected() const {
 }
 
 // Setters
-void Piece::move(const Posn &posn) {
-	hasMoved = true;
+void Piece::move(const Posn &posn, bool forward) {
+	numMoves += (forward ? 1 : -1);
+	std::cerr << name << " has moved " << numMoves << " times." << std::endl;
 	this->posn = posn;
 }
 

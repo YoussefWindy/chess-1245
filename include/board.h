@@ -21,6 +21,7 @@ class Board {
 	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
 	bool stalemate(bool colour) const;
+	void promote(const Posn &posn, unsigned int type);
   public:
 	Board();
 	Board(const Board &);
@@ -54,7 +55,6 @@ class Board {
 	void addPiece(bool colour, const Posn &posn);
 	void movePiece(Move &&move); // will throw a BadMove exception if move is invalid
 	void removePiece(const Posn &posn);
-	void promote(const Posn &posn, unsigned int type);
 	void undoMoves(int num = 1); // returns true if num is less than the number of moves played so far, false otherwise
 
 	// Getter methods
