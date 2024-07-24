@@ -1,0 +1,57 @@
+t
+setup
+clear
++ K a1
++ k h8
++ k g8
++ K b1
++ k h7
++ K a1
++ k h8
++ K a1
+- a1
+done
++ K a1
+- h8
+done
++ k h8
++ p a8
++ p b8
++ p c8
++ P b1
++ P c1
++ P d1
+done
+setup
++ P e8
+done
++ p f1
+done
+- e8
+done
+- f1
+done
+setup
++ B d4
+done
++ b e5
+done
+setup
+- d4
+done
++ B e5
++ b d4
+done
++ Q c3
++ q f6
+done
+setup
++ R h1
+done
++ r h2
+done
+setup
++ n b3
+done
++ N b3
+done

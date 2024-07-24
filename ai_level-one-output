@@ -1,0 +1,5616 @@
+Text Display, Draphical Display, Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 1
+2
+0x558131a20050
+0x558131a20760
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+1a Nothing at e6
+2d Pawn at 4, 6. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1b Ally at g1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1a Nothing at h4
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at g1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at g1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+4
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: 
+Legal moves of r: 
+Therefore, legalMoves is empty
+Legal moves of n: c6, a6, 
+Therefore, legalMoves is not empty
+nothign
+The game has begun!
+bruh
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is f3
+Piece at new position is N
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a20760
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+1a Nothing at e6
+2d Pawn at 4, 6. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1a Nothing at h4
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+4
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: 
+Legal moves of R: 
+Therefore, legalMoves is empty
+Legal moves of N: c3, a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _N_ 
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is a6
+Piece at new position is n
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a20760
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+1a Nothing at e6
+2d Pawn at 4, 6. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1a Nothing at h4
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g2: success
+P at h2: success
+4
+r
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: 
+Legal moves of r: b8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_bqkbnr
+7 pppppppp   
+6 n_ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _N_ 
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is g3
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a20760
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+1a Nothing at e6
+2d Pawn at 4, 6. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1b Ally at g3. allyFound: 0x558131a20320
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g3: success
+P at h2: success
+4
+r
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: 
+Legal moves of R: 
+Therefore, legalMoves is empty
+Legal moves of N: c3, a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_bqkbnr
+7 pppppppp   
+6 n_ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _NP 
+2 PPPPPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is e6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1b Ally at g3. allyFound: 0x558131a20320
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g3: success
+P at h2: success
+4
+r
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to e7
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: e7, 
+Legal moves of r: b8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_bqkbnr
+7 pppp_ppp   
+6 n_ _p_ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _NP 
+2 PPPPPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is c3
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1b Ally at d8. allyFound: 0
+1b Ally at c8. allyFound: 0x558131a20710
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1b Ally at g3. allyFound: 0x558131a20320
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g3: success
+P at h2: success
+4
+r
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to e7
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: e7, 
+Legal moves of R: 
+Therefore, legalMoves is empty
+Legal moves of N: a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_bqkbnr
+7 pppp_ppp   
+6 n_ _p_ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ P _NP 
+2 PP PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is h4
+Piece at new position is q
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1b Ally at g3. allyFound: 0x558131a20320
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1a Nothing at b8
+1b Ally at a8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g3: success
+P at h2: success
+4
+r
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of r: b8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_b_kbnr
+7 pppp_ppp   
+6 n_ _p_ _
+5 _ _ _ _ 
+4  _ _ _ q
+3 _ P _NP 
+2 PP PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is g4
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1a Nothing at b8
+1b Ally at a8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+r
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of R: 
+Therefore, legalMoves is empty
+Legal moves of N: a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_b_kbnr
+7 pppp_ppp   
+6 n_ _p_ _
+5 _ _ _ _ 
+4  _ _ _Pq
+3 _ P _N_ 
+2 PP PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is h6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+1a Nothing at a4
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1a Nothing at b8
+1b Ally at a8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a2: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+r
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of r: b8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_b_kbnr
+7 pppp_pp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4  _ _ _Pq
+3 _ P _N_ 
+2 PP PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is a4
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20990. numChecks: 0
+done
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1a Nothing at b8
+1b Ally at a8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+r
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of R: a2, a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_b_kbnr
+7 pppp_pp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4 P_ _ _Pq
+3 _ P _N_ 
+2  P PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+hhhmmmm
+???
+ur kidding
+down
+position is b8
+Piece at new position is r
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20990. numChecks: 0
+done
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+R at h1: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of b: 
+Therefore, legalMoves is empty
+Legal moves of k: d8, e7, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_kbnr
+7 pppp_pp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4 P_ _ _Pq
+3 _ P _N_ 
+2  P PPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is h3
+Piece at new position is B
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20990. numChecks: 0
+done
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1a Nothing at e7
+1b Ally at e6. allyFound: 0
+1a Nothing at e5
+1a Nothing at e4
+1a Nothing at e3
+2d Pawn at 4, 1. allyFound: 0x558131a209e0. numChecks: 0
+done
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: f1, g1, King 1
+King can move to d8
+King can move to e7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d8, e7, 
+Legal moves of R: a2, a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_kbnr
+7 pppp_pp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4 P_ _ _Pq
+3 _ P _N_B
+2  P PPP P   
+1 RNBQK _R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is e7
+Piece at new position is b
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1b Ally at e2. allyFound: 0
+1a Nothing at e3
+1a Nothing at e4
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20990. numChecks: 0
+done
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e2: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: f1, g1, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of b: 
+Therefore, legalMoves is empty
+Legal moves of k: d8, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 ppppbpp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4 P_ _ _Pq
+3 _ P _N_B
+2  P PPP P   
+1 RNBQK _R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is e4
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1a Nothing at c6
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20990. numChecks: 0
+done
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: e2, f1, g1, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of R: a2, a3, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 ppppbpp    
+6 n_ _p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 _ P _N_B
+2  P P P P   
+1 RNBQK _R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is c6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at b1: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: e2, f1, g1, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of b: 
+Therefore, legalMoves is empty
+Legal moves of k: d8, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 pp_pbpp    
+6 n_p_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 _ P _N_B
+2  P P P P   
+1 RNBQK _R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is a3
+Piece at new position is N
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: e2, f1, g1, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of R: a2, b1, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 pp_pbpp    
+6 n_p_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_B
+2  P P P P   
+1 R BQK _R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is b6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1a Nothing at g1
+1b Ally at h1. allyFound: 0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at h3: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+White king's moves: e2, f1, g1, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of b: b7, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 p _pbpp    
+6 npp_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_B
+2  P P P P   
+1 R BQK _R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is f1
+Piece at new position is B
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1b Ally at c8. allyFound: 0
+1b Ally at b8. allyFound: 0x558131a206c0
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+b
+n
+r
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: e2, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of R: a2, b1, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  rb_k_nr
+7 p _pbpp    
+6 npp_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  P P P P   
+1 R BQKB_R
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+hhhmmmm
+???
+ur kidding
+down
+position is b7
+Piece at new position is b
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1a Nothing at g1
+1b Ally at h1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: R at h1: success
+P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at h1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+White king's moves: e2, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of k: d8, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pbpp    
+6 npp_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  P P P P   
+1 R BQKB_R
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is g1
+Piece at new position is R
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1b Ally at f7. allyFound: 0
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1b Ally at g1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: e2, King 1
+King can move to d8
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f8, 
+Legal moves of R: a2, b1, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pbpp    
+6 npp_p_ p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  P P P P   
+1 R BQKBR 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is f6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d1. allyFound: 0
+1b Ally at c1. allyFound: 0x558131a20000
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1b Ally at g1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+B at c1: success
+Q at d1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at d1: success
+K at e1: B at f1: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to e2
+King 2
+King 30
+King 41
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: e2, King 1
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f7, f8, 
+Legal moves of k: d8, f7, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pb p    
+6 npp_pp p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  P P P P   
+1 R BQKBR 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is c2
+Piece at new position is Q
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1b Ally at e6. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1b Ally at a1. allyFound: 0x558131a1ffb0
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+1a Nothing at e5
+2d Pawn at 4, 5. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1b Ally at g1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at f1: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, King 1
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f7, f8, 
+Legal moves of R: a2, b1, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pb p    
+6 npp_pp p
+5 _ _ _ _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  PQP P P   
+1 R B KBR 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is e5
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a20760
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1b Ally at a1. allyFound: 0x558131a1ffb0
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1b Ally at f1. allyFound: 0
+1b Ally at g1. allyFound: 0x558131a200a0
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at f1: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, King 1
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f7, f8, 
+Legal moves of k: d8, f7, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pb p    
+6 npp_ p p
+5 _ _ p _ 
+4 P_ _P_Pq
+3 N P _N_ 
+2  PQP P P   
+1 R B KBR 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is h3
+Piece at new position is B
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1b Ally at d7. allyFound: 0
+1b Ally at c6. allyFound: 0x558131a20990
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1b Ally at a1. allyFound: 0x558131a1ffb0
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+R at a1: success
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d8, f7, f8, 
+Legal moves of R: a2, b1, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_pb p    
+6 npp_ p p
+5 _ _ p _ 
+4 P_ _P_Pq
+3 N P _N_B
+2  PQP P P   
+1 R B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is d5
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1b Ally at a1. allyFound: 0x558131a1ffb0
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+R at a1: success
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a1: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 41
+King 42
+King 50
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d7, d8, f7, f8, 
+Legal moves of k: d7, d8, f7, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_ b p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_ _P_Pq
+3 N P _N_B
+2  PQP P P   
+1 R B K R 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+hhhmmmm
+???
+ur kidding
+down
+position is a2
+Piece at new position is R
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1b Ally at b8. allyFound: 0
+1a Nothing at a8
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d7, d8, f7, f8, 
+Legal moves of B: 
+Therefore, legalMoves is empty
+Legal moves of K: d1, e2, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8  r _k_nr
+7 pb_ b p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_ _P_Pq
+3 N P _N_B
+2 RPQP P P   
+1 _ B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is a8
+Piece at new position is r
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1b Ally at c3. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+3
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c3: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d7, d8, f7, f8, 
+Legal moves of k: d7, d8, f7, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _k_nr
+7 pb_ b p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_ _P_Pq
+3 N P _N_B
+2 RPQP P P   
+1 _ B K R 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is c4
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1b Ally at e7. allyFound: 0
+1a Nothing at e6
+1b Ally at e5. allyFound: 0x558131a207b0
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1a Nothing at f8
+1b Ally at g8. allyFound: 0
+1b Ally at h8. allyFound: 0x558131a20800
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to f7
+King can move to f8
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 42
+King 57
+King 6
+
+Black king's moves: d7, d8, f7, f8, 
+Legal moves of B: 
+Therefore, legalMoves is empty
+Legal moves of K: d1, e2, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _k_nr
+7 pb_ b p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_P_P_Pq
+3 N _ _N_B
+2 RPQP P P   
+1 _ B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is f8
+Piece at new position is b
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+B at c1: success
+K at e1: P at b2: success
+P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b2: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of k: d7, d8, f7, f8, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_P_P_Pq
+3 N _ _N_B
+2 RPQP P P   
+1 _ B K R 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is b3
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a20760
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1a Nothing at g6
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+3
+B at c1: success
+K at e1: P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b3: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of B: b2, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ p    
+6 npp_ p p
+5 _ _pp _ 
+4 P_P_P_Pq
+3 NP_ _N_B
+2 R_QP P P   
+1 _ B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+down
+position is g6
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a1c550
+0x558131a1c860
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+2a Queen at h4. allyFound: 0x558131a20320. numChecks: 0
+0
+2.5
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1b Ally at g6. allyFound: 0
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+B at c1: success
+K at e1: P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at f3: success
+R at g1: success
+P at a4: success
+P at b3: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+r
+n
+b
+q
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of k: d7, d8, e7, f7, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ _    
+6 npp_ ppp
+5 _ _pp _ 
+4 P_P_P_Pq
+3 NP_ _N_B
+2 R_QP P P   
+1 _ B K R 
+
+  abcdefgh
+
+White's turn: start
+good
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+hhhmmmm
+???
+ur kidding
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is h4
+Piece at new position is N
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a1c860
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1a Nothing at b5
+2d Pawn at 0, 3. allyFound: 0x558131a20940. numChecks: 0
+done
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1b Ally at g6. allyFound: 0
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1b Ally at h4. allyFound: 0x558131a20320
+0
+3
+B at c1: success
+K at e1: P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at h4: success
+R at g1: success
+P at a4: success
+P at b3: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+r
+n
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of B: b2, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ _    
+6 npp_ ppp
+5 _ _pp _ 
+4 P_P_P_PN
+3 NP_ _ _B
+2 R_QP P P   q
+1 _ B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is b5
+Piece at new position is p
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1a Nothing at a5
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1b Ally at h4. allyFound: 0x558131a20320
+0
+2.5
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1b Ally at b5. allyFound: 0x558131a20940
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1b Ally at g6. allyFound: 0
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+3
+B at c1: success
+K at e1: P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at h4: success
+R at g1: success
+P at a4: success
+P at b3: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+r
+n
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of k: d7, d8, e7, f7, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ _    
+6 n_p_ ppp
+5 _p_pp _ 
+4 P_P_P_PN
+3 NP_ _ _B
+2 R_QP P P   q
+1 _ B K R 
+
+  abcdefgh
+
+White's turn: start
+good
+up
+hmm
+hhmmm
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+bruh how
+???
+ur kidding
+down
+position is a5
+Piece at new position is P
+nice
+end
+over here
+1
+2
+0x558131a20050
+0x558131a20760
+1a Nothing at d7
+1b Ally at c6. allyFound: 0
+1b Ally at b5. allyFound: 0x558131a20940
+1a Nothing at d8
+1a Nothing at c8
+1a Nothing at b8
+1b Ally at a8. allyFound: 0
+1a Nothing at e7
+1a Nothing at e6
+1b Ally at e5. allyFound: 0
+2d Pawn at 4, 3. allyFound: 0x558131a209e0. numChecks: 0
+done
+1a Nothing at f7
+1b Ally at g6. allyFound: 0
+1a Nothing at h5
+1b Ally at f8. allyFound: 0
+1b Ally at g8. allyFound: 0x558131a207b0
+0
+2.5
+1a Nothing at d1
+1b Ally at c1. allyFound: 0
+1a Nothing at b1
+1a Nothing at a1
+1b Ally at d2. allyFound: 0
+1a Nothing at c3
+1a Nothing at b4
+1b Ally at a5. allyFound: 0x558131a20280
+1a Nothing at e2
+1a Nothing at e3
+1b Ally at e4. allyFound: 0
+2d Pawn at 4, 4. allyFound: 0x558131a202d0. numChecks: 0
+done
+1a Nothing at f1
+1b Ally at g1. allyFound: 0
+1a Nothing at h1
+1b Ally at f2. allyFound: 0
+1a Nothing at g3
+1b Ally at h4. allyFound: 0x558131a20320
+0
+3
+B at c1: success
+K at e1: P at d2: success
+P at f2: success
+P at h2: success
+R at a2: success
+N at a3: success
+B at c1: success
+Q at c2: success
+K at e1: B at h3: success
+N at h4: success
+R at g1: success
+P at a5: success
+P at b3: success
+P at c4: success
+P at d2: success
+P at e4: success
+P at f2: success
+P at g4: success
+P at h2: success
+4
+n
+r
+p
+r
+n
+b
+b
+n
+r
+p
+p
+p
+p
+p
+p
+p
+p
+5
+King 1
+King can move to d1
+King can move to e2
+King can move to f1
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 6
+White king's moves: d1, e2, f1, King 1
+King can move to d7
+King can move to d8
+King can move to e7
+King can move to f7
+King 2
+King 30
+King 31
+King 32
+King 33
+King 34
+King 35
+King 36
+King 37
+King 41
+King 57
+King 6
+
+Black king's moves: d7, d8, e7, f7, 
+Legal moves of B: b2, 
+Therefore, legalMoves is not empty
+nothign
+bruh
+
+8 r_ _kbnr
+7 pb_ _ _    
+6 n_p_ ppp
+5 Pp_pp _ 
+4  _P_P_PN
+3 NP_ _ _B
+2 R_QP P P   q
+1 _ B K R 
+
+  abcdefgh
+
+Black's turn: start
+good
+up
+hmm
+hhmmm
+hhhmmmm
+???
+ur kidding
+down
+position is d7
+Piece at new position is k
+nice
+we're castling??
+h7 --> c7
+start
+FIRST
+terminate called after throwing an instance of 'BadMove'
+  what():  std::exception

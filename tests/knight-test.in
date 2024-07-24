@@ -1,0 +1,63 @@
+t
+setup
+clear 
++ K a1
++ k h8
++ n a8
++ n b8
++ n c8
++ P b5
++ P c5
++ P d5
++ N h1
++ N g1
++ N f1
++ p g4
++ p f4
++ p e4
+done
+game human human
+move h1 g3
+move a8 b6
+move g1 f3
+move b8 c6
+move f1 e3
+move c8 d6
+move e3 d5
+move e3 d1
+move d6 e4
+resign
+setup
+clear
++ K a1
++ k h8
++ n a8
++ n b8
++ n c8
++ P b6
++ P c6
++ P d6
++ N h1
++ N g1
++ N f1
++ p g3
++ p f3
++ p e3
+done
+game human human
+move h1 g3
+move a8 b6
+move g1 f3
+move b8 c6
+move f1 e3
+move c8 d6
+move e3 d5
+move c6 d4
+move d5 b6
+move d4 f3
+move b6 c4
+move g2 e4
+move f3 d2
+move c4 d6
+move d2 e4
+move d6 e4
