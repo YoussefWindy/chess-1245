@@ -9,14 +9,13 @@ class Board; // forward declaration
 class Piece {
   protected:
 	char name;
-	bool colour;
-	int value;
+	bool colour, isProtected;
+	unsigned int value, numMoves;
 	Posn posn;
 	std::vector<Posn> legalMoves;
 	bool vertical, horizontal, positive, negative;
-	bool hasMoved, isProtected;
   public:
-	Piece(char name, bool colour, int value, const Posn &posn, bool vertical = false,
+	Piece(char name, bool colour, unsigned int value, const Posn &posn, bool vertical = false,
   	  bool horizontal = false, bool positive = false, bool negative = false);
 	virtual void calculateLegalMoves(const Board &board) = 0;
 	void intersect(std::vector<Posn> &positions);
@@ -36,7 +35,7 @@ class Piece {
 	bool getIsProtected() const;
 
 	// Setters
-	void move(const Posn &posn);
+	void move(const Posn &posn, bool forward = true);
 	void setName(char value);
 	void setX(unsigned int value);
 	void setY(unsigned int value);

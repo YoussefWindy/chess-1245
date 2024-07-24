@@ -225,25 +225,24 @@ int Board::runCalculations() {
 }
 
 void Board::movePiece(Move &&move) {
-	// std::cerr << "start" << std::endl;
+	std::cerr << "start" << std::endl;
 	if (!board[move.oldPos.x][move.oldPos.y]) {
-		// std::cout << "FIRST" << std::endl;
+		std::cerr << "FIRST" << std::endl;
 		throw BadMove{move};
   } else if (board[move.oldPos.x][move.oldPos.y]->getColour() != turn) {
-		// std::cout << "SECOND" << std::endl;
+		std::cerr << "SECOND" << std::endl;
 		throw BadMove{move};
   } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-		// auto testmoves = board[move.oldPos.x][move.oldPos.y]->getLegalMoves();
-		// std::cout << testmoves.size() << std::endl;
-		// for (auto i : testmoves) {
-		// 	std::cout << char('a' + i.x) << i.y + 1 << std::endl;
-		// }
-		// std::cout << "THIRD" << std::endl;
+		std::cerr << "Legal moves of " << board[move.oldPos.x][move.oldPos.y]->getName() << ": ";
+		for (auto i : board[move.oldPos.x][move.oldPos.y]->getLegalMoves()) {
+			std::cerr << char('a' + i.x) << i.y + 1 << std::endl;
+		}
+		std::cerr << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
-	// std::cerr << "good" << std::endl;
+	std::cerr << "good" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]) { // if a capture is taking place
-		// std::cerr << "capture" << std::endl;
+		std::cerr << "capture" << std::endl;
 		deadPieces.emplace_back(board[move.newPos.x][move.newPos.y]);
 		removePiece(move.newPos);
 		move.capture = true;
@@ -252,19 +251,19 @@ void Board::movePiece(Move &&move) {
 		removePiece({move.newPos.x, move.newPos.y + (turn ? -1 : 1)});
 		move.capture = true;
 	}
-	// std::cerr << "up" << std::endl;
+	std::cerr << "up" << std::endl;
 	(board[move.newPos.x][move.newPos.y] = board[move.oldPos.x][move.oldPos.y])->move(move.newPos); // move the piece
 	removePiece(move.oldPos);
-	// std::cerr << "down" << std::endl << "position is " << char('a' + move.newPos.x) << move.newPos.y + 1 << std::endl;
-	// std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
+	std::cerr << "down" << std::endl << "position is " << char('a' + move.newPos.x) << move.newPos.y + 1 << std::endl;
+	std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
 		// std::cerr << "we're castling??" << std::endl;
-		if (move.newPos.x - move.oldPos.x > 1) { // castling right
-			// std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
+		if (move.newPos.x - move.oldPos.x == 2) { // castling right
+			std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 			log.pop_back();
-		} else if (move.oldPos.x - move.newPos.x > 1) { // castling left
-			// std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
+		} else if (move.oldPos.x - move.newPos.x == 2) { // castling left
+			std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
 			log.pop_back();
 		}
@@ -302,15 +301,20 @@ const std::shared_ptr<Piece> Board::operator[](const Posn &posn) const {
 }
 
 Move Board::getLastMove() const {
-	return log.empty() ? Move{{0, 0}, {0, 0}} : log.back();
+	return log.empty() ? emptyMove : log.back();
 }
 
-void Board::undoMoves(int x) {
-	for (int i = 0; i < x; i++) {
-		if (log.empty()) return;
+void Board::undoMoves(int num) {
+	Posn tmp = log.back().oldPos;
+	for (int i = 0; i < num; i++) {
+		if (log.empty()) break;
     	turn = !turn;
+		std::cerr << "Legal moves of " << board[log.back().newPos.x][log.back().newPos.y]->getName() << std::endl << "before: ";
+		for (auto i : board[log.back().newPos.x][log.back().newPos.y]->getLegalMoves()) {
+			std::cerr << char('a' + i.x) << i.y + 1 << ", ";
+		}
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
-		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos);
+		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos, false);
 		removePiece(log.back().newPos);
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
@@ -320,6 +324,11 @@ void Board::undoMoves(int x) {
 		log.pop_back();
 	}
     runCalculations();
+	std::cerr << std::endl << "after: ";
+	for (auto i : board[tmp.x][tmp.y]->getLegalMoves()) {
+		std::cerr << char('a' + i.x) << i.y + 1 << ", ";
+	}
+	std::cerr << std::endl;
 }
 
 bool Board::getTurn() const {

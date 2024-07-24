@@ -115,7 +115,7 @@ int main() {
 		toLowercase(command);
 		if (command == "game") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s move: ";
 				continue;
 			}
 			cin >> arg1 >> arg2;
@@ -154,7 +154,7 @@ int main() {
 					Posn start{arg1}, end{arg2};
 					unsigned int promotion = 0;
 					// cerr << "we're here now" << endl;
-					if (board[start]->getName() == (board.getTurn() ? 'P' : 'p')) {
+					if (board[start] && board[start]->getName() == (board.getTurn() ? 'P' : 'p')) {
 						// cerr << "uhhhhh promo!" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[start]);
 						if (tmp->canPromote()) {
@@ -235,7 +235,7 @@ int main() {
 			}
 		} else if (command == "setup") {
 			if (gameActive) {
-				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s move: ";
 				continue;
 			}
 			display(defaultBoard);
@@ -341,7 +341,7 @@ int main() {
 			*/
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
-					 << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+					 << (board.getTurn() ? "White" : "Black") << "'s move: ";
 					 continue;
 			} else if (!(whiteWins || blackWins)) {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
@@ -546,7 +546,7 @@ int main() {
 		} else if (command == "simplereplay") {
 			if (gameActive) {
 				cerr << "You must not be currently playing a game to enter replay mode." << endl
-					 << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+					 << (board.getTurn() ? "White" : "Black") << "'s move: ";
 					 continue;
 			} else if (!(whiteWins || blackWins)) {
 				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
@@ -596,13 +596,13 @@ int main() {
 			}
 		} else {
 			cerr << "Please input a valid command." << endl
-				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s turn: " : "Command: ");
+				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s move: " : "Command: ");
 			continue;
 		} // switch
 		// cerr << "bruh" << endl;
 		if (gameActive) {
 			display(board);
-			cerr << (board.getTurn() ? "White" : "Black") << "'s turn: ";
+			cerr << (board.getTurn() ? "White" : "Black") << "'s move: ";
 		} else {
 			cerr << "Command: ";
 		}
