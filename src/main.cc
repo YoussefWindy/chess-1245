@@ -152,40 +152,42 @@ int main() {
 				cin >> arg1 >> arg2;
 				try {
 					Posn start{arg1}, end{arg2};
-					board.movePiece({start, end});
+					unsigned int promotion = 0;
 					// cerr << "we're here now" << endl;
-					if (board[end]->getName() == (!board.getTurn() ? 'P' : 'p')) {
+					if (board[start]->getName() == (board.getTurn() ? 'P' : 'p')) {
 						// cerr << "uhhhhh promo!" << endl;
 						shared_ptr<Pawn> tmp = static_pointer_cast<Pawn>(board[end]);
 						if (tmp->canPromote()) {
 							char piece;
 							cin >> piece;
 							// cerr << "piece is " << piece << " and white is " << white << endl;
-							piece -= (!board.getTurn() ? ('A' - 'a') : 0);
+							piece -= (board.getTurn() ? ('A' - 'a') : 0);
 							// cerr << "piece is now " << piece << endl;
 							switch (piece) {
 								case 'n':
 									// cerr << "about to promote to n" << endl;
-									board.promote({start, end}, 1);
+									promotion = 1;
 									break;
 								case 'b':
 									// cerr << "about to promote to b" << endl;
-									board.promote({start, end}, 2);
+									promotion = 2;
 									break;
 								case 'r':
 									// cerr << "about to promote to r" << endl;
-									board.promote({start, end}, 3);
+									promotion = 3;
 									break;
 								case 'q':
 									// cerr << "about to promote to q" << endl;
-									board.promote({start, end}, 4);
+									promotion = 4;
 									break;
 								default:
-									cerr << "Please input a valid piece type to promote into." << endl;
-									board.undoMoves();
+									cerr << "Please input a valid piece type to promote into." << endl
+						 				 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
+									continue;
 							}
 						}
 					}
+					board.movePiece({start, end, promotion});
 				} catch (BadPosn &e) {
 					cerr << "Please input valid board coordinates." << endl
 						 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";

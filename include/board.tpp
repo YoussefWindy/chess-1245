@@ -16,8 +16,7 @@ void Board::addPiece(bool colour, const Posn &posn) {
 	}
 }
 
-void Board::promote(Move &&move, unsigned int type) {
-	turn = !turn;
+void Board::promote(const Move &move, unsigned int type) {
 	// std::cerr << "type is " << type << ". turn is " << (turn ? "white" : "black") << std::endl;
 	removePiece(move.newPos);
 	// std::cerr << "this work" << std::endl;
@@ -34,9 +33,7 @@ void Board::promote(Move &&move, unsigned int type) {
 	// std::cerr << char('a' + log.back().oldPos.x) << log.back().oldPos.y + 1
 	//   << "-->" << char('a' + log.back().newPos.x) << log.back().newPos.y + 1 << " "
 	//   << "capture: " << log.back().capture << ", promotion: " << log.back().promotion << " --> ";
-	log.back().promotion = type; // note down the promotion type in the log
 	// std::cerr << log.back().promotion << std::endl;
-	turn = !turn;
 }
 
 #endif // BOARD_TPP
