@@ -235,9 +235,9 @@ void Board::movePiece(Move &&move) {
   } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
 		std::cerr << "Legal moves of " << board[move.oldPos.x][move.oldPos.y]->getName() << ": ";
 		for (auto i : board[move.oldPos.x][move.oldPos.y]->getLegalMoves()) {
-			std::cerr << char('a' + i.x) << i.y + 1 << std::endl;
+			std::cerr << char('a' + i.x) << i.y + 1 << " ";
 		}
-		std::cerr << "THIRD" << std::endl;
+		std::cerr << std::endl << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
 	std::cerr << "good" << std::endl;
