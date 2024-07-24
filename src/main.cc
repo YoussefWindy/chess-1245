@@ -86,7 +86,7 @@ int main() {
 		defaultBoard.addPiece<Pawn>(true, {i, 1}); // white
 		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black
 	}
-	cout << "Text Display, Draphical Display, Both? (t/g/b): ";
+	cout << "Do you want a Text Display, Graphical Display, or Both? (t/g/b): ";
 	while (cin >> arg1) {
 		toLowercase(arg1);
 		if (arg1 == "t") {

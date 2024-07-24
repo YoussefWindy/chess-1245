@@ -30,11 +30,11 @@ bool Piece::canMoveTo(const Posn &posn) const {
 }
 
 bool Piece::canMove() const {
-	// std::cerr << "Legal moves of " << name << ": ";
-	// for (auto p: legalMoves) {
-	// 	std::cerr << char('a' + p.x) << p.y + 1 << ", ";
-	// }
-	// std::cerr << std::endl << "Therefore, legalMoves is " << (legalMoves.empty() ? "empty" : "not empty") << std::endl;
+	std::cerr << "Legal moves of " << name << ": ";
+	for (auto p: legalMoves) {
+		std::cerr << char('a' + p.x) << p.y + 1 << ", ";
+	}
+	std::cerr << std::endl << "Therefore, legalMoves is " << (legalMoves.empty() ? "empty" : "not empty") << std::endl;
 	return !legalMoves.empty();
 }
 
