@@ -1,7 +1,9 @@
 ai-stress-test
-bishop-test
 castling
+bishop-test
 knight-test
 pawn-test-bad-promotion
 pawn-test
+queen-test
+rook-test
 setup-test

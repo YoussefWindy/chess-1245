@@ -1,0 +1,633 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RR_ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RRR K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RRRRK _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RRRRKR_ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RRRRKRR 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ _ _ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RR _ _ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRR_ _ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRR _ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRR_ _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRR _   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRR_   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 r_ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rr _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrr_k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrk_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkr _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrr_
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 r _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rr_ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrr _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrr_ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrrr _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrrrr_    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrrrrr    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrrrrrr   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Command: 
+8 rrrrkrrr
+7 rrrrrrrr   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+Board setup successful.
+Command: The game has begun!
+
+8 rrrrkrrr
+7 rrrrrrrr   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRRR   
+1 RRRRKRRR
+
+  abcdefgh
+
+White's turn: 
+8 rrrrkrrr
+7 rrrrrrrR   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 RRRRRRR_   r
+1 RRRRKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rrrrkrrr
+7 _rrrrrrR   R
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 rRRRRRR_   r
+1 RRRRKRRR
+
+  abcdefgh
+
+White's turn: 
+8 rrrrkrrr
+7 _rrrrrrR   R
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_RRRRR_   rr
+1 RRRRKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rrrrkrrr
+7 _rr rrrR   RR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_RrRRR_   rr
+1 RRRRKRRR
+
+  abcdefgh
+
+White's turn: 
+8 rrrrkrrr
+7 _rr rrrR   RR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ RRRR_   rrr
+1 RRRRKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rrrrkrrr
+7 _ r rrrR   RRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ RRRR_   rrr
+1 RrRRKRRR
+
+  abcdefgh
+
+White's turn: 
+8 rrrrkrrr
+7 _ r rrrR   RRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ RRRR_   rrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rrrrkrr_
+7 _ r rrrr   RRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ RRRR_   rrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+White's turn: Black is in check.
+
+8 rrrRkrr_
+7 _ r rrrr   RRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ _RRR_   rrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rr rkrr_
+7 _ r rrrr   RRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 R_ _RRR_   rrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+White's turn: 
+8 rr rkrr_
+7 _ r rrrr   RRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ RRRR_   rrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 rr rkrr_
+7 _ r rr_r   RRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ RRRr_   rrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+White's turn: Black is in check.
+
+8 rr Rkrr_
+7 _ r rr_r   RRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRr_   rrrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+Black's turn: 
+8 r_ rkrr_
+7 _ r rr_r   RRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRr_   rrrrrr
+1 RR_RKRRR
+
+  abcdefgh
+
+White's turn: 
+8 R_ rkrr_
+7 _ r rr_r   RRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRr_   rrrrrrr
+1 _R_RKRRR
+
+  abcdefgh
+
+Black's turn: Please input a valid move action.
+Black's move: Please input a valid move action.
+Black's move: 

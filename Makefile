@@ -31,4 +31,4 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cc | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR)
+	rm -rf $(OBJDIR) $(EXEC)

@@ -25,7 +25,7 @@ while IFS= read -r stem; do
     fi
 
     # Run the command and redirect stdout and stderr
-    if ! ./bin/chess < "$in_file" &> "$out_file"; then #  2> "$err_file"; then
+    if ! ./chess < "$in_file" &> "$out_file"; then #  2> "$err_file"; then
         echo "Test $stem failed!"
     fi
 done < "$input_file"
