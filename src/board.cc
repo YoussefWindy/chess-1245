@@ -270,6 +270,7 @@ void Board::movePiece(Move &&move) {
 		}
 	}
 	log.emplace_back(move); // log move
+	if (move.promotion) promote(move.newPos, move.promotion);
 	turn = !turn;
 	// std::cerr << "end" << std::endl;
 }
