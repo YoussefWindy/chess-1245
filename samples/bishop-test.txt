@@ -542,76 +542,98 @@ Black's turn:
 
   abcdefgh
 
-White's turn: Please input a valid move action.
-White's move: Please input a valid move action.
-White's move: 
+White's turn: 
 8 bbbbkbbb
 7 b b b _b   BBB
 6  _ _ _ _
+5 _ _ _B_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 Bb BBB _   bb
+1 B BBKBBB
+
+  abcdefgh
+
+Black's turn: 
+8 bbbbkbbb
+7 b b b _    BBBB
+6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _bBB
-2 BB BBB _   bb
+3 _ _ _bB 
+2 Bb BBB _   bb
+1 B BBKBBB
+
+  abcdefgh
+
+White's turn: 
+8 bbbbkbbb
+7 b b b _    BBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 BB BBB _   bbb
 1 B _BKBBB
 
   abcdefgh
 
 Black's turn: 
 8 bbbbkb b
-7 b b b _b   BBBB
+7 b b b _    BBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _bBB
-2 bB BBB _   bb
+3 _ _ _bB 
+2 bB BBB _   bbb
 1 B _BKBBB
 
   abcdefgh
 
 White's turn: 
 8 bbbbkb b
-7 b b b _b   BBBB
+7 b b b _    BBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _BBB
-2 bB B B _   bbb
+3 _ _ _BB 
+2 bB B B _   bbbb
 1 B _BKBBB
 
   abcdefgh
 
 Black's turn: 
 8 bbbbkb _
-7 b b b _b   BBBBB
+7 b b b _    BBBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _BBB
-2 bb B B _   bbb
+3 _ _ _BB 
+2 bb B B _   bbbb
 1 B _BKBBB
 
   abcdefgh
 
 White's turn: 
 8 Bbbbkb _
-7 b b b _b   BBBBB
+7 b b b _    BBBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _ BB
-2 bb B B _   bbbb
+3 _ _ _ B 
+2 bb B B _   bbbbb
 1 B _BKBBB
 
   abcdefgh
 
 Black's turn: 
 8 Bbbbkb _
-7 b _ b _b   BBBBBB
+7 b _ b _    BBBBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4  _ _ _ _
-3 _ _ _ bB
-2 bb B B _   bbbb
+3 _ _ _ b 
+2 bb B B _   bbbbb
 1 B _BKBBB
 
   abcdefgh
@@ -619,12 +641,12 @@ Black's turn:
 White's turn: Black is in check.
 
 8 Bbbbkb _
-7 b _ b _b   BBBBBB
+7 b _ b _    BBBBBBB
 6  _ _ _ _
 5 _ _ _b_ 
 4 B_ _ _ _
-3 _ _ _ bB
-2 bb B B _   bbbb
+3 _ _ _ b 
+2 bb B B _   bbbbb
 1 B _ KBBB
 
   abcdefgh

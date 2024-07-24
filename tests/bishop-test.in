@@ -43,8 +43,8 @@ move g2 h3
 move g7 b2
 move c2 f5
 move d7 f5
-move h3 d5
-move h7 g5
+move h3 f5
+move h7 f5
 move c1 b2
 move g8 a2
 move e2 f3
@@ -60,11 +60,11 @@ move d8 a5
 move b2 c3
 move g3 f2
 move g1 f2
-move c8 b2
+move c8 b7
 move c3 a5
 move a7 c5
 move a8 b7
-mvoe b8 f4
+move b8 f4
 move b7 e4
 move c5 b4
 move a5 b4
