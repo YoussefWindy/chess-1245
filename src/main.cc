@@ -45,6 +45,10 @@ void stripWhitespace(string& str) {
     str = result;
 }
 
+void setBoardDefault(Board& board) {
+
+}
+
 bool verifyPiece(char c) {
 	return c == 'b' || c == 'B' || c == 'r' || c == 'R' || c == 'n' || c == 'N'
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
@@ -60,7 +64,7 @@ int main() {
 	double whiteWins = 0, blackWins = 0;
 	string command, arg1, arg2;
 	bool gameActive = false;
-	Board board, defaultBoard;
+	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
 	// Initial default board
 	// White pieces
@@ -240,14 +244,14 @@ int main() {
 			}
 			display(defaultBoard);
 			cout << "Entered setup mode." << endl;
-			cerr << "Command: ";
+			cerr << "Setup Command: ";
 			while (cin >> command) {
 				toLowercase(command);
 				if (command == "+") { // add a piece to the board
 					char piece;
 					cin >> piece >> arg1;
 					if (!verifyPiece(piece)) {
-						cerr << "Please input a valid piece name." << endl << "Command: ";
+						cerr << "Please input a valid piece name." << endl << "Setup Command: ";
 						continue;
 					}
 					try {
@@ -281,7 +285,7 @@ int main() {
 								}
 						}
 					} catch (BadPosn &e) {
-						cerr << "Please input valid board coordinates." << endl << "Command: ";
+						cerr << "Please input valid board coordinates." << endl << "Setup Command: ";
 						continue;
 					} catch (BadSetup &e) {
 						cerr << e.why() << endl << "Command: ";
@@ -354,12 +358,12 @@ int main() {
 			// Get game log
 			auto gameLog = board.getLog();
       unsigned int currentMove = 0;
+			replayBoard = defaultBoard;
 
-      display(defaultBoard);
+      display(replayBoard);
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
-				Board replayBoard = defaultBoard;
 				replayBoard.runCalculations();
 				// Cleanup command input
 				toLowercase(command);

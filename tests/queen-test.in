@@ -1,0 +1,48 @@
+t
+setup
+clear
++ K e1
++ k e8
++ Q a1
++ Q b1
++ Q c1
++ Q d1
++ Q f1
++ Q g1
++ Q h1
++ Q a2
++ Q b2
++ Q c2
++ Q d2
++ Q e2
++ Q f2
++ Q g2
++ Q h2
++ q a8
++ q b8
++ q c8
++ q d8
++ q f8
++ q g8
++ q h8
++ q a7
++ q b7
++ q c7
++ q d7
++ q e7
++ q f7
++ q g7
++ q h7
+done
+game human human
+move c2 f5
+move h7 f5
+move h2 h8
+move g7 g2
+move g1 g2
+move a7 f2
+move g2 f2
+move f5 f2
+move f1 f2
+move f7 f2
+

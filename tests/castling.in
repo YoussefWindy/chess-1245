@@ -1,0 +1,18 @@
+t
+setup
+clear
++ K e1
++ k e8
++ R h1
++ R a1
++ r a8
++ r h8
+done
+game human human
+move e1 g1
+move e8 g8
+resign
+game human human
+move e1 c1
+move e8 c8
+resign

@@ -1,0 +1,159 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ K _ 
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ K _R
+
+  abcdefgh
+
+Command: 
+8  _ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+Command: 
+8 r_ _k_ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+Command: 
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+Command: 
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+Board setup successful.
+Command: The game has begun!
+
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+White's turn: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Black wins!
+Command: The game has begun!
+
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ K _R
+
+  abcdefgh
+
+White's turn: Please input a valid move action.
+White's move: Please input a valid move action.
+White's move: Black wins!
+Command: 
+Final Score:
+White: 0
+Black: 2

@@ -1,0 +1,724 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 n_ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nn _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _P_ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PP _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _N
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ NN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ _p_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ pp_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Board setup successful.
+Command: The game has begun!
+
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+White's turn: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ N 
+2  _ _ _ _   
+1 K _ _NN 
+
+  abcdefgh
+
+Black's turn: 
+8  nn_ _ k
+7 _ _ _ _    
+6  n _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ N 
+2  _ _ _ _   
+1 K _ _NN 
+
+  abcdefgh
+
+White's turn: 
+8  nn_ _ k
+7 _ _ _ _    
+6  n _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _NN 
+2  _ _ _ _   
+1 K _ _N_ 
+
+  abcdefgh
+
+Black's turn: 
+8  _n_ _ k
+7 _ _ _ _    
+6  nn_ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _NN 
+2  _ _ _ _   
+1 K _ _N_ 
+
+  abcdefgh
+
+White's turn: 
+8  _n_ _ k
+7 _ _ _ _    
+6  nn_ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ NNN 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: 
+8  _ _ _ k
+7 _ _ _ _    
+6  nnn _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ NNN 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: Please input a valid move action.
+White's move: 
+8  _ _ _ k
+7 _ _ _ _    
+6  nnn _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _NN 
+2  _ _ _ _   
+1 K _N_ _ 
+
+  abcdefgh
+
+Black's turn: Please input a valid move action.
+Black's move: White wins!
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _PPP_ _ 
+4  _ _ppp_
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 n_ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nn _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  P _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PP_ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _N
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ NN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ p 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _pp 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ ppp 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Command: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ ppp 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+Board setup successful.
+Command: The game has begun!
+
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ ppp 
+2  _ _ _ _   
+1 K _ _NNN
+
+  abcdefgh
+
+White's turn: 
+8 nnn_ _ k
+7 _ _ _ _    
+6  PPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ ppN 
+2  _ _ _ _   p
+1 K _ _NN 
+
+  abcdefgh
+
+Black's turn: 
+8  nn_ _ k
+7 _ _ _ _    P
+6  nPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ ppN 
+2  _ _ _ _   p
+1 K _ _NN 
+
+  abcdefgh
+
+White's turn: 
+8  nn_ _ k
+7 _ _ _ _    P
+6  nPP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ pNN 
+2  _ _ _ _   pp
+1 K _ _N_ 
+
+  abcdefgh
+
+Black's turn: 
+8  _n_ _ k
+7 _ _ _ _    PP
+6  nnP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ pNN 
+2  _ _ _ _   pp
+1 K _ _N_ 
+
+  abcdefgh
+
+White's turn: 
+8  _n_ _ k
+7 _ _ _ _    PP
+6  nnP _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ NNN 
+2  _ _ _ _   ppp
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPP
+6  nnn _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ NNN 
+2  _ _ _ _   ppp
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPP
+6  nnn _ _
+5 _ _N_ _ 
+4  _ _ _ _
+3 _ _ _NN 
+2  _ _ _ _   ppp
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPP
+6  n n _ _
+5 _ _N_ _ 
+4  _ n _ _
+3 _ _ _NN 
+2  _ _ _ _   ppp
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPP
+6  N n _ _
+5 _ _ _ _ 
+4  _ n _ _
+3 _ _ _NN 
+2  _ _ _ _   pppn
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  N n _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _nN 
+2  _ _ _ _   pppn
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  _ n _ _
+5 _ _ _ _ 
+4  _N_ _ _
+3 _ _ _nN 
+2  _ _ _ _   pppn
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: Please input a valid move action.
+Black's move: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  _ n _ _
+5 _ _ _ _ 
+4  _N_ _ _
+3 _ _ _ N 
+2  _ n _ _   pppn
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  _ N _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ N 
+2  _ n _ _   pppnn
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  _ N _ _
+5 _ _ _ _ 
+4  _ _n_ _
+3 _ _ _ N 
+2  _ _ _ _   pppnn
+1 K _ _ _ 
+
+  abcdefgh
+
+White's turn: 
+8  _ _ _ k
+7 _ _ _ _    PPPN
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _N_ _
+3 _ _ _ N 
+2  _ _ _ _   pppnnn
+1 K _ _ _ 
+
+  abcdefgh
+
+Black's turn: White wins!
+Command: 
+Final Score:
+White: 2
+Black: 0

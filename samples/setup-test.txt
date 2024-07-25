@@ -1,0 +1,561 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: There cannot be two black kings on the board at once!
+If you are trying to move a king, please remove it first then add it.
+Command: There cannot be two white kings on the board at once!
+If you are trying to move a king, please remove it first then add it.
+Command: There cannot be two black kings on the board at once!
+If you are trying to move a king, please remove it first then add it.
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: Board setup invalid: no white king on the board!
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: Board setup invalid: no black king on the board!
+Command: 
+8  _ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 p_ _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 pp _ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 K _ _ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KP_ _ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPP _ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8 ppp_P_ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: Board setup invalid: there is a white pawn on the last row!
+Command: 
+8 ppp_P_ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_p_ 
+
+  abcdefgh
+
+Command: Board setup invalid: there is a white pawn on the last row!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_p_ 
+
+  abcdefgh
+
+Command: Board setup invalid: there is a black pawn on the last row!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ B _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: Board setup invalid: black is in check!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ b _ 
+4  _ B _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ b _ 
+4  _ B _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ b _ 
+4  _ B _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ b _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command:  but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ B _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ B _ 
+4  _ b _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command:  but we're checking here? but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ _   
+1 KPPP_ _ 
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ _   
+1 KPPP_ _R
+
+  abcdefgh
+
+Command: Board setup invalid: black is in check!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _ Q _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _nQ _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Command:  but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _NQ _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Command: 
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _NQ _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Board setup successful.
+Command: 
+Final Score:
+White: 0
+Black: 0

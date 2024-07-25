@@ -1,0 +1,21 @@
+t
+game human human
+move a2 a4 
+move b7 b5 
+move a4 b5
+move a7 a5
+move b5 a6
+move a8 a7
+move h2 h4
+move a7 b7
+move a6 a7
+move g7 g5
+move a7 a8 Q
+move g5 h4
+move g2 g4
+move h4 g3
+move g1 h3
+move g3 g2 
+move h3 g5
+move g2 g1 Q
+resign

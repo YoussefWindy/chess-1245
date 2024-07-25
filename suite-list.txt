@@ -1,0 +1,10 @@
+ai-stress-test
+castling
+bishop-test
+knight-test
+pawn-test-bad-promotion
+pawn-test
+queen-test
+rook-test
+setup-test
+ding-vs-carlson
