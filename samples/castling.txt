@@ -134,9 +134,40 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: Please input a valid move action.
-White's move: Please input a valid move action.
-White's move: Black wins!
+White's move: start
+good
+up
+K has moved 1 times.
+down
+position is g1
+Piece at new position is K
+nice
+h1 --> f1
+start
+good
+up
+R has moved 1 times.
+down
+position is f1
+Piece at new position is R
+nice
+
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 R _ _RK 
+
+  abcdefgh
+
+Black's move: start
+Legal moves of k: d7 d8 e7 c8 
+THIRD
+Please input a valid move action.
+Black's move: White wins!
 Command: The game has begun!
 
 8 r_ _k_ r
@@ -150,10 +181,41 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: Please input a valid move action.
-White's move: Please input a valid move action.
-White's move: Black wins!
+White's move: start
+good
+up
+K has moved 1 times.
+down
+position is c1
+Piece at new position is K
+nice
+a1 --> d1
+start
+good
+up
+R has moved 1 times.
+down
+position is d1
+Piece at new position is R
+nice
+
+8 r_ _k_ r
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ KR_ _R
+
+  abcdefgh
+
+Black's move: start
+Legal moves of k: e7 f7 f8 g8 
+THIRD
+Please input a valid move action.
+Black's move: White wins!
 Command: 
 Final Score:
-White: 0
-Black: 2
+White: 2
+Black: 0

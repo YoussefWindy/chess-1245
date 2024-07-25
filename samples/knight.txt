@@ -230,7 +230,15 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 1 times.
+down
+position is g3
+Piece at new position is N
+nice
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -242,7 +250,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 1 times.
+down
+position is b6
+Piece at new position is n
+nice
+
 8  nn_ _ k
 7 _ _ _ _    
 6  n _ _ _
@@ -254,7 +270,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 1 times.
+down
+position is f3
+Piece at new position is N
+nice
+
 8  nn_ _ k
 7 _ _ _ _    
 6  n _ _ _
@@ -266,7 +290,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 1 times.
+down
+position is c6
+Piece at new position is n
+nice
+
 8  _n_ _ k
 7 _ _ _ _    
 6  nn_ _ _
@@ -278,7 +310,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 1 times.
+down
+position is e3
+Piece at new position is N
+nice
+
 8  _n_ _ k
 7 _ _ _ _    
 6  nn_ _ _
@@ -290,7 +330,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 1 times.
+down
+position is d6
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    
 6  nnn _ _
@@ -302,8 +350,19 @@ Black's turn:
 
   abcdefgh
 
-White's turn: Please input a valid move action.
-White's move: 
+White's move: start
+Legal moves of N: g4 g2 f5 c4 c2 f1 d1 
+THIRD
+Please input a valid move action.
+White's move: start
+good
+up
+N has moved 2 times.
+down
+position is d1
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    
 6  nnn _ _
@@ -315,7 +374,10 @@ White's move:
 
   abcdefgh
 
-Black's turn: Please input a valid move action.
+Black's move: start
+Legal moves of n: f7 f5 e8 c8 b7 b5 c4 
+THIRD
+Please input a valid move action.
 Black's move: White wins!
 Command: 
 8 nnn_ _ k
@@ -536,7 +598,16 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 1 times.
+down
+position is g3
+Piece at new position is N
+nice
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -548,7 +619,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+n has moved 1 times.
+down
+position is b6
+Piece at new position is n
+nice
+
 8  nn_ _ k
 7 _ _ _ _    P
 6  nPP _ _
@@ -560,7 +640,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 1 times.
+down
+position is f3
+Piece at new position is N
+nice
+
 8  nn_ _ k
 7 _ _ _ _    P
 6  nPP _ _
@@ -572,7 +661,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+n has moved 1 times.
+down
+position is c6
+Piece at new position is n
+nice
+
 8  _n_ _ k
 7 _ _ _ _    PP
 6  nnP _ _
@@ -584,7 +682,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 1 times.
+down
+position is e3
+Piece at new position is N
+nice
+
 8  _n_ _ k
 7 _ _ _ _    PP
 6  nnP _ _
@@ -596,7 +703,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+n has moved 1 times.
+down
+position is d6
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPP
 6  nnn _ _
@@ -608,7 +724,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 2 times.
+down
+position is d5
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPP
 6  nnn _ _
@@ -620,7 +744,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 2 times.
+down
+position is d4
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPP
 6  n n _ _
@@ -632,7 +764,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 3 times.
+down
+position is b6
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPP
 6  N n _ _
@@ -644,7 +785,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+n has moved 3 times.
+down
+position is f3
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  N n _ _
@@ -656,7 +806,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 4 times.
+down
+position is c4
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  _ n _ _
@@ -668,8 +826,18 @@ White's turn:
 
   abcdefgh
 
-Black's turn: Please input a valid move action.
-Black's move: 
+Black's move: start
+SECOND
+Please input a valid move action.
+Black's move: start
+good
+up
+n has moved 4 times.
+down
+position is d2
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  _ n _ _
@@ -681,7 +849,16 @@ Black's move:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 5 times.
+down
+position is d6
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  _ N _ _
@@ -693,7 +870,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 5 times.
+down
+position is e4
+Piece at new position is n
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  _ N _ _
@@ -705,7 +890,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+N has moved 6 times.
+down
+position is e4
+Piece at new position is N
+nice
+
 8  _ _ _ k
 7 _ _ _ _    PPPN
 6  _ _ _ _
@@ -717,7 +911,7 @@ White's turn:
 
   abcdefgh
 
-Black's turn: White wins!
+Black's move: White wins!
 Command: 
 Final Score:
 White: 2

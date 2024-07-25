@@ -1,0 +1,1529 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: 
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Entered setup mode.
+Setup Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 B_ _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BB _ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBB_ _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBB _ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBB_ _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBB _   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBB_   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 _ _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 B _ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BB_ _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBB _ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_ _ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_B_ 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BB 
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 _ _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 b _ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bb_ _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbb _ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbbb_ _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbbbb _    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbbbbb_    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbbbbbb    
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8  _ _ _ _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 b_ _ _ _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bb _ _ _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbb_ _ _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbbb _ _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbbb b _
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbbb bb_
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbbb bbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBB_BBB
+
+  abcdefgh
+
+Command: 
+8 bbbb bbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBBKBBB
+
+  abcdefgh
+
+Command: 
+8 bbbbkbbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBBKBBB
+
+  abcdefgh
+
+Command: 
+8 bbbbkbbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBBKBBB
+
+  abcdefgh
+
+Board setup successful.
+Command: The game has begun!
+
+8 bbbbkbbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 BBBBBBBB   
+1 BBBBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is g3
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 bbbbbbbb   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ B 
+2 BBBBBBB_   
+1 BBBBKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is a2
+Piece at new position is b
+nice
+
+8 bbbbkbbb
+7 bbbbb bb   B
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ B 
+2 bBBBBBB_   
+1 BBBBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 1 times.
+down
+position is a2
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 bbbbb bb   B
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ B 
+2 BBBBBBB_   b
+1 B BBKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is f3
+Piece at new position is b
+nice
+
+8 bbbbkbbb
+7 b bbb bb   B
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _bB 
+2 BBBBBBB_   b
+1 B BBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is h3
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 b bbb bb   B
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _bBB
+2 BBBBBB _   b
+1 B BBKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is b2
+Piece at new position is b
+nice
+
+8 bbbbkbbb
+7 b bbb _b   BB
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _bBB
+2 BbBBBB _   b
+1 B BBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is f5
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 b bbb _b   BB
+6  _ _ _ _
+5 _ _ _B_ 
+4  _ _ _ _
+3 _ _ _bBB
+2 Bb BBB _   b
+1 B BBKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is f5
+Piece at new position is b
+nice
+
+8 bbbbkbbb
+7 b b b _b   BBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _bBB
+2 Bb BBB _   b
+1 B BBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 2 times.
+down
+position is f5
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 b b b _b   BBB
+6  _ _ _ _
+5 _ _ _B_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 Bb BBB _   bb
+1 B BBKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is f5
+Piece at new position is b
+nice
+
+8 bbbbkbbb
+7 b b b _    BBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 Bb BBB _   bb
+1 B BBKBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 1 times.
+down
+position is b2
+Piece at new position is B
+nice
+
+8 bbbbkbbb
+7 b b b _    BBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 BB BBB _   bbb
+1 B _BKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is a2
+Piece at new position is b
+nice
+
+8 bbbbkb b
+7 b b b _    BBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _bB 
+2 bB BBB _   bbb
+1 B _BKBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 1 times.
+down
+position is f3
+Piece at new position is B
+nice
+
+8 bbbbkb b
+7 b b b _    BBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _BB 
+2 bB B B _   bbbb
+1 B _BKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is b2
+Piece at new position is b
+nice
+
+8 bbbbkb _
+7 b b b _    BBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _BB 
+2 bb B B _   bbbb
+1 B _BKBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 2 times.
+down
+position is a8
+Piece at new position is B
+nice
+
+8 Bbbbkb _
+7 b b b _    BBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _ B 
+2 bb B B _   bbbbb
+1 B _BKBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is g3
+Piece at new position is b
+nice
+
+8 Bbbbkb _
+7 b _ b _    BBBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4  _ _ _ _
+3 _ _ _ b 
+2 bb B B _   bbbbb
+1 B _BKBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is a4
+Piece at new position is B
+nice
+Black is in check.
+
+8 Bbbbkb _
+7 b _ b _    BBBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4 B_ _ _ _
+3 _ _ _ b 
+2 bb B B _   bbbbb
+1 B _ KBBB
+
+  abcdefgh
+
+Black's move: start
+good
+up
+k has moved 1 times.
+down
+position is f7
+Piece at new position is k
+nice
+
+8 Bbbb b _
+7 b _ bk_    BBBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4 B_ _ _ _
+3 _ _ _ b 
+2 bb B B _   bbbbb
+1 B _ KBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 1 times.
+down
+position is b2
+Piece at new position is B
+nice
+
+8 Bbbb b _
+7 b _ bk_    BBBBBBB
+6  _ _ _ _
+5 _ _ _b_ 
+4 B_ _ _ _
+3 _ _ _ b 
+2 bB B B _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 2 times.
+down
+position is e6
+Piece at new position is b
+nice
+
+8 Bbbb b _
+7 b _ bk_    BBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 B_ _ _ _
+3 _ _ _ b 
+2  B B B _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is f4
+Piece at new position is B
+nice
+
+8 Bbbb b _
+7 b _ bk_    BBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 B_ _ B _
+3 _ _ _ b 
+2  B _ B _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is a5
+Piece at new position is b
+nice
+ but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+
+8 Bbb_ b _
+7 b _ bk_    BBBBBBB
+6  _ _b_ _
+5 b _ _b_ 
+4 B_ _ B _
+3 _ _ _ b 
+2  B _ B _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 2 times.
+down
+position is c3
+Piece at new position is B
+nice
+
+8 Bbb_ b _
+7 b _ bk_    BBBBBBB
+6  _ _b_ _
+5 b _ _b_ 
+4 B_ _ B _
+3 _ B _ b 
+2  _ _ B _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 2 times.
+down
+position is f2
+Piece at new position is b
+nice
+ but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+
+8 Bbb_ b _
+7 b _ bk_    BBBBBBBB
+6  _ _b_ _
+5 b _ _b_ 
+4 B_ _ B _
+3 _ B _ _ 
+2  _ _ b _   bbbbbb
+1 _ _ KBBB
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 1 times.
+down
+position is f2
+Piece at new position is B
+nice
+
+8 Bbb_ b _
+7 b _ bk_    BBBBBBBB
+6  _ _b_ _
+5 b _ _b_ 
+4 B_ _ B _
+3 _ B _ _ 
+2  _ _ B _   bbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is b7
+Piece at new position is b
+nice
+
+8 Bb _ b _
+7 bb_ bk_    BBBBBBBB
+6  _ _b_ _
+5 b _ _b_ 
+4 B_ _ B _
+3 _ B _ _ 
+2  _ _ B _   bbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 3 times.
+down
+position is a5
+Piece at new position is B
+nice
+
+8 Bb _ b _
+7 bb_ bk_    BBBBBBBB
+6  _ _b_ _
+5 B _ _b_ 
+4 B_ _ B _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is c5
+Piece at new position is b
+nice
+
+8 Bb _ b _
+7 _b_ bk_    BBBBBBBB
+6  _ _b_ _
+5 B b _b_ 
+4 B_ _ B _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 3 times.
+down
+position is b7
+Piece at new position is B
+nice
+
+8  b _ b _
+7 _B_ bk_    BBBBBBBB
+6  _ _b_ _
+5 B b _b_ 
+4 B_ _ B _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is f4
+Piece at new position is b
+nice
+
+8  _ _ b _
+7 _B_ bk_    BBBBBBBBB
+6  _ _b_ _
+5 B b _b_ 
+4 B_ _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 4 times.
+down
+position is e4
+Piece at new position is B
+nice
+
+8  _ _ b _
+7 _ _ bk_    BBBBBBBBB
+6  _ _b_ _
+5 B b _b_ 
+4 B_ _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 2 times.
+down
+position is b4
+Piece at new position is b
+nice
+ but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+
+8  _ _ b _
+7 _ _ bk_    BBBBBBBBB
+6  _ _b_ _
+5 B _ _b_ 
+4 Bb _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 4 times.
+down
+position is b4
+Piece at new position is B
+nice
+
+8  _ _ b _
+7 _ _ bk_    BBBBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 BB _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+b has moved 1 times.
+down
+position is b4
+Piece at new position is b
+nice
+ but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+
+8  _ _ b _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 Bb _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbb
+1 _ _ KB_B
+
+  abcdefgh
+
+White's move: start
+good
+up
+K has moved 1 times.
+down
+position is d1
+Piece at new position is K
+nice
+
+8  _ _ b _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 Bb _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbb
+1 _ _K_B_B
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is g7
+Piece at new position is b
+nice
+
+8  _ _ _ _
+7 _ _ _kb    BBBBBBBBBB
+6  _ _b_ _
+5 _ _ _b_ 
+4 Bb _Bb _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbb
+1 _ _K_B_B
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 5 times.
+down
+position is f5
+Piece at new position is B
+nice
+
+8  _ _ _ _
+7 _ _ _kb    BBBBBBBBBB
+6  _ _b_ _
+5 _ _ _B_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbb
+1 _ _K_B_B
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 2 times.
+down
+position is f6
+Piece at new position is b
+nice
+
+8  _ _ _ _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _bb _
+5 _ _ _B_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbb
+1 _ _K_B_B
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is d5
+Piece at new position is B
+nice
+
+8  _ _ _ _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _bb _
+5 _ _B_B_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 3 times.
+down
+position is e5
+Piece at new position is b
+nice
+
+8  _ _ _ _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _b_ _
+5 _ _BbB_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+B has moved 2 times.
+down
+position is e6
+Piece at new position is B
+nice
+Black is in check.
+
+8  _ _ _ _
+7 _ _ _k_    BBBBBBBBBB
+6  _ _B_ _
+5 _ _ bB_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+k has moved 2 times.
+down
+position is e7
+Piece at new position is k
+nice
+
+8  _ _ _ _
+7 _ _ k _    BBBBBBBBBB
+6  _ _B_ _
+5 _ _ bB_ 
+4 Bb _ b _
+3 _ _ _ _ 
+2  _ _ B _   bbbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 2 times.
+down
+position is h4
+Piece at new position is B
+nice
+Black is in check.
+
+8  _ _ _ _
+7 _ _ k _    BBBBBBBBBB
+6  _ _B_ _
+5 _ _ bB_ 
+4 Bb _ b B
+3 _ _ _ _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+k has moved 3 times.
+down
+position is f8
+Piece at new position is k
+nice
+
+8  _ _ k _
+7 _ _ _ _    BBBBBBBBBB
+6  _ _B_ _
+5 _ _ bB_ 
+4 Bb _ b B
+3 _ _ _ _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_B_ 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is b5
+Piece at new position is B
+nice
+
+8  _ _ k _
+7 _ _ _ _    BBBBBBBBBB
+6  _ _B_ _
+5 _B_ bB_ 
+4 Bb _ b B
+3 _ _ _ _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 2 times.
+down
+position is e3
+Piece at new position is b
+nice
+
+8  _ _ k _
+7 _ _ _ _    BBBBBBBBBB
+6  _ _B_ _
+5 _B_ bB_ 
+4 Bb _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 6 times.
+down
+position is g6
+Piece at new position is B
+nice
+
+8  _ _ k _
+7 _ _ _ _    BBBBBBBBBB
+6  _ _B_B_
+5 _B_ b _ 
+4 Bb _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+b has moved 2 times.
+down
+position is d6
+Piece at new position is b
+nice
+
+8  _ _ k _
+7 _ _ _ _    BBBBBBBBBB
+6  _ bB_B_
+5 _B_ b _ 
+4 B_ _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 2 times.
+down
+position is d7
+Piece at new position is B
+nice
+
+8  _ _ k _
+7 _ _B_ _    BBBBBBBBBB
+6  _ bB_B_
+5 _ _ b _ 
+4 B_ _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+Black's move: start
+SECOND
+Please input a valid move action.
+Black's move: start
+SECOND
+Please input a valid move action.
+Black's move: start
+FIRST
+Please input a valid move action.
+Black's move: start
+FIRST
+Please input a valid move action.
+Black's move: start
+FIRST
+Please input a valid move action.
+Black's move: start
+good
+up
+k has moved 4 times.
+down
+position is g7
+Piece at new position is k
+nice
+
+8  _ _ _ _
+7 _ _B_ k    BBBBBBBBBB
+6  _ bB_B_
+5 _ _ b _ 
+4 B_ _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+White's move: start
+FIRST
+Please input a valid move action.
+White's move: start
+FIRST
+Please input a valid move action.
+White's move: start
+good
+up
+B has moved 3 times.
+down
+position is f5
+Piece at new position is B
+nice
+
+8  _ _ _ _
+7 _ _B_ k    BBBBBBBBBB
+6  _ b _B_
+5 _ _ bB_ 
+4 B_ _ _ B
+3 _ _ b _ 
+2  _ _ _ _   bbbbbbbbbbbb
+1 _ _K_ _ 
+
+  abcdefgh
+
+Black's move: start
+FIRST
+Please input a valid move action.
+Black's move: start
+FIRST
+Please input a valid move action.
+Black's move: White wins!
+Command: 
+Final Score:
+White: 1
+Black: 0
