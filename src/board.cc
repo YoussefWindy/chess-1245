@@ -256,21 +256,24 @@ void Board::movePiece(Move &&move) {
 	removePiece(move.oldPos);
 	std::cerr << "down" << std::endl << "position is " << char('a' + move.newPos.x) << move.newPos.y + 1 << std::endl;
 	std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
+	bool castling = false;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
 		// std::cerr << "we're castling??" << std::endl;
 		if (move.newPos.x - move.oldPos.x == 2) { // castling right
 			std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
+			castling = true;
 			log.pop_back();
 		} else if (move.oldPos.x - move.newPos.x == 2) { // castling left
 			std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
+			castling = true;
 			log.pop_back();
 		}
 	}
 	log.emplace_back(move); // log move
 	if (move.promotion) promote(move.newPos, move.promotion);
-	turn = !turn;
+	if (!castling) turn = !turn;
 	// std::cerr << "end" << std::endl;
 }
 
