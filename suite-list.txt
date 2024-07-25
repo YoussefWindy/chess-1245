@@ -1,4 +1,5 @@
-ai-stress
+ai-1-stress
+ai-2-stress
 castling
 checkmate
 bishop

@@ -1,0 +1,462 @@
+Do you want a Text Display, Graphical Display, or Both? (t/g/b): Text-based display selected.
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+Command: The game has begun!
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP   
+1 RNBQKBNR
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pppppppp   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _N
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pppppp_p   
+6  _ _ _ _
+5 _ _ _ p 
+4  _ _ _ _
+3 _ _ _ _N
+2 PPPPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pppppp_p   
+6  _ _ _ _
+5 _ _ _ p 
+4  P _ _ _
+3 _ _ _ _N
+2 P_PPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pppppp_    
+6  _ _ _ _
+5 _ _ _ pp
+4  P _ _ _
+3 _ _ _ _N
+2 P_PPPPPP   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pppppp_    
+6  _ _ _ _
+5 _ _ _ pp
+4  P _ _P_
+3 _ _ _ _N
+2 P_PPPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 ppppp _    
+6  _ _ _ _
+5 _ _ _ppp
+4  P _ _P_
+3 _ _ _ _N
+2 P_PPPP P   
+1 RNBQKB_R
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 ppppp _    
+6  _ _ _ _
+5 _ _ _ppp
+4  P _ _P_
+3 _ _ _ _N
+2 P_PPPP P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 ppppp _    P
+6  _ _ _ _
+5 _ _ _ pp
+4  P _ _p_
+3 _ _ _ _N
+2 P_PPPP P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 ppppp _    P
+6  _ _ _ _
+5 _ _ _ pp
+4  P P _p_
+3 _ _ _ _N
+2 P_P_PP P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pp_pp _    P
+6  _p_ _ _
+5 _ _ _ pp
+4  P P _p_
+3 _ _ _ _N
+2 P_P_PP P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pp_pp _    P
+6  _p_ _ _
+5 _ _ _ pp
+4  P P _p_
+3 _ _ P _N
+2 P_P_ P P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pp_pp _    P
+6  _p_ _ _
+5 _ _ _ p 
+4  P P _pp
+3 _ _ P _N
+2 P_P_ P P   
+1 RNBQKBR 
+
+  abcdefgh
+
+
+8 rnbqkbnr
+7 pp_pp _    P
+6  _p_ _ _
+5 _ _ _ p 
+4  P P _pp
+3 _ _ P _N
+2 P_PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_nr
+7 pp_pp _    P
+6  _p_ _ b
+5 _ _ _ p 
+4  P P _pp
+3 _ _ P _N
+2 P_PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_nr
+7 pp_pp _    P
+6  _p_ _ b
+5 _ _P_ p 
+4  P _ _pp
+3 _ _ P _N
+2 P_PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_ r
+7 pp_pp _    P
+6  _p_ n b
+5 _ _P_ p 
+4  P _ _pp
+3 _ _ P _N
+2 P_PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_ r
+7 pp_pp _    P
+6  _p_ n b
+5 _ _P_ p 
+4  P _ _pp
+3 P _ P _N
+2  _PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_ r
+7 pp_pp _    P
+6  _ _ n b
+5 _ pP_ p 
+4  P _ _pp
+3 P _ P _N
+2  _PN P P   
+1 R BQKBR 
+
+  abcdefgh
+
+
+8 rnbqk_ r
+7 pp_pp _    P
+6  _ _ n b
+5 _BpP_ p 
+4  P _ _pp
+3 P _ P _N
+2  _PN P P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_pp _    P
+6  _ _ n b
+5 _BpP_ p 
+4  P _ _pp
+3 P _ P _N
+2  _PN P P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_pp _    P
+6  _ _ n b
+5 _BpP_ p 
+4  P _ Npp
+3 P _ P _ 
+2  _PN P P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_pp _    P
+6  _ _ n b
+5 _B_P_ p 
+4  Pp_ Npp
+3 P _ P _ 
+2  _PN P P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_pp _    P
+6  _ _ n b
+5 _B_P_ p 
+4  Pp_ Npp
+3 P _ PP_ 
+2  _PN _ P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _    P
+6  _ _ n b
+5 _B_Pp p 
+4  Pp_ Npp
+3 P _ PP_ 
+2  _PN _ P   
+1 R BQK R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _    P
+6  _ _ n b
+5 _B_Pp p 
+4  Pp_ Npp
+3 P _ PP_ 
+2  _PN K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _    PN
+6  _ _ n b
+5 _B_Pp _ 
+4  Pp_ ppp
+3 P _ PP_ 
+2  _PN K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _    PN
+6  _ _ n b
+5 _B_Pp _ 
+4  Pp_ ppp
+3 P P PP_ 
+2  _ N K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ _ _ b
+5 _B_Pp _ 
+4  Pp_ ppp
+3 P P PP_ 
+2  _ N K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ P _ b
+5 _B_ p _ 
+4  Pp_ ppp
+3 P P PP_ 
+2  _ N K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ P _ b
+5 _B_ p _ 
+4  Pp_ pp_
+3 P P PP_p
+2  _ N K P   
+1 R BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ P _ b
+5 _B_ p _ 
+4  Pp_ pp_
+3 P P PP_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ P _ b
+5 _B_ _ _ 
+4  Pp_ppp_
+3 P P PP_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PN
+6  _ P _ b
+5 _B_ _ _ 
+4 PPp_ppp_
+3 _ P PP_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PNP
+6  _ P _ b
+5 _B_ _ _ 
+4 PPp_ pp_
+3 _ P Pp_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq k r
+7 pp_p_ _n   PNP
+6 B_ P _ b
+5 _ _ _ _ 
+4 PPp_ pp_
+3 _ P Pp_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+8 rnbq kr_
+7 pp_p_ _n   PNP
+6 B_ P _ b
+5 _ _ _ _ 
+4 PPp_ pp_
+3 _ P Pp_p
+2 R_ N K P   
+1 _ BQ_ R 
+
+  abcdefgh
+
+
+Final Score:
+White: 0
+Black: 0
