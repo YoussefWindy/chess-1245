@@ -8,7 +8,7 @@ using namespace std;
 
 // Display stuff
 bool text, graphics;
-unique_ptr<XWindow> xw;
+//unique_ptr<XWindow> xw;
 
 int parsePlayer(string &s) {
 	if (s == "human") return 0;
@@ -77,9 +77,9 @@ bool verifyPiece(char c) {
 		|| c == 'k' || c == 'K' || c == 'q' || c == 'Q' || c == 'p' || c == 'P';
 }
 
-void display(const Board &board) {
+void display(const Board &board, const unique_ptr<XWindow> &xw) {
 	if (text) cout << board << endl;
-	if (graphics) xw->drawBoard(board);
+	if (graphics && xw) xw->drawBoard(board);
 }
 
 int main() {
@@ -89,6 +89,7 @@ int main() {
 	bool gameActive = false;
 	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
+	unique_ptr<XWindow> xw = nullptr;
 
   setBoardDefault(defaultBoard);
 	
@@ -104,13 +105,13 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			xw = make_unique<XWindow>(1200, 1000);
+			xw.reset(new XWindow(1200, 1000));
 			xw->drawBoard(defaultBoard);
 			break;
 		} else if (arg1 == "b") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			xw = make_unique<XWindow>(1200, 1000);
+			xw.reset(new XWindow(1200, 1000));
 			xw->drawBoard(defaultBoard);
 			break;
 		}
@@ -244,7 +245,7 @@ int main() {
 				cerr << "Game is already active." << endl << (board.getTurn() ? "White" : "Black") << "'s move: ";
 				continue;
 			}
-			display(defaultBoard);
+			display(defaultBoard, xw);
 			cout << "Entered setup mode." << endl;
 			cerr << "Setup Command: ";
 			while (cin >> command) {
@@ -293,13 +294,13 @@ int main() {
 						cerr << e.why() << endl << "Command: ";
 						continue;
 					}
-					display(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "-") { // remove a piece from the board
 					cin >> arg1;
 					try {
 						Posn p{arg1};
 						defaultBoard.removePiece(p);
-						display(defaultBoard);
+						display(defaultBoard, xw);
 					} catch (BadPosn &e) {
 						cerr << "Please input valid board coordinates." << endl;
 					}
@@ -320,11 +321,11 @@ int main() {
 					Board tmp;
 					tmp.setTurn(defaultBoard.getTurn());
 					defaultBoard = tmp;
-					display(defaultBoard);
+					display(defaultBoard, xw);
 				} else if (command == "done") { // valid board setup
 					try {
 						defaultBoard.validate();
-						display(defaultBoard);
+						display(defaultBoard, xw);
 						cout << "Board setup successful." << endl;
 						break;
 					} catch (BadSetup &e) {
@@ -364,7 +365,7 @@ int main() {
       unsigned int currentMove = 0;
 			replayBoard = defaultBoard;
 
-      display(replayBoard);
+      display(replayBoard, xw);
 			
 			cout << "Replay Command: ";
 			while (cin >> command) {
@@ -433,7 +434,7 @@ int main() {
 								}
 
 								// Display move
-								display(replayBoard);
+								display(replayBoard, xw);
                 
                 // Display Move Info
                 if (text) {
@@ -470,7 +471,7 @@ int main() {
 								cerr << "At the last move." << endl;
 
 								// Display move
-								display(replayBoard);
+								display(replayBoard, xw);
 
 								break;
 							}
@@ -528,13 +529,13 @@ int main() {
 								}
 
 								// Display move
-								display(replayBoard);
+								display(replayBoard, xw);
 
 							} else {
 								cerr << "At the first move." << endl;
 
 								// Display move
-								display(replayBoard);
+								display(replayBoard, xw);
 
 								break;
 							}
@@ -599,7 +600,7 @@ int main() {
 					cerr << "Please input a valid replay command." << endl << "Command: ";
 					continue;
 				}
-				display(*it);
+				display(*it, xw);
 				cerr << "Command: ";
 			}
 		} else {
@@ -609,12 +610,15 @@ int main() {
 		} // switch
 		// cerr << "bruh" << endl;
 		if (gameActive) {
-			display(board);
+			display(board, xw);
 			cerr << (board.getTurn() ? "White" : "Black") << "'s move: ";
 		} else {
 			cerr << "Command: ";
 		}
 	} // while
+	cerr << "Attempt to delete xw" << endl;
+	xw.reset();
+	cerr << "XWindow deleted." << endl;
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
