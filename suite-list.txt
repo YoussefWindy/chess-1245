@@ -1,5 +1,6 @@
 ai-stress
 castling
+checkmate
 bishop
 knight
 pawn-bad-promotion

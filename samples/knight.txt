@@ -24,7 +24,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -36,7 +36,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -60,7 +60,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 n_ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -72,7 +72,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nn _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -84,7 +84,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -96,7 +96,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -108,7 +108,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -120,7 +120,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -132,7 +132,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -144,7 +144,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -156,7 +156,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -168,7 +168,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -180,7 +180,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -192,7 +192,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -204,7 +204,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -217,7 +217,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: The game has begun!
+The game has begun!
 
 8 nnn_ _ k
 7 _ _ _ _    
@@ -230,14 +230,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 1 times.
-down
-position is g3
-Piece at new position is N
-nice
 
 8 nnn_ _ k
 7 _ _ _ _    
@@ -250,14 +242,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-n has moved 1 times.
-down
-position is b6
-Piece at new position is n
-nice
 
 8  nn_ _ k
 7 _ _ _ _    
@@ -270,14 +254,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 1 times.
-down
-position is f3
-Piece at new position is N
-nice
 
 8  nn_ _ k
 7 _ _ _ _    
@@ -290,14 +266,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-n has moved 1 times.
-down
-position is c6
-Piece at new position is n
-nice
 
 8  _n_ _ k
 7 _ _ _ _    
@@ -310,14 +278,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 1 times.
-down
-position is e3
-Piece at new position is N
-nice
 
 8  _n_ _ k
 7 _ _ _ _    
@@ -330,14 +290,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-n has moved 1 times.
-down
-position is d6
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    
@@ -350,18 +302,6 @@ nice
 
   abcdefgh
 
-White's move: start
-Legal moves of N: g4 g2 f5 c4 c2 f1 d1 
-THIRD
-Please input a valid move action.
-White's move: start
-good
-up
-N has moved 2 times.
-down
-position is d1
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    
@@ -374,12 +314,8 @@ nice
 
   abcdefgh
 
-Black's move: start
-Legal moves of n: f7 f5 e8 c8 b7 b5 c4 
-THIRD
-Please input a valid move action.
-Black's move: White wins!
-Command: 
+White wins!
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -392,7 +328,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -404,7 +340,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -416,7 +352,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -428,7 +364,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 n_ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -440,7 +376,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nn _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -452,7 +388,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -464,7 +400,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  P _ _ _
@@ -476,7 +412,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PP_ _ _
@@ -488,7 +424,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -500,7 +436,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -512,7 +448,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -524,7 +460,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -536,7 +472,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -548,7 +484,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -560,7 +496,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -572,7 +508,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 nnn_ _ k
 7 _ _ _ _    
 6  PPP _ _
@@ -585,7 +521,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: The game has begun!
+The game has begun!
 
 8 nnn_ _ k
 7 _ _ _ _    
@@ -598,15 +534,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 1 times.
-down
-position is g3
-Piece at new position is N
-nice
 
 8 nnn_ _ k
 7 _ _ _ _    
@@ -619,15 +546,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-n has moved 1 times.
-down
-position is b6
-Piece at new position is n
-nice
 
 8  nn_ _ k
 7 _ _ _ _    P
@@ -640,15 +558,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 1 times.
-down
-position is f3
-Piece at new position is N
-nice
 
 8  nn_ _ k
 7 _ _ _ _    P
@@ -661,15 +570,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-n has moved 1 times.
-down
-position is c6
-Piece at new position is n
-nice
 
 8  _n_ _ k
 7 _ _ _ _    PP
@@ -682,15 +582,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 1 times.
-down
-position is e3
-Piece at new position is N
-nice
 
 8  _n_ _ k
 7 _ _ _ _    PP
@@ -703,15 +594,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-n has moved 1 times.
-down
-position is d6
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPP
@@ -724,14 +606,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 2 times.
-down
-position is d5
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPP
@@ -744,14 +618,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-n has moved 2 times.
-down
-position is d4
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPP
@@ -764,15 +630,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 3 times.
-down
-position is b6
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPP
@@ -785,15 +642,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-n has moved 3 times.
-down
-position is f3
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -806,14 +654,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 4 times.
-down
-position is c4
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -826,17 +666,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-SECOND
-Please input a valid move action.
-Black's move: start
-good
-up
-n has moved 4 times.
-down
-position is d2
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -849,15 +678,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 5 times.
-down
-position is d6
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -870,14 +690,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-n has moved 5 times.
-down
-position is e4
-Piece at new position is n
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -890,15 +702,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-N has moved 6 times.
-down
-position is e4
-Piece at new position is N
-nice
 
 8  _ _ _ k
 7 _ _ _ _    PPPN
@@ -911,8 +714,8 @@ nice
 
   abcdefgh
 
-Black's move: White wins!
-Command: 
+White wins!
+
 Final Score:
 White: 2
 Black: 0

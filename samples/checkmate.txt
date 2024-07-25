@@ -44,136 +44,74 @@ Entered setup mode.
 4  _ _ _ _
 3 _ _ _ _ 
 2  _ _ _ _   
-1 _ _ K _ 
+1 K _ _ _ 
 
   abcdefgh
 
 
-8  _ _k_ _
+8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
 5 _ _ _ _ 
 4  _ _ _ _
 3 _ _ _ _ 
 2  _ _ _ _   
-1 _ _ K _ 
+1 K _ _ _ 
 
   abcdefgh
 
 
-8  _ _k_ _
-7 _ _ _ _    
+8  _ _ _ k
+7 _R_ _ _    
 6  _ _ _ _
 5 _ _ _ _ 
 4  _ _ _ _
 3 _ _ _ _ 
 2  _ _ _ _   
-1 _ _ K _R
+1 K _ _ _ 
 
   abcdefgh
 
 
-8  _ _k_ _
-7 _ _ _ _    
+8  _ _ _ k
+7 _R_ _ _    
 6  _ _ _ _
 5 _ _ _ _ 
 4  _ _ _ _
 3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
+2 R_ _ _ _   
+1 K _ _ _ 
 
   abcdefgh
 
 
-8 r_ _k_ _
-7 _ _ _ _    
+8  _ _ _ k
+7 _R_ _ _    
 6  _ _ _ _
 5 _ _ _ _ 
 4  _ _ _ _
 3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
-
-  abcdefgh
-
-
-8 r_ _k_ r
-7 _ _ _ _    
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
-
-  abcdefgh
-
-
-8 r_ _k_ r
-7 _ _ _ _    
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
+2 R_ _ _ _   
+1 K _ _ _ 
 
   abcdefgh
 
 Board setup successful.
 The game has begun!
 
-8 r_ _k_ r
-7 _ _ _ _    
+8  _ _ _ k
+7 _R_ _ _    
 6  _ _ _ _
 5 _ _ _ _ 
 4  _ _ _ _
 3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
+2 R_ _ _ _   
+1 K _ _ _ 
 
   abcdefgh
 
-
-8 r_ _k_ r
-7 _ _ _ _    
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ _RK 
-
-  abcdefgh
-
-White wins!
-The game has begun!
-
-8 r_ _k_ r
-7 _ _ _ _    
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2  _ _ _ _   
-1 R _ K _R
-
-  abcdefgh
-
-
-8 r_ _k_ r
-7 _ _ _ _    
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2  _ _ _ _   
-1 _ KR_ _R
-
-  abcdefgh
-
-White wins!
+Checkmate! White wins!
 
 Final Score:
-White: 2
+White: 1
 Black: 0
