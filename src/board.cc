@@ -131,8 +131,6 @@ bool Board::stalemate(bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMove()) return false;
 	}
-	if (log.size() < 6) return false;
-	// TODO: handle 3 same moves in a row thing
 	bool bishopFound = false, knightFound = false;
 	for (auto piece: whitePieces) {
 		switch (piece->getName()) {
@@ -166,6 +164,12 @@ bool Board::stalemate(bool colour) const {
 	}
 	bishopFound = knightFound = false;
 	return true;
+}
+
+bool Board::repetition() const {
+	if (log.size() < 9) return false;
+	// Fill in
+	return false;
 }
 
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
@@ -247,6 +251,7 @@ int Board::runCalculations() {
 	// std::cerr << std::endl << "Black king's moves: ";
 	// for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
 	// std::cerr << std::endl;
+	if (repetition()) return 0;
 	if (inCheck) {
 		if (checkmate(turn)) {
 			// std::cerr << "checkmate" << std::endl;
