@@ -18,7 +18,7 @@ void Queen::calculateLegalMoves(const Board &board) {
                         legalMoves.emplace_back(p);
                     } else if (board[p]->getColour() != colour) {
                         legalMoves.emplace_back(p);
-                        break;
+                        if (board[p]->getName() != (!colour ? 'K' : 'k')) break;
                     } else {
                         board[p]->protect();
                         break;

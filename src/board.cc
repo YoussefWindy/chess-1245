@@ -8,7 +8,7 @@
 
 const Move emptyMove = {{0, 0}, {0, 0}};
 
-Board::Board() : turn{true} {
+Board::Board() : turn{true}, showDead{false} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = emptyptr;
@@ -17,11 +17,16 @@ Board::Board() : turn{true} {
 	whiteKing = blackKing = emptyptr;
 }
 
-Board::Board(const Board &other): turn{other.turn}, log{other.log} {
+Board::Board(const Board &other): turn{other.turn}, showDead{other.showDead}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = emptyptr;
 		}
+	}
+	for (auto p: other.deadPieces) {
+		addPieceHelp(p->getName(), p->getPosn());
+		insert(deadPieces, board[p->getX()][p->getY()]);
+		removePiece(p->getPosn());
 	}
 	for (auto p: other.whitePieces) {
 		addPieceHelp(p->getName(), p->getPosn());
@@ -35,13 +40,10 @@ Board::Board(const Board &other): turn{other.turn}, log{other.log} {
 			blackKing = board[p->getX()][p->getY()];
 		}
 	}
-	for (auto p: other.deadPieces) {
-		deadPieces.emplace_back(p); // <-- LAZY! FIX THIS
-	}
 }
 
 Board::Board(Board &&other): whitePieces{other.whitePieces}, blackPieces{other.blackPieces}, deadPieces{other.deadPieces},
-  whiteKing{other.whiteKing}, blackKing{other.blackKing}, turn{other.turn}, log{other.log} {
+  whiteKing{other.whiteKing}, blackKing{other.blackKing}, turn{other.turn}, showDead{other.showDead}, log{other.log} {
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		for (unsigned int j = 0; j < HEIGHT; j++) {
 			board[i][j] = other.board[i][j];
@@ -57,6 +59,7 @@ void Board::swap(Board &one, Board &two) {
 	std::swap(one.whiteKing, two.whiteKing);
 	std::swap(one.blackKing, two.blackKing);
 	std::swap(one.turn, two.turn);
+	std::swap(one.showDead, two.showDead);
 	std::swap(one.log, two.log);
 }
 
@@ -96,8 +99,13 @@ void Board::addPieceHelp(char name, const Posn &posn) {
 	}
 }
 
-void Board::movePiece(const Move &move) {
-	movePiece(std::move(move));
+void Board::insert(std::vector<std::shared_ptr<Piece>> &vec, std::shared_ptr<Piece> &piece) {
+	for (auto it = vec.begin();; it++) {
+		if (it == vec.end() || ((**it) <=> (*piece)) > 0) {
+			vec.emplace(it, piece);
+			break;
+		}
+	}
 }
 
 bool Board::check(const Posn &posn, bool colour) const {
@@ -123,9 +131,45 @@ bool Board::stalemate(bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->canMove()) return false;
 	}
-	if (log.size() < 6) return false;
-	// TODO: handle 3 same moves in a row thing
+	bool bishopFound = false, knightFound = false;
+	for (auto piece: whitePieces) {
+		switch (piece->getName()) {
+			case 'K':
+				continue;
+			case 'N':
+				if (knightFound || bishopFound) return false;
+				else knightFound = true;
+			case 'B':
+				if (bishopFound) continue;
+				else if (knightFound) return false;
+				else bishopFound = true;
+			default:
+				return false;
+		}
+	}
+	for (auto piece: blackPieces) {
+		switch (piece->getName()) {
+			case 'K':
+				continue;
+			case 'N':
+				if (knightFound || bishopFound) return false;
+				else knightFound = true;
+			case 'B':
+				if (bishopFound) continue;
+				else if (knightFound) return false;
+				else bishopFound = true;
+			default:
+				return false;
+		}
+	}
+	bishopFound = knightFound = false;
 	return true;
+}
+
+bool Board::repetition() const {
+	if (log.size() < 9) return false;
+	// Fill in
+	return false;
 }
 
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
@@ -137,7 +181,7 @@ const Board& Board::Iterator::operator*() const {
 
 Board::Iterator& Board::Iterator::operator++() {
 	if (i == log.size() - 1) throw BadMove{emptyMove};
-	board.movePiece(log[i]);
+	board.movePiece({log[i].oldPos, log[i].newPos, log[i].promotion, log[i].capture});
 	i++;
 	board.turn = !board.turn;
 	return *this;
@@ -207,6 +251,7 @@ int Board::runCalculations() {
 	// std::cerr << std::endl << "Black king's moves: ";
 	// for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
 	// std::cerr << std::endl;
+	if (repetition()) return 0;
 	if (inCheck) {
 		if (checkmate(turn)) {
 			// std::cerr << "checkmate" << std::endl;
@@ -233,11 +278,11 @@ void Board::movePiece(Move &&move) {
 		std::cerr << "SECOND" << std::endl;
 		throw BadMove{move};
   } else if (!board[move.oldPos.x][move.oldPos.y]->canMoveTo(move.newPos)) {
-		std::cerr << "Legal moves of " << board[move.oldPos.x][move.oldPos.y]->getName() << ": ";
-		for (auto i : board[move.oldPos.x][move.oldPos.y]->getLegalMoves()) {
-			std::cerr << char('a' + i.x) << i.y + 1 << " ";
-		}
-		std::cerr << std::endl << "THIRD" << std::endl;
+		// std::cerr << "Legal moves of " << board[move.oldPos.x][move.oldPos.y]->getName() << ": ";
+		// for (auto i : board[move.oldPos.x][move.oldPos.y]->getLegalMoves()) {
+		// 	std::cerr << char('a' + i.x) << i.y + 1 << " ";
+		// }
+		std::cerr << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
 	std::cerr << "good" << std::endl;
@@ -258,13 +303,15 @@ void Board::movePiece(Move &&move) {
 	std::cerr << "Piece at new position is " << board[move.newPos.x][move.newPos.y]->getName() << std::endl << "nice" << std::endl;
 	bool castling = false;
 	if (board[move.newPos.x][move.newPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
-		// std::cerr << "we're castling??" << std::endl;
+		std::cerr << "we found a king" << std::endl;
 		if (move.newPos.x - move.oldPos.x == 2) { // castling right
+			std::cerr << "we're castling??" << std::endl;
 			std::cerr << char('a' + WIDTH - 1) << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x - 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{WIDTH - 1, move.newPos.y}, {move.newPos.x - 1, move.newPos.y}}); // move the rook
 			castling = true;
 			log.pop_back();
 		} else if (move.oldPos.x - move.newPos.x == 2) { // castling left
+			std::cerr << "we're castling??" << std::endl;
 			std::cerr << 'a' << move.newPos.y + 1 << " --> " << char('a' + move.newPos.x + 1) << move.newPos.y + 1 << std::endl;
 			movePiece({{0, move.newPos.y}, {move.newPos.x + 1, move.newPos.y}}); // move the rook
 			castling = true;
@@ -274,7 +321,7 @@ void Board::movePiece(Move &&move) {
 	log.emplace_back(move); // log move
 	if (move.promotion) promote(move.newPos, move.promotion);
 	if (!castling) turn = !turn;
-	// std::cerr << "end" << std::endl;
+	std::cerr << "end" << std::endl;
 }
 
 void Board::removePiece(const Posn &posn) {
@@ -288,7 +335,9 @@ void Board::removePiece(const Posn &posn) {
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
 		if ((*it)->getPosn() == posn) {
 			// std::cerr << "hhhmmmm" << std::endl;
+			std::cerr << "Have found a " << (*it)->getName() << " in " << (colour ? "whitepieces" : "blackpieces") << std::endl;
 			(colour ? whitePieces : blackPieces).erase(it);
+			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
 			break;
 		} else if (/*(std::cerr << "bruh how" << std::endl) && */(*it)->getName() == (colour ? 'K' : 'k')) {
 			(colour ? whiteKing : blackKing) = *it;
@@ -308,25 +357,14 @@ Move Board::getLastMove() const {
 }
 
 void Board::undoMoves(int num) {
-  // Get piece's old position
-	Posn tmp = log.back().oldPos;
-
   // Undo given number of moves
 	for (int i = 0; i < num; i++) {
     // If the move log is empty, break and exit
 		if (log.empty()) break;
-    
-    // Update the current turn
+
+     // Update the current turn
     turn = !turn;
-
-    // Debug statement
-		std::cerr << "Legal moves of " << board[log.back().newPos.x][log.back().newPos.y]->getName() << std::endl << "before: ";
-
-    // Debug statement
-		for (auto i : board[log.back().newPos.x][log.back().newPos.y]->getLegalMoves()) {
-			std::cerr << char('a' + i.x) << i.y + 1 << ", ";
-		}
-
+    
     // Copy the piece back into the old position
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
 
@@ -337,24 +375,53 @@ void Board::undoMoves(int num) {
     // Retrieve capturd piece from the graveyard
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
-			(deadPieces.back()->getColour() ? whitePieces : blackPieces).emplace_back(deadPieces.back());
+			insert(deadPieces.back()->getColour() ? whitePieces : blackPieces, deadPieces.back());
 			deadPieces.pop_back();
 		}
-
-    // Remove move from log
+    
+    // Check for promotion
+		if (log.back().promotion) {
+			removePiece(log.back().oldPos);
+			addPiece<Pawn>(turn, log.back().oldPos);
+		}
+    
+    // Check for castling
+		if (board[log.back().oldPos.x][log.back().oldPos.y]->getName() == (turn ? 'K' : 'k')) {
+      // Debug statement
+			std::cerr << "we found a not king" << std::endl;
+      
+      // Castling right
+			if (log.back().newPos.x - log.back().oldPos.x == 2) {
+        // Debug statement
+				std::cerr << "we're uncastling??" << std::endl;
+        
+        // Move the pieces into old positions
+				board[WIDTH - 1][log.back().oldPos.y] = board[log.back().newPos.x - 1][log.back().newPos.y];
+				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false);
+        
+        // Remove from log
+				log.pop_back();
+			} else if (log.back().oldPos.x - log.back().newPos.x == 2) {
+        // castling left
+        
+        // Debug statement
+				std::cerr << "we're uncastling??" << std::endl;
+        
+        // Move the pieces into old positions
+				board[0][log.back().oldPos.y] = board[log.back().newPos.x + 1][log.back().newPos.y];
+				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false);
+        
+        // Remove from log
+				log.pop_back();
+			}
+		}
+    
+    // Remove from log
 		log.pop_back();
 	}
-
-  // Recalculate all legal moves
+  
+  // Recalculate legal moves
   runCalculations();
-	
-  // Debug statement
-  std::cerr << std::endl << "after: ";
-	
-  for (auto i : board[tmp.x][tmp.y]->getLegalMoves()) {
-		std::cerr << char('a' + i.x) << i.y + 1 << ", ";
-	}
-	std::cerr << std::endl;
 }
 
 bool Board::getTurn() const {
@@ -408,6 +475,10 @@ void Board::setTurn(bool colour) {
 	turn = colour;
 }
 
+void Board::setShowDead(bool show) {
+	showDead = show;
+}
+
 const std::vector<Move> Board::getLog() const {
 	return log;
 }
@@ -431,20 +502,20 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 				out << ((col + row) % 2 ? '_' : ' ');
 			}
 		}
-
+    
     // Print dead pieces
-		if (row == 1) {
+		if (board.showDead && row == 1) {
 			out << "   ";
 			for (auto p: board.deadPieces) {
 				if (p->getColour()) {
-					out << p->getName();
+					out << p->getName(); // printing out the pieces black has captured
 				}
 			}
-		} else if (row == HEIGHT - 2) {
+		} else if (board.showDead && row == HEIGHT - 2) {
 			out << "   ";
 			for (auto p: board.deadPieces) {
 				if (!p->getColour()) {
-					out << p->getName();
+					out << p->getName(); // printing out the pieces white has captured
 				}
 			}
 		}

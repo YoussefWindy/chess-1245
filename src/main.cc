@@ -1,6 +1,7 @@
 // src/main.cc
 
 #include "../include/ai.h"
+#include "../include/utilities/xwindow.h"
 #include <ostream>
 #include <sstream>
 
@@ -192,9 +193,7 @@ int main() {
 									promotion = 4;
 									break;
 								default:
-									cerr << "Please input a valid piece type to promote into." << endl
-						 				 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
-									continue;
+									throw BadSetup{"Please input a valid piece type to promote into."};
 							}
 						}
 					}
@@ -206,6 +205,9 @@ int main() {
 				} catch (BadMove &e) {
 					cerr << "Please input a valid move action." << endl
 						 << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
+					continue;
+				} catch (BadSetup &e) {
+					cerr << e.why() << endl << (board.getTurn() ? "White" : "Black" ) << "'s move: ";
 					continue;
 				}
 			}
@@ -226,6 +228,14 @@ int main() {
 					cout << "Checkmate! " << (!board.getTurn() ? "White" : "Black") << " wins!" << endl;
 					break;
 			}
+		} else if (command == "show") {
+			(gameActive ? board : defaultBoard).setShowDead(true);
+			display(gameActive ? board : defaultBoard);
+			cout << "Captured pieces will be shown on the display" << (!gameActive ? " by default." : ".") << endl;
+		} else if (command == "hide") {
+			(gameActive ? board : defaultBoard).setShowDead(false);
+			display(gameActive ? board : defaultBoard);
+			cout << "Captured pieces will be hidden on the display" << (!gameActive ? " by default." : ".") << endl;
 		} else if (command == "undo") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl << "Command: ";
@@ -284,7 +294,7 @@ int main() {
 								break;
 							case 'k':
 								if (defaultBoard.hasKing(white)) {
-									throw BadSetup{"There cannot be two " + string(white ? "white" : "black") + " kings on the board at once!"
+									throw BadSetup{"There cannot be two " + static_cast<string>(white ? "white" : "black") + " kings on the board at once!"
 										+ "\nIf you are trying to move a king, please remove it first then add it."};
 								} else {
 									defaultBoard.addPiece<King>(white, p);
@@ -295,7 +305,7 @@ int main() {
 						cerr << "Please input valid board coordinates." << endl << "Setup Command: ";
 						continue;
 					} catch (BadSetup &e) {
-						cerr << e.why() << endl << "Command: ";
+						cerr << e.why() << endl << "Steup Command: ";
 						continue;
 					}
 					display(defaultBoard);
@@ -335,10 +345,16 @@ int main() {
 					} catch (BadSetup &e) {
 						cerr << "Board setup invalid: " << e.why() << endl;
 					}
+				} else if (command == "help") {
+					cout << endl << "Setup mode supports the following commands:" << endl << endl
+						 << "+ [piece] [position] - adds a piece to the board at position" << endl
+						 << "- [position] - removes whatever piece on the board is at position" << endl
+						 << "= [team] - will set team to have the first move" << endl
+						 << "done - will exit replay mode if the board is in a valid state" << endl;
 				} else { // invalid command
 					cerr << "Please input a valid setup command." << endl;
 				} // switch
-				cerr << "Command: ";
+				cerr << "Setup Command: ";
 			} // while
 		} else if (command == "replay") {
 			/*
@@ -550,8 +566,18 @@ int main() {
 					} else {
 						cerr << "Please input a valid next argument." << endl;
 					}
-        } else if (command == "done") {
+        		} else if (command == "done") {
 					break;
+				} else if (command == "help") {
+					cout << endl << "Replay mode supports the following commands:" << endl << endl
+						 << "next (num) - will move the replay num steps forward" << endl
+						 << "   --> if num is left blank, num will default to 1" << endl
+						 << "   --> if num is \"all\", num will be its max value" << endl
+						 << "back (num) - will move the replay num steps backward" << endl
+						 << "   --> if num is left blank, num will default to 1" << endl
+						 << "   --> if num is \"all\", num will be its max value" << endl
+						 << "done - will exit replay mode" << endl;
+					continue;
 				} else {
 					cerr << "Please input a valid replay command." << endl;
 				} // command == ****
@@ -600,6 +626,12 @@ int main() {
 					}
 				} else if (command == "done") {
 					break;
+				} else if (command == "help") {
+					cout << endl << "Simplereplay mode supports the following commands:" << endl << endl
+						 << "next - will move the replay one step forward" << endl
+						 << "back - will move the replay one step backward" << endl
+						 << "done - will exit simplereplay mode" << endl;
+					continue;
 				} else {
 					cerr << "Please input a valid replay command." << endl << "Command: ";
 					continue;
@@ -607,6 +639,17 @@ int main() {
 				display(*it);
 				cerr << "Command: ";
 			}
+		} else if (command == "help") {
+			cout << endl << "The chess program supports the following commands:" << endl << endl
+				 << "game [white] [black] - starts a game with white and black humans/computers" << endl
+				 << "resign - will end the current game and give a point to the other team" << endl
+				 << "move [start] [end] (type) - moves a piece from start to end and promotes to type if applicable" << endl
+				 << "show/hide - will show/hide the pieces each team has captured" << endl
+				 << "undo [num] - undoes num number of moves (will ask for user confirmation first)" << endl
+				 << "setup - enter setup mode" << endl << "replay - enter replay mode" << endl
+				 << "simplereplay - enter simplereplay mode" << endl << "quit/exit - terminate the program" << endl;
+		} else if (command == "quit" || command == "exit") {
+			break;
 		} else {
 			cerr << "Please input a valid command." << endl
 				 << (gameActive ? string(board.getTurn() ? "White" : "Black") + "'s move: " : "Command: ");

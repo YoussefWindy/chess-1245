@@ -25,13 +25,14 @@ Move AI::think() const {
 }
 
 Move AI::thinkAt1() const {
-    int num = (colour ? boardState.whitePieces : boardState.blackPieces).size();
+    unsigned int num = (colour ? boardState.whitePieces : boardState.blackPieces).size();
     std::shared_ptr<Piece> piece;
     do {
         piece = (colour ? boardState.whitePieces : boardState.blackPieces)[std::rand() % num];
         std::cerr << piece->getName() << std::endl;
     } while (!piece->canMove());
-    return {piece->getPosn(), piece->getLegalMoves()[std::rand() % piece->getLegalMoves().size()]};
+    return {piece->getPosn(), piece->legalMoves[std::rand() % piece->legalMoves.size()],
+      (piece->getName() == (colour ? 'P' : 'p') && piece->getY() == (colour ? HEIGHT - 2 : 1)) ? 4U : 0U};
 }
 
 Move AI::thinkAt2() const {
@@ -62,7 +63,9 @@ Move AI::thinkAt2() const {
         maxWorth = capturingMoves.front();
         for (unsigned int i = 1; i < capturingMoves.size(); i++) {
             int value = 0;
-            if (boardState[capturingMoves[i].newPos]->getIsProtected()) {
+            if (!boardState[capturingMoves[i].newPos]) {
+                value = std::max(value, 2);
+            } else if (boardState[capturingMoves[i].newPos]->getIsProtected()) {
                 for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
                     if (piece->canMoveTo(capturingMoves[i].newPos)) {
                         value = std::max(value, boardState[capturingMoves[i].newPos]->getValue() - piece->getValue());
@@ -73,7 +76,7 @@ Move AI::thinkAt2() const {
                 value = std::max(value, boardState[capturingMoves[i].newPos]->getValue());
             }
             std::cerr << "value: " << value << std::endl;
-            if (value > boardState[maxWorth.newPos]->getValue()) {
+            if (value > (boardState[maxWorth.newPos] ? boardState[maxWorth.newPos]->getValue() : 2)) {
                 std::cerr << "yep" << std::endl;
                 maxWorth = capturingMoves[i];
             }
@@ -87,6 +90,9 @@ Move AI::thinkAt2() const {
         }
     }
     std::cerr << "maxWorth: " << char('a' + maxWorth.oldPos.x) << maxWorth.oldPos.y + 1 << "-->" << char('a' + maxWorth.oldPos.x) << maxWorth.oldPos.y + 1 << std::endl;
+    if (boardState[maxWorth.oldPos]->getName() == (colour ? 'P' : 'p') && maxWorth.newPos.y == (colour ? HEIGHT - 1 : 0)) {
+        maxWorth.promotion = 4;
+    }
     return maxWorth;
 }
 
@@ -134,7 +140,7 @@ Move AI::thinkAt4() const {
 const std::vector<Posn> AI::calculateThreatenedPosns() const {
     std::vector<Posn> tmp;
     for (auto piece: !colour ? boardState.whitePieces : boardState.blackPieces) {
-        for (Posn posn: piece->getLegalMoves()) {
+        for (Posn posn: piece->legalMoves) {
             if (boardState[posn] && boardState[posn]->canMove()) {
                 tmp.emplace_back(posn);
             }
@@ -146,25 +152,34 @@ const std::vector<Posn> AI::calculateThreatenedPosns() const {
 const std::vector<Move> AI::calculateCapturingMoves() const {
     std::vector<Move> tmp;
     for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
-        for (Posn posn: piece->getLegalMoves()) {
-            if (boardState[posn]) {
-                if (boardState[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
+        for (Posn posn: piece->legalMoves) {
+            std::cerr << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
+            if (boardState[posn] || (piece->getName() == (colour ? 'P' : 'p') && abs(piece->getX() - posn.x))) {
+                if (boardState[posn] && boardState[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
+                else std::cerr << "^^^^^^^ a good thing" << std::endl;
                 tmp.emplace_back(piece->getPosn(), posn);
             }
         }
     }
+    std::cerr << "Captures found: " << tmp.size() << std::endl;
     return tmp;
 }
 
 const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
-    for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
-        for (Posn posn: piece->getLegalMoves()) {
+    for (unsigned int i = 0; i < (colour ? boardState.whitePieces : boardState.blackPieces).size(); i++) { // can't use ranged for
+        auto piece = (colour ? boardState.whitePieces : boardState.blackPieces)[i]; // loops here because, due to the nature of this
+        for (unsigned int j = 0; j < piece->legalMoves.size(); j++) { // function, iterators for the pieces vectors are not consistent
+            Posn posn = piece->legalMoves[j];
             std::cerr << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
-            boardState.movePiece({piece->getPosn(), posn});
-            piece->calculateLegalMoves(boardState);
-            if ((!checkmate && boardState.check((!colour ? boardState.whiteKing : boardState.blackKing)->getPosn(), colour))
-              || (checkmate && boardState.checkmate(colour))) {
+            unsigned int promotion = 0;
+            if (piece->getName() == (colour ? 'P' : 'p')) {
+                std::shared_ptr<Pawn> tmp = std::static_pointer_cast<Pawn>(piece);
+                promotion = (tmp->canPromote() ? 4 : 0);
+            }
+            boardState.movePiece({piece->getPosn(), posn, promotion});
+            int result = boardState.runCalculations();
+            if ((!checkmate && result == 1) || result == 2) {
                 std::cerr << "interesting thing here" << std::endl;
                 tmp.emplace_back(boardState.log.back());
             }

@@ -63,9 +63,9 @@ unsigned int Piece::getY() const {
 	return posn.y;
 }
 
-const std::vector<Posn>& Piece::getLegalMoves() const {
-	return legalMoves;
-}
+// const std::vector<Posn>& Piece::getLegalMoves() const {
+// 	return legalMoves;
+// }
 
 bool Piece::getHasMoved() const {
 	return numMoves;
@@ -86,14 +86,6 @@ void Piece::setName(char value) {
 	this->name = value;
 }
 
-void Piece::setX(unsigned int posX) {
-	this->posn.x = posX;
-}
-
-void Piece::setY(unsigned int posY) {
-	this->posn.y = posY;
-}
-
 void Piece::pin(bool vertical, bool horizontal, bool positive, bool negative) {
 	if (this->vertical) this->vertical = vertical;
 	if (this->horizontal) this->horizontal = horizontal;
@@ -105,7 +97,15 @@ void Piece::protect(bool isProtected) {
 	this->isProtected = isProtected;
 }
 
-inline std::ostream& operator<<(std::ostream &out, const Piece &posn) {
-	out << posn.getName();
+std::strong_ordering Piece::operator<=>(const Piece &other) const {
+	auto result = value <=> other.value;
+	if (result != 0) return result;
+	result = posn.x <=> other.posn.x;
+	if (result != 0) return result;
+	return posn.y <=> other.posn.y;
+}
+
+inline std::ostream& operator<<(std::ostream &out, const Piece &piece) {
+	out << piece.getName();
 	return out;
 }
