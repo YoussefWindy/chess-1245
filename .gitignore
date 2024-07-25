@@ -1,5 +1,6 @@
-# The program
+# The program and build files
 chess
+obj
 
 # Prerequisites
 *.d
