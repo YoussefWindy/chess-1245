@@ -1,10 +1,13 @@
 // src/ai.cc
 
 #include "../include/ai.h"
+#include <ctime>
 
 const Move emptyMove = {{0, 0}, {0, 0}};
 
-AI::AI(Board &b, bool w, int d): boardRef{b}, boardState{b}, colour{w}, difficulty{d} {}
+AI::AI(Board &b, bool w, int d): boardRef{b}, boardState{b}, colour{w}, difficulty{d} {
+    std::srand(std::time(nullptr));
+}
 
 Move AI::think() const {
     boardState = boardRef; // Reset thinking state
