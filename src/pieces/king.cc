@@ -15,7 +15,10 @@ void King::calculateLegalMoves(const Board &board) {
             try {
                 Posn p{posn.x + i, posn.y + j};
                 if ((!board[p] || (board[p]->getColour() != colour // if square is empty, or square is not belonging to us already
-                  && !board[p]->getIsProtected())) && !board.check(p, colour)) { // AND not protected, and square is not in check
+                  && !board[p]->getIsProtected())) && !board.check(p, colour) // and not protected, and square is not in check, and
+                  && (p.y == (colour ? HEIGHT - 1 : 0) || ((p.x == WIDTH - 1 || !(board[{p.x + 1, p.x + (colour ? 1 : -1)}]) // there are no
+                  || (board[{p.x + 1, p.x + (colour ? 1 : -1)}]->getName() != (!colour ? 'P' : 'p'))) && (!p.x || // pawns that can check
+                  !(board[{p.x - 1, p.x + (colour ? 1 : -1)}]) || (board[{p.x - 1, p.x + (colour ? 1 : -1)}]->getName() != (!colour ? 'P' : 'p')))))) {
                     // std::cerr << "King can move to " << char('a' + p.x) << p.y + 1 << std::endl;
                     legalMoves.emplace_back(p);
                 }
@@ -121,7 +124,7 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                             numChecks++;
                             break;
                         }
-                    }
+                    } else break; // only other piece types it could be are king and knight, which will block checks
                 } catch (BadPosn &e) {
                     break; // if p is out of bounds, break the k loop to start looking in a different direction
                 }

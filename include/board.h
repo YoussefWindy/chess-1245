@@ -12,11 +12,11 @@ class Board {
 	std::shared_ptr<Piece> board[WIDTH][HEIGHT];
 	std::vector<std::shared_ptr<Piece>> whitePieces, blackPieces, deadPieces;
 	std::shared_ptr<Piece> whiteKing, blackKing;
-  bool turn;
+ 	bool turn, showDead;
 	std::vector<Move> log;
 
 	void addPieceHelp(char name, const Posn &posn);
-	void movePiece(const Move &);
+	void insert(std::vector<std::shared_ptr<Piece>> &vec, std::shared_ptr<Piece> &piece);
 	// Checking for check and checkmate
 	bool check(const Posn &posn, bool colour) const;
 	bool checkmate(bool colour) const; // needs work
@@ -67,6 +67,7 @@ class Board {
 	bool hasKing(bool colour) const;
 
 	void setTurn(bool colour);
+	void setShowDead(bool show);
 
 	const std::vector<Move> getLog() const; // I don't like this
 };
