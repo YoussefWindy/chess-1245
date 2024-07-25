@@ -308,27 +308,50 @@ Move Board::getLastMove() const {
 }
 
 void Board::undoMoves(int num) {
+  // Get piece's old position
 	Posn tmp = log.back().oldPos;
+
+  // Undo given number of moves
 	for (int i = 0; i < num; i++) {
+    // If the move log is empty, break and exit
 		if (log.empty()) break;
-    	turn = !turn;
+    
+    // Update the current turn
+    turn = !turn;
+
+    // Debug statement
 		std::cerr << "Legal moves of " << board[log.back().newPos.x][log.back().newPos.y]->getName() << std::endl << "before: ";
+
+    // Debug statement
 		for (auto i : board[log.back().newPos.x][log.back().newPos.y]->getLegalMoves()) {
 			std::cerr << char('a' + i.x) << i.y + 1 << ", ";
 		}
+
+    // Copy the piece back into the old position
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
+
+    // something
 		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos, false);
 		removePiece(log.back().newPos);
+
+    // Retrieve capturd piece from the graveyard
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
 			(deadPieces.back()->getColour() ? whitePieces : blackPieces).emplace_back(deadPieces.back());
 			deadPieces.pop_back();
 		}
+
+    // Remove move from log
 		log.pop_back();
 	}
-    runCalculations();
-	std::cerr << std::endl << "after: ";
-	for (auto i : board[tmp.x][tmp.y]->getLegalMoves()) {
+
+  // Recalculate all legal moves
+  runCalculations();
+	
+  // Debug statement
+  std::cerr << std::endl << "after: ";
+	
+  for (auto i : board[tmp.x][tmp.y]->getLegalMoves()) {
 		std::cerr << char('a' + i.x) << i.y + 1 << ", ";
 	}
 	std::cerr << std::endl;
@@ -339,26 +362,41 @@ bool Board::getTurn() const {
 }
 
 void Board::validate() {
+  // Check if both Kings exist on the board
 	if (!hasKing(true)) throw BadSetup{"no white king on the board!"};
 	if (!hasKing(false)) throw BadSetup{"no black king on the board!"};
-	for (auto p: whitePieces) { // Check white pawns
+
+  // Check white pawns
+	for (auto p: whitePieces) { 
 		if (p->getName() == 'P') {
 			Posn pawnPosn = p->getPosn();
+      // White pawn in promotion zone
 			if (pawnPosn.y == HEIGHT - 1) throw BadSetup{"there is a white pawn on the last row!"};
 		}
 	}
-	for (auto p: blackPieces) { // Check black pawns
+
+  // Check black pawns
+	for (auto p: blackPieces) { 
 		if (p->getName() == 'p') {
 			Posn pawnPosn = p->getPosn();
+      // Black pawn in promotion zone
 			if (!pawnPosn.y) throw BadSetup{"there is a black pawn on the last row!"};
 		}
 	}
+
+  // Ensure no Kings are in check on setup
 	if (runCalculations() > 0) throw BadSetup{std::string((!turn ? "white" : "black")) + " is in check!"};
-	turn = !turn;
+
+	// Swap turn to check other king
+  turn = !turn;
+
 	if (runCalculations() > 0) {
+    // Revert turn to correct
 		turn = !turn;
 		throw BadSetup{std::string((!turn ? "white" : "black")) + " is in check!"};
 	}
+
+  // Revert turn to correct turn
 	turn = !turn;
 }
 
@@ -376,15 +414,25 @@ const std::vector<Move> Board::getLog() const {
 
 std::ostream& operator<<(std::ostream& out, const Board& board) {
 	out << std::endl;
-	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
-		out << (HEIGHT - row) << " "; // Row number
-		for (unsigned int col = 0; col < WIDTH; col++) {
-			if (board[{col, HEIGHT - row - 1}]) { // if there's a piece there
+
+  // Iterate over the rows
+	for (unsigned int row = 0; row < HEIGHT; row++) { 
+    // Row number
+		out << (HEIGHT - row) << " ";
+		
+    // Iterate over the columns
+    for (unsigned int col = 0; col < WIDTH; col++) {
+			if (board[{col, HEIGHT - row - 1}]) {
+        // if there's a piece there, print it
 				out << board[{col, HEIGHT - row - 1}]->getName();
-			} else { // if it's a blank space
+			} else {
+        // if it's a blank space, print it
+        // print black or white square
 				out << ((col + row) % 2 ? '_' : ' ');
 			}
 		}
+
+    // Print dead pieces
 		if (row == 1) {
 			out << "   ";
 			for (auto p: board.deadPieces) {
@@ -400,10 +448,14 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 				}
 			}
 		}
+
 		out << std::endl;
 	}
-	out << std::endl << "  ";
-	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
+	
+  out << std::endl << "  ";
+	
+  // Print column letters
+  for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c;
 	}
 	out << std::endl;
