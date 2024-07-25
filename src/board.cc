@@ -133,6 +133,38 @@ bool Board::stalemate(bool colour) const {
 	}
 	if (log.size() < 6) return false;
 	// TODO: handle 3 same moves in a row thing
+	bool bishopFound = false, knightFound = false;
+	for (auto piece: whitePieces) {
+		switch (piece->getName()) {
+			case 'K':
+				continue;
+			case 'N':
+				if (knightFound || bishopFound) return false;
+				else knightFound = true;
+			case 'B':
+				if (bishopFound) continue;
+				else if (knightFound) return false;
+				else bishopFound = true;
+			default:
+				return false;
+		}
+	}
+	for (auto piece: blackPieces) {
+		switch (piece->getName()) {
+			case 'K':
+				continue;
+			case 'N':
+				if (knightFound || bishopFound) return false;
+				else knightFound = true;
+			case 'B':
+				if (bishopFound) continue;
+				else if (knightFound) return false;
+				else bishopFound = true;
+			default:
+				return false;
+		}
+	}
+	bishopFound = knightFound = false;
 	return true;
 }
 
@@ -245,7 +277,7 @@ void Board::movePiece(Move &&move) {
 		// for (auto i : board[move.oldPos.x][move.oldPos.y]->getLegalMoves()) {
 		// 	std::cerr << char('a' + i.x) << i.y + 1 << " ";
 		// }
-		std::cerr << std::endl << "THIRD" << std::endl;
+		std::cerr << "THIRD" << std::endl;
 		throw BadMove{move};
 	}
 	std::cerr << "good" << std::endl;
@@ -298,7 +330,9 @@ void Board::removePiece(const Posn &posn) {
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
 		if ((*it)->getPosn() == posn) {
 			// std::cerr << "hhhmmmm" << std::endl;
+			std::cerr << "Have found a " << (*it)->getName() << " in " << (colour ? "whitepieces" : "blackpieces") << std::endl;
 			(colour ? whitePieces : blackPieces).erase(it);
+			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
 			break;
 		} else if (/*(std::cerr << "bruh how" << std::endl) && */(*it)->getName() == (colour ? 'K' : 'k')) {
 			(colour ? whiteKing : blackKing) = *it;
@@ -330,19 +364,20 @@ void Board::undoMoves(int num) {
 			deadPieces.pop_back();
 		}
 		if (log.back().promotion) {
+			removePiece(log.back().oldPos);
 			addPiece<Pawn>(turn, log.back().oldPos);
 		}
 		if (board[log.back().oldPos.x][log.back().oldPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
-			std::cerr << "we found a king" << std::endl;
+			std::cerr << "we found a not king" << std::endl;
 			if (log.back().newPos.x - log.back().oldPos.x == 2) { // castling right
-				std::cerr << "we're castling??" << std::endl;
-				std::cerr << char('a' + WIDTH - 1) << log.back().newPos.y + 1 << " --> " << char('a' + log.back().newPos.x - 1) << log.back().newPos.y + 1 << std::endl;
-				movePiece({{WIDTH - 1, log.back().newPos.y}, {log.back().newPos.x - 1, log.back().newPos.y}}); // move the rook
+				std::cerr << "we're uncastling??" << std::endl;
+				board[WIDTH - 1][log.back().oldPos.y] = board[log.back().newPos.x - 1][log.back().newPos.y];
+				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false); // move the rook
 				log.pop_back();
 			} else if (log.back().oldPos.x - log.back().newPos.x == 2) { // castling left
-				std::cerr << "we're castling??" << std::endl;
-				std::cerr << 'a' << log.back().newPos.y + 1 << " --> " << char('a' + log.back().newPos.x + 1) << log.back().newPos.y + 1 << std::endl;
-				movePiece({{0, log.back().newPos.y}, {log.back().newPos.x + 1, log.back().newPos.y}}); // move the rook
+				std::cerr << "we're uncastling??" << std::endl;
+				board[0][log.back().oldPos.y] = board[log.back().newPos.x + 1][log.back().newPos.y];
+				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false); // move the rook
 				log.pop_back();
 			}
 		}

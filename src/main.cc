@@ -226,11 +226,11 @@ int main() {
 		} else if (command == "show") {
 			(gameActive ? board : defaultBoard).setShowDead(true);
 			display(gameActive ? board : defaultBoard);
-			cout << "Captured pieces will be shown on the display." << endl;
+			cout << "Captured pieces will be shown on the display" << (!gameActive ? " by default." : ".") << endl;
 		} else if (command == "hide") {
 			(gameActive ? board : defaultBoard).setShowDead(false);
 			display(gameActive ? board : defaultBoard);
-			cout << "Captured pieces will be hidden on the display." << endl;
+			cout << "Captured pieces will be hidden on the display" << (!gameActive ? " by default." : ".") << endl;
 		} else if (command == "undo") {
 			if (!gameActive) {
 				cerr << "Game is not active." << endl << "Command: ";
