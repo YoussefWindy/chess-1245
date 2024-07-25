@@ -169,6 +169,10 @@ bool Board::stalemate(bool colour) const {
 bool Board::repetition() const {
 	if (log.size() < 9) return false;
 	// Fill in
+<<<<<<< HEAD
+	return false;
+=======
+>>>>>>> 38f07563af0f29e098cb183c85f4d480abe1e31c
 }
 
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
@@ -250,6 +254,7 @@ int Board::runCalculations() {
 	// std::cerr << std::endl << "Black king's moves: ";
 	// for (auto p: blackKing->getLegalMoves()) std::cerr << char('a' + p.x) << p.y + 1 << ", ";
 	// std::cerr << std::endl;
+	if (repetition()) return 0;
 	if (inCheck) {
 		if (checkmate(turn)) {
 			// std::cerr << "checkmate" << std::endl;
