@@ -20,7 +20,7 @@ EXEC := chess
 
 all: $(EXEC)
 
-$(EXEC): $(OBJECTS) | $(BINDIR)
+$(EXEC): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC) -lX11
 
 $(OBJDIR):
