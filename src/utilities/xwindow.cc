@@ -11,7 +11,7 @@
 
 using namespace std;
 
-XWindow::XWindow(int width, int height) : width(width), height(height) {
+XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), height(height) {
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
@@ -29,6 +29,15 @@ XWindow::XWindow(int width, int height) : width(width), height(height) {
     gc = XCreateGC(d, pix, 0, 0);
 
     XFlush(d);
+
+    // Load font
+    const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
+    font_info = XLoadQueryFont(d, font_name);
+    if (!font_info) {
+        cerr << "Cannot open font: loaded fixed" << endl;
+        font_info = XLoadQueryFont(d, "fixed");
+    }
+    XSetFont(d, gc, font_info->fid);
 
     // Set up colours
     colours[0] = 0xFFFFFF; // White
@@ -51,6 +60,7 @@ XWindow::XWindow(int width, int height) : width(width), height(height) {
 }
 
 XWindow::~XWindow() {
+    XFreeFont(d, font_info);
     XFreeGC(d, gc);
     XCloseDisplay(d);
 }
@@ -58,15 +68,6 @@ XWindow::~XWindow() {
 void XWindow::drawBoard(const Board &board) {
     int vert_off = 100;
     int horiz_off = 100;
-
-    // Load font
-    const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
-    auto font_info = XLoadQueryFont(d, font_name);
-    if (!font_info) {
-        cerr << "Cannot open font: loaded fixed" << endl;
-        font_info = XLoadQueryFont(d, "fixed");
-    }
-    XSetFont(d, gc, font_info->fid);
 
     // Draw the board
     XSetForeground(d, gc, colours[2]);
@@ -124,9 +125,6 @@ void XWindow::drawBoard(const Board &board) {
     }
 
     XFlush(d);
-
-    // Clean up
-    XFreeFont(d, font_info);
 }
 
 int XWindow::getWidth() const {
