@@ -24,7 +24,15 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+P has moved 1 times.
+down
+position is d4
+Piece at new position is P
+nice
+
 8 rnbqkbnr
 7 pppppppp   
 6  _ _ _ _
@@ -36,7 +44,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+n has moved 1 times.
+down
+position is f6
+Piece at new position is n
+nice
+
 8 rnbqkb r
 7 pppppppp   
 6  _ _ n _
@@ -48,7 +64,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+P has moved 1 times.
+down
+position is c4
+Piece at new position is P
+nice
+
 8 rnbqkb r
 7 pppppppp   
 6  _ _ n _
@@ -60,7 +84,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+p has moved 1 times.
+down
+position is e6
+Piece at new position is p
+nice
+
 8 rnbqkb r
 7 pppp_ppp   
 6  _ _pn _
@@ -72,7 +104,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+N has moved 1 times.
+down
+position is f3
+Piece at new position is N
+nice
+
 8 rnbqkb r
 7 pppp_ppp   
 6  _ _pn _
@@ -84,7 +124,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+p has moved 1 times.
+down
+position is d5
+Piece at new position is p
+nice
+
 8 rnbqkb r
 7 ppp _ppp   
 6  _ _pn _
@@ -96,7 +144,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+P has moved 1 times.
+down
+position is g3
+Piece at new position is P
+nice
+
 8 rnbqkb r
 7 ppp _ppp   
 6  _ _pn _
@@ -108,7 +164,15 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is e7
+Piece at new position is b
+nice
+
 8 rnbqk_ r
 7 ppp bppp   
 6  _ _pn _
@@ -120,7 +184,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is g2
+Piece at new position is B
+nice
+
 8 rnbqk_ r
 7 ppp bppp   
 6  _ _pn _
@@ -132,7 +204,24 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+k has moved 1 times.
+down
+position is g8
+Piece at new position is k
+nice
+h8 --> f8
+start
+good
+up
+r has moved 1 times.
+down
+position is f8
+Piece at new position is r
+nice
+
 8 rnbq rk_
 7 ppp bppp   
 6  _ _pn _
@@ -144,8 +233,44 @@ Black's turn:
 
   abcdefgh
 
-Black's turn: Please input a valid move action.
-Black's move: 
+White's move: start
+good
+up
+K has moved 1 times.
+down
+position is g1
+Piece at new position is K
+nice
+h1 --> f1
+start
+good
+up
+R has moved 1 times.
+down
+position is f1
+Piece at new position is R
+nice
+
+8 rnbq rk_
+7 ppp bppp   
+6  _ _pn _
+5 _ _p_ _ 
+4  _PP _ _
+3 _ _ _NP 
+2 PP _PPBP   
+1 RNBQ_RK 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+p has moved 1 times.
+down
+position is c6
+Piece at new position is p
+nice
+
 8 rnbq rk_
 7 pp_ bppp   
 6  _p_pn _
@@ -153,11 +278,19 @@ Black's move:
 4  _PP _ _
 3 _ _ _NP 
 2 PP _PPBP   
-1 RNBQK _R
+1 RNBQ_RK 
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+Q has moved 1 times.
+down
+position is c2
+Piece at new position is Q
+nice
+
 8 rnbq rk_
 7 pp_ bppp   
 6  _p_pn _
@@ -165,11 +298,19 @@ White's turn:
 4  _PP _ _
 3 _ _ _NP 
 2 PPQ_PPBP   
-1 RNB K _R
+1 RNB _RK 
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+p has moved 1 times.
+down
+position is b6
+Piece at new position is p
+nice
+
 8 rnbq rk_
 7 p _ bppp   
 6  pp_pn _
@@ -177,11 +318,19 @@ Black's turn:
 4  _PP _ _
 3 _ _ _NP 
 2 PPQ_PPBP   
-1 RNB K _R
+1 RNB _RK 
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+B has moved 1 times.
+down
+position is f4
+Piece at new position is B
+nice
+
 8 rnbq rk_
 7 p _ bppp   
 6  pp_pn _
@@ -189,11 +338,19 @@ White's turn:
 4  _PP B _
 3 _ _ _NP 
 2 PPQ_PPBP   
-1 RN_ K _R
+1 RN_ _RK 
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+up
+b has moved 1 times.
+down
+position is b7
+Piece at new position is b
+nice
+
 8 rn q rk_
 7 pb_ bppp   
 6  pp_pn _
@@ -201,8 +358,231 @@ Black's turn:
 4  _PP B _
 3 _ _ _NP 
 2 PPQ_PPBP   
-1 RN_ K _R
+1 RN_ _RK 
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+R has moved 2 times.
+down
+position is d1
+Piece at new position is R
+nice
+
+8 rn q rk_
+7 pb_ bppp   
+6  pp_pn _
+5 _ _p_ _ 
+4  _PP B _
+3 _ _ _NP 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+n has moved 1 times.
+down
+position is d7
+Piece at new position is n
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _p_ _ 
+4  _PP B _
+3 _ _ _NP 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+White's move: start
+good
+up
+N has moved 2 times.
+down
+position is e5
+Piece at new position is N
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _pN _ 
+4  _PP B _
+3 _ _ _ P 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+n has moved 2 times.
+down
+position is h5
+Piece at new position is n
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_p_ _
+5 _ _pN _n
+4  _PP B _
+3 _ _ _ P 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 2 times.
+down
+position is d2
+Piece at new position is B
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_p_ _
+5 _ _pN _n
+4  _PP _ _
+3 _ _ _ P 
+2 PPQBPPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+n has moved 3 times.
+down
+position is f6
+Piece at new position is n
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _pN _ 
+4  _PP _ _
+3 _ _ _ P 
+2 PPQBPPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 3 times.
+down
+position is f4
+Piece at new position is B
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _pN _ 
+4  _PP B _
+3 _ _ _ P 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+n has moved 4 times.
+down
+position is h5
+Piece at new position is n
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_p_ _
+5 _ _pN _n
+4  _PP B _
+3 _ _ _ P 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 4 times.
+down
+position is d2
+Piece at new position is B
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_p_ _
+5 _ _pN _n
+4  _PP _ _
+3 _ _ _ P 
+2 PPQBPPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: start
+good
+up
+n has moved 5 times.
+down
+position is f6
+Piece at new position is n
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _pN _ 
+4  _PP _ _
+3 _ _ _ P 
+2 PPQBPPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+White's move: start
+good
+up
+B has moved 5 times.
+down
+position is f4
+Piece at new position is B
+nice
+
+8 r_ q rk_
+7 pb_nbppp   
+6  pp_pn _
+5 _ _pN _ 
+4  _PP B _
+3 _ _ _ P 
+2 PPQ_PPBP   
+1 RN_R_ K 
+
+  abcdefgh
+
+Black's move: 
+Final Score:
+White: 0
+Black: 0

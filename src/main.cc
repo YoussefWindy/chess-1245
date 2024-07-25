@@ -46,7 +46,30 @@ void stripWhitespace(string& str) {
 }
 
 void setBoardDefault(Board& board) {
-
+  // Initial default board
+	// White pieces
+	board.addPiece<Rook>(true, {"a1"});
+	board.addPiece<Knight>(true, {"b1"});
+	board.addPiece<Bishop>(true, {"c1"});
+	board.addPiece<Queen>(true, {"d1"});
+	board.addPiece<King>(true, {"e1"});
+	board.addPiece<Bishop>(true, {"f1"});
+	board.addPiece<Knight>(true, {"g1"});
+	board.addPiece<Rook>(true, {"h1"});
+	// Black pieces
+	board.addPiece<Rook>(false, {"a8"});
+	board.addPiece<Knight>(false, {"b8"});
+	board.addPiece<Bishop>(false, {"c8"});
+	board.addPiece<Queen>(false, {"d8"});
+	board.addPiece<King>(false, {"e8"});
+	board.addPiece<Bishop>(false, {"f8"});
+	board.addPiece<Knight>(false, {"g8"});
+	board.addPiece<Rook>(false, {"h8"});
+	// Pawns
+	for (unsigned int i = 0; i < WIDTH; i++) {
+		board.addPiece<Pawn>(true, {i, 1}); // white
+		board.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black
+	}
 }
 
 bool verifyPiece(char c) {
@@ -66,30 +89,9 @@ int main() {
 	bool gameActive = false;
 	Board board, defaultBoard, replayBoard;
 	unique_ptr<AI> whiteAI, blackAI;
-	// Initial default board
-	// White pieces
-	defaultBoard.addPiece<Rook>(true, {"a1"});
-	defaultBoard.addPiece<Knight>(true, {"b1"});
-	defaultBoard.addPiece<Bishop>(true, {"c1"});
-	defaultBoard.addPiece<Queen>(true, {"d1"});
-	defaultBoard.addPiece<King>(true, {"e1"});
-	defaultBoard.addPiece<Bishop>(true, {"f1"});
-	defaultBoard.addPiece<Knight>(true, {"g1"});
-	defaultBoard.addPiece<Rook>(true, {"h1"});
-	// Black pieces
-	defaultBoard.addPiece<Rook>(false, {"a8"});
-	defaultBoard.addPiece<Knight>(false, {"b8"});
-	defaultBoard.addPiece<Bishop>(false, {"c8"});
-	defaultBoard.addPiece<Queen>(false, {"d8"});
-	defaultBoard.addPiece<King>(false, {"e8"});
-	defaultBoard.addPiece<Bishop>(false, {"f8"});
-	defaultBoard.addPiece<Knight>(false, {"g8"});
-	defaultBoard.addPiece<Rook>(false, {"h8"});
-	// Pawns
-	for (unsigned int i = 0; i < WIDTH; i++) {
-		defaultBoard.addPiece<Pawn>(true, {i, 1}); // white
-		defaultBoard.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black
-	}
+
+  setBoardDefault(defaultBoard);
+	
 	cout << "Do you want a Text Display, Graphical Display, or Both? (t/g/b): ";
 	while (cin >> arg1) {
 		toLowercase(arg1);
@@ -312,7 +314,9 @@ int main() {
 					} else {
 						cerr << "Please input a valid colour." << endl;
 					}
-				} else if (command == "clear") {
+				} else if (command == "reset") {
+           setBoardDefault(replayBoard);
+        }else if (command == "clear") {
 					Board tmp;
 					tmp.setTurn(defaultBoard.getTurn());
 					defaultBoard = tmp;

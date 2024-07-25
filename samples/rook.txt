@@ -446,7 +446,16 @@ Command: The game has begun!
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is h7
+Piece at new position is R
+nice
+
 8 rrrrkrrr
 7 rrrrrrrR   
 6  _ _ _ _
@@ -458,7 +467,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is a2
+Piece at new position is r
+nice
+
 8 rrrrkrrr
 7 _rrrrrrR   R
 6  _ _ _ _
@@ -470,7 +488,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is a2
+Piece at new position is R
+nice
+
 8 rrrrkrrr
 7 _rrrrrrR   R
 6  _ _ _ _
@@ -482,7 +509,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is d2
+Piece at new position is r
+nice
+
 8 rrrrkrrr
 7 _rr rrrR   RR
 6  _ _ _ _
@@ -494,7 +530,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is d2
+Piece at new position is R
+nice
+
 8 rrrrkrrr
 7 _rr rrrR   RR
 6  _ _ _ _
@@ -506,7 +551,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is b1
+Piece at new position is r
+nice
+
 8 rrrrkrrr
 7 _ r rrrR   RRR
 6  _ _ _ _
@@ -518,7 +572,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is b1
+Piece at new position is R
+nice
+
 8 rrrrkrrr
 7 _ r rrrR   RRR
 6  _ _ _ _
@@ -530,7 +593,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is h7
+Piece at new position is r
+nice
+
 8 rrrrkrr_
 7 _ r rrrr   RRRR
 6  _ _ _ _
@@ -542,7 +614,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: Black is in check.
+White's move: start
+good
+capture
+up
+R has moved 2 times.
+down
+position is d8
+Piece at new position is R
+nice
+Black is in check.
 
 8 rrrRkrr_
 7 _ r rrrr   RRRR
@@ -555,7 +636,16 @@ White's turn: Black is in check.
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is d8
+Piece at new position is r
+nice
+
 8 rr rkrr_
 7 _ r rrrr   RRRRR
 6  _ _ _ _
@@ -567,7 +657,15 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+up
+R has moved 2 times.
+down
+position is d2
+Piece at new position is R
+nice
+
 8 rr rkrr_
 7 _ r rrrr   RRRRR
 6  _ _ _ _
@@ -579,7 +677,16 @@ White's turn:
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is g2
+Piece at new position is r
+nice
+
 8 rr rkrr_
 7 _ r rr_r   RRRRRR
 6  _ _ _ _
@@ -591,7 +698,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: Black is in check.
+White's move: start
+good
+capture
+up
+R has moved 3 times.
+down
+position is d8
+Piece at new position is R
+nice
+Black is in check.
 
 8 rr Rkrr_
 7 _ r rr_r   RRRRRR
@@ -604,7 +720,16 @@ White's turn: Black is in check.
 
   abcdefgh
 
-Black's turn: 
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is d8
+Piece at new position is r
+nice
+
 8 r_ rkrr_
 7 _ r rr_r   RRRRRRR
 6  _ _ _ _
@@ -616,7 +741,16 @@ Black's turn:
 
   abcdefgh
 
-White's turn: 
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is a8
+Piece at new position is R
+nice
+
 8 R_ rkrr_
 7 _ r rr_r   RRRRRRR
 6  _ _ _ _
@@ -628,6 +762,205 @@ White's turn:
 
   abcdefgh
 
-Black's turn: Please input a valid move action.
-Black's move: Please input a valid move action.
-Black's move: 
+Black's move: start
+good
+up
+r has moved 2 times.
+down
+position is c8
+Piece at new position is r
+nice
+
+8 R_r_krr_
+7 _ r rr_r   RRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRr_   rrrrrrr
+1 _R_RKRRR
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is g2
+Piece at new position is R
+nice
+
+8 R_r_krr_
+7 _ r rr_r   RRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRR_   rrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+r has moved 3 times.
+down
+position is a8
+Piece at new position is r
+nice
+
+8 r_ _krr_
+7 _ r rr_r   RRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _RRR_   rrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+R has moved 1 times.
+down
+position is f7
+Piece at new position is R
+nice
+
+8 r_ _krr_
+7 _ r rR_r   RRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_R_   rrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+Black's move: start
+good
+up
+r has moved 2 times.
+down
+position is g7
+Piece at new position is r
+nice
+
+8 r_ _krr_
+7 _ r rRr    RRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_R_   rrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+R has moved 2 times.
+down
+position is g7
+Piece at new position is R
+nice
+
+8 r_ _krr_
+7 _ r rRR    RRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_ _   rrrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+Black's move: start
+good
+capture
+up
+r has moved 1 times.
+down
+position is f7
+Piece at new position is r
+nice
+
+8 r_ _k_r_
+7 _ r rrR    RRRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_ _   rrrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+R has moved 3 times.
+down
+position is g8
+Piece at new position is R
+nice
+Black is in check.
+
+8 r_ _k_R_
+7 _ r rr_    RRRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_ _   rrrrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+Black's move: start
+good
+up
+r has moved 2 times.
+down
+position is f8
+Piece at new position is r
+nice
+
+8 r_ _krR_
+7 _ r r _    RRRRRRRRR
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2  _ _R_ _   rrrrrrrrrrr
+1 _R_RKR_R
+
+  abcdefgh
+
+White's move: start
+good
+capture
+up
+R has moved 4 times.
+down
+position is f8
+Piece at new position is R
+nice
+Checkmate! White wins!
+Command: Game is not active.
+Command: 
+Final Score:
+White: 1
+Black: 0

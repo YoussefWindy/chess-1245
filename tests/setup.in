@@ -55,3 +55,10 @@ setup
 done
 + N b3
 done
+setup
+reset
+done
+setup
+clear
+reset
+done
