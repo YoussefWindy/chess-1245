@@ -47,7 +47,10 @@ void stripWhitespace(string& str) {
 }
 
 void setBoardDefault(Board& board) {
-  // Initial default board
+  // Clear board
+  Board tmp;
+  board = tmp;
+
 	// White pieces
 	board.addPiece<Rook>(true, {"a1"});
 	board.addPiece<Knight>(true, {"b1"});
@@ -57,7 +60,8 @@ void setBoardDefault(Board& board) {
 	board.addPiece<Bishop>(true, {"f1"});
 	board.addPiece<Knight>(true, {"g1"});
 	board.addPiece<Rook>(true, {"h1"});
-	// Black pieces
+	
+  // Black pieces
 	board.addPiece<Rook>(false, {"a8"});
 	board.addPiece<Knight>(false, {"b8"});
 	board.addPiece<Bishop>(false, {"c8"});
@@ -66,7 +70,8 @@ void setBoardDefault(Board& board) {
 	board.addPiece<Bishop>(false, {"f8"});
 	board.addPiece<Knight>(false, {"g8"});
 	board.addPiece<Rook>(false, {"h8"});
-	// Pawns
+	
+  // Pawns
 	for (unsigned int i = 0; i < WIDTH; i++) {
 		board.addPiece<Pawn>(true, {i, 1}); // white
 		board.addPiece<Pawn>(false, {i, HEIGHT - 2}); // black

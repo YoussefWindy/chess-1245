@@ -24,7 +24,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -36,7 +36,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -60,7 +60,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -72,7 +72,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -84,7 +84,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -96,7 +96,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -108,7 +108,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -120,7 +120,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -132,7 +132,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -144,7 +144,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -156,7 +156,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -168,7 +168,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -180,7 +180,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -192,7 +192,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -204,7 +204,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -216,7 +216,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 b _ _ _    
 6  _ _ _ _
@@ -228,7 +228,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bb_ _ _    
 6  _ _ _ _
@@ -240,7 +240,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbb _ _    
 6  _ _ _ _
@@ -252,7 +252,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbbb_ _    
 6  _ _ _ _
@@ -264,7 +264,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbbbb _    
 6  _ _ _ _
@@ -276,7 +276,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbbbbb_    
 6  _ _ _ _
@@ -288,7 +288,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbbbbbb    
 6  _ _ _ _
@@ -300,7 +300,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -312,7 +312,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 b_ _ _ _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -324,7 +324,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bb _ _ _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -336,7 +336,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbb_ _ _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -348,7 +348,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbb _ _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -360,7 +360,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbb b _
 7 bbbbbbbb   
 6  _ _ _ _
@@ -372,7 +372,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbb bb_
 7 bbbbbbbb   
 6  _ _ _ _
@@ -384,7 +384,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbb bbb
 7 bbbbbbbb   
 6  _ _ _ _
@@ -396,7 +396,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbb bbb
 7 bbbbbbbb   
 6  _ _ _ _
@@ -408,7 +408,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbbkbbb
 7 bbbbbbbb   
 6  _ _ _ _
@@ -420,7 +420,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 bbbbkbbb
 7 bbbbbbbb   
 6  _ _ _ _
@@ -433,7 +433,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: The game has begun!
+The game has begun!
 
 8 bbbbkbbb
 7 bbbbbbbb   
@@ -446,14 +446,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is g3
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 bbbbbbbb   
@@ -466,15 +458,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is a2
-Piece at new position is b
-nice
 
 8 bbbbkbbb
 7 bbbbb bb   B
@@ -487,15 +470,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 1 times.
-down
-position is a2
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 bbbbb bb   B
@@ -508,14 +482,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 1 times.
-down
-position is f3
-Piece at new position is b
-nice
 
 8 bbbbkbbb
 7 b bbb bb   B
@@ -528,14 +494,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is h3
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 b bbb bb   B
@@ -548,15 +506,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is b2
-Piece at new position is b
-nice
 
 8 bbbbkbbb
 7 b bbb _b   BB
@@ -569,14 +518,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is f5
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 b bbb _b   BB
@@ -589,15 +530,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is f5
-Piece at new position is b
-nice
 
 8 bbbbkbbb
 7 b b b _b   BBB
@@ -610,15 +542,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 2 times.
-down
-position is f5
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 b b b _b   BBB
@@ -631,15 +554,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is f5
-Piece at new position is b
-nice
 
 8 bbbbkbbb
 7 b b b _    BBBB
@@ -652,15 +566,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 1 times.
-down
-position is b2
-Piece at new position is B
-nice
 
 8 bbbbkbbb
 7 b b b _    BBBB
@@ -673,15 +578,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is a2
-Piece at new position is b
-nice
 
 8 bbbbkb b
 7 b b b _    BBBBB
@@ -694,15 +590,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 1 times.
-down
-position is f3
-Piece at new position is B
-nice
 
 8 bbbbkb b
 7 b b b _    BBBBB
@@ -715,15 +602,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is b2
-Piece at new position is b
-nice
 
 8 bbbbkb _
 7 b b b _    BBBBBB
@@ -736,15 +614,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 2 times.
-down
-position is a8
-Piece at new position is B
-nice
 
 8 Bbbbkb _
 7 b b b _    BBBBBB
@@ -757,15 +626,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is g3
-Piece at new position is b
-nice
 
 8 Bbbbkb _
 7 b _ b _    BBBBBBB
@@ -778,14 +638,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is a4
-Piece at new position is B
-nice
 Black is in check.
 
 8 Bbbbkb _
@@ -799,14 +651,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-up
-k has moved 1 times.
-down
-position is f7
-Piece at new position is k
-nice
 
 8 Bbbb b _
 7 b _ bk_    BBBBBBB
@@ -819,15 +663,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 1 times.
-down
-position is b2
-Piece at new position is B
-nice
 
 8 Bbbb b _
 7 b _ bk_    BBBBBBB
@@ -840,14 +675,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 2 times.
-down
-position is e6
-Piece at new position is b
-nice
 
 8 Bbbb b _
 7 b _ bk_    BBBBBBB
@@ -860,14 +687,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is f4
-Piece at new position is B
-nice
 
 8 Bbbb b _
 7 b _ bk_    BBBBBBB
@@ -880,15 +699,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 1 times.
-down
-position is a5
-Piece at new position is b
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8 Bbb_ b _
 7 b _ bk_    BBBBBBB
@@ -901,14 +712,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 2 times.
-down
-position is c3
-Piece at new position is B
-nice
 
 8 Bbb_ b _
 7 b _ bk_    BBBBBBB
@@ -921,16 +724,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 2 times.
-down
-position is f2
-Piece at new position is b
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8 Bbb_ b _
 7 b _ bk_    BBBBBBBB
@@ -943,15 +737,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 1 times.
-down
-position is f2
-Piece at new position is B
-nice
 
 8 Bbb_ b _
 7 b _ bk_    BBBBBBBB
@@ -964,14 +749,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 1 times.
-down
-position is b7
-Piece at new position is b
-nice
 
 8 Bb _ b _
 7 bb_ bk_    BBBBBBBB
@@ -984,15 +761,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 3 times.
-down
-position is a5
-Piece at new position is B
-nice
 
 8 Bb _ b _
 7 bb_ bk_    BBBBBBBB
@@ -1005,14 +773,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 1 times.
-down
-position is c5
-Piece at new position is b
-nice
 
 8 Bb _ b _
 7 _b_ bk_    BBBBBBBB
@@ -1025,15 +785,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 3 times.
-down
-position is b7
-Piece at new position is B
-nice
 
 8  b _ b _
 7 _B_ bk_    BBBBBBBB
@@ -1046,15 +797,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is f4
-Piece at new position is b
-nice
 
 8  _ _ b _
 7 _B_ bk_    BBBBBBBBB
@@ -1067,14 +809,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 4 times.
-down
-position is e4
-Piece at new position is B
-nice
 
 8  _ _ b _
 7 _ _ bk_    BBBBBBBBB
@@ -1087,15 +821,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 2 times.
-down
-position is b4
-Piece at new position is b
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8  _ _ b _
 7 _ _ bk_    BBBBBBBBB
@@ -1108,15 +834,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 4 times.
-down
-position is b4
-Piece at new position is B
-nice
 
 8  _ _ b _
 7 _ _ bk_    BBBBBBBBB
@@ -1129,16 +846,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-b has moved 1 times.
-down
-position is b4
-Piece at new position is b
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8  _ _ b _
 7 _ _ _k_    BBBBBBBBBB
@@ -1151,14 +859,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-K has moved 1 times.
-down
-position is d1
-Piece at new position is K
-nice
 
 8  _ _ b _
 7 _ _ _k_    BBBBBBBBBB
@@ -1171,14 +871,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 1 times.
-down
-position is g7
-Piece at new position is b
-nice
 
 8  _ _ _ _
 7 _ _ _kb    BBBBBBBBBB
@@ -1191,15 +883,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 5 times.
-down
-position is f5
-Piece at new position is B
-nice
 
 8  _ _ _ _
 7 _ _ _kb    BBBBBBBBBB
@@ -1212,14 +895,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 2 times.
-down
-position is f6
-Piece at new position is b
-nice
 
 8  _ _ _ _
 7 _ _ _k_    BBBBBBBBBB
@@ -1232,14 +907,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is d5
-Piece at new position is B
-nice
 
 8  _ _ _ _
 7 _ _ _k_    BBBBBBBBBB
@@ -1252,14 +919,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 3 times.
-down
-position is e5
-Piece at new position is b
-nice
 
 8  _ _ _ _
 7 _ _ _k_    BBBBBBBBBB
@@ -1272,15 +931,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-B has moved 2 times.
-down
-position is e6
-Piece at new position is B
-nice
 Black is in check.
 
 8  _ _ _ _
@@ -1294,14 +944,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-up
-k has moved 2 times.
-down
-position is e7
-Piece at new position is k
-nice
 
 8  _ _ _ _
 7 _ _ k _    BBBBBBBBBB
@@ -1314,14 +956,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 2 times.
-down
-position is h4
-Piece at new position is B
-nice
 Black is in check.
 
 8  _ _ _ _
@@ -1335,14 +969,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-up
-k has moved 3 times.
-down
-position is f8
-Piece at new position is k
-nice
 
 8  _ _ k _
 7 _ _ _ _    BBBBBBBBBB
@@ -1355,14 +981,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 1 times.
-down
-position is b5
-Piece at new position is B
-nice
 
 8  _ _ k _
 7 _ _ _ _    BBBBBBBBBB
@@ -1375,14 +993,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 2 times.
-down
-position is e3
-Piece at new position is b
-nice
 
 8  _ _ k _
 7 _ _ _ _    BBBBBBBBBB
@@ -1395,14 +1005,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 6 times.
-down
-position is g6
-Piece at new position is B
-nice
 
 8  _ _ k _
 7 _ _ _ _    BBBBBBBBBB
@@ -1415,14 +1017,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-b has moved 2 times.
-down
-position is d6
-Piece at new position is b
-nice
 
 8  _ _ k _
 7 _ _ _ _    BBBBBBBBBB
@@ -1435,14 +1029,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-B has moved 2 times.
-down
-position is d7
-Piece at new position is B
-nice
 
 8  _ _ k _
 7 _ _B_ _    BBBBBBBBBB
@@ -1455,29 +1041,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-SECOND
-Please input a valid move action.
-Black's move: start
-SECOND
-Please input a valid move action.
-Black's move: start
-FIRST
-Please input a valid move action.
-Black's move: start
-FIRST
-Please input a valid move action.
-Black's move: start
-FIRST
-Please input a valid move action.
-Black's move: start
-good
-up
-k has moved 4 times.
-down
-position is g7
-Piece at new position is k
-nice
 
 8  _ _ _ _
 7 _ _B_ k    BBBBBBBBBB
@@ -1490,20 +1053,6 @@ nice
 
   abcdefgh
 
-White's move: start
-FIRST
-Please input a valid move action.
-White's move: start
-FIRST
-Please input a valid move action.
-White's move: start
-good
-up
-B has moved 3 times.
-down
-position is f5
-Piece at new position is B
-nice
 
 8  _ _ _ _
 7 _ _B_ k    BBBBBBBBBB
@@ -1516,14 +1065,8 @@ nice
 
   abcdefgh
 
-Black's move: start
-FIRST
-Please input a valid move action.
-Black's move: start
-FIRST
-Please input a valid move action.
-Black's move: White wins!
-Command: 
+White wins!
+
 Final Score:
 White: 1
 Black: 0

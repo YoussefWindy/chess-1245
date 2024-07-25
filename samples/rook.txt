@@ -24,7 +24,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -36,7 +36,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -60,7 +60,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -72,7 +72,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -84,7 +84,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -96,7 +96,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -108,7 +108,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -120,7 +120,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -132,7 +132,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -144,7 +144,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -156,7 +156,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -168,7 +168,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -180,7 +180,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -192,7 +192,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -204,7 +204,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -216,7 +216,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -228,7 +228,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -240,7 +240,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 r_ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -252,7 +252,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rr _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -264,7 +264,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrr_k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -276,7 +276,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrk_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -288,7 +288,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkr _
 7 _ _ _ _    
 6  _ _ _ _
@@ -300,7 +300,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrr_
 7 _ _ _ _    
 6  _ _ _ _
@@ -312,7 +312,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 _ _ _ _    
 6  _ _ _ _
@@ -324,7 +324,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 r _ _ _    
 6  _ _ _ _
@@ -336,7 +336,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rr_ _ _    
 6  _ _ _ _
@@ -348,7 +348,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrr _ _    
 6  _ _ _ _
@@ -360,7 +360,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrr_ _    
 6  _ _ _ _
@@ -372,7 +372,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrrr _    
 6  _ _ _ _
@@ -384,7 +384,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrrrr_    
 6  _ _ _ _
@@ -396,7 +396,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrrrrr    
 6  _ _ _ _
@@ -408,7 +408,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrrrrrr   
 6  _ _ _ _
@@ -420,7 +420,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 rrrrkrrr
 7 rrrrrrrr   
 6  _ _ _ _
@@ -433,7 +433,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: The game has begun!
+The game has begun!
 
 8 rrrrkrrr
 7 rrrrrrrr   
@@ -446,15 +446,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is h7
-Piece at new position is R
-nice
 
 8 rrrrkrrr
 7 rrrrrrrR   
@@ -467,15 +458,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is a2
-Piece at new position is r
-nice
 
 8 rrrrkrrr
 7 _rrrrrrR   R
@@ -488,15 +470,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is a2
-Piece at new position is R
-nice
 
 8 rrrrkrrr
 7 _rrrrrrR   R
@@ -509,15 +482,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is d2
-Piece at new position is r
-nice
 
 8 rrrrkrrr
 7 _rr rrrR   RR
@@ -530,15 +494,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is d2
-Piece at new position is R
-nice
 
 8 rrrrkrrr
 7 _rr rrrR   RR
@@ -551,15 +506,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is b1
-Piece at new position is r
-nice
 
 8 rrrrkrrr
 7 _ r rrrR   RRR
@@ -572,15 +518,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is b1
-Piece at new position is R
-nice
 
 8 rrrrkrrr
 7 _ r rrrR   RRR
@@ -593,15 +530,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is h7
-Piece at new position is r
-nice
 
 8 rrrrkrr_
 7 _ r rrrr   RRRR
@@ -614,15 +542,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 2 times.
-down
-position is d8
-Piece at new position is R
-nice
 Black is in check.
 
 8 rrrRkrr_
@@ -636,15 +555,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is d8
-Piece at new position is r
-nice
 
 8 rr rkrr_
 7 _ r rrrr   RRRRR
@@ -657,14 +567,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-R has moved 2 times.
-down
-position is d2
-Piece at new position is R
-nice
 
 8 rr rkrr_
 7 _ r rrrr   RRRRR
@@ -677,15 +579,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is g2
-Piece at new position is r
-nice
 
 8 rr rkrr_
 7 _ r rr_r   RRRRRR
@@ -698,15 +591,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 3 times.
-down
-position is d8
-Piece at new position is R
-nice
 Black is in check.
 
 8 rr Rkrr_
@@ -720,15 +604,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is d8
-Piece at new position is r
-nice
 
 8 r_ rkrr_
 7 _ r rr_r   RRRRRRR
@@ -741,15 +616,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is a8
-Piece at new position is R
-nice
 
 8 R_ rkrr_
 7 _ r rr_r   RRRRRRR
@@ -762,14 +628,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-r has moved 2 times.
-down
-position is c8
-Piece at new position is r
-nice
 
 8 R_r_krr_
 7 _ r rr_r   RRRRRRR
@@ -782,15 +640,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is g2
-Piece at new position is R
-nice
 
 8 R_r_krr_
 7 _ r rr_r   RRRRRRR
@@ -803,15 +652,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 3 times.
-down
-position is a8
-Piece at new position is r
-nice
 
 8 r_ _krr_
 7 _ r rr_r   RRRRRRRR
@@ -824,15 +664,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 1 times.
-down
-position is f7
-Piece at new position is R
-nice
 
 8 r_ _krr_
 7 _ r rR_r   RRRRRRRR
@@ -845,14 +676,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-r has moved 2 times.
-down
-position is g7
-Piece at new position is r
-nice
 
 8 r_ _krr_
 7 _ r rRr    RRRRRRRR
@@ -865,15 +688,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 2 times.
-down
-position is g7
-Piece at new position is R
-nice
 
 8 r_ _krr_
 7 _ r rRR    RRRRRRRR
@@ -886,15 +700,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-r has moved 1 times.
-down
-position is f7
-Piece at new position is r
-nice
 
 8 r_ _k_r_
 7 _ r rrR    RRRRRRRRR
@@ -907,15 +712,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 3 times.
-down
-position is g8
-Piece at new position is R
-nice
 Black is in check.
 
 8 r_ _k_R_
@@ -929,14 +725,6 @@ Black is in check.
 
   abcdefgh
 
-Black's move: start
-good
-up
-r has moved 2 times.
-down
-position is f8
-Piece at new position is r
-nice
 
 8 r_ _krR_
 7 _ r r _    RRRRRRRRR
@@ -949,18 +737,8 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-R has moved 4 times.
-down
-position is f8
-Piece at new position is R
-nice
 Checkmate! White wins!
-Command: Game is not active.
-Command: 
+
 Final Score:
 White: 1
 Black: 0

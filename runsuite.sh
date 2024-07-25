@@ -27,7 +27,7 @@ while IFS= read -r stem; do
     fi
 
     # Run the command and redirect stdout and stderr
-    if ./chess < "$in_file" &> "$out_file"; then
+    if ./chess < "$in_file" > "$out_file" 2> "$err_file"; then
         status="PASSED!"
     else
         status="FAILED!"

@@ -169,10 +169,7 @@ bool Board::stalemate(bool colour) const {
 bool Board::repetition() const {
 	if (log.size() < 9) return false;
 	// Fill in
-<<<<<<< HEAD
 	return false;
-=======
->>>>>>> 38f07563af0f29e098cb183c85f4d480abe1e31c
 }
 
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
@@ -360,38 +357,71 @@ Move Board::getLastMove() const {
 }
 
 void Board::undoMoves(int num) {
+  // Undo given number of moves
 	for (int i = 0; i < num; i++) {
+    // If the move log is empty, break and exit
 		if (log.empty()) break;
-    	turn = !turn;
+
+     // Update the current turn
+    turn = !turn;
+    
+    // Copy the piece back into the old position
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
+
+    // something
 		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos, false);
 		removePiece(log.back().newPos);
+
+    // Retrieve capturd piece from the graveyard
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
 			insert(deadPieces.back()->getColour() ? whitePieces : blackPieces, deadPieces.back());
 			deadPieces.pop_back();
 		}
+    
+    // Check for promotion
 		if (log.back().promotion) {
 			removePiece(log.back().oldPos);
 			addPiece<Pawn>(turn, log.back().oldPos);
 		}
-		if (board[log.back().oldPos.x][log.back().oldPos.y]->getName() == (turn ? 'K' : 'k')) { // check for castling
+    
+    // Check for castling
+		if (board[log.back().oldPos.x][log.back().oldPos.y]->getName() == (turn ? 'K' : 'k')) {
+      // Debug statement
 			std::cerr << "we found a not king" << std::endl;
-			if (log.back().newPos.x - log.back().oldPos.x == 2) { // castling right
+      
+      // Castling right
+			if (log.back().newPos.x - log.back().oldPos.x == 2) {
+        // Debug statement
 				std::cerr << "we're uncastling??" << std::endl;
+        
+        // Move the pieces into old positions
 				board[WIDTH - 1][log.back().oldPos.y] = board[log.back().newPos.x - 1][log.back().newPos.y];
-				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false); // move the rook
+				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false);
+        
+        // Remove from log
 				log.pop_back();
-			} else if (log.back().oldPos.x - log.back().newPos.x == 2) { // castling left
+			} else if (log.back().oldPos.x - log.back().newPos.x == 2) {
+        // castling left
+        
+        // Debug statement
 				std::cerr << "we're uncastling??" << std::endl;
+        
+        // Move the pieces into old positions
 				board[0][log.back().oldPos.y] = board[log.back().newPos.x + 1][log.back().newPos.y];
-				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false); // move the rook
+				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false);
+        
+        // Remove from log
 				log.pop_back();
 			}
 		}
+    
+    // Remove from log
 		log.pop_back();
 	}
-    runCalculations();
+  
+  // Recalculate legal moves
+  runCalculations();
 }
 
 bool Board::getTurn() const {
@@ -399,26 +429,41 @@ bool Board::getTurn() const {
 }
 
 void Board::validate() {
+  // Check if both Kings exist on the board
 	if (!hasKing(true)) throw BadSetup{"no white king on the board!"};
 	if (!hasKing(false)) throw BadSetup{"no black king on the board!"};
-	for (auto p: whitePieces) { // Check white pawns
+
+  // Check white pawns
+	for (auto p: whitePieces) { 
 		if (p->getName() == 'P') {
 			Posn pawnPosn = p->getPosn();
+      // White pawn in promotion zone
 			if (pawnPosn.y == HEIGHT - 1) throw BadSetup{"there is a white pawn on the last row!"};
 		}
 	}
-	for (auto p: blackPieces) { // Check black pawns
+
+  // Check black pawns
+	for (auto p: blackPieces) { 
 		if (p->getName() == 'p') {
 			Posn pawnPosn = p->getPosn();
+      // Black pawn in promotion zone
 			if (!pawnPosn.y) throw BadSetup{"there is a black pawn on the last row!"};
 		}
 	}
+
+  // Ensure no Kings are in check on setup
 	if (runCalculations() > 0) throw BadSetup{std::string((!turn ? "white" : "black")) + " is in check!"};
-	turn = !turn;
+
+	// Swap turn to check other king
+  turn = !turn;
+
 	if (runCalculations() > 0) {
+    // Revert turn to correct
 		turn = !turn;
 		throw BadSetup{std::string((!turn ? "white" : "black")) + " is in check!"};
 	}
+
+  // Revert turn to correct turn
 	turn = !turn;
 }
 
@@ -440,15 +485,25 @@ const std::vector<Move> Board::getLog() const {
 
 std::ostream& operator<<(std::ostream& out, const Board& board) {
 	out << std::endl;
-	for (unsigned int row = 0; row < HEIGHT; row++) { // Iterate over the board
-		out << (HEIGHT - row) << " "; // Row number
-		for (unsigned int col = 0; col < WIDTH; col++) {
-			if (board[{col, HEIGHT - row - 1}]) { // if there's a piece there
+
+  // Iterate over the rows
+	for (unsigned int row = 0; row < HEIGHT; row++) { 
+    // Row number
+		out << (HEIGHT - row) << " ";
+		
+    // Iterate over the columns
+    for (unsigned int col = 0; col < WIDTH; col++) {
+			if (board[{col, HEIGHT - row - 1}]) {
+        // if there's a piece there, print it
 				out << board[{col, HEIGHT - row - 1}]->getName();
-			} else { // if it's a blank space
+			} else {
+        // if it's a blank space, print it
+        // print black or white square
 				out << ((col + row) % 2 ? '_' : ' ');
 			}
 		}
+    
+    // Print dead pieces
 		if (board.showDead && row == 1) {
 			out << "   ";
 			for (auto p: board.deadPieces) {
@@ -464,10 +519,14 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 				}
 			}
 		}
+
 		out << std::endl;
 	}
-	out << std::endl << "  ";
-	for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
+	
+  out << std::endl << "  ";
+	
+  // Print column letters
+  for (unsigned char c = 'a'; c < 'a' + WIDTH; c++) {
 		out << c;
 	}
 	out << std::endl;
