@@ -19,8 +19,9 @@ class Board {
 	void insert(std::vector<std::shared_ptr<Piece>> &vec, std::shared_ptr<Piece> &piece);
 	// Checking for check and checkmate
 	bool check(const Posn &posn, bool colour) const;
-	bool checkmate(bool colour) const; // needs work
+	bool checkmate(bool colour) const;
 	bool stalemate(bool colour) const;
+	bool repetition() const;
 	void promote(const Posn &posn, unsigned int type);
   public:
 	Board();
