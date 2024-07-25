@@ -10,7 +10,7 @@ void Rook::calculateLegalMoves(const Board &board) {
     legalMoves.clear();
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
-            if ((!i && !j) || (i && j) || (!vertical && i) || (!horizontal && j)) continue;
+            if ((!i && !j) || (i && j) || (!vertical && j) || (!horizontal && i)) continue;
             for (int k = 1;; k++) {
                 try {
                     Posn p{posn.x + i * k, posn.y + j * k};

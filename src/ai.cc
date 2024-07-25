@@ -145,6 +145,7 @@ const std::vector<Move> AI::calculateCapturingMoves() const {
     for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
         for (Posn posn: piece->getLegalMoves()) {
             if (boardState[posn]) {
+                if (boardState[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
                 tmp.emplace_back(piece->getPosn(), posn);
             }
         }
@@ -156,11 +157,15 @@ const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
     for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
         for (Posn posn: piece->getLegalMoves()) {
+            std::cerr << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
             boardState.movePiece({piece->getPosn(), posn});
-            if ((!checkmate && boardState.check((colour ? boardState.whiteKing : boardState.blackKing)->getPosn(), colour))
+            piece->calculateLegalMoves(boardState);
+            if ((!checkmate && boardState.check((!colour ? boardState.whiteKing : boardState.blackKing)->getPosn(), colour))
               || (checkmate && boardState.checkmate(colour))) {
+                std::cerr << "interesting thing here" << std::endl;
                 tmp.emplace_back(boardState.log.back());
             }
+            std::cerr << "undo" << std::endl;
             boardState.undoMoves();
         }
     }
