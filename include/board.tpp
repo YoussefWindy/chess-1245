@@ -7,7 +7,7 @@
 template <typename T>
 void Board::addPiece(bool colour, const Posn &posn) {
 	board[posn.x][posn.y] = std::make_shared<T>(colour, posn);
-	(colour ? whitePieces : blackPieces).emplace_back(board[posn.x][posn.y]);
+	insert(colour ? whitePieces : blackPieces, board[posn.x][posn.y]);
 	if (std::is_same<T, King>::value) {
 		(colour ? whiteKing : blackKing) = board[posn.x][posn.y];
 		// if ((colour ? whiteKing : blackKing) == board[posn.x][posn.y]) {

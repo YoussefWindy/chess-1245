@@ -15,7 +15,10 @@ void King::calculateLegalMoves(const Board &board) {
             try {
                 Posn p{posn.x + i, posn.y + j};
                 if ((!board[p] || (board[p]->getColour() != colour // if square is empty, or square is not belonging to us already
-                  && !board[p]->getIsProtected())) && !board.check(p, colour)) { // AND not protected, and square is not in check
+                  && !board[p]->getIsProtected())) && !board.check(p, colour) // and not protected, and square is not in check, and
+                  && (p.y == (colour ? HEIGHT - 1 : 0) || ((p.x == WIDTH - 1 || !(board[{p.x + 1, p.y + (colour ? 1 : -1)}]) // there are no
+                  || (board[{p.x + 1, p.y + (colour ? 1 : -1)}]->getName() != (!colour ? 'P' : 'p'))) && (!p.x || // pawns that can check
+                  !(board[{p.x - 1, p.y + (colour ? 1 : -1)}]) || (board[{p.x - 1, p.y + (colour ? 1 : -1)}]->getName() != (!colour ? 'P' : 'p')))))) {
                     // std::cerr << "King can move to " << char('a' + p.x) << p.y + 1 << std::endl;
                     legalMoves.emplace_back(p);
                 }
@@ -25,14 +28,13 @@ void King::calculateLegalMoves(const Board &board) {
     // std::cerr << "King " << 2 << std::endl;
     if (!numMoves && !board.check(posn, colour)) { // if king hasn't moved yet and is not in check
         for (int i = 0; i < 2; i++) { // look at the two rooks on either side of the board
-            std::shared_ptr<Piece> p = board[{i ? 0 : WIDTH - 1, posn.y}];
+            std::shared_ptr<Piece> piece = board[{i ? 0 : WIDTH - 1, posn.y}];
     // std::cerr << "King " << 3 << i << std::endl;
-            if (p && p->getName() == (colour ? 'R' : 'r') && !p->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
-              posn.y == p->getY() && (posn.x - p->getX() == 4 || p->getX() - posn.x == 3)) { // and is either 4 spaces to the left or 3 to the right of this
-                bool right = posn.x < p->getX();
-                if (!board[{posn.x + (right ? 1 : -1), posn.y}] && !board.check({posn.x + (right ? 1 : -1), posn.y}, colour) &&
-                  !board[{posn.x + (right ? 2 : -2), posn.y}] && !board.check({posn.x + (right ? 2 : -2), posn.y}, colour)) {
-                    legalMoves.emplace_back(posn.x + (posn.x < p->getX() ? 2 : -2), posn.y); // if none of the spaces in between are in check
+            if (piece && piece->getName() == (colour ? 'R' : 'r') && !piece->getHasMoved() && // if p is a rook that hasn't moved yet and is at the same Y level as this
+              posn.y == piece->getY() && (posn.x - piece->getX() == 4 || piece->getX() - posn.x == 3)) { // and is either 4 spaces to the left or 3 to the right of this
+                if (!board[{posn.x + (i ? -1 : 1), posn.y}] && !board.check({posn.x + (i ? -1 : 1), posn.y}, colour) &&
+                  !board[{posn.x + (i ? -2 : 2), posn.y}] && !board.check({posn.x + (i ? -2 : 2), posn.y}, colour) && (!i || !board[{posn.x - 3, posn.y}])) {
+                    legalMoves.emplace_back(posn.x + (i ? -2 : 2), posn.y); // if none of the spaces in between are in check
                 }
             }
         }
@@ -121,7 +123,7 @@ bool King::calculatePins(const Board &board, std::vector<Posn> &positions) {
                             numChecks++;
                             break;
                         }
-                    }
+                    } else break; // only other piece types it could be are king and knight, which will block checks
                 } catch (BadPosn &e) {
                     break; // if p is out of bounds, break the k loop to start looking in a different direction
                 }

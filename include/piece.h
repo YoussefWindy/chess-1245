@@ -3,10 +3,11 @@
 #define PIECE_H
 
 #include "utilities.h"
-
+#include <compare>
 class Board; // forward declaration
 
 class Piece {
+	friend class AI;
   protected:
 	char name;
 	bool colour, isProtected;
@@ -30,16 +31,16 @@ class Piece {
 	Posn getPosn() const;
 	unsigned int getX() const;
 	unsigned int getY() const;
-	const std::vector<Posn>& getLegalMoves() const;
+	// const std::vector<Posn>& getLegalMoves() const;
 	bool getHasMoved() const;
 	bool getIsProtected() const;
 
 	// Setters
 	void move(const Posn &posn, bool forward = true);
 	void setName(char value);
-	void setX(unsigned int value);
-	void setY(unsigned int value);
 	void protect(bool isProtected = true);
+
+	std::strong_ordering operator<=>(const Piece &other) const;
 };
 
 std::ostream& operator<<(std::ostream &out, const Piece &posn);
