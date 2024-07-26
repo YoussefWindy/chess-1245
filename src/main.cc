@@ -178,19 +178,19 @@ int main() {
 							// cerr << "piece is now " << piece << endl;
 							switch (piece) {
 								case 'n':
-									// cerr << "about to promote to n" << endl;
+									cerr << "about to promote to n" << endl;
 									promotion = 1;
 									break;
 								case 'b':
-									// cerr << "about to promote to b" << endl;
+									cerr << "about to promote to b" << endl;
 									promotion = 2;
 									break;
 								case 'r':
-									// cerr << "about to promote to r" << endl;
+									cerr << "about to promote to r" << endl;
 									promotion = 3;
 									break;
 								case 'q':
-									// cerr << "about to promote to q" << endl;
+									cerr << "about to promote to q" << endl;
 									promotion = 4;
 									break;
 								default:
@@ -232,11 +232,11 @@ int main() {
 			}
 		} else if (command == "show") {
 			(gameActive ? board : defaultBoard).setShowDead(true);
-			display(gameActive ? board : defaultBoard);
+			display(gameActive ? board : defaultBoard, xw);
 			cout << "Captured pieces will be shown on the display" << (!gameActive ? " by default." : ".") << endl;
 		} else if (command == "hide") {
 			(gameActive ? board : defaultBoard).setShowDead(false);
-			display(gameActive ? board : defaultBoard);
+			display(gameActive ? board : defaultBoard, xw);
 			cout << "Captured pieces will be hidden on the display" << (!gameActive ? " by default." : ".") << endl;
 		} else if (command == "undo") {
 			if (!gameActive) {
@@ -333,7 +333,7 @@ int main() {
 					}
 				} else if (command == "reset") {
            			setBoardDefault(defaultBoard);
-					display(defaultBoard);
+					display(defaultBoard, xw);
         		} else if (command == "clear") {
 					Board tmp;
 					tmp.setTurn(defaultBoard.getTurn());
@@ -585,63 +585,63 @@ int main() {
 					cerr << "Please input a valid replay command." << endl;
 				} // command == ****
 			} // while (cin >> command)
-		} else if (command == "simplereplay") {
-			if (gameActive) {
-				cerr << "You must not be currently playing a game to enter replay mode." << endl
-					 << (board.getTurn() ? "White" : "Black") << "'s move: ";
-					 continue;
-			} else if (!(whiteWins || blackWins)) {
-				cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
-				continue;
-			}
-			int num = -1;
-			Board replayBoard;
-			if (cin >> num) {
-				if (num < 0) {
-					cerr << "Please input a non-negative number." << endl << "Command: ";
-					continue;
-				}
-				replayBoard = board; // Starting replayBoard from the back
-			} else {
-				replayBoard = defaultBoard; // Starting replayBoard from the front
-			}
-			auto it = (num >= 0 ? replayBoard.begin(board) : replayBoard.end(board));
-			for (int i = 0; i < num; i++) {
-				try {
-					--it;
-				} catch (BadMove &e) {
-					cerr << "The last game is only " << i << " moves long." << endl;
-				}
-			}
-			while (cin >> command) {
-				toLowercase(command);
-				if (command == "next") {
-					try {
-						++it;
-					} catch (BadMove &e) {
-						cerr << "You have reached the end, you cannot go further." << endl;
-					}
-				} else if (command == "back") {
-					try {
-						--it;
-					} catch (BadMove &e) {
-						cerr << "You are at the beginning, you cannot go back further." << endl;
-					}
-				} else if (command == "done") {
-					break;
-				} else if (command == "help") {
-					cout << endl << "Simplereplay mode supports the following commands:" << endl << endl
-						 << "next - will move the replay one step forward" << endl
-						 << "back - will move the replay one step backward" << endl
-						 << "done - will exit simplereplay mode" << endl;
-					continue;
-				} else {
-					cerr << "Please input a valid replay command." << endl << "Command: ";
-					continue;
-				}
-				display(*it, xw);
-				cerr << "Command: ";
-			}
+		// } else if (command == "simplereplay") {
+		// 	if (gameActive) {
+		// 		cerr << "You must not be currently playing a game to enter replay mode." << endl
+		// 			 << (board.getTurn() ? "White" : "Black") << "'s move: ";
+		// 			 continue;
+		// 	} else if (!(whiteWins || blackWins)) {
+		// 		cerr << "You must have completed a game to enter replay mode." << endl << "Command: ";
+		// 		continue;
+		// 	}
+		// 	int num = -1;
+		// 	Board replayBoard;
+		// 	if (cin >> num) {
+		// 		if (num < 0) {
+		// 			cerr << "Please input a non-negative number." << endl << "Command: ";
+		// 			continue;
+		// 		}
+		// 		replayBoard = board; // Starting replayBoard from the back
+		// 	} else {
+		// 		replayBoard = defaultBoard; // Starting replayBoard from the front
+		// 	}
+		// 	auto it = (num >= 0 ? replayBoard.begin(board) : replayBoard.end(board));
+		// 	for (int i = 0; i < num; i++) {
+		// 		try {
+		// 			--it;
+		// 		} catch (BadMove &e) {
+		// 			cerr << "The last game is only " << i << " moves long." << endl;
+		// 		}
+		// 	}
+		// 	while (cin >> command) {
+		// 		toLowercase(command);
+		// 		if (command == "next") {
+		// 			try {
+		// 				++it;
+		// 			} catch (BadMove &e) {
+		// 				cerr << "You have reached the end, you cannot go further." << endl;
+		// 			}
+		// 		} else if (command == "back") {
+		// 			try {
+		// 				--it;
+		// 			} catch (BadMove &e) {
+		// 				cerr << "You are at the beginning, you cannot go back further." << endl;
+		// 			}
+		// 		} else if (command == "done") {
+		// 			break;
+		// 		} else if (command == "help") {
+		// 			cout << endl << "Simplereplay mode supports the following commands:" << endl << endl
+		// 				 << "next - will move the replay one step forward" << endl
+		// 				 << "back - will move the replay one step backward" << endl
+		// 				 << "done - will exit simplereplay mode" << endl;
+		// 			continue;
+		// 		} else {
+		// 			cerr << "Please input a valid replay command." << endl << "Command: ";
+		// 			continue;
+		// 		}
+		// 		display(*it, xw);
+		// 		cerr << "Command: ";
+		// 	}
 		} else if (command == "help") {
 			cout << endl << "The chess program supports the following commands:" << endl << endl
 				 << "game [white] [black] - starts a game with white and black humans/computers" << endl
@@ -650,7 +650,7 @@ int main() {
 				 << "show/hide - will show/hide the pieces each team has captured" << endl
 				 << "undo [num] - undoes num number of moves (will ask for user confirmation first)" << endl
 				 << "setup - enter setup mode" << endl << "replay - enter replay mode" << endl
-				 << "simplereplay - enter simplereplay mode" << endl << "quit/exit - terminate the program" << endl;
+				 /*<< "simplereplay - enter simplereplay mode" << endl*/ << "quit/exit - terminate the program" << endl;
 		} else if (command == "quit" || command == "exit") {
 			break;
 		} else {
