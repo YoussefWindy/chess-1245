@@ -11,7 +11,7 @@
 
 using namespace std;
 
-XWindow::XWindow(int width, int height) : width(width), height(height) {
+XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), height(height) {
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
@@ -30,10 +30,19 @@ XWindow::XWindow(int width, int height) : width(width), height(height) {
 
     XFlush(d);
 
+    // Load font
+    const char* font_name = "-adobe-courier-medium-r-normal--24-240-75-75-m-150-iso8859-1";
+    font_info = XLoadQueryFont(d, font_name);
+    if (font_info == nullptr) {
+        cerr << "Cannot open font: loaded fixed" << endl;
+        font_info = XLoadQueryFont(d, "fixed");
+    }
+    XSetFont(d, gc, font_info->fid);
+
     // Set up colours
     colours[0] = 0xFFFFFF; // White
     colours[1] = 0x8B4513; // Dark brown (takes the place of black on the board)
-    colours[2] = 0xF5F5DC; // Beige
+    colours[2] = 0x808080; // Grey
     colours[3] = 0x000000; // Black
 
     XSetForeground(d, gc, colours[2]);
@@ -51,33 +60,35 @@ XWindow::XWindow(int width, int height) : width(width), height(height) {
 }
 
 XWindow::~XWindow() {
+    cerr << "Closing display" << endl;
+    if (font_info) {
+        XFreeFont(d, font_info);
+        cerr << "Freed font" << endl;
+    }
     XFreeGC(d, gc);
+    cerr << "Freed GC" << endl;
+    XDestroyWindow(d, w);
+    cerr << "Destroyed window" << endl;
     XCloseDisplay(d);
+    cerr << "Closed display" << endl;
 }
 
 void XWindow::drawBoard(const Board &board) {
     int vert_off = 100;
     int horiz_off = 100;
 
-    // Load font
-    const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
-    auto font_info = XLoadQueryFont(d, font_name);
-    if (!font_info) {
-        cerr << "Cannot open font: loaded fixed" << endl;
-        font_info = XLoadQueryFont(d, "fixed");
-    }
-    XSetFont(d, gc, font_info->fid);
-
     // Draw the board
     XSetForeground(d, gc, colours[2]);
     XFillRectangle(d, w, gc, 0, 0, width, height);
+    XSetForeground(d, gc, colours[3]);
+    XFillRectangle(d, w, gc, horiz_off - 10, vert_off - 10, 820, 820);
     XSetForeground(d, gc, colours[1]);
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if ((i + j) % 2) {
                 XFillRectangle(d, w, gc, horiz_off + i * 100, j * 100 + vert_off, 100, 100);
             } else {
-                XSetForeground(d, gc, colours[2]);
+                XSetForeground(d, gc, colours[0]);
                 XFillRectangle(d, w, gc, horiz_off + i * 100, j * 100 + vert_off, 100, 100);
                 XSetForeground(d, gc, colours[1]);
             }
@@ -124,9 +135,6 @@ void XWindow::drawBoard(const Board &board) {
     }
 
     XFlush(d);
-
-    // Clean up
-    XFreeFont(d, font_info);
 }
 
 int XWindow::getWidth() const {

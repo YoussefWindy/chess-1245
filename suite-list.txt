@@ -1,12 +1,9 @@
-ai-1-stress
-ai-2-stress
-castling
-checkmate
 bishop
+castling
+ding-vs-carlson
 knight
 pawn-bad-promotion
 pawn
 queen
 rook
 setup
-ding-vs-carlson
