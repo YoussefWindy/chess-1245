@@ -1,3 +1,6 @@
+ai-1-stress
+ai-2-stress
+ai-4-stress
 bishop
 castling
 checkmate

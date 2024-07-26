@@ -118,21 +118,23 @@ void XWindow::drawBoard(const Board &board) {
     }
 
     // Draw the dead pieces on the side
-    int white_offset = 0;
-    int black_offset = 0;
-    for (auto piece: board.deadPieces) {
-        const char name = piece->getName();
-        const char name_str[2] = {name, '\0'};
-        if (piece->getColour()) {
+    if (board.showDead) {
+      int white_offset = 0;
+      int black_offset = 0;
+      for (auto piece: board.deadPieces) {
+          const char name = piece->getName();
+          const char name_str[2] = {name, '\0'};
+          if (piece->getColour()) {
             XSetForeground(d, gc, colours[0]);
             XDrawString(d, w, gc, 1000 + (40 * (white_offset / 7)), 50 * (white_offset - 7 * (white_offset / 7)) + vert_off, name_str, 1);
             white_offset += 1;
-        } else {
+          } else {
             XSetForeground(d, gc, colours[1]);
             XDrawString(d, w, gc, 1000 + (40 * (black_offset / 7)), (50 * (black_offset - 7 * (black_offset / 7))) + 500 + vert_off, name_str, 1);
             black_offset += 1;
-        }
-    }
+          }
+      }
+  }
 
     XFlush(d);
 }
