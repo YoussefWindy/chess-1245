@@ -1,6 +1,7 @@
 # The program and build files
 chess
 obj
+samples
 
 # Prerequisites
 *.d
