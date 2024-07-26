@@ -179,19 +179,19 @@ int main() {
 							// cerr << "piece is now " << piece << endl;
 							switch (piece) {
 								case 'n':
-									cerr << "about to promote to n" << endl;
+									// cerr << "about to promote to n" << endl;
 									promotion = 1;
 									break;
 								case 'b':
-									cerr << "about to promote to b" << endl;
+									// cerr << "about to promote to b" << endl;
 									promotion = 2;
 									break;
 								case 'r':
-									cerr << "about to promote to r" << endl;
+									// cerr << "about to promote to r" << endl;
 									promotion = 3;
 									break;
 								case 'q':
-									cerr << "about to promote to q" << endl;
+									// cerr << "about to promote to q" << endl;
 									promotion = 4;
 									break;
 								default:
@@ -668,9 +668,9 @@ int main() {
 			cerr << "Command: ";
 		}
 	} // while
-	cerr << "Attempt to delete xw" << endl;
+	// cerr << "Attempt to call xw dtor" << endl;
 	xw.reset();
-	cerr << "XWindow deleted." << endl;
+	// cerr << "XWindow bye bye." << endl;
 	cout << endl << "Final Score:" << endl
 		 << "White: " << whiteWins << endl
 		 << "Black: " << blackWins << endl;
