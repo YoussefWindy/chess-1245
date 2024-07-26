@@ -5,6 +5,7 @@
 #include "../include/board.tpp"
 #include <iostream>
 #include <ostream>
+#include <memory>
 
 const Move emptyMove = {{0, 0}, {0, 0}};
 
@@ -190,7 +191,30 @@ bool Board::stalemate(bool colour) const {
 
 bool Board::repetition() const {
 	if (log.size() < 9) return false;
-	// Fill in
+	
+  auto move_1 = std::make_unique<Move>(log[log.size() - 9]);
+  auto move_2 = std::make_unique<Move>(log[log.size() - 8]);
+  auto move_3 = std::make_unique<Move>(log[log.size() - 7]);
+  auto move_4 = std::make_unique<Move>(log[log.size() - 6]);
+  auto move_5 = std::make_unique<Move>(log[log.size() - 5]);
+  auto move_6 = std::make_unique<Move>(log[log.size() - 4]);
+  auto move_7 = std::make_unique<Move>(log[log.size() - 3]);
+  auto move_8 = std::make_unique<Move>(log[log.size() - 2]);
+  auto move_9 = std::make_unique<Move>(log[log.size() - 1]);
+
+  if (move_9->newPos == move_7->oldPos &&
+      move_9->newPos == move_5->newPos &&
+      move_9->newPos == move_3->oldPos &&
+      move_9->oldPos == move_7->newPos &&
+      move_9->oldPos == move_5->oldPos &&
+      move_9->oldPos == move_3->newPos &&
+      move_8->newPos == move_6->oldPos &&
+      move_8->newPos == move_4->newPos &&
+      move_8->newPos == move_2->oldPos &&
+      move_8->oldPos == move_6->newPos &&
+      move_8->oldPos == move_4->oldPos &&
+      move_8->oldPos == move_2->newPos) return true;
+
 	return false;
 }
 
