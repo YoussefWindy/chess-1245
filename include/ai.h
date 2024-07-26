@@ -8,10 +8,9 @@
 // It has access to all private Board and Piece
 // fields and methods in order to make decisions.
 class AI {
-    Board &boardRef;
-    mutable Board boardState;
-    bool colour;
-    int difficulty;
+    const Board &board;
+    const bool colour;
+    const int difficulty;
     mutable std::vector<Move> checkingMoves, capturingMoves;
     mutable std::vector<Posn> threatenedPosns;
     const std::vector<Move> calculateCheckingMoves(bool checkmatee) const;
