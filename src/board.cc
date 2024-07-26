@@ -25,7 +25,7 @@ Board::Board(const Board &other): turn{other.turn}, showDead{other.showDead}, lo
 	}
 	for (auto p: other.deadPieces) {
 		addPieceHelp(p->getName(), p->getPosn());
-		insert(deadPieces, board[p->getX()][p->getY()]);
+		deadPieces.emplace_back(board[p->getX()][p->getY()]);
 		removePiece(p->getPosn());
 	}
 	for (auto p: other.whitePieces) {
@@ -110,7 +110,11 @@ void Board::insert(std::vector<std::shared_ptr<Piece>> &vec, std::shared_ptr<Pie
 
 bool Board::check(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
-		if (piece->canMoveTo(posn)) {
+		if (piece->getValue() == 1) {
+			if (abs(posn.x - piece->getX()) == 1 && posn.y - piece->getY() == (!colour ? 1 : -1)) {
+				return true;
+			}
+		} else if (piece->canMoveTo(posn)) {
 			return true;
 		}
 	}
@@ -128,42 +132,60 @@ bool Board::checkmate(bool colour) const {
 
 bool Board::stalemate(bool colour) const {
 	// Invariant: this method should only ever be called if colour isn't in check, so we won't check for that
+	bool noMoves = true, noMaterial = true;
 	for (auto piece: !colour ? whitePieces : blackPieces) {
-		if (piece->canMove()) return false;
+		if (piece->canMove()) {
+			noMoves = false;
+			break;
+		}
 	}
 	bool bishopFound = false, knightFound = false;
 	for (auto piece: whitePieces) {
+		if (!noMaterial) break;
 		switch (piece->getName()) {
 			case 'K':
+				// std::cerr << "gooda" << std::endl;
 				continue;
 			case 'N':
-				if (knightFound || bishopFound) return false;
+				// std::cerr << "bad1a" << std::endl;
+				if (knightFound || bishopFound) noMaterial = false;
 				else knightFound = true;
+				break;
 			case 'B':
+				// std::cerr << "bad2a" << std::endl;
 				if (bishopFound) continue;
-				else if (knightFound) return false;
+				else if (knightFound) noMaterial = false;
 				else bishopFound = true;
+				break;
 			default:
-				return false;
-		}
-	}
-	for (auto piece: blackPieces) {
-		switch (piece->getName()) {
-			case 'K':
-				continue;
-			case 'N':
-				if (knightFound || bishopFound) return false;
-				else knightFound = true;
-			case 'B':
-				if (bishopFound) continue;
-				else if (knightFound) return false;
-				else bishopFound = true;
-			default:
-				return false;
+				// std::cerr << "bad3a" << std::endl;
+				noMaterial = false;
 		}
 	}
 	bishopFound = knightFound = false;
-	return true;
+	for (auto piece: blackPieces) {
+		if (!noMaterial) break;
+		switch (piece->getName()) {
+			case 'k':
+				// std::cerr << "goodb" << std::endl;
+				continue;
+			case 'n':
+				// std::cerr << "bad1b" << std::endl;
+				if (knightFound || bishopFound) noMaterial = false;
+				else knightFound = true;
+				break;
+			case 'b':
+				// std::cerr << "bad2b" << std::endl;
+				if (bishopFound) continue;
+				else if (knightFound) noMaterial = false;
+				else bishopFound = true;
+				break;
+			default:
+				// std::cerr << "bad3b" << std::endl;
+				noMaterial = false;
+		}
+	}
+	return noMoves || noMaterial;
 }
 
 bool Board::repetition() const {
@@ -332,17 +354,36 @@ void Board::removePiece(const Posn &posn) {
 		(colour ? whiteKing : blackKing) = emptyptr;
 	}
 	// std::cerr << "hhmmm" << std::endl;
+	std::cerr << "All pieces in " << (colour ? "whitepieces" : "blackpieces") << " BEFORE: ";
+	for (auto p: colour ? whitePieces : blackPieces) {
+		std::cerr << p->getName() << " (" << char(p->getX() + 'a') << p->getY() + 1 << ") ";
+	}
+	std::cerr << std::endl;
 	for (auto it = (colour ? whitePieces : blackPieces).begin(); it != (colour ? whitePieces : blackPieces).end(); it++) {
 		if ((*it)->getPosn() == posn) {
 			// std::cerr << "hhhmmmm" << std::endl;
-			std::cerr << "Have found a " << (*it)->getName() << " in " << (colour ? "whitepieces" : "blackpieces") << std::endl;
-			(colour ? whitePieces : blackPieces).erase(it);
+			// std::cerr << "Have found a " << (*it)->getName() << " in " << (colour ? "whitepieces" : "blackpieces") << std::endl;
+			// // (colour ? whitePieces : blackPieces).erase(it);
+			// std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
+			if (colour) {
+			std::cerr << "Have found a " << (*it)->getName() << " in whitepieces" << std::endl;
+				whitePieces.erase(it);
 			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
+			} else {
+			std::cerr << "Have found a " << (*it)->getName() << " in blackpieces" << std::endl;
+				blackPieces.erase(it);
+			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
+			}
 			break;
 		} else if (/*(std::cerr << "bruh how" << std::endl) && */(*it)->getName() == (colour ? 'K' : 'k')) {
 			(colour ? whiteKing : blackKing) = *it;
 		}
 	}
+	std::cerr << "All pieces in " << (colour ? "whitepieces" : "blackpieces") << " AFTER: ";
+	for (auto p: colour ? whitePieces : blackPieces) {
+		std::cerr << p->getName() << " (" << char(p->getX() + 'a') << p->getY() + 1 << ") ";
+	}
+	std::cerr << std::endl;
 	// std::cerr << "???" << std::endl;
 	board[posn.x][posn.y] = emptyptr;
 	// std::cerr << "ur kidding" << std::endl;
@@ -397,22 +438,13 @@ void Board::undoMoves(int num) {
         
         // Move the pieces into old positions
 				board[WIDTH - 1][log.back().oldPos.y] = board[log.back().newPos.x - 1][log.back().newPos.y];
-				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false);
-        
-        // Remove from log
-				log.pop_back();
-			} else if (log.back().oldPos.x - log.back().newPos.x == 2) {
-        // castling left
-        
-        // Debug statement
+				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false); // move the rook
+			} else if (log.back().oldPos.x - log.back().newPos.x == 2) { // castling left
 				std::cerr << "we're uncastling??" << std::endl;
         
         // Move the pieces into old positions
 				board[0][log.back().oldPos.y] = board[log.back().newPos.x + 1][log.back().newPos.y];
-				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false);
-        
-        // Remove from log
-				log.pop_back();
+				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false); // move the rook
 			}
 		}
     
@@ -530,6 +562,5 @@ std::ostream& operator<<(std::ostream& out, const Board& board) {
 		out << c;
 	}
 	out << std::endl;
-
 	return out;
 }

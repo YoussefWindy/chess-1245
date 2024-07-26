@@ -134,7 +134,7 @@ int main() {
 			int p1 = parsePlayer(arg1);
 			int p2 = parsePlayer(arg2);
 			if (p1 < 0 || p2 < 0) {
-				cerr << "Please input either \"human\" or \"computer[X]\" for the players" << endl;
+				cerr << "Please input either \"human\" or \"computer[X]\" for the players" << endl << "Command: ";
 				continue;
 			}
 			whiteAI = (p1 ? make_unique<AI>(board, true, p1) : nullptr);
@@ -212,7 +212,8 @@ int main() {
 				}
 			}
 			// cerr << "over here" << endl;
-			switch (board.runCalculations()) {
+			int result = board.runCalculations();
+			switch (result) {
 				case 0:
 					whiteWins += 0.5;
 					blackWins += 0.5;
