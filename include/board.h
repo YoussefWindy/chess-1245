@@ -32,7 +32,7 @@ class Board {
 	Board& operator=(Board &&);
 	~Board() = default;
 
-	class Iterator { // Iterator class for replay functionality
+	/*class Iterator { // Iterator class for replay functionality
 		friend class Board;
 		long unsigned int i;
 		Board &board;
@@ -46,7 +46,7 @@ class Board {
 	};
 
 	Iterator begin(const Board &board) const;
-	Iterator end(const Board &board) const;
+	Iterator end(const Board &board) const;*/
 
 	// THE BIG BOY METHOD - handles all end of turn calculations
 	int runCalculations();
@@ -62,6 +62,7 @@ class Board {
 	const std::shared_ptr<Piece> operator[](const Posn &posn) const;
 	Move getLastMove() const;
   	bool getTurn() const;
+	bool getShowDead() const;
 
 	// Other checking methods
 	void validate(); // Will throw a BadSetup exception if setup is invalid

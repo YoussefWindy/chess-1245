@@ -49,6 +49,7 @@ void stripWhitespace(string& str) {
 void setBoardDefault(Board& board) {
   // Clear board
   Board tmp;
+  tmp.setShowDead(board.getShowDead());
   board = tmp;
 
 	// White pieces
@@ -336,6 +337,7 @@ int main() {
 					display(defaultBoard, xw);
         		} else if (command == "clear") {
 					Board tmp;
+					tmp.setShowDead(defaultBoard.getShowDead());
 					tmp.setTurn(defaultBoard.getTurn());
 					defaultBoard = tmp;
 					display(defaultBoard, xw);
