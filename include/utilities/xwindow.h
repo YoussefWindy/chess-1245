@@ -10,6 +10,7 @@ class XWindow {
     Display *d;
     Window w;
     GC gc;
+    XFontStruct *font_info;
     int s, width, height;
     unsigned long colours[4];
 
