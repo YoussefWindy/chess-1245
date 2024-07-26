@@ -15,7 +15,7 @@ XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), heig
     // Open the display
     d = XOpenDisplay(NULL);
     if (d == NULL) {
-        cerr << "Cannot open display" << endl;
+        // cerr << "Cannot open display" << endl;
         exit(1);
     }
     s = DefaultScreen(d);
@@ -34,7 +34,7 @@ XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), heig
     const char* font_name = "-adobe-courier-medium-r-normal--24-240-75-75-m-150-iso8859-1";
     font_info = XLoadQueryFont(d, font_name);
     if (font_info == nullptr) {
-        cerr << "Cannot open font: loaded fixed" << endl;
+        // cerr << "Cannot open font: loaded fixed" << endl;
         font_info = XLoadQueryFont(d, "fixed");
     }
     XSetFont(d, gc, font_info->fid);
@@ -60,17 +60,17 @@ XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), heig
 }
 
 XWindow::~XWindow() {
-    cerr << "Closing display" << endl;
+    // cerr << "Closing display" << endl;
     if (font_info) {
         XFreeFont(d, font_info);
-        cerr << "Freed font" << endl;
+        // cerr << "Freed font" << endl;
     }
     XFreeGC(d, gc);
-    cerr << "Freed GC" << endl;
+    // cerr << "Freed GC" << endl;
     XDestroyWindow(d, w);
-    cerr << "Destroyed window" << endl;
+    // cerr << "Destroyed window" << endl;
     XCloseDisplay(d);
-    cerr << "Closed display" << endl;
+    // cerr << "Closed display" << endl;
 }
 
 void XWindow::drawBoard(const Board &board) {
