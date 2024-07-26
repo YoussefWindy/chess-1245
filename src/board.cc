@@ -111,7 +111,7 @@ void Board::insert(std::vector<std::shared_ptr<Piece>> &vec, std::shared_ptr<Pie
 bool Board::check(const Posn &posn, bool colour) const {
 	for (auto piece: !colour ? whitePieces : blackPieces) {
 		if (piece->getValue() == 1) {
-			if (abs(posn.x - piece->getX()) == 1 && posn.y - piece->getY() == (!colour ? 1 : -1)) {
+			if (abs(posn.x - piece->getX()) == 1 && (!colour ? posn.y - piece->getY() : piece->getY() - posn.y) == 1) {
 				return true;
 			}
 		} else if (piece->canMoveTo(posn)) {
@@ -248,7 +248,7 @@ int Board::runCalculations() {
 			p->calculateLegalMoves(*this);
 			// std::cerr << "success";
 			if (turn && inCheck) {
-				std::cerr << " but we're checking here?";
+				std::cerr << " but we're checking here?" << std::endl;
 				p->intersect(defensivePositions);
 			}
 			// std::cerr << std::endl;
@@ -261,6 +261,7 @@ int Board::runCalculations() {
 			p->calculateLegalMoves(*this);
 			if (!turn && inCheck) {
 				// std::cerr << "what" << std::endl;
+				std::cerr << " but we're checking here?" << std::endl;
 				p->intersect(defensivePositions);
 			}
 		}
