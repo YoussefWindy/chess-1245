@@ -116,8 +116,94 @@ Move AI::thinkAt3() const {
             }
         }
     }
+    if (!checkingMoves.empty() && !capturingMoves.empty()) {
+        checkingMoves.clear();
+    }
+    if (!capturingMoves.empty() && !escapingMoves.empty()) {
+        bool common = false;
+        for (auto a: capturingMoves) {
+            for (auto b: escapingMoves) {
+                if (a == b) {
+                    common = true;
+                    break;
+                }
+            }
+            if (common) break;
+        }
+        if (common) {
+            for (auto it = capturingMoves.begin(); it != capturingMoves.end(); it++) {
+                common = false;
+                for (auto m: escapingMoves) {
+                    if ((*it) == m) {
+                        common = true;
+                        break;
+                    }
+                }
+                if (!common) {
+                    capturingMoves.erase(it);
+                    it--;
+                }
+            }
+        }
+    }
+    if (!checkingMoves.empty() && !escapingMoves.empty()) {
+        bool common = false;
+        for (auto a: checkingMoves) {
+            for (auto b: escapingMoves) {
+                if (a == b) {
+                    common = true;
+                    break;
+                }
+            }
+            if (common) break;
+        }
+        if (common) {
+            for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
+                common = false;
+                for (auto m: escapingMoves) {
+                    if ((*it) == m) {
+                        common = true;
+                        break;
+                    }
+                }
+                if (!common) {
+                    checkingMoves.erase(it);
+                    it--;
+                }
+            }
+        }
+    }
     Move maxWorth = emptyMove;
-    if (checkingMoves.empty() && capturingMoves.empty() && !escapingMoves.empty()) {
+    if (!capturingMoves.empty()) {
+        maxWorth = capturingMoves.front();
+        for (unsigned int i = 1; i < capturingMoves.size(); i++) {
+            int value = 0;
+            if (!board[capturingMoves[i].newPos]) {
+                value = std::max(value, 2);
+            } else if (board[capturingMoves[i].newPos]->getIsProtected()) {
+                for (auto piece: colour ? board.whitePieces : board.blackPieces) {
+                    if (piece->canMoveTo(capturingMoves[i].newPos)) {
+                        value = std::max(value, board[capturingMoves[i].newPos]->getValue() - piece->getValue());
+                        std::cerr << "new value: " << value << std::endl;
+                    }
+                }
+            } else {
+                value = std::max(value, board[capturingMoves[i].newPos]->getValue());
+            }
+            std::cerr << "value: " << value << std::endl;
+            if (value > (board[maxWorth.newPos] ? board[maxWorth.newPos]->getValue() : 2)) {
+                std::cerr << "yep" << std::endl;
+                maxWorth = capturingMoves[i];
+            }
+        }
+    } else if (!checkingMoves.empty()) {
+        maxWorth = checkingMoves.front();
+        for (auto m: checkingMoves) {
+            if (board[m.oldPos]->getValue() < board[maxWorth.oldPos]->getValue()) {
+                maxWorth = m;
+            }
+        }
+    } else if (!escapingMoves.empty()) {
         std::cerr << 3 << std::endl;
         maxWorth = escapingMoves.front();
         for (auto it = escapingMoves.begin(); it != escapingMoves.end(); it++) {
@@ -127,68 +213,6 @@ Move AI::thinkAt3() const {
                 maxWorth = *it;
             }
         }
-    } else if (!checkingMoves.empty() && !capturingMoves.empty()) {
-        checkingMoves.clear();
-    }
-    if (!capturingMoves.empty()) {
-        if (!escapingMoves.empty()) {
-            bool common = false;
-            for (auto a: capturingMoves) {
-                for (auto b: escapingMoves) {
-                    if (a == b) {
-                        common = true;
-                        break;
-                    }
-                }
-                if (common) break;
-            }
-            if (common) {
-                for (auto it = capturingMoves.begin(); it != capturingMoves.end(); it++) {
-                    common = false;
-                    for (auto m: escapingMoves) {
-                        if ((*it) == m) {
-                            common = true;
-                            break;
-                        }
-                    }
-                    if (!common) {
-                        capturingMoves.erase(it);
-                        it--;
-                    }
-                }
-                common = true;
-            }
-        }
-    } else if (!checkingMoves.empty()) {
-        if (!escapingMoves.empty()) {
-            bool common = false;
-            for (auto a: checkingMoves) {
-                for (auto b: escapingMoves) {
-                    if (a == b) {
-                        common = true;
-                        break;
-                    }
-                }
-                if (common) break;
-            }
-            if (common) {
-                for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
-                    common = false;
-                    for (auto m: escapingMoves) {
-                        if ((*it) == m) {
-                            common = true;
-                            break;
-                        }
-                    }
-                    if (!common) {
-                        checkingMoves.erase(it);
-                        it--;
-                    }
-                }
-                common = true;
-            }
-        }
-        maxWorth = checkingMoves.front();
     }
     if (maxWorth == emptyMove) {
         std::cerr << "nvm we're playing dum lol" << std::endl;
