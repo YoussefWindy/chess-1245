@@ -155,8 +155,8 @@ bool Board::stalemate(bool colour) const {
 				break;
 			case 'B':
 				// std::cerr << "bad2a" << std::endl;
-				if (knightFound || bishopFound->getColour() == piece->getColour() ||
-				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2) {
+				if (knightFound || (bishopFound && (bishopFound->getColour() == piece->getColour() ||
+				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2))) {
 					noMaterial = false;
 				}
 				else bishopFound = piece;
@@ -179,8 +179,8 @@ bool Board::stalemate(bool colour) const {
 				break;
 			case 'b':
 				// std::cerr << "bad2b" << std::endl;
-				if (knightFound || bishopFound->getColour() == piece->getColour() ||
-				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2) {
+				if (knightFound || (bishopFound && (bishopFound->getColour() == piece->getColour() ||
+				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2))) {
 					noMaterial = false;
 				}
 				else bishopFound = piece;

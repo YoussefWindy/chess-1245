@@ -49,7 +49,7 @@ Move AI::thinkAt2() const {
         for (auto it = capturingMoves.begin(); it != capturingMoves.end(); it++) {
             bool common = false;
             for (auto m: checkingMoves) if (m == *it) common = true;
-            std::cerr << char('a' + it->oldPos.x) << it->oldPos.y + 1 << "-->" << char('a' + it->newPos.x) << it->newPos.y + 1 << "is " << (common ? "" : "NOT") << " common" << std::endl;
+            std::cerr << char('a' + it->oldPos.x) << it->oldPos.y + 1 << "-->" << char('a' + it->newPos.x) << it->newPos.y + 1 << " is" << (common ? "" : " NOT") << " common" << std::endl;
             if (!common) {
                 capturingMoves.erase(it);
                 it--;
@@ -97,7 +97,6 @@ Move AI::thinkAt2() const {
 Move AI::thinkAt3() const {
     escapingMoves = calculateCapturingMoves(false);
     Move tryCheck = thinkAt2();
-    if (escapingMoves.empty()) return tryCheck;
     std::cerr << "Heyy we're actually trying to be smart I guess" << std::endl;
     if (!capturingMoves.empty()) {
         std::cerr << 1 << std::endl;
@@ -110,15 +109,15 @@ Move AI::thinkAt3() const {
     } else if (!checkingMoves.empty()) {
         std::cerr << 2 << std::endl;
         for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
-            if (board[it->newPos]->getValue() < board[it->oldPos]->getValue() && 
-              (board.check(it->newPos, colour) || (board[it->newPos] && board[it->newPos]->getIsProtected()))) {
+            if (board.check(it->newPos, colour) || (board[it->newPos] && board[it->newPos]->getIsProtected()
+              && board[it->newPos]->getValue() < board[it->oldPos]->getValue())) {
                 checkingMoves.erase(it);
                 it--;
             }
         }
     }
     Move maxWorth = emptyMove;
-    if (checkingMoves.empty() && capturingMoves.empty()) {
+    if (checkingMoves.empty() && capturingMoves.empty() && !escapingMoves.empty()) {
         std::cerr << 3 << std::endl;
         maxWorth = escapingMoves.front();
         for (auto it = escapingMoves.begin(); it != escapingMoves.end(); it++) {
@@ -128,37 +127,66 @@ Move AI::thinkAt3() const {
                 maxWorth = *it;
             }
         }
-    } else if (!checkingMoves.empty() && capturingMoves.empty()) {
+    } else if (!checkingMoves.empty() && !capturingMoves.empty()) {
         checkingMoves.clear();
     }
     if (!capturingMoves.empty()) {
-
-    } else if (!checkingMoves.empty()) {
-        bool common = false;
-        for (auto a: checkingMoves) {
-            for (auto b: escapingMoves) {
-                if (a == b) {
-                    common = true;
-                    break;
-                }
-            }
-            if (common) break;
-        }
-        if (common) {
-            for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
-                common = false;
-                for (auto m: escapingMoves) {
-                    if ((*it) == m) {
+        if (!escapingMoves.empty()) {
+            bool common = false;
+            for (auto a: capturingMoves) {
+                for (auto b: escapingMoves) {
+                    if (a == b) {
                         common = true;
                         break;
                     }
                 }
-                if (!common) {
-                    checkingMoves.erase(it);
-                    it--;
-                }
+                if (common) break;
             }
-            common = true;
+            if (common) {
+                for (auto it = capturingMoves.begin(); it != capturingMoves.end(); it++) {
+                    common = false;
+                    for (auto m: escapingMoves) {
+                        if ((*it) == m) {
+                            common = true;
+                            break;
+                        }
+                    }
+                    if (!common) {
+                        capturingMoves.erase(it);
+                        it--;
+                    }
+                }
+                common = true;
+            }
+        }
+    } else if (!checkingMoves.empty()) {
+        if (!escapingMoves.empty()) {
+            bool common = false;
+            for (auto a: checkingMoves) {
+                for (auto b: escapingMoves) {
+                    if (a == b) {
+                        common = true;
+                        break;
+                    }
+                }
+                if (common) break;
+            }
+            if (common) {
+                for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
+                    common = false;
+                    for (auto m: escapingMoves) {
+                        if ((*it) == m) {
+                            common = true;
+                            break;
+                        }
+                    }
+                    if (!common) {
+                        checkingMoves.erase(it);
+                        it--;
+                    }
+                }
+                common = true;
+            }
         }
         maxWorth = checkingMoves.front();
     }
@@ -222,9 +250,14 @@ const std::vector<Move> AI::calculateCapturingMoves(bool offensive) const {
                 if (board[posn] && board[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
                 else std::cerr << "^^^^^^^ a good thing: capture" << std::endl;
                 tmp.emplace_back(piece->getPosn(), posn);
-            } else if (!offensive && !board.check(posn, colour) && (!board[posn] || !board[posn]->getIsProtected())) {
-                std::cerr << "^^^^^^^ a good thing: escape" << std::endl;
-                tmp.emplace_back(piece->getPosn(), posn);
+            } else if (!offensive && board[posn]) {
+                for (auto p: board[posn]->legalMoves) {
+                std::cerr << char('a' + board[posn]->getX()) << board[posn]->getY() + 1 << "-->" << char('a' + p.x) << p.y + 1 << std::endl;
+                    if (!board.check(p, colour) && (!board[p] || !board[p]->getIsProtected())) {
+                        std::cerr << "^^^^^^^ a good thing: escape" << std::endl;
+                        tmp.emplace_back(posn, p);
+                    }
+                }
             }
         }
     }
