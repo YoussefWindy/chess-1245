@@ -14,11 +14,14 @@ void King::calculateLegalMoves(const Board &board) {
             if (!i && !j) continue; // if i = j = 0, this means we are checking the square the king is currently on
             try {
                 Posn p{posn.x + i, posn.y + j};
-                if ((!board[p] || (board[p]->getColour() != colour && // if square is empty, or square is not belonging to us already and is not
-                  !board[p]->getIsProtected())) && !board.check(p, colour) // touching a king and not is protected, and square is not in check
+                if (!board.check(p, colour) // touching a king and is not protected, and square is not in check
                   && (abs(p.x - (!colour ? board.whiteKing : board.blackKing)->getX()) > 1 || abs(p.y - (!colour ? board.whiteKing : board.blackKing)->getY()) > 1)) {
                     // std::cerr << "King can move to " << char('a' + p.x) << p.y + 1 << std::endl;
-                    legalMoves.emplace_back(p);
+                    if ((!board[p] || (board[p]->getColour() != colour && board[p]->getIsProtected()))) {// if square is empty, or square is not belonging to us already and is not!
+                        legalMoves.emplace_back(p);
+                    } else if (board[p] && board[p]->getColour() == colour) {
+                        board[p]->protect();
+                    }
                 }
             } catch (BadPosn &e) {}
         }

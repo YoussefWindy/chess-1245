@@ -249,7 +249,7 @@ void Board::promote(const Posn &posn, unsigned int type) {
 	//   << "capture: " << log.back().capture << ", promotion: " << log.back().promotion << std::endl;
 }
 
-Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
+/*Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
   i{begin ? 0 : log.size() - 1}, board(const_cast<Board&>(board)), log{log} {}
 
 const Board& Board::Iterator::operator*() const {
@@ -282,7 +282,7 @@ Board::Iterator Board::begin(const Board &board) const {
 
 Board::Iterator Board::end(const Board &board) const {
 	return {*this, board.log, false};
-}
+}*/
 
 int Board::runCalculations() {
     std::vector<Posn> defensivePositions;
@@ -514,12 +514,16 @@ void Board::undoMoves(int num) {
 		log.pop_back();
 	}
   
-  // Recalculate legal moves
-  runCalculations();
+  	// Recalculate legal moves
+  	runCalculations();
 }
 
 bool Board::getTurn() const {
-  return turn;
+  	return turn;
+}
+
+bool Board::getShowDead() const {
+	return showDead;
 }
 
 void Board::validate() {
