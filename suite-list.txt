@@ -1,5 +1,6 @@
 bishop
 castling
+checkmate
 ding-vs-carlson
 knight
 pawn-bad-promotion
