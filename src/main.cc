@@ -111,13 +111,13 @@ int main() {
 			text = false;
 			graphics = true;
 			cout << "Graphical display selected." << endl;
-			xw.reset(new XWindow(1200, 1000));
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		} else if (arg1 == "b") {
 			text = graphics = true;
 			cout << "Both displays selected." << endl << defaultBoard << endl;
-			xw.reset(new XWindow(1200, 1000));
+			xw = make_unique<XWindow>(1200, 1000);
 			xw->drawBoard(defaultBoard);
 			break;
 		}
