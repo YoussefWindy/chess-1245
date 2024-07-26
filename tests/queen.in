@@ -45,4 +45,6 @@ move g2 f2
 move f5 f2
 move f1 f2
 move f7 f2
+game human human
+resign
 

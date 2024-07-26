@@ -24,14 +24,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 1 times.
-down
-position is a4
-Piece at new position is P
-nice
 
 8 rnbqkbnr
 7 pppppppp   
@@ -44,14 +36,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-p has moved 1 times.
-down
-position is b5
-Piece at new position is p
-nice
 
 8 rnbqkbnr
 7 p pppppp   
@@ -64,15 +48,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-P has moved 2 times.
-down
-position is b5
-Piece at new position is P
-nice
 
 8 rnbqkbnr
 7 p pppppp   
@@ -85,14 +60,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-p has moved 1 times.
-down
-position is a5
-Piece at new position is p
-nice
 
 8 rnbqkbnr
 7 _ pppppp   
@@ -105,14 +72,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 3 times.
-down
-position is a6
-Piece at new position is P
-nice
 
 8 rnbqkbnr
 7 _ pppppp   
@@ -125,14 +84,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-r has moved 1 times.
-down
-position is a7
-Piece at new position is r
-nice
 
 8  nbqkbnr
 7 r pppppp   
@@ -145,14 +96,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 1 times.
-down
-position is h4
-Piece at new position is P
-nice
 
 8  nbqkbnr
 7 r pppppp   
@@ -165,14 +108,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-r has moved 2 times.
-down
-position is b7
-Piece at new position is r
-nice
 
 8  nbqkbnr
 7 _rpppppp   
@@ -185,14 +120,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 4 times.
-down
-position is a7
-Piece at new position is P
-nice
 
 8  nbqkbnr
 7 Prpppppp   
@@ -205,14 +132,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-p has moved 1 times.
-down
-position is g5
-Piece at new position is p
-nice
 
 8  nbqkbnr
 7 Prpppp_p   
@@ -225,14 +144,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 5 times.
-down
-position is a8
-Piece at new position is P
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   
@@ -245,15 +156,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-p has moved 2 times.
-down
-position is h4
-Piece at new position is p
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   P
@@ -266,14 +168,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-P has moved 1 times.
-down
-position is g4
-Piece at new position is P
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   P
@@ -286,14 +180,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-p has moved 3 times.
-down
-position is g3
-Piece at new position is p
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   PP
@@ -306,14 +192,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 1 times.
-down
-position is h3
-Piece at new position is N
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   PP
@@ -326,14 +204,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-up
-p has moved 4 times.
-down
-position is g2
-Piece at new position is p
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   PP
@@ -346,14 +216,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-up
-N has moved 2 times.
-down
-position is g5
-Piece at new position is N
-nice
 
 8 Qnbqkbnr
 7 _rpppp_p   PP
@@ -366,9 +228,8 @@ nice
 
   abcdefgh
 
-Black's move: Please input a valid piece type to promote into.
-Black's move: White wins!
-Command: 
+White wins!
+
 Final Score:
 White: 1
 Black: 0

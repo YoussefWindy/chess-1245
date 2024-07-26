@@ -24,7 +24,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -36,7 +36,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -60,7 +60,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -72,7 +72,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -84,7 +84,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -96,7 +96,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -108,7 +108,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -120,7 +120,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -132,7 +132,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -144,7 +144,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -156,7 +156,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -168,7 +168,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -180,7 +180,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -192,7 +192,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -204,7 +204,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -216,7 +216,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -228,7 +228,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -240,7 +240,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 q_ _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -252,7 +252,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qq _k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -264,7 +264,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqq_k_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -276,7 +276,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqk_ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -288,7 +288,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkq _
 7 _ _ _ _    
 6  _ _ _ _
@@ -300,7 +300,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqq_
 7 _ _ _ _    
 6  _ _ _ _
@@ -312,7 +312,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 _ _ _ _    
 6  _ _ _ _
@@ -324,7 +324,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 q _ _ _    
 6  _ _ _ _
@@ -336,7 +336,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qq_ _ _    
 6  _ _ _ _
@@ -348,7 +348,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqq _ _    
 6  _ _ _ _
@@ -360,7 +360,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqq_ _    
 6  _ _ _ _
@@ -372,7 +372,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqqq _    
 6  _ _ _ _
@@ -384,7 +384,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqqqq_    
 6  _ _ _ _
@@ -396,7 +396,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqqqqq    
 6  _ _ _ _
@@ -408,7 +408,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqqqqqq   
 6  _ _ _ _
@@ -420,7 +420,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 qqqqkqqq
 7 qqqqqqqq   
 6  _ _ _ _
@@ -433,7 +433,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: The game has begun!
+The game has begun!
 
 8 qqqqkqqq
 7 qqqqqqqq   
@@ -446,14 +446,6 @@ Command: The game has begun!
 
   abcdefgh
 
-White's move: start
-good
-up
-Q has moved 1 times.
-down
-position is f5
-Piece at new position is Q
-nice
 
 8 qqqqkqqq
 7 qqqqqqqq   
@@ -466,15 +458,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-q has moved 1 times.
-down
-position is f5
-Piece at new position is q
-nice
 
 8 qqqqkqqq
 7 qqqqqqq    Q
@@ -487,15 +470,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-Q has moved 1 times.
-down
-position is h8
-Piece at new position is Q
-nice
 
 8 qqqqkqqQ
 7 qqqqqqq    Q
@@ -508,15 +482,6 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-q has moved 1 times.
-down
-position is g2
-Piece at new position is q
-nice
 
 8 qqqqkqqQ
 7 qqqqqq_    QQ
@@ -529,15 +494,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-Q has moved 1 times.
-down
-position is g2
-Piece at new position is Q
-nice
 
 8 qqqqkqqQ
 7 qqqqqq_    QQ
@@ -550,16 +506,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-q has moved 1 times.
-down
-position is f2
-Piece at new position is q
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8 qqqqkqqQ
 7 _qqqqq_    QQQ
@@ -572,15 +519,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-Q has moved 2 times.
-down
-position is f2
-Piece at new position is Q
-nice
 
 8 qqqqkqqQ
 7 _qqqqq_    QQQ
@@ -593,16 +531,7 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-q has moved 2 times.
-down
-position is f2
-Piece at new position is q
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?White is in check.
+White is in check.
 
 8 qqqqkqqQ
 7 _qqqqq_    QQQQ
@@ -615,15 +544,6 @@ nice
 
   abcdefgh
 
-White's move: start
-good
-capture
-up
-Q has moved 1 times.
-down
-position is f2
-Piece at new position is Q
-nice
 
 8 qqqqkqqQ
 7 _qqqqq_    QQQQ
@@ -636,17 +556,22 @@ nice
 
   abcdefgh
 
-Black's move: start
-good
-capture
-up
-q has moved 1 times.
-down
-position is f2
-Piece at new position is q
-nice
- but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?Checkmate! Black wins!
-Command: 
+Checkmate! Black wins!
+The game has begun!
+
+8 qqqqkqqq
+7 qqqqqqqq   
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 QQQQQQQQ   
+1 QQQQKQQQ
+
+  abcdefgh
+
+Black wins!
+
 Final Score:
 White: 0
-Black: 1
+Black: 2

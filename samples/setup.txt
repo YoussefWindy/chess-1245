@@ -24,7 +24,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -36,7 +36,7 @@ Setup Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -48,7 +48,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -60,13 +60,7 @@ Command:
 
   abcdefgh
 
-Command: There cannot be two black kings on the board at once!
-If you are trying to move a king, please remove it first then add it.
-Command: There cannot be two white kings on the board at once!
-If you are trying to move a king, please remove it first then add it.
-Command: There cannot be two black kings on the board at once!
-If you are trying to move a king, please remove it first then add it.
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -78,7 +72,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -90,7 +84,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -102,7 +96,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -114,8 +108,7 @@ Command:
 
   abcdefgh
 
-Command: Board setup invalid: no white king on the board!
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -127,7 +120,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -139,8 +132,7 @@ Command:
 
   abcdefgh
 
-Command: Board setup invalid: no black king on the board!
-Command: 
+
 8  _ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -152,7 +144,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 p_ _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -164,7 +156,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 pp _ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -176,7 +168,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -188,7 +180,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -200,7 +192,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -212,7 +204,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -224,7 +216,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -237,7 +229,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -250,7 +242,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8 ppp_P_ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -262,8 +254,7 @@ Setup Command:
 
   abcdefgh
 
-Command: Board setup invalid: there is a white pawn on the last row!
-Command: 
+
 8 ppp_P_ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -275,8 +266,7 @@ Command:
 
   abcdefgh
 
-Command: Board setup invalid: there is a white pawn on the last row!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -288,8 +278,7 @@ Command:
 
   abcdefgh
 
-Command: Board setup invalid: there is a black pawn on the last row!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -301,7 +290,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -314,7 +303,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -327,7 +316,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -339,8 +328,7 @@ Setup Command:
 
   abcdefgh
 
-Command: Board setup invalid: black is in check!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -352,7 +340,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -365,7 +353,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -378,7 +366,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -390,8 +378,7 @@ Setup Command:
 
   abcdefgh
 
-Command:  but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -403,7 +390,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -415,8 +402,7 @@ Command:
 
   abcdefgh
 
-Command:  but we're checking here? but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ _ _
@@ -428,7 +414,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -440,7 +426,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -453,7 +439,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -466,7 +452,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -478,8 +464,7 @@ Setup Command:
 
   abcdefgh
 
-Command: Board setup invalid: black is in check!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -491,7 +476,7 @@ Command:
 
   abcdefgh
 
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -504,7 +489,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -517,7 +502,7 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -529,8 +514,7 @@ Setup Command:
 
   abcdefgh
 
-Command:  but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here? but we're checking here?Board setup invalid: black is in check!
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -542,34 +526,7 @@ Command:
 
   abcdefgh
 
-Command: 
-8 ppp_ _ k
-7 _ _ _ _    
-6  _ _ q _
-5 _ _ B _ 
-4  _ b _ _
-3 _NQ _ _ 
-2  _ _ _ r   
-1 KPPP_ _R
 
-  abcdefgh
-
-Board setup successful.
-Command: 
-8 ppp_ _ k
-7 _ _ _ _    
-6  _ _ q _
-5 _ _ B _ 
-4  _ b _ _
-3 _NQ _ _ 
-2  _ _ _ r   
-1 KPPP_ _R
-
-  abcdefgh
-
-Entered setup mode.
-Setup Command: Please input a valid setup command.
-Command: 
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -582,7 +539,7 @@ Command:
   abcdefgh
 
 Board setup successful.
-Command: 
+
 8 ppp_ _ k
 7 _ _ _ _    
 6  _ _ q _
@@ -595,7 +552,33 @@ Command:
   abcdefgh
 
 Entered setup mode.
-Setup Command: 
+
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _NQ _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Board setup successful.
+
+8 ppp_ _ k
+7 _ _ _ _    
+6  _ _ q _
+5 _ _ B _ 
+4  _ b _ _
+3 _NQ _ _ 
+2  _ _ _ r   
+1 KPPP_ _R
+
+  abcdefgh
+
+Entered setup mode.
+
 8  _ _ _ _
 7 _ _ _ _    
 6  _ _ _ _
@@ -607,9 +590,7 @@ Setup Command:
 
   abcdefgh
 
-Command: Please input a valid setup command.
-Command: Board setup invalid: no white king on the board!
-Command: Command: 
+
 Final Score:
 White: 0
 Black: 0
