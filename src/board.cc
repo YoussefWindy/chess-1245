@@ -140,7 +140,8 @@ bool Board::stalemate(bool colour) const {
 			break;
 		}
 	}
-	bool bishopFound = false, knightFound = false;
+	std::shared_ptr<Piece> bishopFound = emptyptr;
+	bool knightFound = false;
 	for (auto piece: whitePieces) {
 		if (!noMaterial) break;
 		switch (piece->getName()) {
@@ -154,16 +155,17 @@ bool Board::stalemate(bool colour) const {
 				break;
 			case 'B':
 				// std::cerr << "bad2a" << std::endl;
-				if (bishopFound) continue;
-				else if (knightFound) noMaterial = false;
-				else bishopFound = true;
+				if (knightFound || bishopFound->getColour() == piece->getColour() ||
+				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2) {
+					noMaterial = false;
+				}
+				else bishopFound = piece;
 				break;
 			default:
 				// std::cerr << "bad3a" << std::endl;
 				noMaterial = false;
 		}
 	}
-	bishopFound = knightFound = false;
 	for (auto piece: blackPieces) {
 		if (!noMaterial) break;
 		switch (piece->getName()) {
@@ -177,9 +179,11 @@ bool Board::stalemate(bool colour) const {
 				break;
 			case 'b':
 				// std::cerr << "bad2b" << std::endl;
-				if (bishopFound) continue;
-				else if (knightFound) noMaterial = false;
-				else bishopFound = true;
+				if (knightFound || bishopFound->getColour() == piece->getColour() ||
+				  (bishopFound->getX() + bishopFound->getY()) % 2 != (piece->getX() + piece->getY()) % 2) {
+					noMaterial = false;
+				}
+				else bishopFound = piece;
 				break;
 			default:
 				// std::cerr << "bad3b" << std::endl;
