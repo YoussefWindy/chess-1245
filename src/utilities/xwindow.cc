@@ -31,9 +31,9 @@ XWindow::XWindow(int width, int height) : font_info(nullptr), width(width), heig
     XFlush(d);
 
     // Load font
-    const char* font_name = "-adobe-helvetica-bold-r-normal-*-34-*-*-*-*-*-*-*";
+    const char* font_name = "-adobe-courier-medium-r-normal--24-240-75-75-m-150-iso8859-1";
     font_info = XLoadQueryFont(d, font_name);
-    if (!font_info) {
+    if (font_info == nullptr) {
         cerr << "Cannot open font: loaded fixed" << endl;
         font_info = XLoadQueryFont(d, "fixed");
     }
