@@ -25,10 +25,10 @@ Move AI::think() const {
 }
 
 Move AI::thinkAt1() const {
-    unsigned int num = (colour ? boardState.whitePieces : boardState.blackPieces).size();
+    unsigned int num = (colour ? boardRef.whitePieces : boardRef.blackPieces).size();
     std::shared_ptr<Piece> piece;
     do {
-        piece = (colour ? boardState.whitePieces : boardState.blackPieces)[std::rand() % num];
+        piece = (colour ? boardRef.whitePieces : boardRef.blackPieces)[std::rand() % num];
         std::cerr << piece->getName() << std::endl;
     } while (!piece->canMove());
     return {piece->getPosn(), piece->legalMoves[std::rand() % piece->legalMoves.size()],
@@ -139,11 +139,9 @@ Move AI::thinkAt4() const {
 
 const std::vector<Posn> AI::calculateThreatenedPosns() const {
     std::vector<Posn> tmp;
-    for (auto piece: !colour ? boardState.whitePieces : boardState.blackPieces) {
+    for (auto piece: !colour ? boardRef.whitePieces : boardRef.blackPieces) {
         for (Posn posn: piece->legalMoves) {
-            if (boardState[posn] && boardState[posn]->canMove()) {
-                tmp.emplace_back(posn);
-            }
+            tmp.emplace_back(posn);
         }
     }
     return tmp;
@@ -151,11 +149,11 @@ const std::vector<Posn> AI::calculateThreatenedPosns() const {
 
 const std::vector<Move> AI::calculateCapturingMoves() const {
     std::vector<Move> tmp;
-    for (auto piece: colour ? boardState.whitePieces : boardState.blackPieces) {
+    for (auto piece: colour ? boardRef.whitePieces : boardRef.blackPieces) {
         for (Posn posn: piece->legalMoves) {
             std::cerr << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
-            if (boardState[posn] || (piece->getName() == (colour ? 'P' : 'p') && abs(piece->getX() - posn.x))) {
-                if (boardState[posn] && boardState[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
+            if (boardRef[posn] || (piece->getName() == (colour ? 'P' : 'p') && abs(piece->getX() - posn.x))) {
+                if (boardRef[posn] && boardRef[posn]->getColour() == colour) std::cerr << "HEYHEYHEYHEY STOP" << std::endl;
                 else std::cerr << "^^^^^^^ a good thing" << std::endl;
                 tmp.emplace_back(piece->getPosn(), posn);
             }
