@@ -100,7 +100,6 @@ Move AI::thinkAt3() const {
     Move maxWorth = emptyMove;
     if (threatenedPosns.empty()) return tryCheck;
     std::cerr << "Heyy we're actually trying to be smart I guess" << std::endl;
-    bool checks = !checkingMoves.empty();
     if (!capturingMoves.empty()) {
         std::cerr << 1 << std::endl;
         for (auto it = capturingMoves.begin(); it != capturingMoves.end(); it++) {
@@ -109,7 +108,7 @@ Move AI::thinkAt3() const {
                 it--;
             }
         }
-    } else if (checks) {
+    } else if (!checkingMoves.empty()) {
         std::cerr << 2 << std::endl;
         for (auto it = checkingMoves.begin(); it != checkingMoves.end(); it++) {
             bool common = false;
@@ -215,13 +214,13 @@ const std::vector<Move> AI::calculateCapturingMoves() const {
 
 const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
     std::vector<Move> tmp;
-    Board boardCopy = board; // Create board for messing around with
-    boardCopy.runCalculations();
-    for (unsigned int i = 0; i < (colour ? boardCopy.whitePieces : boardCopy.blackPieces).size(); i++) { // can't use ranged for
-        auto piece = (colour ? boardCopy.whitePieces : boardCopy.blackPieces)[i]; // loops here because, due to the nature of this
+    for (unsigned int i = 0; i < (colour ? board.whitePieces : board.blackPieces).size(); i++) { // can't use ranged for
+        auto piece = (colour ? board.whitePieces : board.blackPieces)[i]; // loops here because, due to the nature of this
         for (unsigned int j = 0; j < piece->legalMoves.size(); j++) { // function, iterators for the pieces vectors are not consistent
+            Board boardCopy = board; // Create board for messing around with
+            boardCopy.runCalculations();
             Posn posn = piece->legalMoves[j];
-            std::cerr << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
+            std::cerr << piece->getName() << ": " << char('a' + piece->getX()) << piece->getY() + 1 << "-->" << char('a' + posn.x) << posn.y + 1 << std::endl;
             unsigned int promotion = 0;
             if (piece->getName() == (colour ? 'P' : 'p')) {
                 std::shared_ptr<Pawn> tmp = std::static_pointer_cast<Pawn>(piece);
@@ -233,8 +232,6 @@ const std::vector<Move> AI::calculateCheckingMoves(bool checkmate) const {
                 std::cerr << "interesting thing here" << std::endl;
                 tmp.emplace_back(boardCopy.log.back());
             }
-            std::cerr << "undo" << std::endl;
-            boardCopy.undoMoves();
         }
     }
     return tmp;

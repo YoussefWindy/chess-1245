@@ -218,6 +218,33 @@ bool Board::repetition() const {
 	return false;
 }
 
+void Board::promote(const Posn &posn, unsigned int type) {
+	std::cerr << "type is " << type << ". turn is " << (turn ? "white" : "black") << std::endl;
+	removePiece(posn);
+	std::cerr << "this work" << std::endl;
+	switch (type) {
+		case 1:
+			std::cerr << 1 << std::endl;
+			addPiece<Knight>(turn, posn);
+			break;
+		case 2:
+			std::cerr << 2 << std::endl;
+			addPiece<Bishop>(turn, posn);
+			break;
+		case 3:
+			std::cerr << 3 << std::endl;
+			addPiece<Rook>(turn, posn);
+			break;
+		case 4:
+			std::cerr << 4 << std::endl;
+			addPiece<Queen>(turn, posn);
+			break;
+	}
+	std::cerr << char('a' + log.back().oldPos.x) << log.back().oldPos.y + 1
+	  << "-->" << char('a' + log.back().newPos.x) << log.back().newPos.y + 1 << " "
+	  << "capture: " << log.back().capture << ", promotion: " << log.back().promotion << std::endl;
+}
+
 Board::Iterator::Iterator(const Board &board, const std::vector<Move> &log, bool begin):
   i{begin ? 0 : log.size() - 1}, board(const_cast<Board&>(board)), log{log} {}
 
@@ -431,24 +458,29 @@ void Board::undoMoves(int num) {
     	// Update the current turn
     	turn = !turn;
     
+    	// Check for promotion
+		if (log.back().promotion) {
+			std::cerr << "undoing a promotion of a " << board[log.back().newPos.x][log.back().newPos.y]->getName() << std::endl;
+			removePiece(log.back().newPos);
+			addPiece<Pawn>(turn, log.back().newPos);
+			std::cerr << "it is now a " << board[log.back().newPos.x][log.back().newPos.y]->getName() << std::endl;
+		}
+    
     	// Copy the piece back into the old position
+		std::cerr << "internal position: " << char('a' + board[log.back().newPos.x][log.back().newPos.y]->getX())
+				  << board[log.back().newPos.x][log.back().newPos.y]->getY() + 1 << std::endl;
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
 
     	// update piece's internal position and move count
 		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos, false);
 		removePiece(log.back().newPos);
+		std::cerr << "internal position: " << char('a' + board[log.back().oldPos.x][log.back().oldPos.y]->getX())
+				  << board[log.back().oldPos.x][log.back().oldPos.y]->getY() + 1 << std::endl;
 
     	// Retrieve capturd piece from the graveyard
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
-			insert(deadPieces.back()->getColour() ? whitePieces : blackPieces, deadPieces.back());
 			deadPieces.pop_back();
-		}
-    
-    	// Check for promotion
-		if (log.back().promotion) {
-			removePiece(log.back().oldPos);
-			addPiece<Pawn>(turn, log.back().oldPos);
 		}
     
     	// Check for castling
