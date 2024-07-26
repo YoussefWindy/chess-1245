@@ -367,13 +367,13 @@ void Board::removePiece(const Posn &posn) {
 			// // (colour ? whitePieces : blackPieces).erase(it);
 			// std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
 			if (colour) {
-			std::cerr << "Have found a " << (*it)->getName() << " in whitepieces" << std::endl;
+			std::cerr << "Have found a " << (*it)->getName() << " (" << char((*it)->getX() + 'a') << (*it)->getY() + 1 << ") " << "in whitepieces" << std::endl;
 				whitePieces.erase(it);
-			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
+			std::cerr << "Next thing is now " << (*it)->getName() << " (" << char((*it)->getX() + 'a') << (*it)->getY() + 1 << ") " << std::endl;
 			} else {
-			std::cerr << "Have found a " << (*it)->getName() << " in blackpieces" << std::endl;
+			std::cerr << "Have found a " << (*it)->getName() << " (" << char((*it)->getX() + 'a') << (*it)->getY() + 1 << ") " << "in blackpieces" << std::endl;
 				blackPieces.erase(it);
-			std::cerr << "Next thing is now " << (*it)->getName() << std::endl;
+			std::cerr << "Next thing is now " << (*it)->getName() << " (" << char((*it)->getX() + 'a') << (*it)->getY() + 1 << ") " << std::endl;
 			}
 			break;
 		} else if (/*(std::cerr << "bruh how" << std::endl) && */(*it)->getName() == (colour ? 'K' : 'k')) {
@@ -399,57 +399,58 @@ Move Board::getLastMove() const {
 }
 
 void Board::undoMoves(int num) {
-  // Undo given number of moves
+  	// Undo given number of moves
 	for (int i = 0; i < num; i++) {
-    // If the move log is empty, break and exit
+    	// If the move log is empty, break and exit
 		if (log.empty()) break;
 
-     // Update the current turn
-    turn = !turn;
+    	// Update the current turn
+    	turn = !turn;
     
-    // Copy the piece back into the old position
+    	// Copy the piece back into the old position
 		board[log.back().oldPos.x][log.back().oldPos.y] = board[log.back().newPos.x][log.back().newPos.y];
 
-    // something
+    	// update piece's internal position and move count
 		board[log.back().oldPos.x][log.back().oldPos.y]->move(log.back().oldPos, false);
 		removePiece(log.back().newPos);
 
-    // Retrieve capturd piece from the graveyard
+    	// Retrieve capturd piece from the graveyard
 		if (log.back().capture) {
 			addPieceHelp(deadPieces.back()->getName(), deadPieces.back()->getPosn());
 			insert(deadPieces.back()->getColour() ? whitePieces : blackPieces, deadPieces.back());
 			deadPieces.pop_back();
 		}
     
-    // Check for promotion
+    	// Check for promotion
 		if (log.back().promotion) {
 			removePiece(log.back().oldPos);
 			addPiece<Pawn>(turn, log.back().oldPos);
 		}
     
-    // Check for castling
+    	// Check for castling
 		if (board[log.back().oldPos.x][log.back().oldPos.y]->getName() == (turn ? 'K' : 'k')) {
-      // Debug statement
+      		// Debug statement
 			std::cerr << "we found a not king" << std::endl;
       
-      // Castling right
+      		// Castling right
 			if (log.back().newPos.x - log.back().oldPos.x == 2) {
-        // Debug statement
+        		// Debug statement
 				std::cerr << "we're uncastling??" << std::endl;
         
-        // Move the pieces into old positions
+        		// Move the pieces into old positions
 				board[WIDTH - 1][log.back().oldPos.y] = board[log.back().newPos.x - 1][log.back().newPos.y];
 				board[WIDTH - 1][log.back().oldPos.y]->move({WIDTH - 1, log.back().oldPos.y}, false); // move the rook
 			} else if (log.back().oldPos.x - log.back().newPos.x == 2) { // castling left
+        		// Debug statement
 				std::cerr << "we're uncastling??" << std::endl;
         
-        // Move the pieces into old positions
+        		// Move the pieces into old positions
 				board[0][log.back().oldPos.y] = board[log.back().newPos.x + 1][log.back().newPos.y];
 				board[0][log.back().oldPos.y]->move({0, log.back().oldPos.y}, false); // move the rook
 			}
 		}
     
-    // Remove from log
+    	// Remove from log
 		log.pop_back();
 	}
   

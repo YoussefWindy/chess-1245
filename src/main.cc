@@ -331,8 +331,9 @@ int main() {
 						cerr << "Please input a valid colour." << endl;
 					}
 				} else if (command == "reset") {
-           setBoardDefault(replayBoard);
-        }else if (command == "clear") {
+           			setBoardDefault(defaultBoard);
+					display(defaultBoard);
+        		} else if (command == "clear") {
 					Board tmp;
 					tmp.setTurn(defaultBoard.getTurn());
 					defaultBoard = tmp;
