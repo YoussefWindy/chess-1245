@@ -13,7 +13,7 @@ void Pawn::calculateLegalMoves(const Board &board) {
         // std::cerr << "Pawn " << 2 << ": " << char('a' + posn.x) << posn.y + (colour ? 1 : -1) + 1 << std::endl;
         legalMoves.emplace_back(posn.x, posn.y + (colour ? 1 : -1)); // can move forward one space
         // std::cerr << "SHOULD THE PAWN BE ABLE TO MOVE DOUBLE? " << !numMoves << std::endl;
-        if ((colour ? posn.y == 1 : posn.y == HEIGHT - 2) && !board[{posn.x, (colour ? 3: HEIGHT - 4)}]) { // if two spaces ahead is free
+        if ((colour ? posn.y == 1 : posn.y == HEIGHT - 2) && !numMoves && !board[{posn.x, (colour ? 3: HEIGHT - 4)}]) { // if two spaces ahead is free
             // std::cerr << "Pawn " << 3 << ": " << char('a' + posn.x) << (colour ? 3 : HEIGHT - 4) + 1 << std::endl;
             legalMoves.emplace_back(posn.x, colour ? 3 : HEIGHT - 4); // double movement if on starting space
         }

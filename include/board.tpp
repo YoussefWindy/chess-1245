@@ -22,13 +22,13 @@ void Board::promote(const Posn &posn, unsigned int type) {
 	// std::cerr << "this work" << std::endl;
 	switch (type) {
 		case 1:
-			addPiece<Knight>(turn, {posn.x, posn.y});
+			addPiece<Knight>(turn, posn);
 		case 2:
-			addPiece<Bishop>(turn, {posn.x, posn.y});
+			addPiece<Bishop>(turn, posn);
 		case 3:
-			addPiece<Rook>(turn, {posn.x, posn.y});
+			addPiece<Rook>(turn, posn);
 		case 4:
-			addPiece<Queen>(turn, {posn.x, posn.y});
+			addPiece<Queen>(turn, posn);
 	}
 	// std::cerr << char('a' + log.back().oldPos.x) << log.back().oldPos.y + 1
 	//   << "-->" << char('a' + log.back().newPos.x) << log.back().newPos.y + 1 << " "
