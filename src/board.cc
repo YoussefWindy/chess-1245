@@ -217,7 +217,7 @@ bool Board::repetition() const {
       move_8->newPos == move_2->oldPos &&
       move_8->oldPos == move_6->newPos &&
       move_8->oldPos == move_4->oldPos &&
-      move_8->oldPos == move_2->newPos) { std::cout << "GET FUCKED"; return true; }
+      move_8->oldPos == move_2->newPos) { /*std::cout << "GET FUCKED";*/ return true; }
 
 	return false;
 }
